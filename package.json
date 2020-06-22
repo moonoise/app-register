@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "jquery.json-viewer": "^1.4.0",
     "sweetalert2": "^9.14.3"
   }
 }

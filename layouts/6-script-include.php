@@ -94,10 +94,10 @@
 <script src="../assets/js/scripts-init/image-crop.js"></script>
 
 <!--Maps -->
-<script src="../assets/js/vendors/gmaps.js"></script>
+<!-- <script src="../assets/js/vendors/gmaps.js"></script>
 <script src="../assets/js/vendors/jvectormap.js"></script>
 <script src="../assets/js/scripts-init/maps-word-map.js"></script>
-<script src="../assets/js/scripts-init/maps.js"></script>
+<script src="../assets/js/scripts-init/maps.js"></script> -->
 
 <!--Guided Tours -->
 <script src="../assets/js/vendors/guided-tours.js"></script>

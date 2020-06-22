@@ -33,29 +33,79 @@
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
                 <li class="app-sidebar__heading">Menu</li>
-                <li>
-                    <a href="chart-boxes.html" class="mm-active">
-                        <i class="metismenu-icon pe-7s-graph">
-                        </i>Chart Boxes 1
+                <li class="">
+                    <a href="index.php">
+                        <i class="metismenu-icon pe-7s-home"></i>
+                        หน้าแรก
+                        <i class="metismenu-state-icon caret-left"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="chart-boxes-2.html">
-                        <i class="metismenu-icon pe-7s-way">
-                        </i>Chart Boxes 2
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-user-female"></i>
+                        บริการนักศึกษา
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                     </a>
+                    <ul>
+                        <li>
+                            <a href="student_analytics.php">
+                                <i class="metismenu-icon">
+                                </i>
+                                วิเคราะห์แผนการเรียน
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
-                    <a href="chart-boxes-3.html">
-                        <i class="metismenu-icon pe-7s-ball">
-                        </i>Chart Boxes 3
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-piggy"></i>
+                        บริการครูผู้สอน
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                     </a>
+                    <ul>
+                        <li>
+                            <a href="teacher_subject.php">
+                                <i class="metismenu-icon">
+                                </i>รายวิชาสอน
+                            </a>
+                        </li>
+                        <li>
+                            <a href="analytics.html">
+                                <i class="metismenu-icon">
+                                </i>Analytics
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
-                    <a href="profile-boxes.html">
-                        <i class="metismenu-icon pe-7s-id">
-                        </i>Profile Boxes
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-users"></i>
+                        บริการครูที่ปรึกษา
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                     </a>
+                    <ul>
+                        <li>
+                            <a href="analytics.html">
+                                <i class="metismenu-icon">
+                                </i>Analytics
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-smile"></i>
+                        บริการเจ้าหน้าที่
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="student_add_edit.php">
+                                <i class="metismenu-icon">
+                                </i>ข้อมูลนักศึกษา
+                            </a>
+                        </li>
+                    </ul>
                 </li>
           
             </ul>

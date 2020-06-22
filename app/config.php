@@ -15,6 +15,7 @@ define("__PER_TYPE__",$session_prefix."per_type"); // บุคลากร & �
 define("__PER_PICTURE__",$session_prefix."pictureProfile");
 define("__GROUP_ID__", $session_prefix."group_id");
 
+define("__TEACHER_ID__", $session_prefix."teacher_id");
 
 define("__SESSION_TIME_LIFE__",$session_prefix."session_time_life");
 define("__USERONLINE__",$session_prefix."useronline"); //จำนวนผู้เข้าระบบ

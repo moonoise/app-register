@@ -32,8 +32,8 @@
       </div>
       <div class="app-header__content">
        
-          <!-- <div class="app-header-right">
-              <div class="header-dots">
+          <div class="app-header-right">
+              <!-- <div class="header-dots">
                   <div class="dropdown">
                       <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" class="p-0 mr-2 btn btn-link">
                           <span class="icon-wrapper icon-wrapper-alt rounded-circle">
@@ -454,7 +454,7 @@
                           </ul>
                       </div>
                   </div>
-              </div>
+              </div> -->
 
               <div class="header-btn-lg pr-0">
                   <div class="widget-content p-0">
@@ -482,8 +482,8 @@
                                                               </div>
                                                           </div>
                                                           <div class="widget-content-right mr-2">
-                                                              <button class="btn-pill btn-shadow btn-shine btn btn-focus">Logout
-                                                              </button>
+                                                              <a class="btn-pill btn-shadow btn-shine btn btn-focus" href="logout.php">Logout
+                                                                </a>
                                                           </div>
                                                       </div>
                                                   </div>
@@ -580,7 +580,7 @@
                       </span>
                   </button>
               </div>
-          </div> -->
+          </div>
       </div>
   </div>
   <!--Header END-->

@@ -71,6 +71,45 @@ class Grade extends SqlConn
         
     }
 
+    function std_grade_by_year_term($std_id,$yt_year,$yt_term) {
+        $result = array();
+      
+            try {
+                $sql = "SELECT student_subject.* , 
+                                subject.subject_name_en,
+                                subject.subject_name_th,
+                                subject.subject_credit,
+                                subject.category,
+                                subject.subject_level_guide,
+                                subject.subject_term_guide,
+                                subject.required_subject1,
+                                subject.required_subject2,
+                                subject.required_subject3,
+                                subject.condition1,
+                                subject.subject_status
+                            FROM student_subject 
+                            LEFT JOIN subject 
+                                ON subject.subject_id = student_subject.subject_id
+                            WHERE student_subject.std_id = :std_id 
+                                AND  yt_year = :yt_year
+                                AND yt_term = :yt_term ";
+
+                $stm = $this->conn->prepare($sql);
+                $stm->bindParam(':std_id',$std_id);
+                $stm->bindParam(':yt_year',$yt_year);
+                $stm->bindParam(':yt_term',$yt_term);
+                $stm->execute();
+                $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+               
+                return $result;
+            } catch (\Exception $e) {
+                $result = $e->getMessage();
+                
+                return $result;
+            }
+    }
+
+
     function std_level($arrStudent) {  // ($year - $arr_student) + 1 = มีการศึกษาปัจจุบัน  
         $result = array();
          $result['level'] = ($arrStudent['current_year'] - $arrStudent['std_year'] + 1 );
