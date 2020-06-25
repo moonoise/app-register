@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Login</title>
+    <title>ArchitectUI HTML Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
 
     <!-- Disable tap highlight on IE -->
@@ -60,7 +60,7 @@
                                 <form  id="form-signin" name="form_signin">
                                     <div class="form-row">
                                         <div class="col-md-6">
-                                            <div class="position-relative form-group"><label for="username" class="">User Name</label><input name="username" id="exampleEmail" placeholder="" type="text" class="form-control"></div>
+                                            <div class="position-relative form-group"><label for="username" class="">User Name</label><input name="username" id="username" placeholder="" type="text" class="form-control"></div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="position-relative form-group"><label for="examplePassword" class="">Password</label><input name="password" id="examplePassword" placeholder="Password here..." type="password"

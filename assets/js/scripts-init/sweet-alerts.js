@@ -7,7 +7,7 @@ $( document ).ready(function() {
 
             var alertType = $(this).attr('data-type');
 
-            Swal({
+            Swal.fire({
                 title: 'Type: ' + alertType,
                 text: 'Do you want to continue',
                 type: alertType,
@@ -19,7 +19,7 @@ $( document ).ready(function() {
 
     $('.btn-show-swal-basic').click(function () {
 
-        Swal({
+        Swal.fire({
             text: 'The Internet?',
             title: 'That thing is still around?',
             type: 'question',
@@ -29,7 +29,7 @@ $( document ).ready(function() {
 
     $('.btn-show-swal-basic-2').click(function () {
 
-        Swal({
+        Swal.fire({
             type: 'error',
             title: 'Oops...',
             text: 'Something went wrong!',
@@ -40,7 +40,7 @@ $( document ).ready(function() {
 
     $('.btn-show-swal-basic-3').click(function () {
 
-        Swal({
+        Swal.fire({
             title: 'Custom animation with Animate.css',
             animation: false,
             customClass: 'animated lightSpeedIn'

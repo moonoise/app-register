@@ -40,73 +40,92 @@
                         <i class="metismenu-state-icon caret-left"></i>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-user-female"></i>
-                        บริการนักศึกษา
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul>
+                <?php 
+                    if ($_SESSION[__PER_TYPE__] == 'student') {
+                        echo "
                         <li>
-                            <a href="student_analytics.php">
-                                <i class="metismenu-icon">
-                                </i>
-                                วิเคราะห์แผนการเรียน
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-piggy"></i>
-                        บริการครูผู้สอน
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="teacher_subject.php">
-                                <i class="metismenu-icon">
-                                </i>รายวิชาสอน
-                            </a>
-                        </li>
-                        <li>
-                            <a href="analytics.html">
-                                <i class="metismenu-icon">
-                                </i>Analytics
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-users"></i>
+                        <a href=\"#\">
+                            <i class=\"metismenu-icon pe-7s-user-female\"></i>
+                            บริการนักศึกษา
+                            <i class=\"metismenu-state-icon pe-7s-angle-down caret-left\"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href=\"".__PATH_WEB__."/view_student/student_analytics.php\">
+                                    <i class=\"metismenu-icon\">
+                                    </i>
+                                    วิเคราะห์แผนการเรียน
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                        ";
+                    }
+                     
+                ?>
+               
+                <?php
+                    if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') {
+                       echo "<li>
+                       <a href=\"#\">
+                           <i class=\"metismenu-icon pe-7s-piggy\"></i>
+                           บริการครูผู้สอน
+                           <i class=\"metismenu-state-icon pe-7s-angle-down caret-left\"></i>
+                       </a>
+                       <ul>
+                           <li>
+                               <a href=\"".__PATH_WEB__."/view_admin/teacher_subject.php\">
+                                   <i class=\"metismenu-icon\">
+                                   </i>รายวิชาสอน
+                               </a>
+                           </li>
+                           <li>
+                               <a href=\"".__PATH_WEB__."/view_admin/teacher_student_analytics.php\">
+                                   <i class=\"metismenu-icon\">
+                                   </i>วิเคราะห์แผนการเรียนนิสิต
+                               </a>
+                           </li>
+                       </ul>
+                   </li>
+                   <li>
+                    <a href=\"#\">
+                        <i class=\"metismenu-icon pe-7s-users\"></i>
                         บริการครูที่ปรึกษา
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        <i class=\"metismenu-state-icon pe-7s-angle-down caret-left\"></i>
                     </a>
                     <ul>
                         <li>
-                            <a href="analytics.html">
-                                <i class="metismenu-icon">
+                            <a href=\"analytics.html\">
+                                <i class=\"metismenu-icon\">
                                 </i>Analytics
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-smile"></i>
-                        บริการเจ้าหน้าที่
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul>
+                   ";
+                    }
+                ?>
+                <?php 
+                    if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') {
+                        echo "
                         <li>
-                            <a href="student_add_edit.php">
-                                <i class="metismenu-icon">
-                                </i>ข้อมูลนักศึกษา
+                            <a href=\"#\">
+                                <i class=\"metismenu-icon pe-7s-smile\"></i>
+                                บริการเจ้าหน้าที่
+                                <i class=\"metismenu-state-icon pe-7s-angle-down caret-left\"></i>
                             </a>
+                            <ul>
+                                <li>
+                                    <a href=\"".__PATH_WEB__."/view_admin/admin_student.php\">
+                                        <i class=\"metismenu-icon\">
+                                        </i>ข้อมูลนักศึกษา
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
-                    </ul>
-                </li>
+                        ";
+                    }
+                ?>
           
             </ul>
         </div>

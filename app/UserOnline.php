@@ -171,6 +171,8 @@ class UserOnline
         unset($_SESSION[__SURNAME__]);
         unset($_SESSION[__PER_TYPE__]);
         unset($_SESSION[__PER_PICTURE__]);
+        unset($_SESSION[__STD_ID__]);
+        unset($_SESSION[__TEACHER_ID__]);
         unset($_SESSION[__GROUP_ID__]);
         unset($_SESSION[__SESSION_TIME_LIFE__]);
         unset($_SESSION[__USERONLINE__]);

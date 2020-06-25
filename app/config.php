@@ -16,6 +16,10 @@ define("__PER_PICTURE__",$session_prefix."pictureProfile");
 define("__GROUP_ID__", $session_prefix."group_id");
 
 define("__TEACHER_ID__", $session_prefix."teacher_id");
+define("__STD_ID__", $session_prefix."std_id");
 
 define("__SESSION_TIME_LIFE__",$session_prefix."session_time_life");
 define("__USERONLINE__",$session_prefix."useronline"); //จำนวนผู้เข้าระบบ
+
+
+define("__PATH_WEB__","http://localhost:8091/student");  // ห้ามมี / ปิดท้าย

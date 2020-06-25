@@ -7,10 +7,12 @@ include_once "../view_admin/login-head.php";
 
 use App\SqlConn;
 use App\TableQuery;
-
+use App\TeacherSubject;
 
 $sqlConn = new SqlConn;
 $tableQuery = new TableQuery;
+$teacherSubject = new TeacherSubject;
+
 
 $teacher_id = $_SESSION[__TEACHER_ID__];
 $subject_id = $_POST['new_subject_id'];
@@ -24,9 +26,12 @@ $data['subject_id'] = $subject_id ;
 $data['teacher_id'] = $teacher_id;
 $data['yt_year'] = $new_year;
 $data['yt_term'] = $new_term;
-
 $d[] = $data;
 
-$success = $tableQuery->pdoMultiInsert('teacher_subject',$d);
+if ($teacherSubject->check_techer_subject($teacher_id,$subject_id,$new_year,$new_term) > 0) {
+    $success['success'] = false;
+}else {
+    $success = $tableQuery->pdoMultiInsert('teacher_subject',$d);
+}
 
 echo json_encode($success);

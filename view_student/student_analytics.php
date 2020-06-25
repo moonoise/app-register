@@ -130,7 +130,7 @@ include_once "login-head.php";
     
 
     $(document).ready(function () {
-        var std_id = '6180100187';
+        var std_id = <?php echo $_SESSION[__STD_ID__]; ?>;
 
         // student_analytics_current(std_id)
         // student_analytics_current2(std_id)

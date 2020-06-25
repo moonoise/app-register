@@ -12,7 +12,7 @@ $success = array('success' => null,
                 'msgError' => null );
 
 // Define $myusername and $mypassword
-$username = $_POST['email'];
+$username = $_POST['username'];
 $password = $_POST['password'];
 
 // To protect MySQL injection

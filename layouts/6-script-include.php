@@ -122,6 +122,7 @@
 
 <!--SweetAlert2-->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<!-- <script src="../node_modules/sweetalert2/dist/sweetalert2.js"></script> -->
 <script src="../assets/js/scripts-init/sweet-alerts.js"></script>
 
 <!--Tree View -->

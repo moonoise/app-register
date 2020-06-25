@@ -57,7 +57,7 @@ if ($_SESSION[__PER_TYPE__] == 'teacher' || $_SESSION[__PER_TYPE__] == 'admin') 
                                                 <div class="position-relative form-group"><label for="std_id_card" class="">บัตรประชาชน</label><input name="std_id_card" id="std_id_card" placeholder="บัตรประชาชน" type="text" class="form-control"></div>
                                             </div>
                                             <div class="col-md-3">
-                                                <div class="position-relative form-group"><label for="std_id_card" class="">ปีการศึกษาที่เข้าเรียน</label> 
+                                                <div class="position-relative form-group"><label for="std_id_card" class="">ปีการศึกษาที่เข้าเรียน</label>
                                                     <select class="mb-2 form-control">
                                                         <option>2015</option>
                                                         <option>2016</option>
@@ -78,7 +78,7 @@ if ($_SESSION[__PER_TYPE__] == 'teacher' || $_SESSION[__PER_TYPE__] == 'admin') 
                                                         <option>Miss</option>
                                                         <option>Mrs.</option>
                                                     </select>
-                                            </div>
+                                                </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="position-relative form-group"><label for="std_fname" class="">ชื่อ</label><input name="std_fname" id="std_fname" placeholder="ภาษาอังกฤษ" type="text" class="form-control"></div>
@@ -92,8 +92,8 @@ if ($_SESSION[__PER_TYPE__] == 'teacher' || $_SESSION[__PER_TYPE__] == 'admin') 
                                                 <div class="position-relative form-group"><label for="email" class="">อีเมล</label><input name="email" id="email" placeholder="อีเมล" type="email" class="form-control"></div>
                                             </div>
                                         </div>
-                                       
-                                
+
+
                                         <button class="mt-2 btn btn-primary">Sign in</button>
                                     </form>
 

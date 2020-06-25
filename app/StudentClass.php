@@ -3,26 +3,28 @@ namespace App;
 use App\SqlConn;
 use \PDO;
 
-class StudentSubject extends SqlConn
+class StudentClass extends SqlConn
 {
-    function StudentSubject($std_id,$ts_id) {
+    function check_student($std_id) {
         try {
             $sql = "SELECT count(*) as c
-                    FROM  student_subject 
-                    WHERE std_id = :std_id 
-                            AND ts_id = :ts_id ";
+                    FROM  student 
+                    WHERE std_id = :std_id ";
 
             $stm = $this->conn->prepare($sql);
             $stm->bindParam(':std_id',$std_id);
-            $stm->bindParam(':ts_id',$ts_id);
-           
             $stm->execute();
             $result = $stm->fetchAll(PDO::FETCH_ASSOC);
-            return $result;
+            if ($result[0]['c'] > 0) {
+                return true;
+            }else {
+                return false;
+            }
 
         } catch (\Exception $e) {
             return $e->getMessage();
         }
+        
     }
 
     

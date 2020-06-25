@@ -19,75 +19,55 @@
 <body>
 <div class="app-container app-theme-white body-tabs-shadow">
         <div class="app-container">
-            <div class="h-100">
-                <div class="h-100 no-gutters row">
-                    <div class="d-none d-lg-block col-lg-4">
-                        <div class="slider-light">
-                            <div class="slick-slider">
-                                <div>
-                                    <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-plum-plate" tabindex="-1">
-                                        <div class="slide-img-bg" style="background-image: url('../assets/images/originals/city.jpg');"></div>
-                                        <div class="slider-content"><h3>Perfect Balance</h3>
-                                            <p>ArchitectUI is like a dream. Some think it's too good to be true! Extensive collection of unified React Boostrap Components and Elements.</p></div>
+            <div class="h-100 bg-plum-plate bg-animation">
+                <div class="d-flex h-100 justify-content-center align-items-center">
+                    <div class="mx-auto app-login-box col-md-8">
+                        <div class="app-logo-inverse mx-auto mb-3"></div>
+                        <div class="modal-dialog w-100 mx-auto">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="h5 modal-title text-center">
+                                        <h4 class="mt-2">
+                                            <div>สำหรับอาจารย์ และเจ้าหน้าที่</div>
+                                            <span></span>
+                                        </h4>
+                                    </div>
+                                    <form id="form-signin" name="form_signin">
+                                        <div class="form-row">
+                                            <div class="col-md-12">
+                                                <div class="position-relative form-group"><input name="username" id="username" placeholder="กรอกชื่อผู้ใช้" type="text" class="form-control"></div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="position-relative form-group"><input name="password" id="examplePassword" placeholder="รหัสผ่าน ..." type="password" class="form-control"></div>
+                                            </div>
+                                        </div>
+                                        <div class="position-relative form-check">
+                                            <!-- <input name="check" id="exampleCheck" type="checkbox" class="form-check-input">
+                                            <label for="exampleCheck" class="form-check-label">Keep me logged in</label></div> -->
+                                    
+                                    <div class="divider"></div>
+                                    <!-- <h6 class="mb-0">No account? <a href="javascript:void(0);" class="text-primary">Sign up now</a></h6> -->
+                                </div>
+                                <div class="modal-footer clearfix">
+                                    <!-- <div class="float-left"><a href="javascript:void(0);" class="btn-lg btn btn-link">Recover Password</a></div> -->
+                                    <div class="float-right">
+                                        <button class="btn btn-primary btn-lg" type="submit">Login</button>
                                     </div>
                                 </div>
-                                <div>
-                                    <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-premium-dark" tabindex="-1">
-                                        <div class="slide-img-bg" style="background-image: url('../assets/images/originals/citynights.jpg');"></div>
-                                        <div class="slider-content"><h3>Scalable, Modular, Consistent</h3>
-                                            <p>Easily exclude the components you don't require. Lightweight, consistent Bootstrap based styles across all elements and components</p></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-sunny-morning" tabindex="-1">
-                                        <div class="slide-img-bg" style="background-image: url('../assets/images/originals/citydark.jpg');"></div>
-                                        <div class="slider-content"><h3>Complex, but lightweight</h3>
-                                            <p>We've included a lot of components that cover almost all use cases for any type of application.</p></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="h-100 d-flex bg-white justify-content-center align-items-center col-md-12 col-lg-8">
-                        <div class="mx-auto app-login-box col-sm-12 col-md-10 col-lg-9">
-                            <div class="app-logo"></div>
-                            <h4 class="mb-0">
-                                <span class="d-block">ระบบข้อมูลนักศึกษา และสถานศึกษา</span>
-                                <span>กรุณา Login ก่อนใช้งาน</span></h4>
-                            <!-- <h6 class="mt-3">No account? <a href="javascript:void(0);" class="text-primary">Sign up now</a></h6> -->
-                            <div class="divider row"></div>
-                            <div>
-                                <form  id="form-signin" name="form_signin">
-                                    <div class="form-row">
-                                        <div class="col-md-6">
-                                            <div class="position-relative form-group"><label for="exampleEmail" class="">Email</label><input name="email" id="exampleEmail" placeholder="Email here..." type="email" class="form-control"></div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="position-relative form-group"><label for="examplePassword" class="">Password</label><input name="password" id="examplePassword" placeholder="Password here..." type="password"
-                                                                                                                                                   class="form-control"></div>
-                                        </div>
-                                    </div>
-                                    <div class="position-relative form-check"><input name="check" id="exampleCheck" type="checkbox" class="form-check-input"><label for="exampleCheck" class="form-check-label">Keep me logged in</label></div>
-                                    <div class="divider row"></div>
-                                    <div class="d-flex align-items-center">
-                                        <div class="ml-auto"><a href="javascript:void(0);" class="btn-lg btn btn-link">Recover Password</a>
-                                            <button class="btn btn-primary btn-lg" type="submit">Login to Dashboard</button>
-                                        </div>
-                                    </div>
-                                   
                                 </form>
-                                <br>
-                                <div id="message">
-
-                                </div>
-                                
                             </div>
                         </div>
+                        <div class="text-center text-white opacity-8 mt-3">Copyright © ArchitectUI 2019</div>
+                    </div>
+                    <br>
+                    <div id="message">
+
                     </div>
                 </div>
             </div>
         </div>
 </div>
+
 <div class="body-block-example-1 d-none">
                     <div class="loader bg-transparent no-shadow p-0">
         <div class="ball-grid-pulse">
@@ -103,7 +83,6 @@
         </div>
     </div>
 </div>
-
 <!--SCRIPTS INCLUDES-->
 
 <!--CORE-->

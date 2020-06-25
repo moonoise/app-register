@@ -11,7 +11,7 @@
 
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
-
+    <!-- <link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.css"> -->
     <link rel="stylesheet" href="../assets/css/base.min.css">
 
 </head>

@@ -42,8 +42,7 @@ include_once "login-head.php";
 
                                     <button type="button" class="btn mr-2 mb-2 btn-primary" data-toggle="modal" data-target=".bd-new-modal-lg">New</button>
                                     <br>
-
-
+                                  
                                     <table style="width: 100%;" id="table_teacher_subject" class="table table-hover table-striped table-bordered">
                                         <thead>
                                             <tr>
@@ -135,6 +134,62 @@ include_once "login-head.php";
         </div>
     </div>
 
+
+    <div class="modal fade bd-update-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">แก้ไขรายวิชา</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="" name="form_update_subject" id="form_update_subject">
+                        <input type="hidden" name="update_ts_id" id="update_ts_id">
+                        <div class="form-row">
+                            <div class="col-md-2">
+                                <div class="position-relative form-group"><label for="update_subject_id" class="">รหัสราชวิชา</label><input name="update_subject_id" id="update_subject_id" placeholder="รหัสรายวิชา" type="text" class="form-control" readonly></div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="position-relative form-group"><label for="update_subject" class="">รายวิชา</label>
+                                    <select class="mb-2 form-control" name="update_subject" id="update_subject">
+                                        <option>เลือก</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-3">
+                                <div class="position-relative form-group"><label for="update_year" class="">ปีการศึกษา</label>
+                                    <select class="mb-2 form-control" name="update_year" id="update_year">
+                                        <option>เลือก</option>
+                                        <option value='2018'>2018</option>
+                                        <option value='2019'>2019</option>
+                                        <option value='2020'>2020</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="position-relative form-group"><label for="update_term" class="">รายวิชา</label>
+                                    <select class="mb-2 form-control" name="update_term" id="update_term">
+                                        <option>เลือก</option>
+                                        <option value='1'>1</option>
+                                        <option value='2'>2</option>
+                                        <option value='3'>3</option>
+                                    </select>
+                                </div>
+                            </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <form action="student_subject_add.php" method="post" target="add_grade" id="form_student_subject" name="form_student_subject">
         <input type="hidden" name="ts_id" id="ts_id">
     </form>
@@ -163,12 +218,12 @@ include_once "login-head.php";
 
         $("#new_subject").on("change", function () {
             // console.log('test')
-            $("#new_subject_id").val(
-                $("#new_subject option:selected").val()
-            )
-        });
+                $("#new_subject_id").val(
+                    $("#new_subject option:selected").val()
+                )
+            });
 
-    }); 
+        }); 
 
     $("#form_new_subject").submit(function (e) { 
         e.preventDefault();
@@ -179,8 +234,26 @@ include_once "login-head.php";
             dataType: "JSON",
             success: function (response) {
                 // console.log(response)
-                teacher_subject_show()
-                $('.bd-new-modal-lg').modal('hide')
+
+                if (response.success == true) {
+                    Swal.fire({
+                        title: 'เพ่ิมรายวิชาที่สอน',
+                        text: 'สำเร็จ',
+                        type: 'success',
+                        confirmButtonText: 'OK'
+                    });
+                    teacher_subject_show()
+                    $('.bd-new-modal-lg').modal('hide')
+                }else{
+                    Swal.fire({
+                        title: 'เพ่ิมรายวิชาที่สอน',
+                        text: 'ไม่สำเร็จ ข้อมูลที่กรอก อาจมีอยู่แล้ว',
+                        type: 'error',
+                        confirmButtonText: 'รับทราบ'
+                    });
+                }
+
+                
             }
         });
     });
@@ -276,7 +349,7 @@ include_once "login-head.php";
 
 
         function add_student(ts_id) {
-            $("#teacher_grade_ts_id").val(ts_id)
+            $("#ts_id").val(ts_id)
             $("#form_student_subject").submit()
         }
 
@@ -284,6 +357,69 @@ include_once "login-head.php";
             $("#teacher_grade_ts_id").val(ts_id)
             $("#form_teacher_grade").submit()
         }
+
+        function teacher_subject_edit(ts_id) {
+
+            $.ajax({
+                type: "POST",
+                url: "../query/subject_list.php",
+                dataType: "JSON",
+                success: function (response) {
+                    response.data.forEach((element,key) => {
+                        $("#update_subject").append("<option value='"+element['subject_id']+"' > "+"["+ element['subject_id']+"] "+ element['subject_name_en']+" </option>");
+                    });
+                }
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "../query/teacher_subject_show.php",
+                data: {'ts_id':ts_id},
+                dataType: "JSON",
+                success: function (response) {
+                    // console.log(response.data)
+                    $("#update_ts_id").val(response.data.ts_id)
+                    $("#update_subject_id").val(response.data.subject_id);
+                    $("#update_subject").val(response.data.subject_id)
+                    $("#update_year").val(response.data.yt_year)
+                    $("#update_term").val(response.data.yt_term)
+                }
+            });
+
+            $('.bd-update-modal-lg').modal('show')
+
+        }
+
+    $("#form_update_subject").submit(function (e) { 
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "../query/teacher_subject_update.php",
+            data: $("#form_update_subject").serialize(),
+            dataType: "JSON",
+            success: function (response) {
+                if (response.success == true) {
+                    Swal.fire({
+                        title: 'อัพเดทรายวิชาที่สอน',
+                        text: 'สำเร็จ',
+                        type: 'success',
+                        confirmButtonText: 'OK'
+                    });
+                    teacher_subject_show()
+                    $('.bd-new-modal-lg').modal('hide')
+                }else{
+                    Swal.fire({
+                        title: 'อัพเดทรายวิชาที่สอน',
+                        text: 'ไม่สำเร็จ ข้อมูลที่กรอก อาจมีอยู่แล้ว',
+                        type: 'error',
+                        confirmButtonText: 'รับทราบ'
+                    });
+                }
+            }
+        });
+    });
+
+      
     </script>
 
 </body>
