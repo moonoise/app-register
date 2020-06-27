@@ -24,12 +24,11 @@ try {
                 WHERE teacher.teacher_id = :teacher_id ";
 
     $stm = $sqlConn->conn->prepare($sql);
-    $stm->bindParam(':teacher_id',$_SESSION[__TEACHER_ID__]);
+    $stm->bindParam(':teacher_id', $_SESSION[__TEACHER_ID__]);
     $stm->execute();
     $data['data'] = $stm->fetchAll(PDO::FETCH_ASSOC);
-
 } catch (\Exception $e) {
-   $data['error'] = $e->getMessage();
+    $data['error'] = $e->getMessage();
 }
 
 echo json_encode($data);

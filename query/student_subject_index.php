@@ -14,6 +14,7 @@ try {
     $sql = "SELECT student_subject.*,
                     student.std_fname,
                     student.std_lname
+                    student.std_lname
                  FROM student_subject 
             LEFT JOIN student 
                 ON student.std_id = student_subject.std_id

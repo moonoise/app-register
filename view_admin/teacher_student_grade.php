@@ -94,7 +94,7 @@ include_once "login-head.php";
     <?php include_once "../layouts/6-script-include.php"; ?>
 
     <script>
-        var std_id = '<?php echo $_SESSION[__STD_ID__]; ?>'
+        var std_id = '<?php echo $_POST['std_id_show_grade']; ?>'
         show_result_grade(std_id)
 
         var obj_table = {

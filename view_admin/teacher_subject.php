@@ -42,7 +42,7 @@ include_once "login-head.php";
 
                                     <button type="button" class="btn mr-2 mb-2 btn-primary" data-toggle="modal" data-target=".bd-new-modal-lg">New</button>
                                     <br>
-                                  
+
                                     <table style="width: 100%;" id="table_teacher_subject" class="table table-hover table-striped table-bordered">
                                         <thead>
                                             <tr>
@@ -53,15 +53,9 @@ include_once "login-head.php";
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>00000</td>
-                                                <td></td>
-                                                <td>2020 - 1</td>
-                                                <td>#</td>
 
-                                            </tr>
 
-                                            </tfoot>
+                                        </tbody>
                                     </table>
 
                                 </div>
@@ -123,11 +117,11 @@ include_once "login-head.php";
                                     </select>
                                 </div>
                             </div>
-                    
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                     </form>
                 </div>
             </div>
@@ -179,11 +173,11 @@ include_once "login-head.php";
                                     </select>
                                 </div>
                             </div>
-                    
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">update</button>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">update</button>
                     </form>
                 </div>
             </div>
@@ -203,60 +197,60 @@ include_once "login-head.php";
     <?php include_once "../layouts/6-script-include.php"; ?>
 
     <script>
-    $(document).ready(function () {
-        $.ajax({
-            type: "POST",
-            url: "../query/subject_list.php",
-            dataType: "JSON",
-            success: function (response) {
-                response.data.forEach((element,key) => {
-                    $("#new_subject").append("<option value='"+element['subject_id']+"' > "+"["+ element['subject_id']+"] "+ element['subject_name_en']+" </option>");
-                });
-            }
-        });
+        $(document).ready(function() {
+            $.ajax({
+                type: "POST",
+                url: "../query/subject_list.php",
+                dataType: "JSON",
+                success: function(response) {
+                    response.data.forEach((element, key) => {
+                        $("#new_subject").append("<option value='" + element['subject_id'] + "' > " + "[" + element['subject_id'] + "] " + element['subject_name_en'] + " </option>");
+                    });
+                }
+            });
 
 
-        $("#new_subject").on("change", function () {
-            // console.log('test')
+            $("#new_subject").on("change", function() {
+                // console.log('test')
                 $("#new_subject_id").val(
                     $("#new_subject option:selected").val()
                 )
             });
 
-        }); 
-
-    $("#form_new_subject").submit(function (e) { 
-        e.preventDefault();
-        $.ajax({
-            type: "POST",
-            url: "../query/teacher_subject_add.php",
-            data: $("#form_new_subject").serialize(),
-            dataType: "JSON",
-            success: function (response) {
-                // console.log(response)
-
-                if (response.success == true) {
-                    Swal.fire({
-                        title: 'เพ่ิมรายวิชาที่สอน',
-                        text: 'สำเร็จ',
-                        type: 'success',
-                        confirmButtonText: 'OK'
-                    });
-                    teacher_subject_show()
-                    $('.bd-new-modal-lg').modal('hide')
-                }else{
-                    Swal.fire({
-                        title: 'เพ่ิมรายวิชาที่สอน',
-                        text: 'ไม่สำเร็จ ข้อมูลที่กรอก อาจมีอยู่แล้ว',
-                        type: 'error',
-                        confirmButtonText: 'รับทราบ'
-                    });
-                }
-
-                
-            }
         });
-    });
+
+        $("#form_new_subject").submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "../query/teacher_subject_add.php",
+                data: $("#form_new_subject").serialize(),
+                dataType: "JSON",
+                success: function(response) {
+                    // console.log(response)
+
+                    if (response.success == true) {
+                        Swal.fire({
+                            title: 'เพ่ิมรายวิชาที่สอน',
+                            text: 'สำเร็จ',
+                            type: 'success',
+                            confirmButtonText: 'OK'
+                        });
+                        teacher_subject_show()
+                        $('.bd-new-modal-lg').modal('hide')
+                    } else {
+                        Swal.fire({
+                            title: 'เพ่ิมรายวิชาที่สอน',
+                            text: 'ไม่สำเร็จ ข้อมูลที่กรอก อาจมีอยู่แล้ว',
+                            type: 'error',
+                            confirmButtonText: 'รับทราบ'
+                        });
+                    }
+
+
+                }
+            });
+        });
 
         teacher_subject_show()
         var dt = {
@@ -364,9 +358,9 @@ include_once "login-head.php";
                 type: "POST",
                 url: "../query/subject_list.php",
                 dataType: "JSON",
-                success: function (response) {
-                    response.data.forEach((element,key) => {
-                        $("#update_subject").append("<option value='"+element['subject_id']+"' > "+"["+ element['subject_id']+"] "+ element['subject_name_en']+" </option>");
+                success: function(response) {
+                    response.data.forEach((element, key) => {
+                        $("#update_subject").append("<option value='" + element['subject_id'] + "' > " + "[" + element['subject_id'] + "] " + element['subject_name_en'] + " </option>");
                     });
                 }
             });
@@ -374,9 +368,11 @@ include_once "login-head.php";
             $.ajax({
                 type: "POST",
                 url: "../query/teacher_subject_show.php",
-                data: {'ts_id':ts_id},
+                data: {
+                    'ts_id': ts_id
+                },
                 dataType: "JSON",
-                success: function (response) {
+                success: function(response) {
                     // console.log(response.data)
                     $("#update_ts_id").val(response.data.ts_id)
                     $("#update_subject_id").val(response.data.subject_id);
@@ -390,36 +386,34 @@ include_once "login-head.php";
 
         }
 
-    $("#form_update_subject").submit(function (e) { 
-        e.preventDefault();
-        $.ajax({
-            type: "POST",
-            url: "../query/teacher_subject_update.php",
-            data: $("#form_update_subject").serialize(),
-            dataType: "JSON",
-            success: function (response) {
-                if (response.success == true) {
-                    Swal.fire({
-                        title: 'อัพเดทรายวิชาที่สอน',
-                        text: 'สำเร็จ',
-                        type: 'success',
-                        confirmButtonText: 'OK'
-                    });
-                    teacher_subject_show()
-                    $('.bd-new-modal-lg').modal('hide')
-                }else{
-                    Swal.fire({
-                        title: 'อัพเดทรายวิชาที่สอน',
-                        text: 'ไม่สำเร็จ ข้อมูลที่กรอก อาจมีอยู่แล้ว',
-                        type: 'error',
-                        confirmButtonText: 'รับทราบ'
-                    });
+        $("#form_update_subject").submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "../query/teacher_subject_update.php",
+                data: $("#form_update_subject").serialize(),
+                dataType: "JSON",
+                success: function(response) {
+                    if (response.success == true) {
+                        Swal.fire({
+                            title: 'อัพเดทรายวิชาที่สอน',
+                            text: 'สำเร็จ',
+                            type: 'success',
+                            confirmButtonText: 'OK'
+                        });
+                        teacher_subject_show()
+                        $('.bd-new-modal-lg').modal('hide')
+                    } else {
+                        Swal.fire({
+                            title: 'อัพเดทรายวิชาที่สอน',
+                            text: 'ไม่สำเร็จ ข้อมูลที่กรอก อาจมีอยู่แล้ว',
+                            type: 'error',
+                            confirmButtonText: 'รับทราบ'
+                        });
+                    }
                 }
-            }
+            });
         });
-    });
-
-      
     </script>
 
 </body>

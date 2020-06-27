@@ -12,7 +12,6 @@ $sqlConn = new SqlConn;
 $grade = new Grade;
 $setSubject = new SetSubject;
 
-
 $arrResult = array();
 
 $std = $grade->std($_POST['std_id']);
