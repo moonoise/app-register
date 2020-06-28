@@ -1,2 +1,3 @@
-/config/confDb.php
+/app/confDb.php
+/app/config.php
 /node_modules
