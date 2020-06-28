@@ -260,7 +260,7 @@ include_once "login-head.php";
             "year_term": "",
             "edit": function() {
 
-                return " <button type='button' class='btn btn-sm btn-primary ' onclick='add_student(" + this.ts_id + ")'> เพิ่มนักศึกษา </button> \
+                return " <button type='button' class='btn btn-sm btn-primary ' onclick='add_student(`" + this.ts_id + "`)'> เพิ่มนักศึกษา </button> \
                         <button type='button' class='btn btn-sm btn-info ' onclick='student_grade(" + this.ts_id + ")' > กรอกเกรด </button>  \
                         <button type='button' class='btn btn-sm btn-success ' value='" + this.ts_id + "'> Edit </button>";
             }

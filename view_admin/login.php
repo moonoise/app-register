@@ -60,7 +60,7 @@
                                         </div>
                                         <div class="modal-footer clearfix">
                                             <div class="float-left flex2">
-                                                <button class="mb-2 mr-2 mt-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-primary" onclick="window.location.href='../view_student'">
+                                                <button type="button" class="mb-2 mr-2 mt-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-primary" onclick="window.location.href='../view_student'">
                                                     <i class="pe-7s-left-arrow btn-icon-wrapper"> </i> ระบบของนิสิต
                                                 </button>
                                             </div>

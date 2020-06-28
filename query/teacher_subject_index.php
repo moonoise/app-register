@@ -21,8 +21,8 @@ try {
                     ON teacher.teacher_id = teacher_subject.teacher_id
                 LEFT JOIN subject 
                     ON subject.subject_id = teacher_subject.subject_id
-                WHERE teacher.teacher_id = :teacher_id ";
-
+                 ";
+    // WHERE teacher.teacher_id = :teacher_id
     $stm = $sqlConn->conn->prepare($sql);
     $stm->bindParam(':teacher_id', $_SESSION[__TEACHER_ID__]);
     $stm->execute();
