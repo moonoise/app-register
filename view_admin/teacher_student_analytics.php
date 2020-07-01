@@ -57,6 +57,15 @@ include_once "login-head.php";
         .table-subject-blue th {
             border: 1px solid #059abb;
         }
+
+        .table-subject-white {
+            background-color: #fbf9f354;
+        }
+
+        .table-subject-white td,
+        .table-subject-white th {
+            border: 1px solid #adaba963;
+        }
     </style>
 </head>
 
@@ -235,7 +244,10 @@ include_once "login-head.php";
                 }
                 var regis = ""
                 if (this.registered == true) {
-                    regis = "<i class=\"fa fa-fw icon-gradient bg-malibu-beach\" aria-hidden=\"true\" title=\" ลงทะเบียนแล้ว \">  </i> "
+                    // regis = "<i class=\"fa fa-fw icon-gradient bg-malibu-beach\" aria-hidden=\"true\" title=\" ลงทะเบียนแล้ว \">  </i> "
+                    regis = "<div class=\"mb-2 mr-2 badge badge-pill badge-info\">UA</div>"
+                } else {
+                    regis = ""
                 }
 
                 var str = "<table class=\"col-3 mr-3 table " + strColor + "\"> \
@@ -309,6 +321,29 @@ include_once "login-head.php";
 
         }
 
+        var objSubjectOldNotRegister = {
+            'subject_id': '',
+            'subject_name_en': '',
+            'subject_credit': '',
+            table_subject: function() {
+                var str = "<table class=\"col-3 mr-3 table table-subject-white \"> \
+                            <tbody>                                         \
+                                <tr>                                        \
+                                    <td>" + this.subject_credit + "</td>                                 \
+                                    <td>" + this.subject_id + "</td>                               \
+                                    <td></td>                                  \
+                                </tr>                                       \
+                                <tr>                                        \
+                                    <td colspan=\"3\">" + this.subject_name_en +
+                    "</td>                 \
+                                </tr>                                       \
+                            </tbody>                                        \
+                        </table>";
+                return str;
+            }
+
+        }
+
         function student_analytics_current(std_id) {
             $.ajax({
                 type: "POST",
@@ -368,7 +403,8 @@ include_once "login-head.php";
                 },
                 dataType: "JSON",
                 success: function(response) {
-                    var tableSubject = Object.create(objSubjectOld);
+
+
                     response.forEach((element, key) => {
                         // console.log(element['grade'])
                         if (element['grade'].length > 0) {
@@ -385,6 +421,7 @@ include_once "login-head.php";
                         }
 
                         element['grade'].forEach(element => {
+                            var tableSubject = Object.create(objSubjectOld);
 
                             tableSubject.subject_id = element['subject_id']
                             tableSubject.subject_name_en = element['subject_name_en']
@@ -394,6 +431,15 @@ include_once "login-head.php";
 
                             $("#id-subject-old").append(tableSubject.table_subject());
 
+                        });
+
+                        element['subject_not_register'].forEach(element2 => {
+                            var tableSubjectNotRegister = Object.create(objSubjectOldNotRegister);
+                            tableSubjectNotRegister.subject_id = element2['subject_id']
+                            tableSubjectNotRegister.subject_name_en = element2['subject_name_en']
+                            tableSubjectNotRegister.subject_credit = element2['subject_credit']
+
+                            $("#id-subject-old").append(tableSubjectNotRegister.table_subject());
                         });
 
 

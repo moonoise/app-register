@@ -32,10 +32,19 @@ $sr = array();
 
 while (intval($std['std_year']) < intval($std['current_year'])) {
     $y = intval($std['current_year']--);
+    $level = intval($std['level']--);
 
 
     foreach ($arrTerm as $key => $valueTerm) {
+
+
+
         $arrGrade['grade'] = $grade->std_grade_by_year_term($_POST['std_id'], $y - 1, $valueTerm);
+        foreach ($arrGrade['grade'] as $keySubject => $valueSubject) {
+            $arrSubjectId[] = $valueSubject['subject_id'];
+        }
+        $arrGrade['subject_not_register'] = $setSubject->set_subject_not_register($level - 1, $y - 1, $valueTerm, $arrSubjectId);
+
         $arrGrade['year'] = $y - 1;
         $arrGrade['term'] = $valueTerm;
 

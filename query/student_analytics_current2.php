@@ -19,12 +19,12 @@ $currentTerm = $grade->config('current_term');
 
 $std = $grade->callStudent($_POST['std_id']);
 
-$listSubject = $setSubject->set_subject_guide($std['level'],$currentYear,$currentTerm);
+$listSubject = $setSubject->set_subject_guide($std['level'], $currentYear, $currentTerm);
 
 foreach ($listSubject as $keySubject => $valueSubject) {
-   $arrSubjectId[] = $valueSubject['level']; 
+    $arrSubjectId[] = $valueSubject['subject_id'];
 }
-$strSubjectId = "'".implode("','", $arrSubjectId)."'";
+$strSubjectId = "'" . implode("','", $arrSubjectId) . "'";
 
 try {
     $sql = "SELECT student_subject.*,
@@ -36,12 +36,12 @@ try {
             WHERE student_subject.std_id = :std_id 
                 AND student_subject.yt_year = :yt_year 
                 AND student_subject.yt_term = :yt_term 
-                AND  student_subject.subject_id NOT IN (".$strSubjectId.")";
+                AND  student_subject.subject_id NOT IN (" . $strSubjectId . ")";
 
     $stm = $sqlConn->conn->prepare($sql);
-    $stm->bindParam(':std_id',$_POST['std_id']);
-    $stm->bindParam(':yt_year',$currentYear);
-    $stm->bindParam(':yt_term',$currentTerm);
+    $stm->bindParam(':std_id', $_POST['std_id']);
+    $stm->bindParam(':yt_year', $currentYear);
+    $stm->bindParam(':yt_term', $currentTerm);
     $stm->execute();
 
     $result = $stm->fetchAll(PDO::FETCH_ASSOC);
