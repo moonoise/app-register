@@ -143,8 +143,8 @@ class Grade extends SqlConn
                             LEFT JOIN subject 
                                 ON subject.subject_id = student_subject.subject_id
                             WHERE student_subject.std_id = :std_id 
-                                AND  yt_year = :yt_year
-                                AND yt_term = :yt_term ";
+                                AND  student_subject.yt_year = :yt_year
+                                AND student_subject.yt_term = :yt_term ";
 
             $stm = $this->conn->prepare($sql);
             $stm->bindParam(':std_id', $std_id);
@@ -160,6 +160,8 @@ class Grade extends SqlConn
             return $result;
         }
     }
+
+
 
 
     function std_level($arrStudent)

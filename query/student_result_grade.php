@@ -31,15 +31,37 @@ $sumGrade = 0;
 $sumCredit = 0;
 $data = array();
 
+// while (intval($std['std_year']) < intval($std['current_year'])) {
+//     $y = intval($std['current_year']--);
+// foreach ($arrTerm as $key => $valueTerm) {
+//     $arrGrade['grade'] = $grade->std_grade_by_year_term($_POST['std_id'], $y-1, $valueTerm);  // $y - 1
+
+//     if (count($arrGrade['grade']) > 0) {
+//         $arrGrade['year'] = $y -1; // $y - 1
+//         $arrGrade['term'] = $valueTerm;
+
+//         $sum = $grade->grade_result($arrGrade['grade']);
+//         $arrGrade['gpa'] = $sum['gpa'];
+//         $arrGrade['sumGrade'] = $sum['sumGrade'];
+//         $sumGrade += $sum['sumGrade'];
+//         $sumCredit += $sum['sumCredit'];
+//         $arrGrade['sumCredit'] = $sum['sumCredit'];
+
+//         $arrResult[] = $arrGrade;
+//     }
+// }
+
+// }
+
 while (intval($std['std_year']) < intval($std['current_year'])) {
-    $y = intval($std['current_year']--);
+    $y = intval($std['std_year']++);
 
 
     foreach ($arrTerm as $key => $valueTerm) {
-        $arrGrade['grade'] = $grade->std_grade_by_year_term($_POST['std_id'], $y - 1, $valueTerm);
+        $arrGrade['grade'] = $grade->std_grade_by_year_term($_POST['std_id'], $y, $valueTerm);  // $y - 1
 
         if (count($arrGrade['grade']) > 0) {
-            $arrGrade['year'] = $y - 1;
+            $arrGrade['year'] = $y; // $y - 1
             $arrGrade['term'] = $valueTerm;
 
             $sum = $grade->grade_result($arrGrade['grade']);

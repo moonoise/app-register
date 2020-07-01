@@ -86,13 +86,23 @@ include_once "login-head.php";
                                                                 <div class="widget-content-left"><img width="52" class="rounded-circle" src="../assets/images/avatars/avatar-1-256.png" alt=""></div>
                                                             </div>
                                                             <div class="widget-content-left flex2">
-                                                                <div class="widget-heading"><b>ชื่อ-สกุล:</b>&nbsp;&nbsp;<span id="id-name"></div>
-                                                                <div class="widget-subheading opacity-10"><span class="pr-2"><b>รหัสนิสิต:</b> </span><span><b class="text-success" id="id-std_id"></b></span></div>
+                                                                <div class="widget-heading"><b class="pr-2">Student No:</b><b class="text-success" id="id-std_id"></b> </div>
+                                                                <div class="widget-heading "><b class="pr-2">Name:</b><b id="id-name" class="text-success"></b></div>
+                                                                <div class="widget-heading "><b class="pr-5">&nbsp;&nbsp;</b><b id="" class="text-success">ชื่อ ภาษาไทย</b></div>
+                                                                <div class="widget-heading "><b class="pr-2">Date of Birth:</b><b id="" class="text-success"></b></div>
+                                                                <div class="widget-heading "><b class="pr-2">Place of Birth:</b><b id="" class="text-success"></b></div>
                                                             </div>
                                                             <div class="widget-content-left mr-5">
+                                                                <div class="widget-heading"><b class="pr-2">Faculty of:</b><b class="text-success">Irrigation College</b></div>
+                                                                <div class="widget-heading"><b class="pr-2">Field of Study:</b><b class="text-success">Civil Engineering-Irrigation</b></div>
+                                                                <div class="widget-heading"><b class="pr-2">Date of Birth:</b><b class="text-success"></b></div>
+                                                                <div class="widget-heading"><b class="pr-2">Place of Birth:</b><b class="text-success"></b></div>
+
+                                                            </div>
+                                                            <!-- <div class="widget-content-left mr-5">
                                                                 <div class="widget-heading"><b>นิสิตชั้นปีที่:</b>&nbsp;&nbsp;<span id="id-level" class="text-success"></div>
                                                                 <div class="widget-subheading opacity-10"><span class="pr-2"><b></b>&nbsp;&nbsp; </span><span id="id-gpa" class="text-success"></span></div>
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                     </div>
                                                 </li>
@@ -363,12 +373,15 @@ include_once "login-head.php";
                         // console.log(element['grade'])
                         if (element['grade'].length > 0) {
                             var strTerm = ""
+                            var strYear = ""
                             if (element['term'] == '3') {
                                 strTerm = "ภาคฤดูร้อน"
+                                strYear = parseInt(element['year']) + 1
                             } else {
                                 strTerm = element['term']
+                                strYear = parseInt(element['year'])
                             }
-                            $("#id-subject-old").append("<div class=\"card-header mb-2 col-12 \">ปี " + element['year'] + " เทอม " + strTerm + "</div>");
+                            $("#id-subject-old").append("<div class=\"card-header mb-2 col-12 \">ปี " + strYear + " เทอม " + strTerm + "</div>");
                         }
 
                         element['grade'].forEach(element => {
