@@ -299,6 +299,8 @@ include_once "login-head.php";
                 var grade = ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'P'];
                 if (grade.includes(this.grade_text)) {
                     strColor = " table-subject-blue "
+                } else if (this.grade_text == 'W') {
+                    strColor = " table-subject-white "
                 } else {
                     strColor = " table-subject-red "
                 }
