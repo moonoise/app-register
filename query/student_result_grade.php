@@ -23,7 +23,7 @@ $currentYear = $grade->config('current_year');
 $currentTerm = $grade->config('current_term');
 
 
-$arrTerm = [3, 2, 1];
+$arrTerm = [3, 1, 2];
 $arrGrade = array();
 $condition = array();
 $sr = array();
