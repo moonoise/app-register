@@ -139,7 +139,7 @@ include_once "login-head.php";
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <div class="position-relative form-group"><label for="new_term" class="">รายวิชา</label>
+                                <div class="position-relative form-group"><label for="new_term" class="">เทอม</label>
                                     <select class="mb-2 form-control" name="new_term" id="new_term">
                                         <option>เลือก</option>
                                         <option value='1'>1</option>

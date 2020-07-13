@@ -114,7 +114,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href=\"" . __PATH_WEB__ . "/view_admin/admin_student.php\">
+                                    <a href=\"" . __PATH_WEB__ . "/view_admin/admin_subject.php\">
                                         <i class=\"metismenu-icon\">
                                         </i>ข้อมูลรายวิชา
                                     </a>
