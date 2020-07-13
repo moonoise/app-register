@@ -79,8 +79,8 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
 
 
 
-      <!-- modal-edit subject -->
-      <div class="modal fade bd-edit-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <!-- modal-edit subject -->
+    <div class="modal fade bd-edit-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -121,10 +121,39 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="position-relative form-group"><label for="std_fname_edit" class="">ชื่อ</label><input name="std_fname_edit" id="std_fname_edit" placeholder="ภาษาอังกฤษ" type="text" class="form-control"></div>
+                                <div class="position-relative form-group"><label for="std_fname_edit" class="">Name</label><input name="std_fname_edit" id="std_fname_edit" placeholder="ภาษาอังกฤษ" type="text" class="form-control"></div>
                             </div>
                             <div class="col-md-4">
-                                <div class="position-relative form-group"><label for="std_lname_edit" class="">นามสกุล</label><input name="std_lname_edit" id="std_lname_edit" placeholder="ภาษาอังกฤษ" type="text" class="form-control"></div>
+                                <div class="position-relative form-group"><label for="std_lname_edit" class="">Surname</label><input name="std_lname_edit" id="std_lname_edit" placeholder="ภาษาอังกฤษ" type="text" class="form-control"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-2">
+                                <div class="position-relative form-group"><label for="std_title_name_edit" class="">คำนำหน้า</label>
+                                    <select class="mb-2 form-control" name="std_title_name_th_edit" id="std_title_name_th_edit">
+                                        <option value="นาย">นาย</option>
+                                        <option value="นางสาว">นางสาว</option>
+                                        <option value="นาง">นาง</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="position-relative form-group"><label for="std_fname_th_edit" class="">ชื่อ</label><input name="std_fname_th_edit" id="std_fname_th_edit" placeholder="ภาษาไทย" type="text" class="form-control"></div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="position-relative form-group"><label for="std_lname_th_edit" class="">สกุล</label><input name="std_lname_th_edit" id="std_lname_th_edit" placeholder="ภาษาไทย" type="text" class="form-control"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <div class="position-relative form-group"><label for="admission_type_edit" class="">มาจากโครงการ...</label>
+                                    <select class="mb-2 form-control" name="admission_type_edit" id="admission_type_edit">
+                                        <option value="" selected>โปรดระบุ...</option>
+
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
@@ -181,16 +210,44 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="position-relative form-group"><label for="std_fname_add" class="">ชื่อ</label><input name="std_fname_add" id="std_fname_add" placeholder="ภาษาอังกฤษ" type="text" class="form-control"></div>
+                                <div class="position-relative form-group"><label for="std_fname_add" class="">Name</label><input name="std_fname_add" id="std_fname_add" placeholder="ภาษาอังกฤษ" type="text" class="form-control"></div>
                             </div>
                             <div class="col-md-4">
-                                <div class="position-relative form-group"><label for="std_lname_add" class="">นามสกุล</label><input name="std_lname_add" id="std_lname_add" placeholder="ภาษาอังกฤษ" type="text" class="form-control"></div>
+                                <div class="position-relative form-group"><label for="std_lname_add" class="">Surname</label><input name="std_lname_add" id="std_lname_add" placeholder="ภาษาอังกฤษ" type="text" class="form-control"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-2">
+                                <div class="position-relative form-group"><label for="std_title_name_add" class="">คำนำหน้า</label>
+                                    <select class="mb-2 form-control" name="std_title_name_th_add" id="std_title_name_th_add">
+                                        <option value="นาย">นาย</option>
+                                        <option value="นางสาว">นางสาว</option>
+                                        <option value="นาง">นาง</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="position-relative form-group"><label for="std_fname_th_add" class="">ชื่อ</label><input name="std_fname_th_add" id="std_fname_th_add" placeholder="ภาษาไทย" type="text" class="form-control"></div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="position-relative form-group"><label for="std_lname_th_add" class="">สกุล</label><input name="std_lname_th_add" id="std_lname_th_add" placeholder="ภาษาไทย" type="text" class="form-control"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <div class="position-relative form-group"><label for="admission_type_add" class="">มาจากโครงการ...</label>
+                                    <select class="mb-2 form-control" name="admission_type_add" id="admission_type_add">
+                                        <option value="" selected>โปรดระบุ...</option>
+
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Save changes</button>
                         </div>
                     </form>
                 </div>
@@ -205,6 +262,23 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
 
     <script>
         student_show()
+        admission_list()
+
+        function admission_list() {
+            $.ajax({
+                type: "POST",
+                url: "../query/admission_list.php",
+                dataType: "JSON",
+                success: function(response) {
+                    response.data.forEach((element, key) => {
+                        $("#admission_type_add").append("<option value=\"" + element['admission_type_code'] + "\"> " + element['admission_type_detail'] + " </option>")
+                        $("#admission_type_edit").append("<option value=\"" + element['admission_type_code'] + "\"> " + element['admission_type_detail'] + " </option>")
+
+                    });
+
+                }
+            });
+        }
 
         function student_edit(std_id_auto) {
             $.ajax({
@@ -224,6 +298,12 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                         $("#std_title_name_edit").val(response.data.std_title_name)
                         $("#std_fname_edit").val(response.data.std_fname)
                         $("#std_lname_edit").val(response.data.std_lname)
+
+                        $("#std_title_name_th_edit").val(response.data.std_title_name_th)
+                        $("#std_fname_th_edit").val(response.data.std_fname_th)
+                        $("#std_lname_th_edit").val(response.data.std_lname_th)
+                        $("#admission_type_edit").val(response.data.admission_type)
+
 
                         $(".bd-edit-modal-lg").modal({
                             show: true,
@@ -323,62 +403,51 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
             ]
         });
 
-        $("#form_student_edit").submit(function (e) { 
-            e.preventDefault();
-            $.ajax({
-                type: "POST",
-                url: "../query/admin_student_update.php",
-                data: $("#form_student_edit").serialize(),
-                dataType: "JSON",
-                success: function (response) {
-                    console.log(response)
-                }
-            });
-        });
+        // $("#form_student_edit").submit(function(e) {
+        //     e.preventDefault();
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "../query/admin_student_update.php",
+        //         data: $("#form_student_edit").serialize(),
+        //         dataType: "JSON",
+        //         success: function(response) {
+        //             if (response.success == true) {
 
-        $("#form_student_add").submit(function(e) {
-            e.preventDefault();
-            $.ajax({
-                type: "POST",
-                url: "../query/admin_student_add.php",
-                data: $("#form_student_add").serialize(),
-                dataType: "JSON",
-                success: function(response) {
-                    if (response.success == true) {
+        //                 toastr.options = {
+        //                     "closeButton": true,
+        //                     "debug": false,
+        //                     "newestOnTop": true,
+        //                     "progressBar": true,
+        //                     "positionClass": "toast-bottom-center",
+        //                     "preventDuplicates": false,
+        //                     "onclick": null,
+        //                     "showDuration": "300",
+        //                     "hideDuration": "1000",
+        //                     "timeOut": "5000",
+        //                     "extendedTimeOut": "1000",
+        //                     "showEasing": "swing",
+        //                     "hideEasing": "linear",
+        //                     "showMethod": "fadeIn",
+        //                     "hideMethod": "fadeOut"
+        //                 };
+        //                 toastr["success"]("สำเร็จ", "อัพเดทนักศึกษา");
+        //                 student_show()
+        //                 $('#form_student_add')[0].reset();
+        //                 $(".bd-new-modal-lg").modal('hide')
 
-                        toastr.options = {
-                            "closeButton": true,
-                            "debug": false,
-                            "newestOnTop": true,
-                            "progressBar": true,
-                            "positionClass": "toast-bottom-center",
-                            "preventDuplicates": false,
-                            "onclick": null,
-                            "showDuration": "300",
-                            "hideDuration": "1000",
-                            "timeOut": "5000",
-                            "extendedTimeOut": "1000",
-                            "showEasing": "swing",
-                            "hideEasing": "linear",
-                            "showMethod": "fadeIn",
-                            "hideMethod": "fadeOut"
-                        };
-                        toastr["success"]("สำเร็จ", "การเพิ่มนักศึกษา");
-                        student_show()
-                        $('#form_student_add')[0].reset();
-                        $(".bd-new-modal-lg").modal('hide')
+        //             } else {
+        //                 Swal.fire({
+        //                     title: 'อัพเดทนักศึกษา',
+        //                     text: 'ไม่สำเร็จ' + response.error,
+        //                     type: 'error',
+        //                     confirmButtonText: 'รับทราบ'
+        //                 });
+        //             }
+        //         }
+        //     });
+        // });
 
-                    } else {
-                        Swal.fire({
-                            title: 'เพิ่มนักศึกษา',
-                            text: 'ไม่สำเร็จ' + response.error,
-                            type: 'error',
-                            confirmButtonText: 'รับทราบ'
-                        });
-                    }
-                }
-            });
-        });
+
 
         $("#form_student_add").validate({
             rules: {
@@ -387,7 +456,10 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                 std_year_add: "required",
                 std_title_name_add: "required",
                 std_fname_add: "required",
-                std_lname_add: "required"
+                std_lname_add: "required",
+                std_title_name_th_add: "required",
+                std_fname_th_add: "required",
+                std_lname_th_add: "required"
             },
             errorElement: "em",
             errorPlacement: function(error, element) {
@@ -404,6 +476,120 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
             },
             unhighlight: function(element, errorClass, validClass) {
                 $(element).addClass("is-valid").removeClass("is-invalid");
+            },
+            submitHandler: function(form) {
+                $.ajax({
+                    type: "POST",
+                    url: "../query/admin_student_add.php",
+                    data: $(form).serialize(),
+                    dataType: "JSON",
+                    success: function(response) {
+                        if (response.success == true) {
+
+                            toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": true,
+                                "progressBar": true,
+                                "positionClass": "toast-bottom-center",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            };
+                            toastr["success"]("สำเร็จ", "การเพิ่มนักศึกษา");
+                            student_show()
+                            $('#form_student_add')[0].reset();
+                            $(".bd-new-modal-lg").modal('hide')
+
+                        } else {
+                            Swal.fire({
+                                title: 'เพิ่มนักศึกษา',
+                                text: 'ไม่สำเร็จ' + response.error,
+                                type: 'error',
+                                confirmButtonText: 'รับทราบ'
+                            });
+                        }
+                    }
+                });
+            }
+        });
+
+        $("#form_student_edit").validate({
+            rules: {
+                std_id_edit: "required",
+                std_id_card_edit: "required",
+                std_year_edit: "required",
+                std_title_name_edit: "required",
+                std_fname_edit: "required",
+                std_lname_edit: "required",
+                std_title_name_th_edit: "required",
+                std_fname_th_edit: "required",
+                std_lname_th_edit: "required"
+            },
+            errorElement: "em",
+            errorPlacement: function(error, element) {
+                // Add the `invalid-feedback` class to the error element
+                error.addClass("invalid-feedback");
+                if (element.prop("type") === "checkbox") {
+                    error.insertAfter(element.next("label"));
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass("is-invalid").removeClass("is-valid");
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).addClass("is-valid").removeClass("is-invalid");
+            },
+            submitHandler: function(form) {
+                $.ajax({
+                    type: "POST",
+                    url: "../query/admin_student_update.php",
+                    data: $("#form_student_edit").serialize(),
+                    dataType: "JSON",
+                    success: function(response) {
+                        if (response.success == true) {
+
+                            toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": true,
+                                "progressBar": true,
+                                "positionClass": "toast-bottom-center",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            };
+                            toastr["success"]("สำเร็จ", "อัพเดทนักศึกษา");
+                            student_show()
+                            $('#form_student_edit')[0].reset();
+                            $(".bd-edit-modal-lg").modal('hide')
+
+                        } else {
+                            Swal.fire({
+                                title: 'อัพเดทนักศึกษา',
+                                text: 'ไม่สำเร็จ' + response.error + " <br> " + response.success,
+                                type: 'error',
+                                confirmButtonText: 'รับทราบ'
+                            });
+                        }
+                    }
+                });
             }
         });
     </script>
@@ -411,6 +597,3 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
 </body>
 
 </html>
-
-
-

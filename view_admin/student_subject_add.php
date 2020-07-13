@@ -41,32 +41,8 @@ include_once "login-head.php";
                                 <div class="card-header">รายวิชาสอน</div>
                                 <div class="card-body">
                                     <h3 class="card-title" id='title-subject'></h3>
-                                    <form class="" name="form_new_subject" id="form_new_subject">
-                                        <input type="hidden" name="ts_id" id="ts_id">
-                                        <input type="hidden" name="subject_id" id="subject_id">
-                                        <input type="hidden" name="yt_year" id="yt_year">
-                                        <input type="hidden" name="yt_term" id="yt_term">
-                                        <div class="form-row">
-                                            <div class="col-md-2">
-                                                <div class="position-relative form-group"><label for="new_subject_id" class="">รหัสนักศึกษา</label><input name="new_subject_id" id="new_subject_id" placeholder="รหัสรายวิชา" type="text" class="form-control"></div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="position-relative form-group"><label for="student_name" class="">ชื่อนักศึกษา</label>
-                                                    <input name="student_name" id="student_name" placeholder="ชื่อนักศึกษา" type="text" class="form-control" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-1">
-                                                <div class="position-relative form-group">
-                                                    <label for="new_subject" class="">..</label>
-                                                    <button class="btn btn-primary form-control" type="submit">เพิ่ม</button>
-                                                </div>
 
-                                            </div>
-                                        </div>
-
-                                    </form>
-
-
+                                    <button type="button" class="btn mr-2 mb-2 btn-primary" id="button-search-student"><i class="fa fa-search-plus"></i> ค้นหารายชื่อ</button>
 
                                     <table style="width: 100%;" id="table_student_subject" class="table table-hover table-striped table-bordered">
                                         <thead>
@@ -103,6 +79,22 @@ include_once "login-head.php";
 
         </div>
 
+    </div>
+
+    <div class="modal fade " id="modal-search-student" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">เพ่ิมนิสิต ในรายวิชา</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -169,6 +161,7 @@ include_once "login-head.php";
             });
         });
         student_index()
+
         function student_index() {
             var ts_id = '<?php echo $_POST['ts_id']; ?>';
 
@@ -190,7 +183,7 @@ include_once "login-head.php";
                         dataTable['student_name'] = element['std_fname'] + " " + element['std_lname']
                         dataTable['level'] = ""
                         dataTable['edit'] = ""
-                        
+
                         table1.push(dataTable)
                     })
                     table.clear().rows.add(table1).draw();
@@ -244,6 +237,14 @@ include_once "login-head.php";
                 [10, 25, 50, 100, -1],
                 [10, 25, 50, 100, "All"]
             ]
+        });
+
+        $("#button-search-student").on("click", function() {
+            $("#modal-search-student").modal({
+                show: true,
+                keyboard: false,
+                backdrop: 'static'
+            })
         });
     </script>
 

@@ -12,12 +12,12 @@ $sqlConn = new SqlConn;
 
 $data = array();
 
-$std_id_auto = $_POST['std_id_auto'];
+$teacher_id_auto = $_POST['teacher_id_auto_edit'];
 
 try {
-    $sql = "SELECT * FROM student WHERE std_id_auto = :std_id_auto";
+    $sql = "SELECT * FROM teacher WHERE teacher_id_auto = :teacher_id_auto";
     $stm = $sqlConn->conn->prepare($sql);
-    $stm->bindParam(":std_id_auto", $std_id_auto);
+    $stm->bindParam(":teacher_id_auto", $teacher_id_auto);
     $stm->execute();
     $result = $stm->fetchAll(PDO::FETCH_ASSOC);
     $data['data'] = $result[0];

@@ -21,6 +21,10 @@ include_once "login-head.php";
 
     <link rel="stylesheet" href="../assets/css/base.min.css">
 
+    <style>
+
+    </style>
+
 </head>
 
 <body>
@@ -39,16 +43,43 @@ include_once "login-head.php";
                             <div class="main-card mb-3 card">
                                 <div class="card-header">รายวิชาสอน</div>
                                 <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <button type="button" class="btn mr-2 mb-2 btn-primary" data-toggle="modal" data-target=".bd-new-modal-lg">New</button>
+                                        </div>
+                                        <div class="col-8">
+                                            <form action="" class="form-inline" name="form_select_std_year" id="form_select_std_year">
+                                                <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
+                                                    <label for="select_yt_year" class="mr-sm-2">เลือกปีการศึกษา</label>
+                                                    <select class="mb-2 mt-2 form-control " name="select_yt_year" id="select_yt_year" aria-invalid="false">
+                                                        <option value="2018">2018</option>
+                                                        <option value="2019">2019</option>
+                                                        <option value="2020">2020</option>
+                                                        <option value="2021">2021</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
+                                                    <label for="select_yt_term" class="mr-sm-2">ภาค</label>
+                                                    <select class="mb-2 mt-2 form-control " name="select_yt_term" id="select_yt_term" aria-invalid="false">
+                                                        <option value="1">ภาคต้น</option>
+                                                        <option value="2">ภาคปลาย</option>
+                                                        <option value="3">ภาคฤดูร้อน</option>
+                                                    </select>
+                                                </div>
+                                                <button class="btn btn-primary" type="submit">เลือก</button>
+                                            </form>
+                                        </div>
+                                    </div>
 
-                                    <button type="button" class="btn mr-2 mb-2 btn-primary" data-toggle="modal" data-target=".bd-new-modal-lg">New</button>
                                     <br>
 
-                                    <table style="width: 100%;" id="table_teacher_subject" class="table table-hover table-striped table-bordered">
+                                    <table style="width: 100%;" id="table_teacher_subject" class="table table-hover table-striped table-bordered ">
                                         <thead>
-                                            <tr>
+                                            <tr class="text-center">
                                                 <th>รหัสวิชา</th>
                                                 <th>รายวิชา</th>
-                                                <th>ปีการศึกษา-เทอม</th>
+                                                <th><small>ปีการศึกษา-เทอม</small></th>
+                                                <th>ผู้สอน</th>
                                                 <th>#</th>
                                             </tr>
                                         </thead>
@@ -209,6 +240,11 @@ include_once "login-head.php";
                 }
             });
 
+            $("#form_select_std_year").submit(function(e) {
+                e.preventDefault();
+
+                teacher_subject_show($("#select_yt_year").val(), $("#select_yt_term").val())
+            });
 
             $("#new_subject").on("change", function() {
                 // console.log('test')
@@ -258,6 +294,26 @@ include_once "login-head.php";
             "subject_id": "",
             "subject": "",
             "year_term": "",
+            "teacher_title_name": "",
+            "teacher_fname": "",
+            "teacher_lname": "",
+            "teacher_title_name2": "",
+            "teacher_fname2": "",
+            "teacher_lname2": "",
+            "teacher_title_name3": "",
+            "teacher_fname3": "",
+            "teacher_lname3": "",
+            "teacher": function() {
+                var strName = ""
+                if (this.teacher_fname != null) {
+                    strName += "<p class\"text text-info\"> " + this.teacher_title_name + this.teacher_fname + " " + this.teacher_lname + "</p>"
+                } else if (this.teacher_fname2 != null) {
+                    strName += "<p class\"text text-info\"> " + this.teacher_title_name2 + this.teacher_fname2 + " " + this.teacher_lname2 + "</p>"
+                } else if (this.teacher_fname3 != null) {
+                    strName += "<p class\"text text-info\"> " + this.teacher_title_name3 + this.teacher_fname3 + " " + this.teacher_lname3 + "</p>"
+                }
+                return strName
+            },
             "edit": function() {
 
                 return " <button type='button' class='btn btn-sm btn-primary ' onclick='add_student(`" + this.ts_id + "`)'> เพิ่มนักศึกษา </button> \
@@ -266,27 +322,44 @@ include_once "login-head.php";
             }
         }
 
-        function teacher_subject_show() {
-
+        function teacher_subject_show(yt_year, yt_term) {
+            // console.log(std_year)
             $.ajax({
                 type: "POST",
                 url: "../query/teacher_subject_index.php",
+                data: {
+                    "yt_year": yt_year,
+                    "yt_term": yt_term
+                },
                 dataType: "JSON",
                 success: function(response) {
                     // console.log(response)
-                    var dd = Object.create(dt);
+
                     var table1 = []
                     response.data.forEach((element, key) => {
+                        var dd = Object.create(dt);
                         var dataTable = []
                         dd.ts_id = element['ts_id']
+                        dd.teacher_title_name = element['teacher_title_name']
+                        dd.teacher_fname = element['teacher_fname']
+                        dd.teacher_lname = element['teacher_lname']
+                        dd.teacher_title_name2 = element['teacher_title_name2']
+                        dd.teacher_fname2 = element['teacher_fname2']
+                        dd.teacher_lname2 = element['teacher_lname2']
+                        dd.teacher_title_name3 = element['teacher_title_name3']
+                        dd.teacher_fname3 = element['teacher_fname3']
+                        dd.teacher_lname3 = element['teacher_lname3']
+
                         dataTable['subject_id'] = element['subject_id']
                         dataTable['year_term'] = element['yt_year'] + " " + element['yt_term']
                         dataTable['subject'] = element['subject_name_en']
+
+                        dataTable['teacher'] = dd.teacher()
                         dataTable['edit'] = dd.edit()
 
                         table1.push(dataTable)
                     });
-                    console.log(table1)
+
                     table.clear().rows.add(table1).draw();
 
                 }
@@ -297,6 +370,7 @@ include_once "login-head.php";
             "subject_id": "",
             "subject": "",
             "year_term": "",
+            "teacher": "",
             "edit": ""
         }]
 
@@ -314,6 +388,9 @@ include_once "login-head.php";
                     "data": "year_term"
                 },
                 {
+                    "data": "teacher"
+                },
+                {
                     "data": "edit"
                 }
             ],
@@ -327,6 +404,10 @@ include_once "login-head.php";
                 },
                 {
                     "targets": ["year_term"],
+                    "searchable": true,
+                },
+                {
+                    "targets": ["teacher"],
                     "searchable": true
                 },
                 {

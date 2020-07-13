@@ -108,7 +108,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href=\"" . __PATH_WEB__ . "/view_admin/admin_student.php\">
+                                    <a href=\"" . __PATH_WEB__ . "/view_admin/admin_teacher.php\">
                                         <i class=\"metismenu-icon\">
                                         </i>ข้อมูลอาจารย์
                                     </a>
@@ -120,7 +120,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href=\"" . __PATH_WEB__ . "/view_admin/admin_student.php\">
+                                    <a href=\"" . __PATH_WEB__ . "/view_admin/view_config.php\">
                                         <i class=\"metismenu-icon\">
                                         </i>กำหนดปีการศึกษา
                                     </a>
