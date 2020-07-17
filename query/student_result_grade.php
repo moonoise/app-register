@@ -67,9 +67,9 @@ while (intval($std['std_year']) < intval($std['current_year'])) {
             $arrGrade['term'] = $valueTerm;
 
             $sum = $grade->grade_result($arrGrade['grade']);
-            $arrGrade['gpa'] = $sum['gpa'];
+            $arrGrade['gpa'] = round($sum['gpa'], 2);
             $cumGPA = ($cumGPA + $sum['gpa']) / $countTerm;
-            $arrGrade['cum_gpa'] = $cumGPA;
+            $arrGrade['cum_gpa'] = round($cumGPA, 2);
             $arrGrade['sumGrade'] = $sum['sumGrade'];
             $sumGrade += $sum['sumGrade'];
             $sumCredit += $sum['sumCredit'];
