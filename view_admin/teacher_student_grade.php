@@ -106,6 +106,7 @@ include_once "login-head.php";
 
         var obj_table = {
             "gpa": "",
+            "cum_gpa": "",
             "year": "",
             "term": "",
             "arr_grade": [],
@@ -159,8 +160,7 @@ include_once "login-head.php";
                                         </tbody>                                         \
                                         <tfoot>                                            \
                                             <tr>                                             \
-                                                <td colspan=\"4\" class=\"text-right\">GPA.</td>                     \
-                                                <td>" + this.gpa + "</td>                                   \
+                                                <td colspan=\"5\" class=\"text-center\"><b>sem. G.P.A. = " + this.gpa + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cum. G.P.A. = " + this.cum_gpa + " </b></td>                     \
                                             </tr>                                           \
                                         </tfoot>                                            \
                                     </table>                                                \
@@ -194,6 +194,7 @@ include_once "login-head.php";
                             if (element['grade'] != null && element['grade'].length > 0) {
                                 var objTable = Object.create(obj_table)
                                 objTable.gpa = element['gpa']
+                                objTable.cum_gpa = element['cum_gpa']
                                 objTable.year = element['year']
                                 objTable.term = element['term']
                                 objTable.arr_grade = element['grade']

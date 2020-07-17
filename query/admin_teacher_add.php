@@ -36,8 +36,8 @@ if ($ch) {
         $stmInsert = $sqlConn->conn->prepare($sqlInsert);
         $stmInsert->bindParam(":teacher_id", $_POST['teacher_id_add']);
         $stmInsert->bindParam(":teacher_title_name", $_POST['teacher_title_name_add']);
-        $stmInsert->bindParam(":teacher_fname", $_POST['teacher_fname_th_add']);
-        $stmInsert->bindParam(":teacher_lname", $_POST['teacher_lname_th_add']);
+        $stmInsert->bindParam(":teacher_fname", $_POST['teacher_fname_add']);
+        $stmInsert->bindParam(":teacher_lname", $_POST['teacher_lname_add']);
 
         if ($stmInsert->execute()) {
             $data['success'] = true;

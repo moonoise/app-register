@@ -20,7 +20,12 @@ include_once "login-head.php";
     <meta name="msapplication-tap-highlight" content="no">
 
     <link rel="stylesheet" href="../assets/css/base.min.css">
-
+    <style>
+        .for-this-table td,
+        .for-this-table th {
+            padding: .1rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -40,7 +45,7 @@ include_once "login-head.php";
                                 <div class="card-header">รายชื่อนักศึกษา</div>
                                 <div class="card-body">
 
-                                    <table style="width: 100%;" id="table_student" class="table table-hover table-striped table-bordered">
+                                    <table style="width: 100%;" id="table_student" class="table table-hover table-striped table-bordered for-this-table">
                                         <thead>
                                             <tr>
                                                 <th>รหัสนักศึกษา</th>
@@ -84,6 +89,8 @@ include_once "login-head.php";
 
     <script>
         $(document).ready(function() {
+            $("#menu3").addClass("mm-active");
+            $("#sub2-menu3").addClass("mm-active");
             student_show()
         });
 

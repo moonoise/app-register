@@ -28,6 +28,14 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
 
     <link rel="stylesheet" href="../assets/css/base.min.css">
 
+
+    <style>
+        .for-this-table td,
+        .for-this-table th {
+            padding: .1rem;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -48,9 +56,9 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                                 <div class="card-body">
                                     <button type="button" class="btn mr-2 mb-2 btn-primary" data-toggle="modal" data-target=".bd-new-modal-lg"><i class="pe-7s-news-paper btn-icon-wrapper"></i> New</button>
                                     <br>
-                                    <table style="width: 100%;" id="table_teacher_subject" class="table table-hover table-striped table-bordered">
+                                    <table style="width: 100%;" id="table_teacher_subject" class="table table-hover table-striped table-bordered for-this-table">
                                         <thead>
-                                            <tr>
+                                            <tr class="text-center">
                                                 <th>รหัสนักศึกษา</th>
                                                 <th>ชื่อ - สกุล</th>
                                                 <th>ปีการศึกษา(รุ่น)</th>
@@ -261,8 +269,13 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
     <?php include_once "../layouts/6-script-include.php"; ?>
 
     <script>
-        student_show()
-        admission_list()
+        $(document).ready(function() {
+            $("#menu4").addClass("mm-active");
+            $("#sub1-menu4").addClass("mm-active");
+            student_show()
+            admission_list()
+        });
+
 
         function admission_list() {
             $.ajax({
@@ -322,7 +335,7 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
             "std_fullname": "",
             "std_year": "",
             edit: function() {
-                return "<button class=\"mb-2 mr-2 btn-icon btn btn-warning\" onclick=\"student_edit(" + this.std_id_auto + ")\"><i class=\"pe-7s-edit btn-icon-wrapper\"> </i>Edit</button>"
+                return "<button class=\"btn-sm btn-icon btn btn-warning\" onclick=\"student_edit(" + this.std_id_auto + ")\"><i class=\"pe-7s-edit btn-icon-wrapper\"> </i>Edit</button>"
             }
         }
 

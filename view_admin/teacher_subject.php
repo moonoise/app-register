@@ -22,7 +22,10 @@ include_once "login-head.php";
     <link rel="stylesheet" href="../assets/css/base.min.css">
 
     <style>
-
+        .for-this-table td,
+        .for-this-table th {
+            padding: .1rem;
+        }
     </style>
 
 </head>
@@ -73,7 +76,7 @@ include_once "login-head.php";
 
                                     <br>
 
-                                    <table style="width: 100%;" id="table_teacher_subject" class="table table-hover table-striped table-bordered ">
+                                    <table style="width: 100%;" id="table_teacher_subject" class="table table-hover table-striped table-bordered  for-this-table">
                                         <thead>
                                             <tr class="text-center">
                                                 <th>รหัสวิชา</th>
@@ -229,6 +232,11 @@ include_once "login-head.php";
 
     <script>
         $(document).ready(function() {
+
+            $("#menu3").addClass("mm-active");
+            $("#sub1-menu3").addClass("mm-active");
+
+
             $.ajax({
                 type: "POST",
                 url: "../query/subject_list.php",

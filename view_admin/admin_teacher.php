@@ -28,6 +28,14 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
 
     <link rel="stylesheet" href="../assets/css/base.min.css">
 
+
+    <style>
+        .for-this-table td,
+        .for-this-table th {
+            padding: .1rem;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -48,7 +56,7 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                                 <div class="card-body">
                                     <button type="button" class="btn mr-2 mb-2 btn-primary" data-toggle="modal" data-target=".bd-new-modal-lg"><i class="pe-7s-news-paper btn-icon-wrapper"></i> New</button>
                                     <br>
-                                    <table style="width: 100%;" id="table_teacher" class="table table-hover table-striped table-bordered">
+                                    <table style="width: 100%;" id="table_teacher" class="table table-hover table-striped table-bordered for-this-table">
                                         <thead>
                                             <tr>
                                                 <th>รหัสอาจารย์</th>
@@ -179,7 +187,13 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
     <?php include_once "../layouts/6-script-include.php"; ?>
 
     <script>
-        teacher_index()
+        $(document).ready(function() {
+            $("#menu4").addClass("mm-active");
+            $("#sub2-menu4").addClass("mm-active");
+
+            teacher_index()
+        });
+
 
         var objTables = {
             "teacher_title_name": "",
@@ -312,7 +326,7 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                                 "hideMethod": "fadeOut"
                             };
                             toastr["success"]("สำเร็จ", "การเพิ่มอาจารย์");
-                            student_show()
+                            teacher_index()
                             $('#form_teacher_add')[0].reset();
                             $(".bd-new-modal-lg").modal('hide')
 
@@ -330,6 +344,7 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
         });
 
         $(document).on("click", ".btn-edit-teacher", function() {
+
             $.ajax({
                 type: "POST",
                 url: "../query/admin_teacher_edit_by_id.php",

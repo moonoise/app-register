@@ -88,13 +88,13 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="" name="form_teacher_add" id="form_teacher_add">
+                    <form class="" name="form_subject_add" id="form_subject_add">
                         <div class="form-row">
                             <div class="col-md-3">
                                 <div class="position-relative form-group"><label for="subject_id_add" class="">รหัสวิชา</label><input name="subject_id_add" id="subject_id_add" placeholder="รหัสวิชา" type="text" class="form-control"></div>
                             </div>
                             <div class="col-md-9">
-                                <div class="position-relative form-group"><label for="subject_subject_name_en_add" class="">​Subject :</label><input name="subject_subject_name_en_add" id="subject_subject_name_en_add" placeholder="​Subject" type="text" class="form-control"></div>
+                                <div class="position-relative form-group"><label for="subject_name_en_add" class="">​Subject :</label><input name="subject_name_en_add" id="subject_name_en_add" placeholder="​Subject" type="text" class="form-control"></div>
                             </div>
 
                         </div>
@@ -103,7 +103,7 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                             <div class="col-md-2">
                                 <div class="position-relative form-group"><label for="subject_credit_add" class="">Credit</label>
                                     <select class="mb-2 form-control" name="subject_credit_add" id="subject_credit_add">
-                                        <option value="0">0</option>
+                                        <option value="">ไม่ระบุ</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -169,12 +169,109 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
 
     <!-- modal-new subject -->
 
+    <!-- modal-edit subject -->
+    <div class="modal fade bd-edit-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="student-admin-title">เพิ่มอาจารย์</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="" name="form_subject_edit" id="form_subject_edit">
+                        <input type="hidden" name="subject_id_auto_edit" id="subject_id_auto_edit">
+                        <div class="form-row">
+                            <div class="col-md-3">
+                                <div class="position-relative form-group"><label for="subject_id_edit" class="">รหัสวิชา</label><input name="subject_id_edit" id="subject_id_edit" placeholder="รหัสวิชา" type="text" class="form-control"></div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="position-relative form-group"><label for="subject_name_en_edit" class="">​Subject :</label><input name="subject_name_en_edit" id="subject_name_en_edit" placeholder="​Subject" type="text" class="form-control"></div>
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-2">
+                                <div class="position-relative form-group"><label for="subject_credit_edit" class="">Credit</label>
+                                    <select class="mb-2 form-control" name="subject_credit_edit" id="subject_credit_edit">
+                                        <option value="">ไม่ระบุ</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="position-relative form-group"><label for="subject_level_guide_edit" class="">สำหรับ นิสิตชั้นปี (ตามหลักสูตร หรือไม่ระบุก็ได้)</label>
+                                    <select class="mb-2 form-control" name="subject_level_guide_edit" id="subject_level_guide_edit">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="position-relative form-group"><label for="subject_term_guide_edit" class="">สำหรับเทอม(ตามหลักสูตร หรือไม่ระบุก็ได้)</label>
+                                    <select class="mb-2 form-control" name="subject_term_guide_edit" id="subject_term_guide_edit">
+                                        <option value="1">ภาคต้น</option>
+                                        <option value="2">ปลายภาค</option>
+                                        <option value="3">ภาคฤดูร้อน</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <div class="position-relative form-group"><label for="required_subject1_edit" class="">รายวิชาบังคับ ที่ 1</label>
+                                    <select class="mb-2 form-control" name="required_subject1_edit" id="required_subject1_edit">
+                                        <option value="">ไม่ระบุ..</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="position-relative form-group"><label for="required_subject2_edit" class="">รายวิชาบังคับ ที่ 2</label>
+                                    <select class="mb-2 form-control" name="required_subject2_edit" id="required_subject2_edit">
+                                        <option value="">ไม่ระบุ..</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="position-relative form-group"><label for="required_subject3_edit" class="">รายวิชาบังคับ ที่ 3</label>
+                                    <select class="mb-2 form-control" name="required_subject3_edit" id="required_subject3_edit">
+                                        <option value="">ไม่ระบุ..</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal-new subject -->
+
     <?php include_once "../layouts/5-drawer-start.php"; ?>
     <?php include_once "../layouts/6-script-include.php"; ?>
 
     <script>
-        subject_list()
-        subject_index()
+        $(document).ready(function() {
+            $("#menu4").addClass("mm-active");
+            $("#sub3-menu4").addClass("mm-active");
+            subject_list()
+            subject_index()
+        });
+
 
         function subject_list() {
             $.ajax({
@@ -226,6 +323,36 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
             });
         }
 
+        $(document).on("click", ".btn-edit-subject", function(e) {
+            $.ajax({
+                type: "POST",
+                url: "../query/admin_subject_edit.php",
+                data: {
+                    "subject_id_auto": $(this).val()
+                },
+                dataType: "JSON",
+                success: function(response) {
+                    $("#form_subject_edit")[0].reset();
+                    if (response.data != null) {
+                        $("#subject_id_auto_edit").val(response.data.subject_id_auto)
+                        $("#subject_id_edit").val(response.data.subject_id)
+                        $("#subject_id_edit").prop("readonly", true)
+                        $("#subject_name_en_edit").val(response.data.subject_name_en)
+                        $("#subject_credit_edit").val(response.data.subject_credit)
+                        $("#subject_level_guide_edit").val(response.data.subject_level_guide)
+                        $("#subject_term_guide_edit").val(response.data.subject_term_guide_edit)
+                        $("#required_subject1_edit").val(response.data.required_subject1)
+                        $("#required_subject2_edit").val(response.data.required_subject2)
+                        $("#required_subject3_edit").val(response.data.required_subject3)
+                        $(".bd-edit-modal-lg").modal({
+                            show: true,
+                            keyboard: false,
+                            backdrop: 'static'
+                        });
+                    }
+                }
+            });
+        });
 
         var objTables = {
             "subject_id_auto": "",
@@ -329,6 +456,136 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                 [10, 25, 50, 100, -1],
                 [10, 25, 50, 100, "All"]
             ]
+        });
+
+        $("#form_subject_add").validate({
+            rules: {
+                subject_id_add: "required",
+                subject_name_en_add: "required"
+            },
+            errorElement: "em",
+            errorPlacement: function(error, element) {
+                // Add the `invalid-feedback` class to the error element
+                error.addClass("invalid-feedback");
+                if (element.prop("type") === "checkbox") {
+                    error.insertAfter(element.next("label"));
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass("is-invalid").removeClass("is-valid");
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).addClass("is-valid").removeClass("is-invalid");
+            },
+            submitHandler: function(form) {
+                $.ajax({
+                    type: "POST",
+                    url: "../query/admin_subject_add.php",
+                    data: $(form).serialize(),
+                    dataType: "JSON",
+                    success: function(response) {
+                        if (response.success == true) {
+
+                            toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": true,
+                                "progressBar": true,
+                                "positionClass": "toast-bottom-center",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            };
+                            toastr["success"]("สำเร็จ", "การเพิ่มรายวิชา");
+                            subject_index()
+                            $('#form_subject_add')[0].reset();
+                            $(".bd-new-modal-lg").modal('hide')
+
+                        } else {
+                            Swal.fire({
+                                title: 'การเพิ่มรายวิชา',
+                                text: 'ไม่สำเร็จ' + response.error,
+                                type: 'error',
+                                confirmButtonText: 'รับทราบ'
+                            });
+                        }
+                    }
+                });
+            }
+        });
+
+        $("#form_subject_edit").validate({
+            rules: {
+                subject_id_edit: "required",
+                subject_name_en_edit: "required"
+            },
+            errorElement: "em",
+            errorPlacement: function(error, element) {
+                // Add the `invalid-feedback` class to the error element
+                error.addClass("invalid-feedback");
+                if (element.prop("type") === "checkbox") {
+                    error.insertAfter(element.next("label"));
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass("is-invalid").removeClass("is-valid");
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).addClass("is-valid").removeClass("is-invalid");
+            },
+            submitHandler: function(form) {
+                $.ajax({
+                    type: "POST",
+                    url: "../query/admin_subject_update.php",
+                    data: $(form).serialize(),
+                    dataType: "JSON",
+                    success: function(response) {
+                        if (response.success == true) {
+
+                            toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": true,
+                                "progressBar": true,
+                                "positionClass": "toast-bottom-center",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            };
+                            toastr["success"]("สำเร็จ", "การแก้ไขข้อมูลรายวิชา");
+                            subject_index()
+                            $('#form_subject_edit')[0].reset();
+                            $(".bd-edit-modal-lg").modal('hide')
+
+                        } else {
+                            Swal.fire({
+                                title: 'การแก้ไขข้อมูลรายวิชา',
+                                text: 'ไม่สำเร็จ' + response.error,
+                                type: 'error',
+                                confirmButtonText: 'รับทราบ'
+                            });
+                        }
+                    }
+                });
+            }
         });
     </script>
 

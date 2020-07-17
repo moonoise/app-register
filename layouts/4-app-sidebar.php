@@ -43,15 +43,15 @@
                 <?php
                 if ($_SESSION[__PER_TYPE__] == 'student') {
                     echo "
-                        <li>
-                        <a href=\"#\">
+                        <li id=\"menu2\">
+                        <a href=\"#\" >
                             <i class=\"metismenu-icon pe-7s-user-female\"></i>
                             บริการนักศึกษา
                             <i class=\"metismenu-state-icon pe-7s-angle-down caret-left\"></i>
                         </a>
                         <ul>
                             <li>
-                                <a href=\"" . __PATH_WEB__ . "/view_student/student_analytics.php\">
+                                <a href=\"" . __PATH_WEB__ . "/view_student/student_analytics.php\" id=\"sub1-menu2\">
                                     <i class=\"metismenu-icon\">
                                     </i>
                                     วิเคราะห์แผนการเรียน
@@ -66,7 +66,7 @@
 
                 <?php
                 if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') {
-                    echo "<li>
+                    echo "<li id=\"menu3\">
                        <a href=\"#\">
                            <i class=\"metismenu-icon pe-7s-piggy\"></i>
                            บริการครูผู้สอน
@@ -74,13 +74,13 @@
                        </a>
                        <ul>
                            <li>
-                               <a href=\"" . __PATH_WEB__ . "/view_admin/teacher_subject.php\">
+                               <a href=\"" . __PATH_WEB__ . "/view_admin/teacher_subject.php\" id=\"sub1-menu3\">
                                    <i class=\"metismenu-icon\">
                                    </i>รายวิชาสอน
                                </a>
                            </li>
                            <li>
-                               <a href=\"" . __PATH_WEB__ . "/view_admin/teacher_student.php\">
+                               <a href=\"" . __PATH_WEB__ . "/view_admin/teacher_student.php\" id=\"sub2-menu3\">
                                    <i class=\"metismenu-icon\">
                                    </i>วิเคราะห์แผนการเรียนนิสิต
                                </a>
@@ -94,7 +94,7 @@
                 <?php
                 if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') {
                     echo "
-                        <li>
+                        <li id=\"menu4\">
                             <a href=\"#\">
                                 <i class=\"metismenu-icon pe-7s-smile\"></i>
                                 บริการเจ้าหน้าที่
@@ -102,25 +102,25 @@
                             </a>
                             <ul>
                                 <li>
-                                    <a href=\"" . __PATH_WEB__ . "/view_admin/admin_student.php\">
+                                    <a href=\"" . __PATH_WEB__ . "/view_admin/admin_student.php\" id=\"sub1-menu4\">
                                         <i class=\"metismenu-icon\">
                                         </i>ข้อมูลนักศึกษา
                                     </a>
                                 </li>
                                 <li>
-                                    <a href=\"" . __PATH_WEB__ . "/view_admin/admin_teacher.php\">
+                                    <a href=\"" . __PATH_WEB__ . "/view_admin/admin_teacher.php\" id=\"sub2-menu4\">
                                         <i class=\"metismenu-icon\">
                                         </i>ข้อมูลอาจารย์
                                     </a>
                                 </li>
                                 <li>
-                                    <a href=\"" . __PATH_WEB__ . "/view_admin/admin_subject.php\">
+                                    <a href=\"" . __PATH_WEB__ . "/view_admin/admin_subject.php\" id=\"sub3-menu4\">
                                         <i class=\"metismenu-icon\">
                                         </i>ข้อมูลรายวิชา
                                     </a>
                                 </li>
                                 <li>
-                                    <a href=\"" . __PATH_WEB__ . "/view_admin/view_config.php\">
+                                    <a href=\"" . __PATH_WEB__ . "/view_admin/view_config.php\" id=\"sub4-menu4\">
                                         <i class=\"metismenu-icon\">
                                         </i>กำหนดปีการศึกษา
                                     </a>

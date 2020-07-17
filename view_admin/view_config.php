@@ -88,7 +88,12 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
     <?php include_once "../layouts/6-script-include.php"; ?>
 
     <script>
-        year_term_show()
+        $(document).ready(function() {
+            $("#menu4").addClass("mm-active");
+            $("#sub4-menu4").addClass("mm-active");
+            year_term_show()
+        });
+
 
         function year_term_show() {
             $.ajax({
