@@ -99,6 +99,7 @@ include_once "login-head.php";
                 </div>
                 <div class="modal-body">
                     <form class="" name="form_search_student" id="form_search_student">
+                        <input type="hidden" name="search_ts_id" id="search_ts_id" value="<?php echo $_POST['ts_id']; ?>">
                         <div class="form-row">
                             <!-- <div class="col-md-3">
                                 <div class="position-relative form-group"><label for="std_id_search" class="">รหัสนักศึกษา</label><input name="std_id_search" id="std_id_search" placeholder="รหัสนักศึกษา" type="text" class="form-control"></div>
@@ -186,7 +187,7 @@ include_once "login-head.php";
 
                         dataTable['std_id'] = element['std_id']
                         dataTable['student_name'] = element['std_fname'] + " " + element['std_lname']
-                        dataTable['edit'] = "<button type=\"button\" class=\"btn btn-outline-info btn-sm btn-delete-student-subject\" value=\"" + element['ss_id'] + "\"> <i class=\"pe-7s-study\"> </i> </button>"
+                        dataTable['edit'] = "<button type=\"button\" class=\"btn btn-outline-info btn-sm btn-add-student-subject\" value=\"" + element['std_id'] + "\"> <i class=\"pe-7s-study\"> </i> </button>"
 
                         table1.push(dataTable)
                     })
@@ -214,39 +215,102 @@ include_once "login-head.php";
             });
         }
 
-        $(document).on("click", ".btn-delete-student-subject", function() {
+        $(document).on("click", ".btn-add-student-subject", function() {
             // console.log($(this).val())
-            var ss_id = $(this).val()
+            var std_id = $(this).val()
+            var ts_id = '<?php echo $_POST['ts_id']; ?>';
 
+            // console.log(std_id)
+            $.ajax({
+                type: "POST",
+                url: "../query/student_subject_add.php",
+                data: {
+                    "std_id": std_id,
+                    "ts_id": ts_id
+                },
+                dataType: "JSON",
+                success: function(response) {
+                    if (response.success == true) {
+                        toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "newestOnTop": true,
+                            "progressBar": true,
+                            "positionClass": "toast-bottom-center",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        };
+                        toastr["success"]("สำเร็จ", "การรายชื่อในรายวิชา");
+                        $("#form_search_student").submit()
+                        student_index(ts_id)
+                    } else {
+                        Swal.fire({
+                            title: 'การเพ่ิมรายชื่อในรายวิชา',
+                            text: 'ไม่สำเร็จ ข้อมูลที่กรอก อาจมีอยู่แล้ว',
+                            type: 'error',
+                            confirmButtonText: 'รับทราบ'
+                        });
+                    }
+                }
+            });
+
+
+        });
+
+        $(document).on("click", ".btn-delete-student-subject", function() {
+            var ts_id = '<?php echo $_POST['ts_id']; ?>';
+            var ss_id = $(".btn-delete-student-subject").val()
             swal.fire({
-                title: "ลบรายชื่อนี้ออกจากรายวิชา",
+                title: "นำราชชื่อออกจากรายวิชา",
                 text: "คุณแน่ใจหรือไม่",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
-                confirmButtonText: "yes",
+                confirmButtonText: "Yes",
                 html: false
             }).then((result) => {
                 if (result.value) {
                     // console.log($(this).val())
                     $.ajax({
                         type: "POST",
-                        url: "../query/.php",
+                        url: "../query/student_subject_delete.php",
                         data: {
-                            "yt_id": $(this).val()
+                            "ss_id": ss_id
                         },
                         dataType: "JSON",
                         success: function(response) {
                             if (response.success == true) {
-                                Swal.fire(
-                                    'ตั้งค่าปีการศึกษา!',
-                                    'สำเร็จ.',
-                                    'success'
-                                )
-                                year_term_show()
+                                toastr.options = {
+                                    "closeButton": true,
+                                    "debug": false,
+                                    "newestOnTop": true,
+                                    "progressBar": true,
+                                    "positionClass": "toast-bottom-center",
+                                    "preventDuplicates": false,
+                                    "onclick": null,
+                                    "showDuration": "300",
+                                    "hideDuration": "1000",
+                                    "timeOut": "5000",
+                                    "extendedTimeOut": "1000",
+                                    "showEasing": "swing",
+                                    "hideEasing": "linear",
+                                    "showMethod": "fadeIn",
+                                    "hideMethod": "fadeOut"
+                                };
+                                toastr["success"]("สำเร็จ", "นำราชชื่อออกจากรายวิชา");
+                                student_index(ts_id)
+
                             } else {
                                 Swal.fire(
-                                    'ตั้งค่าปีการศึกษา',
+                                    'Error',
                                     'เกิดข้อผิดพลาด :)',
                                     'error'
                                 )
@@ -259,7 +323,6 @@ include_once "login-head.php";
 
                 }
             });
-
         });
 
         function teacher_subject_show(ts_id) {
@@ -295,17 +358,18 @@ include_once "login-head.php";
                 success: function(response) {
                     var table1 = []
                     // console.log(response.data)
+                    if (response.data != null) {
+                        response.data.forEach((element, key) => {
+                            var dataTable = []
 
-                    response.data.forEach((element, key) => {
-                        var dataTable = []
+                            dataTable['std_id'] = element['std_id']
+                            dataTable['student_name'] = element['std_fname'] + " " + element['std_lname']
+                            dataTable['level'] = element['level'] + " <span class=\"text text-info\">(" + element['std_year'] + ")</span>"
+                            dataTable['edit'] = "<button type=\"button\" class=\"btn btn-outline-warning btn-sm btn-delete-student-subject\" value=\"" + element['ss_id'] + "\"> <i class=\"pe-7s-trash\"> </i> </button>"
 
-                        dataTable['std_id'] = element['std_id']
-                        dataTable['student_name'] = element['std_fname'] + " " + element['std_lname']
-                        dataTable['level'] = element['level'] + " <span class=\"text text-info\">(" + element['std_year'] + ")</span>"
-                        dataTable['edit'] = "<button type=\"button\" class=\"btn btn-outline-warning btn-sm btn-delete-student-subject\" value=\"" + element['ss_id'] + "\"> <i class=\"pe-7s-trash\"> </i> </button>"
-
-                        table1.push(dataTable)
-                    })
+                            table1.push(dataTable)
+                        })
+                    }
                     table.clear().rows.add(table1).draw();
                     $.unblockUI();
                 },
@@ -412,14 +476,6 @@ include_once "login-head.php";
                 [10, 25, 50, 100, -1],
                 [10, 25, 50, 100, "All"]
             ]
-        });
-
-        $("#button-search-student").on("click", function() {
-            $("#modal-search-student").modal({
-                show: true,
-                keyboard: false,
-                backdrop: 'static'
-            })
         });
     </script>
 

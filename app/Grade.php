@@ -23,7 +23,37 @@ class Grade extends SqlConn
         $arr = array();
         $result = array();
         try {
-            $sql = "SELECT * FROM student WHERE std_id = :stdId";
+            $sql = "SELECT student.std_id_auto,
+                            student.std_id,
+                            student.std_id_card,
+                            student.std_title_name,
+                            student.std_fname,
+                            student.std_lname,
+                            student.std_title_name_th,
+                            student.std_fname_th,
+                            student.std_lname_th,
+                            student.admission_type,
+                            student.class_of,
+                            student.room_id,
+                            student.faculty,
+                            student.field_of_study,
+                            student.degree_conferred,
+                            student.date_of_admission,
+                            student.std_year,
+                            student.teacher_id,
+                            student.teacher_id2,
+                            student.std_status,
+                            student.username,
+                            student.email,
+                            student.phone,
+                            student.picture_profile,
+                            student.verified,
+                            admission_type.admission_type_detail 
+                            FROM student 
+                            LEFT JOIN 
+                            admission_type 
+                            ON admission_type.admission_type_code  = admission_type
+                            WHERE std_id = :stdId";
             $stm = $this->conn->prepare($sql);
             $stm->bindParam(':stdId', $stdId);
             $stm->execute();

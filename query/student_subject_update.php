@@ -14,13 +14,14 @@ $sqlConn = new SqlConn;
 $tableQuery = new TableQuery;
 
 $teacher_id = $_SESSION[__TEACHER_ID__];
-
+$grade = NULL;
 try {
     $sqlConn->conn->beginTransaction();
     $sql = "UPDATE student_subject SET grade_text = ?  WHERE ss_id = ? ";
     $stm = $sqlConn->conn->prepare($sql);
     foreach ($_POST['ss_id'] as $key => $value) {
-        $stm->execute(array($value, $key));
+        $grade = ($value != "" ? $value  : NULL);
+        $stm->execute(array($grade, $key));
         if ($stm->rowCount()) {
             $data['update'][] = $key;
         }

@@ -151,7 +151,31 @@ include_once "login-head.php";
                                     </select>
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <div class="position-relative form-group"><label for="new_teacher_id" class="">อาจารย์ผู้สอน คนที่ 1</label>
+                                    <select class="mb-2 form-control" name="new_teacher_id" id="new_teacher_id">
+                                        <option value="">เลือก</option>
 
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="position-relative form-group"><label for="new_teacher_id2" class="">อาจารย์ผู้สอน คนที่ 2</label>
+                                    <select class="mb-2 form-control" name="new_teacher_id2" id="new_teacher_id2">
+                                        <option value="">เลือก</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="position-relative form-group"><label for="new_teacher_id3" class="">อาจารย์ผู้สอน คนที่ 3</label>
+                                    <select class="mb-2 form-control" name="new_teacher_id3" id="new_teacher_id3">
+                                        <option value="">เลือก</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -248,6 +272,20 @@ include_once "login-head.php";
                 }
             });
 
+            $.ajax({
+                type: "POST",
+                url: "../query/teacher_list.php",
+                dataType: "JSON",
+                success: function(response) {
+                    response.data.forEach((element, key) => {
+                        $("#new_teacher_id").append("<option value=\"" + element['teacher_id'] + "\"> " + element['teacher_title_name'] + element['teacher_fname'] + element['teacher_lname'] + " </option>")
+                        $("#new_teacher_id2").append("<option value=\"" + element['teacher_id'] + "\"> " + element['teacher_title_name'] + element['teacher_fname'] + element['teacher_lname'] + " </option>")
+                        $("#new_teacher_id3").append("<option value=\"" + element['teacher_id'] + "\"> " + element['teacher_title_name'] + element['teacher_fname'] + element['teacher_lname'] + " </option>")
+                    });
+                }
+            });
+
+
             $("#form_select_std_year").submit(function(e) {
                 e.preventDefault();
 
@@ -275,16 +313,17 @@ include_once "login-head.php";
 
                     if (response.success == true) {
                         Swal.fire({
-                            title: 'เพ่ิมรายวิชาที่สอน',
+                            title: 'เพิ่มรายวิชาที่สอน',
                             text: 'สำเร็จ',
                             type: 'success',
                             confirmButtonText: 'OK'
                         });
                         teacher_subject_show()
                         $('.bd-new-modal-lg').modal('hide')
+                        $("#form_new_subject")[0].reset()
                     } else {
                         Swal.fire({
-                            title: 'เพ่ิมรายวิชาที่สอน',
+                            title: 'เพิ่มรายวิชาที่สอน',
                             text: 'ไม่สำเร็จ ข้อมูลที่กรอก อาจมีอยู่แล้ว',
                             type: 'error',
                             confirmButtonText: 'รับทราบ'

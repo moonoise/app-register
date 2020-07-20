@@ -25,6 +25,11 @@ include_once "login-head.php";
         .color-update {
             background-color: #9cf7e282;
         }
+
+        .for-this-table td,
+        .for-this-table th {
+            padding: .1rem;
+        }
     </style>
 
 </head>
@@ -46,7 +51,7 @@ include_once "login-head.php";
                                 <div class="card-header">ระบบกรอก เกรด</div>
                                 <div class="card-body">
                                     <form name="form_student_subject_edit" id="form_student_subject_edit">
-                                        <table style="width: 100%;" id="table_teacher_subject" class="table table-hover table-striped table-bordered">
+                                        <table style="width: 100%;" id="table_teacher_subject" class="table table-hover table-striped table-bordered for-this-table">
                                             <thead>
                                                 <tr>
                                                     <th>ลำดับ</th>
@@ -101,9 +106,10 @@ include_once "login-head.php";
                 data: $("#form_student_subject_edit").serialize(),
                 dataType: "JSON",
                 success: function(response) {
-                    console.log(response)
+                    // console.log(response)
                     $("#grade_edit").html("")
                     if (response.success == true) {
+                        // console.log(response.update)
                         grade_show(response.update)
                         Swal.fire({
                             title: 'อัพเดทเกรด',
@@ -134,6 +140,7 @@ include_once "login-head.php";
                 var arrGrade = ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F', 'W'];
                 var GradeDefault = ''
                 strTd4 += "<td><select class=\"mb-2 form-control " + this.color_update + " \" name=\"ss_id[" + this.ss_id + "]\" id=\"ss_id-" + this.ss_id + "\">";
+                strTd4 += "<option value=\"\">ยังไม่ระบุ</option>"
                 arrGrade.forEach((element, key) => {
                     if (element == this.grade_text) {
                         GradeDefault = 'selected'
@@ -141,7 +148,7 @@ include_once "login-head.php";
                         GradeDefault = ''
                     }
 
-                    strTd4 += "<option " + GradeDefault + ">" + element + "</option>"
+                    strTd4 += "<option value=\"" + element + "\" " + GradeDefault + ">" + element + "</option>"
 
                 });
                 strTd4 += "</select></td>";
@@ -164,9 +171,11 @@ include_once "login-head.php";
                 },
                 dataType: "JSON",
                 success: function(response) {
-                    var table = Object.create(objtableGrade);
-                    console.log(response)
+
+                    // console.log(response)
                     response.data1.forEach((element, key) => {
+                        var table = Object.create(objtableGrade);
+                        var strColor = ""
                         table.number = key + 1
                         table.ss_id = element['ss_id']
                         table.std_id = element['std_id']
@@ -176,18 +185,16 @@ include_once "login-head.php";
 
                         if (typeof(arr_ss_id) != 'undefined') {
                             arr_ss_id.forEach((element1, key1) => {
-                                // console.log(element1)
-                                if (element['ss_id'] == element1) {
-                                    table.color_update = "color-update"
 
-                                } else {
-                                    table.color_update = ""
+                                if (parseInt(element['ss_id']) == element1) {
+                                    strColor = " color-update "
+
                                 }
 
                             });
                         }
 
-                        table.tableGrade()
+                        table.color_update = strColor
                         $("#grade_edit").append(table.tableGrade());
                     });
                 }

@@ -31,9 +31,9 @@
           </span>
       </div>
       <div class="app-header__content">
-       
+
           <div class="app-header-right">
-       
+
 
               <div class="header-btn-lg pr-0">
                   <div class="widget-content p-0">
@@ -42,7 +42,7 @@
                               <div class="btn-group">
                                   <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
                                       <img width="42" class="rounded-circle" src="../assets/images/avatars/avatar-1-256.png" alt="">
-                                      
+
                                       <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                   </a>
                                   <div tabindex="-1" role="menu" aria-hidden="true" class="rm-pointers dropdown-menu-lg dropdown-menu dropdown-menu-right">
@@ -63,7 +63,7 @@
                                                           </div>
                                                           <div class="widget-content-right mr-2">
                                                               <a class="btn-pill btn-shadow btn-shine btn btn-focus" href="logout.php">Logout
-                                                                </a>
+                                                              </a>
                                                           </div>
                                                       </div>
                                                   </div>
@@ -74,26 +74,26 @@
                                           <div class="scrollbar-container ps">
                                               <ul class="nav flex-column">
                                                   <li class="nav-item">
-                                                      <a href="javascript:void(0);" class="nav-link">เปลี่ยนรหัสผ่าน
+                                                      <a href="my_account_change_password.php" class="nav-link">เปลี่ยนรหัสผ่าน
                                                       </a>
                                                   </li>
                                                   <li class="nav-item">
-                                                        <a href="javascript:void(0);" class="nav-link">My Account
-                                                        </a>
+                                                      <a href="my_account.php" class="nav-link">My Account
+                                                      </a>
                                                   </li>
-                                               
+
                                               </ul>
                                           </div>
-                                      </div>                         
+                                      </div>
                                   </div>
                               </div>
                           </div>
                           <div class="widget-content-left  ml-3 header-user-info">
                               <div class="widget-heading">
-                                <?php echo  $_SESSION[__FULLNAME__]; ?>
+                                  <?php echo  $_SESSION[__FULLNAME__]; ?>
                               </div>
                               <div class="widget-subheading">
-                              <?php echo  $_SESSION[__PER_TYPE__]; ?>
+                                  <?php echo  $_SESSION[__PER_TYPE__]; ?>
                               </div>
                           </div>
                           <div class="widget-content-right header-user-info ml-3">
@@ -105,7 +105,7 @@
                   </div>
               </div>
               <div class="header-btn-lg">
-              <!-- open-right-drawer -->
+                  <!-- open-right-drawer -->
                   <button type="button" class="hamburger hamburger--elastic ">
                       <span class="hamburger-box">
                           <span class="hamburger-inner"></span>

@@ -97,21 +97,20 @@ include_once "login-head.php";
                                                             <div class="widget-content-left flex2">
                                                                 <div class="widget-heading"><b class="pr-2">Student No:</b><b class="text-success" id="id-std_id"></b> </div>
                                                                 <div class="widget-heading "><b class="pr-2">Name:</b><b id="id-name" class="text-success"></b></div>
-                                                                <div class="widget-heading "><b class="pr-5">&nbsp;&nbsp;</b><b id="" class="text-success">ชื่อ ภาษาไทย</b></div>
-                                                                <div class="widget-heading "><b class="pr-2">Date of Birth:</b><b id="" class="text-success"></b></div>
-                                                                <div class="widget-heading "><b class="pr-2">Place of Birth:</b><b id="" class="text-success"></b></div>
+                                                                <div class="widget-heading "><b class="pr-5">&nbsp;&nbsp;</b><b id="name_th" class="text-success">ชื่อ ภาษาไทย</b></div>
+                                                                <div class="widget-heading "><b class="pr-2">Type of Admission:</b><b id="type_of_admission" class="text-success"></b></div>
+
                                                             </div>
                                                             <div class="widget-content-left mr-5">
                                                                 <div class="widget-heading"><b class="pr-2">Faculty of:</b><b class="text-success">Irrigation College</b></div>
                                                                 <div class="widget-heading"><b class="pr-2">Field of Study:</b><b class="text-success">Civil Engineering-Irrigation</b></div>
-                                                                <div class="widget-heading"><b class="pr-2">Date of Birth:</b><b class="text-success"></b></div>
-                                                                <div class="widget-heading"><b class="pr-2">Place of Birth:</b><b class="text-success"></b></div>
+                                                                <div class="widget-heading"><b class="pr-2">Degree Conferred:</b><b id="degree_conferred" class="text-success"></b></div>
+
+                                                                <div class="widget-heading"><b class="pr-2">Date of Admission:</b><b id="date_of_admission" class="text-success"></b></div>
+
 
                                                             </div>
-                                                            <!-- <div class="widget-content-left mr-5">
-                                                                <div class="widget-heading"><b>นิสิตชั้นปีที่:</b>&nbsp;&nbsp;<span id="id-level" class="text-success"></div>
-                                                                <div class="widget-subheading opacity-10"><span class="pr-2"><b></b>&nbsp;&nbsp; </span><span id="id-gpa" class="text-success"></span></div>
-                                                            </div> -->
+
                                                         </div>
                                                     </div>
                                                 </li>
@@ -129,12 +128,8 @@ include_once "login-head.php";
                                         <div class="row" id="id-subject-old"></div>
                                     </div>
 
-
-
                                     <pre id="json-renderer-current"></pre>
                                     <pre id="json-renderer"></pre>
-
-
 
                                 </div>
                                 <div class="d-block text-right card-footer">
@@ -284,6 +279,9 @@ include_once "login-head.php";
                     $("#id-name").html(response.std_title_name + response.std_fname + " " + response.std_lname)
                     $("#id-std_id").html(response.std_id)
                     $("#id-level").html(response.level)
+                    $("#type_of_admission").html(response.admission_type_detail)
+                    $("#degree_conferred").html(response.degree_conferred)
+                    $("#date_of_admission").html(response.date_of_admission)
                 }
             });
         }
