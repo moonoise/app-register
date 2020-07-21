@@ -1,0 +1,27 @@
+<?php
+session_start();
+require_once '../vendor/autoload.php';
+include_once "../app/config.php";
+
+
+use App\SqlConn;
+use App\PasswordHash;
+
+$sqlConn = new SqlConn;
+$pass_hash = new PasswordHash;
+
+$data = array();
+$pass = $pass_hash->create_password_hash($_POST['password']);
+try {
+    $sql = "UPDATE members SET `password` = :pwd WHERE teacher_id = :teacher_id";
+    $stm = $sqlConn->conn->prepare($sql);
+    $stm->bindParam(":pwd", $pass);
+    $stm->bindParam(":teacher_id", $_POST['teacher_id']);
+    $stm->execute();
+    $r = $stm->rowCount();
+    $data['data'] = $r;
+} catch (\Exception $e) {
+    $data['error']  = $e->getMessage();
+}
+
+echo json_encode($data);

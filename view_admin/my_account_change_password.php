@@ -88,15 +88,15 @@ include_once "login-head.php";
                                         <form class="" name="change_password" id="change_password">
                                             <div class="form-row">
                                                 <div class="col-md-6">
-                                                    <div class="position-relative form-group"><label for="teacher_id" class="">รหัสอาจารย์</label><input name="teacher_id" id="teacher_id" placeholder="รหัสอาจารย์" type="text" class="form-control" readonly></div>
+                                                    <div class="position-relative form-group"><label for="teacher_id" class="">รหัสอาจารย์</label><input name="teacher_id" id="teacher_id" value="<?php echo $_SESSION[__TEACHER_ID__]; ?>" placeholder="รหัสอาจารย์" type="text" class="form-control" readonly></div>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
-                                                    <div class="position-relative form-group"><label for="password1" class="">Password</label><input name="password1" id="password1" placeholder="password" type="password" class="form-control"></div>
+                                                    <div class="position-relative form-group"><label for="password" class="">Password</label><input name="password" id="password" placeholder="password" type="password" class="form-control"></div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <div class="position-relative form-group"><label for="password2" class="">Confrim Password</label><input name="password2" id="password2" placeholder="password" type="password" class="form-control"></div>
+                                                    <div class="position-relative form-group"><label for="password2" class="">Confrim Password</label><input name="confirm_password" id="confirm_password" placeholder="password" type="password" class="form-control"></div>
                                                 </div>
                                             </div>
 
@@ -121,22 +121,22 @@ include_once "login-head.php";
     <?php include_once "../layouts/6-script-include.php"; ?>
 
     <script>
-        var username = '<?php echo $_SESSION[__USERNAME__]; ?>'
-        show_profile(username)
+        // var username = ''
+        // show_profile(username)
 
-        function show_profile(username) {
-            $.ajax({
-                type: "POST",
-                url: "../query/my_account_teacher_show.php",
-                data: {
-                    "username": username
-                },
-                dataType: "JSON",
-                success: function(response) {
-
-                }
-            });
-        }
+        // function show_profile(username) {
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "../query/my_account_teacher_show.php",
+        //         data: {
+        //             "username": username
+        //         },
+        //         dataType: "JSON",
+        //         success: function(response) {
+        //             console.log(response)
+        //         }
+        //     });
+        // }
 
         $("#change_password").validate({
             rules: {
@@ -177,6 +177,38 @@ include_once "login-head.php";
             },
             unhighlight: function(element, errorClass, validClass) {
                 $(element).addClass("is-valid").removeClass("is-invalid");
+            },
+            submitHandler: function(form) {
+                $.ajax({
+                    type: "POST",
+                    url: "../query/my_account_teacher_change_password.php",
+                    data: $(form).serialize(),
+                    dataType: "JSON",
+                    success: function(response) {
+                        if (response.data == 1) {
+
+                            Swal.fire({
+                                title: 'อัพเดทรหัสผ่าน',
+                                text: 'สำเร็จ',
+                                type: 'success',
+                                confirmButtonText: 'รับทราบ'
+                            });
+
+                            // $(form)[0].reset();
+                            $("#password").val("")
+                            $("#confirm_password").val("")
+
+
+                        } else {
+                            Swal.fire({
+                                title: 'อัพเดทรหัสผ่าน',
+                                text: 'ไม่สำเร็จ' + response.error + " <br> " + response.success,
+                                type: 'error',
+                                confirmButtonText: 'รับทราบ'
+                            });
+                        }
+                    }
+                });
             }
         });
     </script>
