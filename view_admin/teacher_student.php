@@ -80,6 +80,10 @@ include_once "login-head.php";
         <input type="hidden" name="std_id" id="std_id">
     </form>
 
+    <form action="teacher_student_analytics2.php" method="post" target="show_grade" id="form_student_grade_2" name="form_student_grade_2">
+        <input type="hidden" name="std_id" id="std_id_2">
+    </form>
+
     <form action="teacher_student_grade.php" method="post" target="form_grade" id="form_grade" name="form_grade">
         <input type="hidden" name="std_id_show_grade" id="std_id_show_grade">
     </form>
@@ -101,6 +105,12 @@ include_once "login-head.php";
             $("#form_student_grade").submit()
         }
 
+        function show_analytics2(std_id) {
+            // console.log('test1')
+            $("#std_id_2").val(std_id)
+            $("#form_student_grade_2").submit()
+        }
+
         function show_grade(std_id) {
             // console.log('test2')
             $("#std_id_show_grade").val(std_id)
@@ -117,7 +127,13 @@ include_once "login-head.php";
                             onclick=\"show_analytics(`" + this.std_id + "`)\"  >       \
                         <i class=\"                                                         \
                         pe-7s-tools pe-7s-look \" > </i>                                \
-                        </button> <button class = \"mb-2 mr-2 btn-icon btn-shadow btn-outline-2x btn btn-outline-success\"  \
+                        </button>   \
+                        <button class=\"mb-2 mr-2 btn-icon btn-shadow btn-outline-2x btn btn-outline-info\"         \
+                            onclick=\"show_analytics2(`" + this.std_id + "`)\"  >       \
+                        <i class=\"                                                         \
+                        pe-7s-tools pe-7s-look \" > </i>                                \
+                        </button>   \
+                        <button class = \"mb-2 mr-2 btn-icon btn-shadow btn-outline-2x btn btn-outline-success\"  \
                         onclick = \"show_grade(`" + this.std_id + "`)\" >       \
                         <i class=\"                                                         \
                         pe-7s-tools pe-7s-notebook \" > </i>                                \
