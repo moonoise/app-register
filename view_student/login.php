@@ -81,7 +81,7 @@
                                         </div>
                                     </div>
                                     <!-- <div class="position-relative form-check"><input name="check" id="exampleCheck" type="checkbox" class="form-check-input"><label for="exampleCheck" class="form-check-label">Keep me logged in</label></div> -->
-                                    <div class="position-relative form-check"><span class="text-primary">ชื่อผู้ใช้เริ่มแรก [เลขบัตรประชาชน] รหัสผ่าน [รหัสนิสิต]</span></div>
+                                    <div class="position-relative form-check"><span class="text-primary">ชื่อผู้ใช้เริ่มแรก [รหัสนิสิต] รหัสผ่าน [เลขบัตรประชาชน]</span></div>
                                     <div class="divider row"></div>
                                     <div class="d-flex align-items-center">
                                         <!-- <div class="ml-auto"><a href="javascript:void(0);" class="btn-lg btn btn-link">Recover Password</a> -->
