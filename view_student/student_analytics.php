@@ -57,6 +57,15 @@ include_once "login-head.php";
         .table-subject-blue th {
             border: 1px solid #059abb;
         }
+
+        .table-subject-white {
+            background-color: #fbf9f354;
+        }
+
+        .table-subject-white td,
+        .table-subject-white th {
+            border: 1px solid #adaba963;
+        }
     </style>
 </head>
 
@@ -86,13 +95,22 @@ include_once "login-head.php";
                                                                 <div class="widget-content-left"><img width="52" class="rounded-circle" src="../assets/images/avatars/avatar-1-256.png" alt=""></div>
                                                             </div>
                                                             <div class="widget-content-left flex2">
-                                                                <div class="widget-heading"><b>ชื่อ-สกุล:</b>&nbsp;&nbsp;<span id="id-name"></div>
-                                                                <div class="widget-subheading opacity-10"><span class="pr-2"><b>รหัสนิสิต:</b> </span><span><b class="text-success" id="id-std_id"></b></span></div>
+                                                                <div class="widget-heading"><b class="pr-2">Student No:</b><b class="text-success" id="id-std_id"></b> </div>
+                                                                <div class="widget-heading "><b class="pr-2">Name:</b><b id="id-name" class="text-success"></b></div>
+                                                                <div class="widget-heading "><b class="pr-5">&nbsp;&nbsp;</b><b id="name_th" class="text-success">ชื่อ ภาษาไทย</b></div>
+                                                                <div class="widget-heading "><b class="pr-2">Type of Admission:</b><b id="type_of_admission" class="text-success"></b></div>
+
                                                             </div>
                                                             <div class="widget-content-left mr-5">
-                                                                <div class="widget-heading"><b>นิสิตชั้นปีที่:</b>&nbsp;&nbsp;<span id="id-level" class="text-success"></div>
-                                                                <div class="widget-subheading opacity-10"><span class="pr-2"><b></b>&nbsp;&nbsp; </span><span id="id-gpa" class="text-success"></span></div>
+                                                                <div class="widget-heading"><b class="pr-2">Faculty of:</b><b class="text-success">Irrigation College</b></div>
+                                                                <div class="widget-heading"><b class="pr-2">Field of Study:</b><b class="text-success">Civil Engineering-Irrigation</b></div>
+                                                                <div class="widget-heading"><b class="pr-2">Degree Conferred:</b><b id="degree_conferred" class="text-success"></b></div>
+
+                                                                <div class="widget-heading"><b class="pr-2">Date of Admission:</b><b id="date_of_admission" class="text-success"></b></div>
+
+
                                                             </div>
+
                                                         </div>
                                                     </div>
                                                 </li>
@@ -110,12 +128,8 @@ include_once "login-head.php";
                                         <div class="row" id="id-subject-old"></div>
                                     </div>
 
-
-
                                     <pre id="json-renderer-current"></pre>
                                     <pre id="json-renderer"></pre>
-
-
 
                                 </div>
                                 <div class="d-block text-right card-footer">
@@ -225,7 +239,10 @@ include_once "login-head.php";
                 }
                 var regis = ""
                 if (this.registered == true) {
-                    regis = "<i class=\"fa fa-fw icon-gradient bg-malibu-beach\" aria-hidden=\"true\" title=\" ลงทะเบียนแล้ว \">  </i> "
+                    // regis = "<i class=\"fa fa-fw icon-gradient bg-malibu-beach\" aria-hidden=\"true\" title=\" ลงทะเบียนแล้ว \">  </i> "
+                    regis = "<div class=\"mb-2 mr-2 badge badge-pill badge-info\">UA</div>"
+                } else {
+                    regis = ""
                 }
 
                 var str = "<table class=\"col-3 mr-3 table " + strColor + "\"> \
@@ -262,6 +279,9 @@ include_once "login-head.php";
                     $("#id-name").html(response.std_title_name + response.std_fname + " " + response.std_lname)
                     $("#id-std_id").html(response.std_id)
                     $("#id-level").html(response.level)
+                    $("#type_of_admission").html(response.admission_type_detail)
+                    $("#degree_conferred").html(response.degree_conferred)
+                    $("#date_of_admission").html(response.date_of_admission)
                 }
             });
         }
@@ -277,6 +297,8 @@ include_once "login-head.php";
                 var grade = ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'P'];
                 if (grade.includes(this.grade_text)) {
                     strColor = " table-subject-blue "
+                } else if (this.grade_text == 'W') {
+                    strColor = " table-subject-white "
                 } else {
                     strColor = " table-subject-red "
                 }
@@ -287,6 +309,29 @@ include_once "login-head.php";
                                     <td>" + this.subject_credit + "</td>                                 \
                                     <td>" + this.subject_id + "</td>                               \
                                     <td>" + this.grade_text + "</td>                                  \
+                                </tr>                                       \
+                                <tr>                                        \
+                                    <td colspan=\"3\">" + this.subject_name_en +
+                    "</td>                 \
+                                </tr>                                       \
+                            </tbody>                                        \
+                        </table>";
+                return str;
+            }
+
+        }
+
+        var objSubjectOldNotRegister = {
+            'subject_id': '',
+            'subject_name_en': '',
+            'subject_credit': '',
+            table_subject: function() {
+                var str = "<table class=\"col-3 mr-3 table table-subject-white \"> \
+                            <tbody>                                         \
+                                <tr>                                        \
+                                    <td>" + this.subject_credit + "</td>                                 \
+                                    <td>" + this.subject_id + "</td>                               \
+                                    <td></td>                                  \
                                 </tr>                                       \
                                 <tr>                                        \
                                     <td colspan=\"3\">" + this.subject_name_en +
@@ -358,20 +403,25 @@ include_once "login-head.php";
                 },
                 dataType: "JSON",
                 success: function(response) {
-                    var tableSubject = Object.create(objSubjectOld);
+
+
                     response.forEach((element, key) => {
                         // console.log(element['grade'])
                         if (element['grade'].length > 0) {
                             var strTerm = ""
+                            var strYear = ""
                             if (element['term'] == '3') {
                                 strTerm = "ภาคฤดูร้อน"
+                                strYear = parseInt(element['year']) + 1
                             } else {
                                 strTerm = element['term']
+                                strYear = parseInt(element['year'])
                             }
-                            $("#id-subject-old").append("<div class=\"card-header mb-2 col-12 \">ปี " + element['year'] + " เทอม " + strTerm + "</div>");
+                            $("#id-subject-old").append("<div class=\"card-header mb-2 col-12 \">ปี " + strYear + " เทอม " + strTerm + "</div>");
                         }
 
                         element['grade'].forEach(element => {
+                            var tableSubject = Object.create(objSubjectOld);
 
                             tableSubject.subject_id = element['subject_id']
                             tableSubject.subject_name_en = element['subject_name_en']
@@ -381,6 +431,15 @@ include_once "login-head.php";
 
                             $("#id-subject-old").append(tableSubject.table_subject());
 
+                        });
+
+                        element['subject_not_register'].forEach(element2 => {
+                            var tableSubjectNotRegister = Object.create(objSubjectOldNotRegister);
+                            tableSubjectNotRegister.subject_id = element2['subject_id']
+                            tableSubjectNotRegister.subject_name_en = element2['subject_name_en']
+                            tableSubjectNotRegister.subject_credit = element2['subject_credit']
+
+                            $("#id-subject-old").append(tableSubjectNotRegister.table_subject());
                         });
 
 
