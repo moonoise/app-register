@@ -212,10 +212,11 @@ include_once "login-head.php";
 
             async function asyncCall() {
                 console.log('calling');
-                // const result = await student_analytics_current(std_id);
-                // const result1 = await student_analytics_future(std_id)
-                // const result2 = await student_analytics_current2(std_id);
-                const result3 = await student_analytics_future(std_id);
+                const result1 = await student_analytics_future(std_id);
+                const result2 = await student_analytics_current(std_id);
+                const result3 = await student_analytics_current2(std_id);
+                const result4 = await student_analytics(std_id);
+
 
                 // console.log(result);
                 // console.log(result2);
@@ -364,166 +365,229 @@ include_once "login-head.php";
             });
         }
 
-        // function student_analytics_current(std_id) {
-        //     $.ajax({
-        //         type: "POST",
-        //         url: "../query2/student_analytics_current.php",
-        //         data: {
-        //             'std_id': std_id
-        //         },
-        //         dataType: "JSON",
-        //         success: function(response) {
+        function student_analytics_current(std_id) {
+            $.ajax({
+                type: "POST",
+                url: "../query2/student_analytics_current.php",
+                data: {
+                    'std_id': std_id
+                },
+                dataType: "JSON",
+                success: function(response) {
 
 
-        //             $("#id-subject-current").append("<div class=\"card-header mb-2 col-12 \">แผนการเรียนปัจจุบัน</div>");
-        //             response.forEach((element, key) => {
-        //                 var tableSubject = Object.create(objSubject);
-        //                 // console.log(element['subject_id'])
-        //                 tableSubject.subject_id = element['subject_id']
-        //                 tableSubject.subject_name_en = element['subject_name_en']
-        //                 tableSubject.subject_credit = element['subject_credit']
-        //                 tableSubject.grade_text = ""
-        //                 tableSubject.registered = element['registered']
-        //                 tableSubject.permissible = element['permissible']
-        //                 tableSubject.permissible_comment = element['permissible_comment']
+                    $("#id-subject-current").append("<div class=\"card-header mb-2 col-12 \">แผนการเรียนปัจจุบัน</div>");
+                    response.forEach((element, key) => {
+                        var tableSubject = Object.create(objSubject);
+                        // console.log(element['subject_id'])
+                        tableSubject.subject_id = element['subject_id']
+                        tableSubject.subject_name_en = element['subject_name_en']
+                        tableSubject.subject_credit = element['subject_credit']
+                        tableSubject.grade_text = ""
+                        tableSubject.registered = element['registered']
+                        tableSubject.permissible = element['permissible']
+                        tableSubject.permissible_comment = element['permissible_comment']
 
-        //                 var strSr = ""
-        //                 if (element['subject_required']['data'] != null && element['subject_required']['data'].length > 0) {
-        //                     // console.log('test')
-        //                     element['subject_required']['data'].forEach((elementSubjectRequired, keySubjectRequired) => {
-        //                         strSr += "<br>" + "[" + elementSubjectRequired['subject_id'] + "] " + elementSubjectRequired['subject_name_en'] + " เกรด " + elementSubjectRequired['grade_text']
-        //                     });
-        //                     tableSubject.subject_required = strSr
-        //                 }
-
-
-
-        //                 $("#id-subject-current").append(tableSubject.table_subject());
-        //             });
+                        var strSr = ""
+                        if (element['subject_required']['data'] != null && element['subject_required']['data'].length > 0) {
+                            // console.log('test')
+                            element['subject_required']['data'].forEach((elementSubjectRequired, keySubjectRequired) => {
+                                strSr += "<br>" + "[" + elementSubjectRequired['subject_id'] + "] " + elementSubjectRequired['subject_name_en'] + " เกรด " + elementSubjectRequired['grade_text']
+                            });
+                            tableSubject.subject_required = strSr
+                        }
 
 
 
-        //             // $('#json-renderer-current').jsonViewer(response);
-        //         }
-        //     });
-
-        //     return new Promise(resolve => {
-        //         setTimeout(() => {
-        //             resolve('resolved');
-        //         }, 2000);
-        //     });
-        // }
-
-        // function student_analytics(std_id) {
-        //     $.ajax({
-        //         type: "POST",
-        //         url: "../query2/student_analytics.php",
-        //         data: {
-        //             'std_id': std_id
-        //         },
-        //         dataType: "JSON",
-        //         success: function(response) {
-
-
-        //             response.forEach((element, key) => {
-        //                 // console.log(element['grade'])
-        //                 if (element['grade'].length > 0) {
-        //                     var strTerm = ""
-        //                     var strYear = ""
-        //                     if (element['term'] == '3') {
-        //                         strTerm = "ภาคฤดูร้อน"
-        //                         strYear = parseInt(element['year']) + 1
-        //                     } else {
-        //                         strTerm = element['term']
-        //                         strYear = parseInt(element['year'])
-        //                     }
-        //                     $("#id-subject-old").append("<div class=\"card-header mb-2 col-12 \">ปี " + strYear + " เทอม " + strTerm + "</div>");
-        //                 }
-
-        //                 element['grade'].forEach(element => {
-        //                     var tableSubject = Object.create(objSubjectOld);
-
-        //                     tableSubject.subject_id = element['subject_id']
-        //                     tableSubject.subject_name_en = element['subject_name_en']
-        //                     tableSubject.subject_credit = element['subject_credit']
-        //                     tableSubject.grade_text = element['grade_text']
-        //                     tableSubject.registered = element['registered']
-
-        //                     $("#id-subject-old").append(tableSubject.table_subject());
-
-        //                 });
-
-        //                 element['subject_not_register'].forEach(element2 => {
-        //                     var tableSubjectNotRegister = Object.create(objSubjectOldNotRegister);
-        //                     tableSubjectNotRegister.subject_id = element2['subject_id']
-        //                     tableSubjectNotRegister.subject_name_en = element2['subject_name_en']
-        //                     tableSubjectNotRegister.subject_credit = element2['subject_credit']
-
-        //                     $("#id-subject-old").append(tableSubjectNotRegister.table_subject());
-        //                 });
+                        $("#id-subject-current").append(tableSubject.table_subject());
+                    });
 
 
 
-        //             });
+                    // $('#json-renderer-current').jsonViewer(response);
+                }
+            });
+
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve('resolved');
+                }, 2000);
+            });
+        }
+
+        function student_analytics(std_id) {
+            $.ajax({
+                type: "POST",
+                url: "../query2/student_analytics.php",
+                data: {
+                    'std_id': std_id
+                },
+                dataType: "JSON",
+                success: function(response) {
+
+
+                    response.forEach((element, key) => {
+                        // console.log(element['grade'])
+                        if (element['grade'].length > 0 || element['subject_not_register'].length > 0) {
+                            var strTerm = ""
+                            var strYear = ""
+                            if (element['term'] == '3') {
+                                strTerm = "ภาคฤดูร้อน"
+                                strYear = parseInt(element['year']) + 1
+                            } else {
+                                strTerm = element['term']
+                                strYear = parseInt(element['year'])
+                            }
+                            $("#id-subject-old").append("<div class=\"card-header mb-2 col-12 \">ปี " + strYear + " เทอม " + strTerm + "</div>");
+                        }
+
+                        element['grade'].forEach(element => {
+                            var tableSubject = Object.create(objSubjectOld);
+
+                            tableSubject.subject_id = element['subject_id']
+                            tableSubject.subject_name_en = element['subject_name_en']
+                            tableSubject.subject_credit = element['subject_credit']
+                            tableSubject.grade_text = element['grade_text']
+                            tableSubject.registered = element['registered']
+
+                            $("#id-subject-old").append(tableSubject.table_subject());
+
+                        });
+
+                        element['subject_not_register'].forEach(element2 => {
+                            var tableSubjectNotRegister = Object.create(objSubjectOldNotRegister);
+                            tableSubjectNotRegister.subject_id = element2['subject_id']
+                            tableSubjectNotRegister.subject_name_en = element2['subject_name_en']
+                            tableSubjectNotRegister.subject_credit = element2['subject_credit']
+
+                            $("#id-subject-old").append(tableSubjectNotRegister.table_subject());
+                        });
 
 
 
-        //             // $('#json-renderer').jsonViewer(response);
-        //         }
-        //     });
-
-        //     return new Promise(resolve => {
-        //         setTimeout(() => {
-        //             resolve('resolved');
-        //         }, 2000);
-        //     });
-        // }
-
-        // function student_analytics_current2(std_id) {
-        //     $.ajax({
-        //         type: "POST",
-        //         url: "../query2/student_analytics_current2.php",
-        //         data: {
-        //             'std_id': std_id
-        //         },
-        //         dataType: "JSON",
-        //         success: function(response) {
-        //             console.log(response)
-
-        //             $("#id-subject-current").append("<div class=\"card-header mb-2 col-12 \">เพิ่มเติม..</div>");
-        //             response.forEach((element, key) => {
-        //                 var tableSubject = Object.create(objSubject);
-
-        //                 tableSubject.subject_id = element['subject_id']
-        //                 tableSubject.subject_name_en = element['subject_name_en']
-        //                 tableSubject.subject_credit = element['subject_credit']
-        //                 tableSubject.grade_text = ""
-        //                 tableSubject.registered = true
-        //                 tableSubject.permissible = true
-        //                 tableSubject.permissible_comment = "รายวิชาที่ลงเพิ่มเติม นอกแผนการเรียน"
-
-        //                 var strSr = ""
-        //                 if (element['subject_required']['data'] != null && element['subject_required']['data'].length > 0) {
-        //                     // console.log('test')
-        //                     element['subject_required']['data'].forEach((elementSubjectRequired, keySubjectRequired) => {
-        //                         strSr += "<br>" + "[" + elementSubjectRequired['subject_id'] + "] " + elementSubjectRequired['subject_name_en'] + " เกรด " + elementSubjectRequired['grade_text']
-        //                     });
-        //                     tableSubject.subject_required = strSr
-        //                 }
-
-        //                 $("#id-subject-current").append(tableSubject.table_subject());
-        //             });
+                    });
 
 
-        //         }
-        //     });
 
-        //     return new Promise(resolve => {
-        //         setTimeout(() => {
-        //             resolve('resolved');
-        //         }, 2000);
-        //     });
-        // }
+                    // $('#json-renderer').jsonViewer(response);
+                }
+            });
+
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve('resolved');
+                }, 2000);
+            });
+        }
+
+        function student_analytics_future(std_id) {
+            $.ajax({
+                type: "POST",
+                url: "../query2/student_analytics_future.php",
+                data: {
+                    'std_id': std_id
+                },
+                dataType: "JSON",
+                success: function(response) {
+
+
+                    response.forEach((element, key) => {
+                        if (element['subject_not_register'].length > 0) {
+                            var strTerm = ""
+                            var strYear = ""
+                            if (element['term'] == '3') {
+                                strTerm = "ภาคฤดูร้อน"
+                                strYear = parseInt(element['year']) + 1
+                            } else {
+                                strTerm = element['term']
+                                strYear = parseInt(element['year'])
+                            }
+                            $("#id-subject-future").append("<div class=\"card-header mb-2 col-12 \">ปี " + strYear + " เทอม " + strTerm + "</div>");
+                        }
+
+                        element['grade'].forEach(element => {
+                            var tableSubject = Object.create(objSubjectOld);
+
+                            tableSubject.subject_id = element['subject_id']
+                            tableSubject.subject_name_en = element['subject_name_en']
+                            tableSubject.subject_credit = element['subject_credit']
+                            tableSubject.grade_text = element['grade_text']
+                            tableSubject.registered = element['registered']
+
+                            $("#id-subject-future").append(tableSubject.table_subject());
+
+                        });
+
+                        element['subject_not_register'].forEach(element2 => {
+                            var tableSubjectNotRegister = Object.create(objSubjectOldNotRegister);
+                            tableSubjectNotRegister.subject_id = element2['subject_id']
+                            tableSubjectNotRegister.subject_name_en = element2['subject_name_en']
+                            tableSubjectNotRegister.subject_credit = element2['subject_credit']
+
+                            $("#id-subject-future").append(tableSubjectNotRegister.table_subject());
+                        });
+
+
+
+                    });
+
+
+
+                    // $('#json-renderer').jsonViewer(response);
+                }
+            });
+
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve('resolved');
+                }, 2000);
+            });
+        }
+
+        function student_analytics_current2(std_id) {
+            $.ajax({
+                type: "POST",
+                url: "../query2/student_analytics_current2.php",
+                data: {
+                    'std_id': std_id
+                },
+                dataType: "JSON",
+                success: function(response) {
+                    console.log(response)
+                    if (Object.keys(response).length > 0) {
+                        $("#id-subject-current").append("<div class=\"card-header mb-2 col-12 \">เพิ่มเติม..</div>");
+                        response.forEach((element, key) => {
+                            var tableSubject = Object.create(objSubject);
+
+                            tableSubject.subject_id = element['subject_id']
+                            tableSubject.subject_name_en = element['subject_name_en']
+                            tableSubject.subject_credit = element['subject_credit']
+                            tableSubject.grade_text = ""
+                            tableSubject.registered = true
+                            tableSubject.permissible = true
+                            tableSubject.permissible_comment = "รายวิชาที่ลงเพิ่มเติม นอกแผนการเรียน"
+
+                            var strSr = ""
+                            if (element['subject_required']['data'] != null && element['subject_required']['data'].length > 0) {
+                                // console.log('test')
+                                element['subject_required']['data'].forEach((elementSubjectRequired, keySubjectRequired) => {
+                                    strSr += "<br>" + "[" + elementSubjectRequired['subject_id'] + "] " + elementSubjectRequired['subject_name_en'] + " เกรด " + elementSubjectRequired['grade_text']
+                                });
+                                tableSubject.subject_required = strSr
+                            }
+
+                            $("#id-subject-current").append(tableSubject.table_subject());
+                        });
+                    }
+                }
+            });
+
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve('resolved');
+                }, 2000);
+            });
+        }
 
         function modal_remark(params) {
             $(".bd-remark-modal-lg").modal({

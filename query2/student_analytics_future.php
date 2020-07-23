@@ -53,8 +53,9 @@ while ($yl >= $std_year) {
     //     }
     // }
 
-    if ($yl >= $std_year && $yl != $current_year && $yl > $current_year) {
-        foreach ($arrTerm as $key => $valueTerm) {
+
+    foreach ($arrTerm as $key => $valueTerm) {
+        if ($yl >= $std_year && $yl != $current_year   && $yl > $current_year) {
 
             $arrGrade['grade'] = $grade->std_grade_by_year_term($_POST['std_id'], $yl, $valueTerm);
             foreach ($arrGrade['grade'] as $keySubject => $valueSubject) {
@@ -68,7 +69,22 @@ while ($yl >= $std_year) {
 
             $arrResult[] = $arrGrade;
         }
+
+        if ($yl == $current_year  && $currentTerm != $valueTerm) {
+            $arrGrade['grade'] = $grade->std_grade_by_year_term($_POST['std_id'], $yl, $valueTerm);
+            foreach ($arrGrade['grade'] as $keySubject => $valueSubject) {
+                $arrSubjectId[] = $valueSubject['subject_id'];
+            }
+            $arrGrade['subject_not_register'] = $setSubject->set_subject_not_register($l, $yl, $valueTerm, $arrSubjectId);
+
+            $arrGrade['year'] = $yl;
+            $arrGrade['term'] = $valueTerm;
+            $arrGrade['level'] = $l;
+
+            $arrResult[] = $arrGrade;
+        }
     }
+
 
     // $y--;
     // $level--;
