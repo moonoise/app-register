@@ -250,7 +250,7 @@ include_once "login-head.php";
 
                 var str = "<table class=\"col-3 mr-3 table " + strColor + "\"> \
                             <tbody>                                         \
-                                <tr>                                        \
+                                <tr class=\"text-center\">                                        \
                                     <td>" + this.subject_credit + "</td>                                 \
                                     <td>" + this.subject_id + "</td>                               \
                                     <td>" + this.grade_text + regis + "</td>                                  \
@@ -315,7 +315,7 @@ include_once "login-head.php";
                 // console.log(this.grade_text)
                 var str = "<table class=\"col-3 mr-3 table " + strColor + "\"> \
                             <tbody>                                         \
-                                <tr>                                        \
+                                <tr class=\"text-center\">                                        \
                                     <td>" + this.subject_credit + "</td>                                 \
                                     <td>" +
                     "<button class=\"btn-check-info btn-icon btn-shadow btn-dashed btn btn-outline-info\" type=\"button\"><i class=\"pe-7s-look\" value=\"" + this.set_subject_id + "\"> </i> " + this.subject_id + "</button>  " +
@@ -341,7 +341,7 @@ include_once "login-head.php";
             table_subject: function() {
                 var str = "<table class=\"col-3 mr-3 table table-subject-white \"> \
                             <tbody>                                         \
-                                <tr>                                        \
+                                <tr class=\"text-center\">                                        \
                                     <td>" + this.subject_credit + "</td>                                 \
                                     <td>" +
                     "<button class=\"btn-check-info btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-light\" type=\"button\"><i class=\"pe-7s-look\" value=\"" + this.set_subject_id + "\"> </i> " + this.subject_id + "</button>  \

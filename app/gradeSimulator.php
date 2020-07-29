@@ -468,7 +468,7 @@ class GradeSimulator extends SqlConn
         return $result;
     }
 
-    function check_permission_register($stdId, $subjectId, $currentYear, $currentTerm)
+    function check_permission_register($stdId, $subjectId, $currentYear, $currentTerm)  // เช็คว่าสามารถ ลงทะเบียนได้ไหม
     {
         $grade1 = array('A', 'B+', 'B', 'C+', 'C', 'D+', 'D');
         $grade2 = array('F');

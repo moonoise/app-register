@@ -237,8 +237,23 @@ include_once "login-head.php";
             'subject_required': '',
             table_subject: function() {
                 var strColor = ""
+                var strGrade = ""
+                var grade = ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'P'];
+
                 if (this.permissible == true) {
                     strColor = " table-subject-green "
+                    if (grade.includes(this.grade_text)) {
+                        strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-info\"> " + this.grade_text + "</button>"
+                    } else if (this.grade_text == 'W') {
+
+                        strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-warning\"> " + this.grade_text + "</button>"
+                    } else if (this.grade_text == 'F') {
+
+                        strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-danger\"> " + this.grade_text + "</button>"
+                    } else if (this.grade_text === null) {
+
+                        strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-warning\"> <i class=\"lnr-magic-wand btn-icon-wrapper\" ></i></button>"
+                    }
                 } else {
                     strColor = " table-subject-yellow "
                 }
@@ -252,10 +267,12 @@ include_once "login-head.php";
 
                 var str = "<table class=\"col-3 mr-3 table " + strColor + "\"> \
                             <tbody>                                         \
-                                <tr>                                        \
+                                <tr class=\"text-center\">                                        \
                                     <td>" + this.subject_credit + "</td>                                 \
-                                    <td>" + this.subject_id + "</td>                               \
-                                    <td>" + this.grade_text + regis + "</td>                                  \
+                                    <td>" +
+                    "<button class=\"btn-check-info btn-icon btn-shadow btn-dashed btn btn-outline-success\" type=\"button\"><i class=\"pe-7s-look\" value=\"" + this.set_subject_id + "\"> </i> " + this.subject_id + "</button>  " +
+                    "</td>                               \
+                                    <td>" + strGrade + regis + "</td>                                  \
                                 </tr>                                       \
                                 <tr>                                        \
                                     <td colspan=\"3\">" + this.subject_name_en +
@@ -299,21 +316,30 @@ include_once "login-head.php";
             'registered': '',
             table_subject: function() {
                 var strColor = ""
+                var strGrade = ""
                 var grade = ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'P'];
                 if (grade.includes(this.grade_text)) {
                     strColor = " table-subject-blue "
+                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-info\"> " + this.grade_text + "</button>"
                 } else if (this.grade_text == 'W') {
                     strColor = " table-subject-white "
-                } else {
+                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-warning\"> " + this.grade_text + "</button>"
+                } else if (this.grade_text == 'F') {
                     strColor = " table-subject-red "
+                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-danger\"> " + this.grade_text + "</button>"
+                } else if (this.grade_text === null) {
+                    strColor = " table-subject-blue "
+                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-warning\"> <i class=\"lnr-magic-wand btn-icon-wrapper\" ></i></button>"
                 }
 
                 var str = "<table class=\"col-3 mr-3 table " + strColor + "\"> \
                             <tbody>                                         \
-                                <tr>                                        \
+                                <tr class=\"text-center\">                                        \
                                     <td>" + this.subject_credit + "</td>                                 \
-                                    <td>" + this.subject_id + "</td>                               \
-                                    <td>" + this.grade_text + "</td>                                  \
+                                    <td>" +
+                    "<button class=\"btn-check-info btn-icon btn-shadow btn-dashed btn btn-outline-info\" type=\"button\"><i class=\"pe-7s-look\" value=\"" + this.set_subject_id + "\"> </i> " + this.subject_id + "</button>  " +
+                    "</td>   \
+                                    <td>" + strGrade + "</td>                                  \
                                 </tr>                                       \
                                 <tr>                                        \
                                     <td colspan=\"3\">" + this.subject_name_en +
@@ -333,7 +359,7 @@ include_once "login-head.php";
             table_subject: function() {
                 var str = "<table class=\"col-3 mr-3 table table-subject-white \"> \
                             <tbody>                                         \
-                                <tr>                                        \
+                                <tr class=\"text-center\">                                        \
                                     <td>" + this.subject_credit + "</td>                                 \
                                     <td>" + this.subject_id + "</td>                               \
                                     <td></td>                                  \

@@ -467,4 +467,92 @@ class Grade extends SqlConn
 
         return $result;
     }
+
+    function check_permission_register($stdId, $subjectId, $currentYear, $currentTerm)
+    {
+        $grade1 = array('A', 'B+', 'B', 'C+', 'C', 'D+', 'D');
+        $grade2 = array('F');
+        $grade3 = array('W');
+        $arrTerm = [1, 2, 3];
+
+        $condition = array();
+        $sr = array();
+
+        $check['registered'] = $this->check_registered($stdId, $subjectId, $currentYear, $currentTerm);
+        $required_subject = $this->required_subject($subjectId);
+        if ($required_subject['count'] > 0) {
+            foreach ($required_subject['data'] as $keyRequired => $valueRequired) {
+                $chPer = 0;
+                $c = array();
+                $c = $this->check_grade($stdId, $valueRequired['subject_id'], $grade1); // หา 'A','B+','B','C+','C','D+','D'
+                if ($c['count'] > 0) {
+                    $chPer = 1;
+                    $sr['permissible_comment'] = "เกรดรายวิชาต่อเนื่องครบ";
+                } else {
+                    $c = $this->check_grade($stdId, $valueRequired['subject_id'], $grade2);  // หา F
+                    if ($c['count'] > 0) {
+                        $chPer = 0;
+                        $sr['permissible_comment'] = "ติด F รายวิชาต่อเนื่อง";
+                        $checkRegister = $this->check_registered($stdId, $valueRequired['subject_id'], $currentYear, $currentTerm);
+                        if ($checkRegister) {
+                            $chPer = 1;
+                            $sr['permissible_comment'] = "ติด F รายวิชาต่อเนื่อง แต่ได้ลงทะเบียนเรียนในภาคเรียนปัจจุบันแล้ว";
+                        }
+                    } else {
+                        $c = $this->check_grade($stdId, $valueRequired['subject_id'], $grade3);  // หา W
+                        if ($c['count'] > 0) {
+                            $chPer = 0;
+                            $sr['permissible_comment'] = "DROP รายวิชาต่อเนื่อง ไม่สามารถลงทะเบียนได้";
+                        } else {
+                            $chPer = 0;
+                            $sr['permissible_comment'] = "ไม่พบการลงทะเบียน รายวิชาต่อเนื่อง";
+                        }
+                    }
+                }
+                $arrGrade['subject_required']['data'] = $c['data'];
+
+                if ($chPer == 1) {
+                    $sr['permissible'] = true;  //
+                } else {
+                    $sr['permissible'] = false;  //
+                }
+            }
+        } else {
+            $arrGrade['subject_required']['data'] = null;
+            $sr['permissible'] = true;
+            $sr['permissible_comment'] = "ไม่ใช่รายวิชาต่อเนื่อง";
+        }
+        $check['subject_required']['count'] = $required_subject['count'];
+        $arrResult = array_merge_recursive($check, $sr, $arrGrade);
+
+        return $arrResult;
+    }
+
+    function set_subject_not_register($stdLevel, $stdYear, $stdTerm, $arrSubjectId)
+    {
+        $strSubjectId = "'" . implode("','", $arrSubjectId) . "'";
+        try {
+            $sql =
+                "SELECT set_subject.*,
+                            subject.subject_name_en,
+                            subject.subject_credit
+                    FROM  set_subject 
+                    LEFT JOIN subject 
+                        ON subject.subject_id = set_subject.subject_id 
+                    WHERE set_subject.set_subject_level = :stdLevel 
+                            AND set_subject.set_subject_year = :stdYear
+                            AND set_subject.set_subject_term = :stdTerm 
+                            AND  set_subject.subject_id NOT IN (" . $strSubjectId . ")";
+
+            $stm = $this->conn->prepare($sql);
+            $stm->bindParam(':stdLevel', $stdLevel);
+            $stm->bindParam(':stdYear', $stdYear);
+            $stm->bindParam(':stdTerm', $stdTerm);
+            $stm->execute();
+            $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }
