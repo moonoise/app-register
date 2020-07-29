@@ -24,6 +24,7 @@ include_once "login-head.php";
     <style>
         .table-subject-red {
             background-color: #f7242424;
+            box-shadow: 0 0.125rem 0.625rem rgba(217, 37, 80, .4), 0 0.0625rem 0.125rem rgba(217, 37, 80, .5);
         }
 
         .table-subject-red td,
@@ -33,6 +34,7 @@ include_once "login-head.php";
 
         .table-subject-yellow {
             background-color: #eaaf0a54;
+            box-shadow: 0 0.125rem 0.625rem rgba(247, 185, 36, .4), 0 0.0625rem 0.125rem rgba(247, 185, 36, .5);
         }
 
         .table-subject-yellow td,
@@ -42,6 +44,7 @@ include_once "login-head.php";
 
         .table-subject-green {
             background-color: #5bf14959;
+            box-shadow: 0 0.125rem 0.625rem rgba(58, 196, 125, .4), 0 0.0625rem 0.125rem rgba(58, 196, 125, .5);
         }
 
         .table-subject-green td,
@@ -51,6 +54,7 @@ include_once "login-head.php";
 
         .table-subject-blue {
             background-color: #49d2f159;
+            box-shadow: 0 0.125rem 0.625rem rgba(22, 170, 255, .4), 0 0.0625rem 0.125rem rgba(22, 170, 255, .5);
         }
 
         .table-subject-blue td,
@@ -60,6 +64,7 @@ include_once "login-head.php";
 
         .table-subject-white {
             background-color: #fbf9f354;
+            box-shadow: 0 0.125rem 0.625rem rgba(238, 238, 238, .4), 0 0.0625rem 0.125rem rgba(238, 238, 238, .5);
         }
 
         .table-subject-white td,
@@ -117,6 +122,10 @@ include_once "login-head.php";
                                             </ul>
                                         </div>
 
+                                    </div>
+                                    <div class="col-12 mx-3 ">
+                                        <div class="row" id="id-subject-future">
+                                        </div>
                                     </div>
                                     <div class="col-12 mx-3 ">
                                         <div class="row" id="id-subject-current">
@@ -193,9 +202,6 @@ include_once "login-head.php";
         $(document).ready(function() {
             var std_id = '<?php echo $_SESSION[__STD_ID__]; ?>';
 
-            // student_analytics_current(std_id)
-            // student_analytics_current2(std_id)
-            // student_analytics(std_id)
             call_student(std_id)
 
             function resolveAfter2Seconds() {
@@ -208,12 +214,9 @@ include_once "login-head.php";
 
             async function asyncCall() {
                 console.log('calling');
-                const result = await student_analytics_current(std_id);
-                const result2 = await student_analytics_current2(std_id);
-                const result3 = await student_analytics(std_id);
-                console.log(result);
-                console.log(result2);
-                console.log(result3);
+                const result4 = await student_analytics(std_id);
+                console.log(result4);
+
                 // expected output: 'resolved'
             }
 
@@ -270,7 +273,7 @@ include_once "login-head.php";
         function call_student(std_id) {
             $.ajax({
                 type: "POST",
-                url: "../query/student_show2.php",
+                url: "../query2/student_show2.php",
                 data: {
                     "std_id": std_id
                 },
@@ -294,21 +297,30 @@ include_once "login-head.php";
             'registered': '',
             table_subject: function() {
                 var strColor = ""
+                var strGrade = ""
                 var grade = ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'P'];
                 if (grade.includes(this.grade_text)) {
                     strColor = " table-subject-blue "
+                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-info\"> " + this.grade_text + "</button>"
                 } else if (this.grade_text == 'W') {
                     strColor = " table-subject-white "
-                } else {
+                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-warning\"> " + this.grade_text + "</button>"
+                } else if (this.grade_text == 'F') {
                     strColor = " table-subject-red "
+                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-danger\"> " + this.grade_text + "</button>"
+                } else if (this.grade_text === null) {
+                    strColor = " table-subject-blue "
+                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-warning\"> <i class=\"lnr-magic-wand btn-icon-wrapper\" ></i></button>"
                 }
-
+                // console.log(this.grade_text)
                 var str = "<table class=\"col-3 mr-3 table " + strColor + "\"> \
                             <tbody>                                         \
                                 <tr>                                        \
                                     <td>" + this.subject_credit + "</td>                                 \
-                                    <td>" + this.subject_id + "</td>                               \
-                                    <td>" + this.grade_text + "</td>                                  \
+                                    <td>" +
+                    "<button class=\"btn-check-info btn-icon btn-shadow btn-dashed btn btn-outline-info\" type=\"button\"><i class=\"pe-7s-look\" value=\"" + this.set_subject_id + "\"> </i> " + this.subject_id + "</button>  " +
+                    "</td>   \
+                                    <td>" + strGrade + "</td>                                  \
                                 </tr>                                       \
                                 <tr>                                        \
                                     <td colspan=\"3\">" + this.subject_name_en +
@@ -325,12 +337,15 @@ include_once "login-head.php";
             'subject_id': '',
             'subject_name_en': '',
             'subject_credit': '',
+            'set_subject_id': '',
             table_subject: function() {
                 var str = "<table class=\"col-3 mr-3 table table-subject-white \"> \
                             <tbody>                                         \
                                 <tr>                                        \
                                     <td>" + this.subject_credit + "</td>                                 \
-                                    <td>" + this.subject_id + "</td>                               \
+                                    <td>" +
+                    "<button class=\"btn-check-info btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-light\" type=\"button\"><i class=\"pe-7s-look\" value=\"" + this.set_subject_id + "\"> </i> " + this.subject_id + "</button>  \
+                                    </td>                               \
                                     <td></td>                                  \
                                 </tr>                                       \
                                 <tr>                                        \
@@ -344,60 +359,12 @@ include_once "login-head.php";
 
         }
 
-        function student_analytics_current(std_id) {
-            $.ajax({
-                type: "POST",
-                url: "../query/student_analytics_current.php",
-                data: {
-                    'std_id': std_id
-                },
-                dataType: "JSON",
-                success: function(response) {
 
-
-                    $("#id-subject-current").append("<div class=\"card-header mb-2 col-12 \">แผนการเรียนปัจจุบัน</div>");
-                    response.forEach((element, key) => {
-                        var tableSubject = Object.create(objSubject);
-                        // console.log(element['subject_id'])
-                        tableSubject.subject_id = element['subject_id']
-                        tableSubject.subject_name_en = element['subject_name_en']
-                        tableSubject.subject_credit = element['subject_credit']
-                        tableSubject.grade_text = ""
-                        tableSubject.registered = element['registered']
-                        tableSubject.permissible = element['permissible']
-                        tableSubject.permissible_comment = element['permissible_comment']
-
-                        var strSr = ""
-                        if (element['subject_required']['data'] != null && element['subject_required']['data'].length > 0) {
-                            // console.log('test')
-                            element['subject_required']['data'].forEach((elementSubjectRequired, keySubjectRequired) => {
-                                strSr += "<br>" + "[" + elementSubjectRequired['subject_id'] + "] " + elementSubjectRequired['subject_name_en'] + " เกรด " + elementSubjectRequired['grade_text']
-                            });
-                            tableSubject.subject_required = strSr
-                        }
-
-
-
-                        $("#id-subject-current").append(tableSubject.table_subject());
-                    });
-
-
-
-                    // $('#json-renderer-current').jsonViewer(response);
-                }
-            });
-
-            return new Promise(resolve => {
-                setTimeout(() => {
-                    resolve('resolved');
-                }, 2000);
-            });
-        }
 
         function student_analytics(std_id) {
             $.ajax({
                 type: "POST",
-                url: "../query/student_analytics.php",
+                url: "../query3/student_simulator-show.php",
                 data: {
                     'std_id': std_id
                 },
@@ -405,7 +372,7 @@ include_once "login-head.php";
                 success: function(response) {
 
 
-                    response.forEach((element, key) => {
+                    response.reverse().forEach((element, key) => {
                         // console.log(element['grade'])
                         if (element['grade'].length > 0 || element['subject_not_register'].length > 0) {
                             var strTerm = ""
@@ -417,7 +384,7 @@ include_once "login-head.php";
                                 strTerm = element['term']
                                 strYear = parseInt(element['year'])
                             }
-                            $("#id-subject-old").append("<div class=\"card-header mb-2 col-12 \">ปี " + strYear + " เทอม " + strTerm + "</div>");
+                            $("#id-subject-old").append("<div class=\"card-header mb-2 col-12 \">ปี " + strYear + " เทอม " + strTerm + " (sem. G.P.A. = " + element['gpa'] + " ,  cum. G.P.A. = " + element['cum_gpa'] + ")" + "</div>");
                         }
 
                         element['grade'].forEach(element => {
@@ -428,6 +395,7 @@ include_once "login-head.php";
                             tableSubject.subject_credit = element['subject_credit']
                             tableSubject.grade_text = element['grade_text']
                             tableSubject.registered = element['registered']
+                            tableSubject.set_subject_id = element['set_subject_id']
 
                             $("#id-subject-old").append(tableSubject.table_subject());
 
@@ -441,13 +409,7 @@ include_once "login-head.php";
 
                             $("#id-subject-old").append(tableSubjectNotRegister.table_subject());
                         });
-
-
-
                     });
-
-
-
                     // $('#json-renderer').jsonViewer(response);
                 }
             });
@@ -459,50 +421,9 @@ include_once "login-head.php";
             });
         }
 
-        function student_analytics_current2(std_id) {
-            $.ajax({
-                type: "POST",
-                url: "../query/student_analytics_current2.php",
-                data: {
-                    'std_id': std_id
-                },
-                dataType: "JSON",
-                success: function(response) {
-                    console.log(response)
-                    if (Object.keys(response).length > 0) {
-                        $("#id-subject-current").append("<div class=\"card-header mb-2 col-12 \">เพิ่มเติม..</div>");
-                        response.forEach((element, key) => {
-                            var tableSubject = Object.create(objSubject);
+        $(document).on("click", ".btn-check-info", function() {
 
-                            tableSubject.subject_id = element['subject_id']
-                            tableSubject.subject_name_en = element['subject_name_en']
-                            tableSubject.subject_credit = element['subject_credit']
-                            tableSubject.grade_text = ""
-                            tableSubject.registered = true
-                            tableSubject.permissible = true
-                            tableSubject.permissible_comment = "รายวิชาที่ลงเพิ่มเติม นอกแผนการเรียน"
-
-                            var strSr = ""
-                            if (element['subject_required']['data'] != null && element['subject_required']['data'].length > 0) {
-                                // console.log('test')
-                                element['subject_required']['data'].forEach((elementSubjectRequired, keySubjectRequired) => {
-                                    strSr += "<br>" + "[" + elementSubjectRequired['subject_id'] + "] " + elementSubjectRequired['subject_name_en'] + " เกรด " + elementSubjectRequired['grade_text']
-                                });
-                                tableSubject.subject_required = strSr
-                            }
-
-                            $("#id-subject-current").append(tableSubject.table_subject());
-                        });
-                    }
-                }
-            });
-
-            return new Promise(resolve => {
-                setTimeout(() => {
-                    resolve('resolved');
-                }, 2000);
-            });
-        }
+        });
 
         function modal_remark(params) {
             $(".bd-remark-modal-lg").modal({

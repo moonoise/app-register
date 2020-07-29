@@ -24,6 +24,7 @@ include_once "login-head.php";
     <style>
         .table-subject-red {
             background-color: #f7242424;
+            box-shadow: 0 0.125rem 0.625rem rgba(217, 37, 80, .4), 0 0.0625rem 0.125rem rgba(217, 37, 80, .5);
         }
 
         .table-subject-red td,
@@ -33,6 +34,7 @@ include_once "login-head.php";
 
         .table-subject-yellow {
             background-color: #eaaf0a54;
+            box-shadow: 0 0.125rem 0.625rem rgba(247, 185, 36, .4), 0 0.0625rem 0.125rem rgba(247, 185, 36, .5);
         }
 
         .table-subject-yellow td,
@@ -42,6 +44,7 @@ include_once "login-head.php";
 
         .table-subject-green {
             background-color: #5bf14959;
+            box-shadow: 0 0.125rem 0.625rem rgba(58, 196, 125, .4), 0 0.0625rem 0.125rem rgba(58, 196, 125, .5);
         }
 
         .table-subject-green td,
@@ -51,6 +54,7 @@ include_once "login-head.php";
 
         .table-subject-blue {
             background-color: #49d2f159;
+            box-shadow: 0 0.125rem 0.625rem rgba(22, 170, 255, .4), 0 0.0625rem 0.125rem rgba(22, 170, 255, .5);
         }
 
         .table-subject-blue td,
@@ -60,6 +64,7 @@ include_once "login-head.php";
 
         .table-subject-white {
             background-color: #fbf9f354;
+            box-shadow: 0 0.125rem 0.625rem rgba(238, 238, 238, .4), 0 0.0625rem 0.125rem rgba(238, 238, 238, .5);
         }
 
         .table-subject-white td,
@@ -117,6 +122,10 @@ include_once "login-head.php";
                                             </ul>
                                         </div>
 
+                                    </div>
+                                    <div class="col-12 mx-3 ">
+                                        <div class="row" id="id-subject-future">
+                                        </div>
                                     </div>
                                     <div class="col-12 mx-3 ">
                                         <div class="row" id="id-subject-current">
@@ -208,12 +217,15 @@ include_once "login-head.php";
 
             async function asyncCall() {
                 console.log('calling');
-                const result = await student_analytics_current(std_id);
-                const result2 = await student_analytics_current2(std_id);
-                const result3 = await student_analytics(std_id);
-                console.log(result);
-                console.log(result2);
-                console.log(result3);
+                const result1 = await student_analytics_future(std_id);
+                const result2 = await student_analytics_current(std_id);
+                const result3 = await student_analytics_current2(std_id);
+                const result4 = await student_analytics(std_id);
+
+
+                // console.log(result);
+                // console.log(result2);
+                // console.log(result3);
                 // expected output: 'resolved'
             }
 
@@ -270,7 +282,7 @@ include_once "login-head.php";
         function call_student(std_id) {
             $.ajax({
                 type: "POST",
-                url: "../query/student_show2.php",
+                url: "../query2/student_show2.php",
                 data: {
                     "std_id": std_id
                 },
@@ -344,10 +356,24 @@ include_once "login-head.php";
 
         }
 
+        function student_analytics_future(std_id) {
+            $.ajax({
+                type: "POST",
+                url: "../query2/student_analytics_future.php",
+                data: {
+                    'std_id': std_id
+                },
+                dataType: "JSON",
+                success: function(response) {
+                    console.log(response)
+                }
+            });
+        }
+
         function student_analytics_current(std_id) {
             $.ajax({
                 type: "POST",
-                url: "../query/student_analytics_current.php",
+                url: "../query2/student_analytics_current.php",
                 data: {
                     'std_id': std_id
                 },
@@ -397,7 +423,7 @@ include_once "login-head.php";
         function student_analytics(std_id) {
             $.ajax({
                 type: "POST",
-                url: "../query/student_analytics.php",
+                url: "../query2/student_analytics.php",
                 data: {
                     'std_id': std_id
                 },
@@ -459,10 +485,74 @@ include_once "login-head.php";
             });
         }
 
+        function student_analytics_future(std_id) {
+            $.ajax({
+                type: "POST",
+                url: "../query2/student_analytics_future.php",
+                data: {
+                    'std_id': std_id
+                },
+                dataType: "JSON",
+                success: function(response) {
+
+
+                    response.forEach((element, key) => {
+                        if (element['subject_not_register'].length > 0) {
+                            var strTerm = ""
+                            var strYear = ""
+                            if (element['term'] == '3') {
+                                strTerm = "ภาคฤดูร้อน"
+                                strYear = parseInt(element['year']) + 1
+                            } else {
+                                strTerm = element['term']
+                                strYear = parseInt(element['year'])
+                            }
+                            $("#id-subject-future").append("<div class=\"card-header mb-2 col-12 \">ปี " + strYear + " เทอม " + strTerm + "</div>");
+                        }
+
+                        element['grade'].forEach(element => {
+                            var tableSubject = Object.create(objSubjectOld);
+
+                            tableSubject.subject_id = element['subject_id']
+                            tableSubject.subject_name_en = element['subject_name_en']
+                            tableSubject.subject_credit = element['subject_credit']
+                            tableSubject.grade_text = element['grade_text']
+                            tableSubject.registered = element['registered']
+
+                            $("#id-subject-future").append(tableSubject.table_subject());
+
+                        });
+
+                        element['subject_not_register'].forEach(element2 => {
+                            var tableSubjectNotRegister = Object.create(objSubjectOldNotRegister);
+                            tableSubjectNotRegister.subject_id = element2['subject_id']
+                            tableSubjectNotRegister.subject_name_en = element2['subject_name_en']
+                            tableSubjectNotRegister.subject_credit = element2['subject_credit']
+
+                            $("#id-subject-future").append(tableSubjectNotRegister.table_subject());
+                        });
+
+
+
+                    });
+
+
+
+                    // $('#json-renderer').jsonViewer(response);
+                }
+            });
+
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve('resolved');
+                }, 2000);
+            });
+        }
+
         function student_analytics_current2(std_id) {
             $.ajax({
                 type: "POST",
-                url: "../query/student_analytics_current2.php",
+                url: "../query2/student_analytics_current2.php",
                 data: {
                     'std_id': std_id
                 },

@@ -57,6 +57,19 @@
                                     วิเคราะห์แผนการเรียน
                                 </a>
                             </li>
+                             <li>
+                                <a href=\"" . __PATH_WEB__ . "/view_student/student_analytics2.php\" id=\"sub1-menu2\">
+                                    <i class=\"metismenu-icon\">
+                                    </i>
+                                    วิเคราะห์แผนการเรียน แบบที่ 2
+                                </a>
+                            </li>
+                            <li>
+                               <a href=\"" . __PATH_WEB__ . "/view_student/student_simulator.php\" id=\"sub2-menu3\">
+                                   <i class=\"metismenu-icon\">
+                                   </i>simulator
+                               </a>
+                           </li>
                         </ul>
                     </li>
                         ";
@@ -85,6 +98,7 @@
                                    </i>วิเคราะห์แผนการเรียนนิสิต
                                </a>
                            </li>
+                           
                        </ul>
                    </li>
                 

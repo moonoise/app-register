@@ -85,7 +85,6 @@ while ($yl >= $std_year) {
         }
     }
 
-
     // $y--;
     // $level--;
     $l--;

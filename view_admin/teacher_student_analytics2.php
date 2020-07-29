@@ -24,6 +24,7 @@ include_once "login-head.php";
     <style>
         .table-subject-red {
             background-color: #f7242424;
+            box-shadow: 0 0.125rem 0.625rem rgba(217, 37, 80, .4), 0 0.0625rem 0.125rem rgba(217, 37, 80, .5);
         }
 
         .table-subject-red td,
@@ -33,6 +34,7 @@ include_once "login-head.php";
 
         .table-subject-yellow {
             background-color: #eaaf0a54;
+            box-shadow: 0 0.125rem 0.625rem rgba(247, 185, 36, .4), 0 0.0625rem 0.125rem rgba(247, 185, 36, .5);
         }
 
         .table-subject-yellow td,
@@ -42,6 +44,7 @@ include_once "login-head.php";
 
         .table-subject-green {
             background-color: #5bf14959;
+            box-shadow: 0 0.125rem 0.625rem rgba(58, 196, 125, .4), 0 0.0625rem 0.125rem rgba(58, 196, 125, .5);
         }
 
         .table-subject-green td,
@@ -51,6 +54,7 @@ include_once "login-head.php";
 
         .table-subject-blue {
             background-color: #49d2f159;
+            box-shadow: 0 0.125rem 0.625rem rgba(22, 170, 255, .4), 0 0.0625rem 0.125rem rgba(22, 170, 255, .5);
         }
 
         .table-subject-blue td,
@@ -60,6 +64,7 @@ include_once "login-head.php";
 
         .table-subject-white {
             background-color: #fbf9f354;
+            box-shadow: 0 0.125rem 0.625rem rgba(238, 238, 238, .4), 0 0.0625rem 0.125rem rgba(238, 238, 238, .5);
         }
 
         .table-subject-white td,
@@ -426,7 +431,7 @@ include_once "login-head.php";
                 success: function(response) {
 
 
-                    response.forEach((element, key) => {
+                    response.reverse().forEach((element, key) => {
                         // console.log(element['grade'])
                         if (element['grade'].length > 0 || element['subject_not_register'].length > 0) {
                             var strTerm = ""
@@ -438,7 +443,7 @@ include_once "login-head.php";
                                 strTerm = element['term']
                                 strYear = parseInt(element['year'])
                             }
-                            $("#id-subject-old").append("<div class=\"card-header mb-2 col-12 \">ปี " + strYear + " เทอม " + strTerm + "</div>");
+                            $("#id-subject-old").append("<div class=\"card-header mb-2 col-12 \">ปี " + strYear + " เทอม " + strTerm + " (sem. G.P.A. = " + element['gpa'] + " ,  cum. G.P.A. = " + element['cum_gpa'] + ")" + "</div>");
                         }
 
                         element['grade'].forEach(element => {
