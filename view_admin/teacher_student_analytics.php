@@ -763,6 +763,10 @@ include_once "login-head.php";
                                 };
                                 toastr["success"]("สำเร็จ", "ลงทะเบียนรายวิชา");
 
+                                student_analytics_current($("#std_id_add").val());
+                                $('#form_register_subject')[0].reset();
+                                $(".bd-from-add_student_subject-modal-lg").modal('hide')
+
                             } else {
                                 Swal.fire(
                                     'Error',
