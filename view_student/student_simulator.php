@@ -176,6 +176,95 @@ include_once "login-head.php";
         </div>
     </div>
 
+    <!-- Small modal register more -->
+    <div class="modal fade bd-register-more-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">หมายเหตุ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Small modal register edit -->
+    <div class="modal fade bd-register-edit-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">หมายเหตุ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Small modal register subject -->
+    <div class="modal fade bd-register-subject-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">หมายเหตุ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="id-permissible"></div>
+                    <form name="form_register_new" id="form_register_new">
+                        <input type="hidden" name="register_new_std_id" id="register_new_std_id">
+                        <input type="hidden" name="register_new_set_subject_id" id="register_new_set_subject_id">
+                        <button type="submit" class="btn-form_register_new btn-sm btn-icon btn-shadow btn-dashed btn btn-outline-info">Register</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Small modal update grade -->
+    <div class="modal fade bd-update-grade-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">หมายเหตุ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="body-block-example-1 d-none">
         <div class="loader bg-transparent no-shadow p-0">
             <div class="ball-grid-pulse">
@@ -295,22 +384,23 @@ include_once "login-head.php";
             'subject_credit': '',
             'grade_text': '',
             'registered': '',
+            'ss_id': '',
             table_subject: function() {
                 var strColor = ""
                 var strGrade = ""
                 var grade = ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'P'];
                 if (grade.includes(this.grade_text)) {
                     strColor = " table-subject-blue "
-                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-info\"> " + this.grade_text + "</button>"
+                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-info\" onclick=\"update_grade(`" + this.ss_id + "`)\"> " + this.grade_text + "</button>"
                 } else if (this.grade_text == 'W') {
                     strColor = " table-subject-white "
-                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-warning\"> " + this.grade_text + "</button>"
+                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-warning\" onclick=\"update_grade(`" + this.ss_id + "`)\"> " + this.grade_text + "</button>"
                 } else if (this.grade_text == 'F') {
                     strColor = " table-subject-red "
-                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-danger\"> " + this.grade_text + "</button>"
+                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-danger\" onclick=\"update_grade(`" + this.ss_id + "`)\"> " + this.grade_text + "</button>"
                 } else if (this.grade_text === null) {
                     strColor = " table-subject-blue "
-                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-warning\"> <i class=\"lnr-magic-wand btn-icon-wrapper\" ></i></button>"
+                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-warning\" onclick=\"update_grade(`" + this.ss_id + "`)\"> <i class=\"lnr-magic-wand btn-icon-wrapper\" ></i></button>"
                 }
                 // console.log(this.grade_text)
                 var str = "<table class=\"col-3 mr-3 table " + strColor + "\"> \
@@ -318,7 +408,9 @@ include_once "login-head.php";
                                 <tr class=\"text-center\">                                        \
                                     <td>" + this.subject_credit + "</td>                                 \
                                     <td>" +
-                    "<button class=\"btn-check-info btn-icon btn-shadow btn-dashed btn btn-outline-info\" type=\"button\"><i class=\"pe-7s-look\" value=\"" + this.set_subject_id + "\"> </i> " + this.subject_id + "</button>  " +
+                    "<button class=\"btn-check-info btn-icon btn-shadow btn-dashed btn btn-outline-info\" \
+                    type=\"button\" onclick=\"register_edit(`" + this.ss_id + "`)\">    \
+                     <i class=\"pe-7s-look\"> </i> " + this.subject_id + "</button>  " +
                     "</td>   \
                                     <td>" + strGrade + "</td>                                  \
                                 </tr>                                       \
@@ -338,13 +430,18 @@ include_once "login-head.php";
             'subject_name_en': '',
             'subject_credit': '',
             'set_subject_id': '',
+            'permissible': '',
+            'permissible_comment': '',
+            'std_id': '',
             table_subject: function() {
                 var str = "<table class=\"col-3 mr-3 table table-subject-white \"> \
                             <tbody>                                         \
                                 <tr class=\"text-center\">                                        \
                                     <td>" + this.subject_credit + "</td>                                 \
                                     <td>" +
-                    "<button class=\"btn-check-info btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-light\" type=\"button\"><i class=\"pe-7s-look\" value=\"" + this.set_subject_id + "\"> </i> " + this.subject_id + "</button>  \
+                    "<button class=\"btn-check-info btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-light\" \
+                    type=\"button\" onclick=\"register_subject(`" + this.set_subject_id + "`,`" + this.permissible + "`,`" + this.permissible_comment + "`,`" + this.std_id + "`)\"> \
+                    <i class=\"pe-7s-look\" > </i> " + this.subject_id + "</button>  \
                                     </td>                               \
                                     <td></td>                                  \
                                 </tr>                                       \
@@ -370,8 +467,6 @@ include_once "login-head.php";
                 },
                 dataType: "JSON",
                 success: function(response) {
-
-
                     response.reverse().forEach((element, key) => {
                         // console.log(element['grade'])
                         if (element['grade'].length > 0 || element['subject_not_register'].length > 0) {
@@ -384,7 +479,10 @@ include_once "login-head.php";
                                 strTerm = element['term']
                                 strYear = parseInt(element['year'])
                             }
-                            $("#id-subject-old").append("<div class=\"card-header mb-2 col-12 \">ปี " + strYear + " เทอม " + strTerm + " (sem. G.P.A. = " + element['gpa'] + " ,  cum. G.P.A. = " + element['cum_gpa'] + ")" + "</div>");
+                            $("#id-subject-old").append("<div class=\"card-header mb-2 col-12 \">ปี " + strYear + " เทอม " + strTerm + " (sem. G.P.A. = " + element['gpa'] + " ,  cum. G.P.A. = " + element['cum_gpa'] + ") &nbsp;&nbsp;&nbsp; " +
+                                "<button class = \"btn-check-info btn-sm btn-icon btn-shadow btn-dashed btn btn-outline-info\"  \
+                                id=\"btn-add-student_subject\" type=\"button\" onclick=\"register_more(" + std_id + "," + element['year'] + "," + element['term'] + ") \"> เพิ่มติม..</button>" +
+                                "</div>");
                         }
 
                         element['grade'].forEach(element => {
@@ -395,18 +493,21 @@ include_once "login-head.php";
                             tableSubject.subject_credit = element['subject_credit']
                             tableSubject.grade_text = element['grade_text']
                             tableSubject.registered = element['registered']
-                            tableSubject.set_subject_id = element['set_subject_id']
+                            tableSubject.ss_id = element['ss_id']
 
                             $("#id-subject-old").append(tableSubject.table_subject());
 
                         });
 
-                        element['subject_not_register'].forEach(element2 => {
+                        element['subject_not_register'].forEach((element2, key2) => {
                             var tableSubjectNotRegister = Object.create(objSubjectOldNotRegister);
+                            tableSubjectNotRegister.std_id = std_id
                             tableSubjectNotRegister.subject_id = element2['subject_id']
                             tableSubjectNotRegister.subject_name_en = element2['subject_name_en']
                             tableSubjectNotRegister.subject_credit = element2['subject_credit']
-
+                            tableSubjectNotRegister.set_subject_id = element2['set_subject_id']
+                            tableSubjectNotRegister.permissible = element2['status']['permissible']
+                            tableSubjectNotRegister.permissible_comment = element2['status']['permissible_comment']
                             $("#id-subject-old").append(tableSubjectNotRegister.table_subject());
                         });
                     });
@@ -433,6 +534,57 @@ include_once "login-head.php";
             })
             $("#subject-remark").html("");
             $("#subject-remark").html(params);
+        }
+
+        function register_more(std_id, year, term) {
+            $(".bd-register-more-modal-lg").modal({
+                show: true,
+                keyboard: false,
+                backdrop: 'static'
+            })
+        }
+
+        function register_edit(ss_id) {
+            $(".bd-register-edit-modal-lg").modal({
+                show: true,
+                keyboard: false,
+                backdrop: 'static'
+            })
+        }
+
+        function register_subject(set_subject_id, permissible, permissible_comment, std_id) {
+            $("#id-permissible").html("")
+            $("#register_new_set_subject_id").val("")
+            $("#register_new_std_id").val("")
+            $(".btn-form_register_new").prop('disabled', true)
+            $(".bd-register-subject-modal-lg").modal({
+                show: true,
+                keyboard: false,
+                backdrop: 'static'
+            })
+            if (permissible == `true`) {
+                $("#register_new_set_subject_id").val(set_subject_id)
+                $("#register_new_std_id").val(std_id)
+                $(".btn-form_register_new").prop('disabled', false)
+                $("#id-permissible").append("<div class=\"font-icon-wrapper text-success\">  \
+                                                <i class=\"lnr-smile\"></i>   \
+                                                <p class=\"text-success\">" + permissible_comment + " สามารถลงทะเบียนได้ </p>  \
+                                            </div>")
+            } else if (permissible == `false`) {
+                $("#id-permissible").append("<div class=\"font-icon-wrapper text-danger\">  \
+                                                <i class=\"lnr-sad\"></i>   \
+                                                <p class=\"text-danger\">" + permissible_comment + " สามารถลงทะเบียนได้ </p>  \
+                                            </div>")
+            }
+
+        }
+
+        function update_grade(ss_id) {
+            $(".bd-update-grade-modal-lg").modal({
+                show: true,
+                keyboard: false,
+                backdrop: 'static'
+            })
         }
     </script>
 
