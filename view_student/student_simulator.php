@@ -664,7 +664,7 @@ include_once "login-head.php";
                 console.log('false')
                 $("#id-permissible").append("<div class=\"font-icon-wrapper text-danger\">  \
                                                 <i class=\"lnr-sad\"></i>   \
-                                                <p class=\"text-danger\">" + subject_id + "<br>" + permissible_comment + " สามารถลงทะเบียนได้ </p>  \
+                                                <p class=\"text-danger\">" + subject_id + "<br>" + permissible_comment + " ไม่สามารถลงทะเบียนได้ </p>  \
                                             </div>")
             }
 
