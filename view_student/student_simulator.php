@@ -187,6 +187,20 @@ include_once "login-head.php";
                     </button>
                 </div>
                 <div class="modal-body">
+                    <div class="col-12">
+                        <form action="" class="form-inline" name="form_register_more" id="form_register_more">
+                            <input type="hidden" name="register_more_year" id="register_more_year">
+                            <input type="hidden" name="register_more_term" id="register_more_term">
+                            <input type="hidden" name="register_more_std_id" id="register_more_std_id">
+                            <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
+                                <label for="select_subject" class="mr-sm-2">เลือกรายวิชา</label>
+                                <select class="mb-2 mt-2 form-control " name="subject_id_auto" id="subject_id_auto" aria-invalid="false">
+
+                                </select>
+                            </div>
+                            <button class="btn-form_register_more btn-sm btn-icon btn-shadow btn-dashed btn btn-outline-info" type="button">Register</button>
+                        </form>
+                    </div>
 
                 </div>
                 <div class="modal-footer">
@@ -199,7 +213,7 @@ include_once "login-head.php";
 
     <!-- Small modal register edit -->
     <div class="modal fade bd-register-edit-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">หมายเหตุ</h5>
@@ -208,11 +222,16 @@ include_once "login-head.php";
                     </button>
                 </div>
                 <div class="modal-body">
-
+                    <div id="register-edit">
+                    </div>
+                    <form name="register_delete" id="register_delete">
+                        <input type="hidden" name="edit_ss_id" id="edit_ss_id">
+                        <button class="btn-sm btn-icon btn-shadow btn-dashed btn btn-outline-danger" id="btn-register-delete" type="button">
+                            Delete Register</button>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
                 </div>
             </div>
         </div>
@@ -220,7 +239,7 @@ include_once "login-head.php";
 
     <!-- Small modal register subject -->
     <div class="modal fade bd-register-subject-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">หมายเหตุ</h5>
@@ -233,7 +252,8 @@ include_once "login-head.php";
                     <form name="form_register_new" id="form_register_new">
                         <input type="hidden" name="register_new_std_id" id="register_new_std_id">
                         <input type="hidden" name="register_new_set_subject_id" id="register_new_set_subject_id">
-                        <button type="submit" class="btn-form_register_new btn-sm btn-icon btn-shadow btn-dashed btn btn-outline-info">Register</button>
+                        <button class="btn-form_register_new btn-sm btn-icon btn-shadow btn-dashed btn btn-outline-info" type="button">
+                            Register</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -246,7 +266,7 @@ include_once "login-head.php";
 
     <!-- Small modal update grade -->
     <div class="modal fade bd-update-grade-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">หมายเหตุ</h5>
@@ -255,7 +275,27 @@ include_once "login-head.php";
                     </button>
                 </div>
                 <div class="modal-body">
-
+                    <div class="" id="id-grade-update">
+                        <form action="" class="form-inline" name="form_update_grade" id="form_update_grade">
+                            <input type="hidden" name="update_grade_ss_id" id="update_grade_ss_id">
+                            <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
+                                <label for="select_update_grade" class="mr-sm-2">เลือกเกรด</label>
+                                <select class="mb-2 mt-2 form-control " name="select_update_grade" id="select_update_grade" aria-invalid="false">
+                                    <option value="">ยังไม่ระบุ</option>
+                                    <option value="A">A</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B">B</option>
+                                    <option value="C+">C+</option>
+                                    <option value="C">C</option>
+                                    <option value="D+">D+</option>
+                                    <option value="D">D</option>
+                                    <option value="F">F</option>
+                                    <option value="W">W</option>
+                                </select>
+                            </div>
+                            <button class="btn-form_update_grade btn-sm btn-icon btn-shadow btn-dashed btn btn-outline-info" type="button">Update</button>
+                        </form>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -391,16 +431,16 @@ include_once "login-head.php";
                 var grade = ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'P'];
                 if (grade.includes(this.grade_text)) {
                     strColor = " table-subject-blue "
-                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-info\" onclick=\"update_grade(`" + this.ss_id + "`)\"> " + this.grade_text + "</button>"
+                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-info\" onclick=\"update_grade(`" + this.ss_id + "`,`" + this.grade_text + "`)\"> " + this.grade_text + "</button>"
                 } else if (this.grade_text == 'W') {
                     strColor = " table-subject-white "
-                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-warning\" onclick=\"update_grade(`" + this.ss_id + "`)\"> " + this.grade_text + "</button>"
+                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-warning\" onclick=\"update_grade(`" + this.ss_id + "`,`" + this.grade_text + "`)\"> " + this.grade_text + "</button>"
                 } else if (this.grade_text == 'F') {
                     strColor = " table-subject-red "
-                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-danger\" onclick=\"update_grade(`" + this.ss_id + "`)\"> " + this.grade_text + "</button>"
+                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-danger\" onclick=\"update_grade(`" + this.ss_id + "`,`" + this.grade_text + "`)\"> " + this.grade_text + "</button>"
                 } else if (this.grade_text === null) {
                     strColor = " table-subject-blue "
-                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-warning\" onclick=\"update_grade(`" + this.ss_id + "`)\"> <i class=\"lnr-magic-wand btn-icon-wrapper\" ></i></button>"
+                    strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-warning\" onclick=\"update_grade(`" + this.ss_id + "`,``)\"> <i class=\"lnr-magic-wand btn-icon-wrapper\" ></i></button>"
                 }
                 // console.log(this.grade_text)
                 var str = "<table class=\"col-3 mr-3 table " + strColor + "\"> \
@@ -409,7 +449,7 @@ include_once "login-head.php";
                                     <td>" + this.subject_credit + "</td>                                 \
                                     <td>" +
                     "<button class=\"btn-check-info btn-icon btn-shadow btn-dashed btn btn-outline-info\" \
-                    type=\"button\" onclick=\"register_edit(`" + this.ss_id + "`)\">    \
+                    type=\"button\" onclick=\"register_edit(`" + this.ss_id + "`,`" + this.subject_id + "`,`" + this.subject_name_en + "`,`" + this.grade_text + "`,`" + this.registered + "`)\">    \
                      <i class=\"pe-7s-look\"> </i> " + this.subject_id + "</button>  " +
                     "</td>   \
                                     <td>" + strGrade + "</td>                                  \
@@ -440,7 +480,7 @@ include_once "login-head.php";
                                     <td>" + this.subject_credit + "</td>                                 \
                                     <td>" +
                     "<button class=\"btn-check-info btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-light\" \
-                    type=\"button\" onclick=\"register_subject(`" + this.set_subject_id + "`,`" + this.permissible + "`,`" + this.permissible_comment + "`,`" + this.std_id + "`)\"> \
+                    type=\"button\" onclick=\"register_subject(`" + this.set_subject_id + "`,`" + this.permissible + "`,`" + this.permissible_comment + "`,`" + this.std_id + "`,`" + this.subject_id + "`)\"> \
                     <i class=\"pe-7s-look\" > </i> " + this.subject_id + "</button>  \
                                     </td>                               \
                                     <td></td>                                  \
@@ -459,6 +499,12 @@ include_once "login-head.php";
 
 
         function student_analytics(std_id) {
+            console.log(std_id)
+            if (typeof std_id !== 'undefined') {
+                var std_id = std_id
+            } else {
+                var std_id = '<?php echo $_SESSION[__STD_ID__]; ?>'
+            }
             $.ajax({
                 type: "POST",
                 url: "../query3/student_simulator-show.php",
@@ -467,6 +513,7 @@ include_once "login-head.php";
                 },
                 dataType: "JSON",
                 success: function(response) {
+                    $("#id-subject-old").html("")
                     response.reverse().forEach((element, key) => {
                         // console.log(element['grade'])
                         if (element['grade'].length > 0 || element['subject_not_register'].length > 0) {
@@ -492,7 +539,7 @@ include_once "login-head.php";
                             tableSubject.subject_name_en = element['subject_name_en']
                             tableSubject.subject_credit = element['subject_credit']
                             tableSubject.grade_text = element['grade_text']
-                            tableSubject.registered = element['registered']
+                            tableSubject.registered = true
                             tableSubject.ss_id = element['ss_id']
 
                             $("#id-subject-old").append(tableSubject.table_subject());
@@ -542,17 +589,57 @@ include_once "login-head.php";
                 keyboard: false,
                 backdrop: 'static'
             })
+            $("#register_more_year").val(year)
+            $("#register_more_term").val(term);
+            $("#register_more_std_id").val(std_id);
+
+
+            $.ajax({
+                type: "POST",
+                url: "../query3/student_simulator-subject_list.php",
+                data: {
+                    "std_id": std_id,
+                    "year": year,
+                    "term": term
+                },
+                dataType: "JSON",
+                success: function(response) {
+                    console.log(response)
+                    $("#subject_id_auto").html("")
+                    if (response.success) {
+                        response.data.forEach((element, key) => {
+                            $("#subject_id_auto").append("<option value=\"" + element['subject_id_auto'] + "\">" + "[" + element['subject_id'] + "] " + element['subject_name_en'] + " (" + element['subject_credit'] + ") " + "</option>")
+                        });
+                    }
+
+                }
+            });
+
+
         }
 
-        function register_edit(ss_id) {
+        function register_edit(ss_id, subject_id, subject_name_en, grade_text, registered) {
             $(".bd-register-edit-modal-lg").modal({
                 show: true,
                 keyboard: false,
                 backdrop: 'static'
             })
+            $("#register-edit").html("")
+            $("#register_delete")[0].reset()
+            // console.log(registered)
+            if (registered == `true`) {
+                $("#register-edit").append("<div class=\"font-icon-wrapper text-success\">  \
+                                               <i class=\"fa fa-fw\" aria-hidden=\"true\" title=\"Copy to use check-circle\"></i>   \
+                                                <p class=\"text-success\">" + subject_id + "<br>" + subject_name_en + "</p>  \
+                                            </div>")
+
+                $("#edit_ss_id").val(ss_id)
+
+            }
+
         }
 
-        function register_subject(set_subject_id, permissible, permissible_comment, std_id) {
+        function register_subject(set_subject_id, permissible, permissible_comment, std_id, subject_id) {
             $("#id-permissible").html("")
             $("#register_new_set_subject_id").val("")
             $("#register_new_std_id").val("")
@@ -563,29 +650,247 @@ include_once "login-head.php";
                 backdrop: 'static'
             })
             if (permissible == `true`) {
+                console.log('true')
                 $("#register_new_set_subject_id").val(set_subject_id)
                 $("#register_new_std_id").val(std_id)
                 $(".btn-form_register_new").prop('disabled', false)
                 $("#id-permissible").append("<div class=\"font-icon-wrapper text-success\">  \
                                                 <i class=\"lnr-smile\"></i>   \
-                                                <p class=\"text-success\">" + permissible_comment + " สามารถลงทะเบียนได้ </p>  \
+                                                <p class=\"text-success\">" + subject_id + "<br>" + permissible_comment + " สามารถลงทะเบียนได้ </p>  \
                                             </div>")
+
+
             } else if (permissible == `false`) {
+                console.log('false')
                 $("#id-permissible").append("<div class=\"font-icon-wrapper text-danger\">  \
                                                 <i class=\"lnr-sad\"></i>   \
-                                                <p class=\"text-danger\">" + permissible_comment + " สามารถลงทะเบียนได้ </p>  \
+                                                <p class=\"text-danger\">" + subject_id + "<br>" + permissible_comment + " สามารถลงทะเบียนได้ </p>  \
                                             </div>")
             }
 
         }
 
-        function update_grade(ss_id) {
+        function update_grade(ss_id, grade_text) {
             $(".bd-update-grade-modal-lg").modal({
                 show: true,
                 keyboard: false,
                 backdrop: 'static'
             })
+
+            $("#select_update_grade").val(grade_text);
+            $("#update_grade_ss_id").val(ss_id)
         }
+
+
+        $(".btn-form_register_new").on("click", function() {
+            swal.fire({
+                title: "ลงทะเบียนรายวิชานี้",
+                text: "คุณแน่ใจหรือไม่",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "Yes",
+                cancelButtonText: "Cancel",
+                cancelButtonColor: "#d92550",
+                html: false
+            }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        type: "POST",
+                        url: "../query3/student_simulator-register.php",
+                        data: $("#form_register_new").serialize(),
+                        dataType: "JSON",
+                        success: function(response) {
+                            if (response.success) {
+                                toastr.options = {
+                                    "closeButton": true,
+                                    "debug": false,
+                                    "newestOnTop": true,
+                                    "progressBar": true,
+                                    "positionClass": "toast-bottom-center",
+                                    "preventDuplicates": false,
+                                    "onclick": null,
+                                    "showDuration": "300",
+                                    "hideDuration": "1000",
+                                    "timeOut": "5000",
+                                    "extendedTimeOut": "1000",
+                                    "showEasing": "swing",
+                                    "hideEasing": "linear",
+                                    "showMethod": "fadeIn",
+                                    "hideMethod": "fadeOut"
+                                };
+                                toastr["success"]("สำเร็จ", "ลงทะเบียนสำเร็จ");
+                                student_analytics()
+                                $(".bd-register-subject-modal-lg").modal('hide')
+                            } else {
+                                Swal.fire({
+                                    title: 'การลงทะเบียน',
+                                    text: 'ไม่สำเร็จ' + response.error + " <br> " + response.success,
+                                    type: 'error',
+                                    confirmButtonText: 'รับทราบ'
+                                });
+                            }
+                        }
+                    });
+                } else {
+
+                }
+            })
+        });
+
+        $(".btn-form_register_more").on("click", function() {
+            swal.fire({
+                title: "ลงทะเบียนรายวิชานี้",
+                text: "คุณแน่ใจหรือไม่",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "Yes",
+                cancelButtonText: "Cancel",
+                cancelButtonColor: "#d92550",
+                html: false
+            }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        type: "POST",
+                        url: "../query3/student_simulator-register-more.php",
+                        data: $("#form_register_more").serialize(),
+                        dataType: "JSON",
+                        success: function(response) {
+                            if (response.success) {
+                                toastr.options = {
+                                    "closeButton": true,
+                                    "debug": false,
+                                    "newestOnTop": true,
+                                    "progressBar": true,
+                                    "positionClass": "toast-bottom-center",
+                                    "preventDuplicates": false,
+                                    "onclick": null,
+                                    "showDuration": "300",
+                                    "hideDuration": "1000",
+                                    "timeOut": "5000",
+                                    "extendedTimeOut": "1000",
+                                    "showEasing": "swing",
+                                    "hideEasing": "linear",
+                                    "showMethod": "fadeIn",
+                                    "hideMethod": "fadeOut"
+                                };
+                                toastr["success"]("สำเร็จ", "ลงทะเบียนสำเร็จ");
+                                student_analytics()
+                                $(".bd-register-more-modal-lg").modal('hide')
+                            } else {
+                                Swal.fire({
+                                    title: 'การลงทะเบียน',
+                                    text: 'ไม่สำเร็จ' + response.error + " <br> " + response.success,
+                                    type: 'error',
+                                    confirmButtonText: 'รับทราบ'
+                                });
+                            }
+                        }
+                    });
+                } else {
+
+                }
+            })
+        });
+
+        $(document).on("click", "#btn-register-delete", function() {
+            console.log("test")
+            swal.fire({
+                title: "<span class=\"text text-danger\">ลบลงทะเบียนรายวิชานี้</span>",
+                text: "คุณแน่ใจหรือไม่",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "Yes",
+                cancelButtonText: "Cancel",
+                cancelButtonColor: "#d92550",
+                html: false
+            }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        type: "POST",
+                        url: "../query3/student_simulator_register_delete.php",
+                        data: $("#register_delete").serialize(),
+                        dataType: "JSON",
+                        success: function(response) {
+                            if (response.success) {
+                                toastr.options = {
+                                    "closeButton": true,
+                                    "debug": false,
+                                    "newestOnTop": true,
+                                    "progressBar": true,
+                                    "positionClass": "toast-bottom-center",
+                                    "preventDuplicates": false,
+                                    "onclick": null,
+                                    "showDuration": "300",
+                                    "hideDuration": "1000",
+                                    "timeOut": "5000",
+                                    "extendedTimeOut": "1000",
+                                    "showEasing": "swing",
+                                    "hideEasing": "linear",
+                                    "showMethod": "fadeIn",
+                                    "hideMethod": "fadeOut"
+                                };
+                                toastr["warning"]("สำเร็จ", "ลบลงทะเบียนสำเร็จ");
+                                student_analytics()
+                                $(".bd-register-edit-modal-lg").modal('hide')
+                            } else {
+                                Swal.fire({
+                                    title: 'การลงทะเบียน',
+                                    text: 'ไม่สำเร็จ' + response.error + " <br> " + response.success,
+                                    type: 'error',
+                                    confirmButtonText: 'รับทราบ'
+                                });
+                            }
+                        }
+                    });
+                }
+            })
+
+
+
+        });
+
+        $(".btn-form_update_grade").on("click", function() {
+            $.ajax({
+                type: "POST",
+                url: "../query3/student_simulator-update_grade.php",
+                data: $("#form_update_grade").serialize(),
+                dataType: "JSON",
+                success: function(response) {
+                    if (response.success) {
+                        toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "newestOnTop": true,
+                            "progressBar": true,
+                            "positionClass": "toast-bottom-center",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        };
+                        toastr["success"]("สำเร็จ", "อัพเดทเกรดสำเร็จ");
+                        student_analytics()
+                        $(".bd-update-grade-modal-lg").modal('hide')
+                    } else {
+                        Swal.fire({
+                            title: 'อัพเดทเกรด',
+                            text: 'ไม่สำเร็จ' + response.error + " <br> " + response.success,
+                            type: 'error',
+                            confirmButtonText: 'รับทราบ'
+                        });
+                    }
+                }
+            });
+        });
     </script>
 
 </body>

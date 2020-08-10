@@ -379,18 +379,14 @@ class GradeSimulator extends SqlConn
         }
     }
 
-    function check_registered($stdId, $subjectId, $year, $term)
+    function check_registered($stdId, $subjectId)
     {
 
         try {
             $sql = "SELECT *  FROM student_simulator 
-                        WHERE  yt_year = :yt_year 
-                            AND yt_term = :yt_term 
-                            AND std_Id = :stdId 
+                        WHERE  std_Id = :stdId 
                             AND subject_Id = :subjectId ";
             $stm = $this->conn->prepare($sql);
-            $stm->bindParam(':yt_year', $year);
-            $stm->bindParam(':yt_term', $term);
             $stm->bindParam(':stdId', $stdId);
             $stm->bindParam(':subjectId', $subjectId);
             $stm->execute();
@@ -478,7 +474,7 @@ class GradeSimulator extends SqlConn
         $condition = array();
         $sr = array();
 
-        $check['registered'] = $this->check_registered($stdId, $subjectId, $currentYear, $currentTerm);
+        $check['registered'] = $this->check_registered($stdId, $subjectId);
         $required_subject = $this->required_subject($subjectId);
         if ($required_subject['count'] > 0) {
             foreach ($required_subject['data'] as $keyRequired => $valueRequired) {
