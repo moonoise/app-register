@@ -343,7 +343,7 @@ include_once "login-head.php";
 
             async function asyncCall() {
                 console.log('calling');
-                const result4 = await student_analytics(std_id);
+                // const result4 = await student_analytics(std_id);
                 console.log(result4);
 
                 // expected output: 'resolved'

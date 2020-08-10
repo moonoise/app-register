@@ -39,59 +39,59 @@ $yl = $std_year;
 $sumGrade = 0;
 $sumCredit = 0;
 
-// while ($yl < $std_year + 3) {
-//     $arrSubjectNotRegisterStatus = array();
-//     $SubjectNotRegisterStatus = array();
+while ($yl < $std_year + 3) {
+    $arrSubjectNotRegisterStatus = array();
+    $SubjectNotRegisterStatus = array();
 
-//     foreach ($arrTerm as $key => $valueTerm) {
+    foreach ($arrTerm as $key => $valueTerm) {
 
-//         $arrGrade['grade'] = $grade->std_grade_by_year_term($_POST['std_id'], $yl, $valueTerm);
+        $arrGrade['grade'] = $grade->std_grade_by_year_term($_POST['std_id'], $yl, $valueTerm);
 
-//         if (count($arrGrade['grade']) > 0) {
+        if (count($arrGrade['grade']) > 0) {
 
-//             $sum = $grade->grade_result($arrGrade['grade']);
+            $sum = $grade->grade_result($arrGrade['grade']);
 
-//             $arrGrade['gpa'] = round($sum['gpa'], 2);
-//             $arrGrade['sumGrade'] = $sum['sumGrade'];
-//             $sumGrade += $sum['sumGrade'];
-//             $sumCredit += $sum['sumCredit'];
-//             $arrGrade['sumCredit'] = $sum['sumCredit'];
+            $arrGrade['gpa'] = round($sum['gpa'], 2);
+            $arrGrade['sumGrade'] = $sum['sumGrade'];
+            $sumGrade += $sum['sumGrade'];
+            $sumCredit += $sum['sumCredit'];
+            $arrGrade['sumCredit'] = $sum['sumCredit'];
 
-//             $allSumCredit += $sum['sumCredit'];
-//             $AllSumGrade += $sum['sumGrade'];
-//             $arrGrade['all_sum_grade'] = $AllSumGrade;
-//             $arrGrade['all_sum_credit'] = $allSumCredit;
+            $allSumCredit += $sum['sumCredit'];
+            $AllSumGrade += $sum['sumGrade'];
+            $arrGrade['all_sum_grade'] = $AllSumGrade;
+            $arrGrade['all_sum_credit'] = $allSumCredit;
 
-//             $arrGrade['cum_gpa'] = number_format(($AllSumGrade / $allSumCredit), 2, '.', '');
+            $arrGrade['cum_gpa'] = number_format(($AllSumGrade / $allSumCredit), 2, '.', '');
 
-//             $countTerm++;
-//         }
-//         foreach ($arrGrade['grade'] as $keySubject => $valueSubject) {
-//             $arrSubjectId[] = $valueSubject['subject_id'];
-//         }
-//         $arrGrade['std'] = $std;
-//         // $arrResult['gpa_all_term'] = number_format(($sumGrade / $sumCredit), 2, '.', '');
-//         $subject_not_register = $setSubject->set_subject_not_register($l, $yl, $valueTerm, $arrSubjectId);
+            $countTerm++;
+        }
+        foreach ($arrGrade['grade'] as $keySubject => $valueSubject) {
+            $arrSubjectId[] = $valueSubject['subject_id'];
+        }
+        $arrGrade['std'] = $std;
+        // $arrResult['gpa_all_term'] = number_format(($sumGrade / $sumCredit), 2, '.', '');
+        $subject_not_register = $setSubject->set_subject_not_register($l, $yl, $valueTerm, $arrSubjectId);
 
-//         $r = array();
-//         foreach ($subject_not_register as $key => $valueNotRegister) {
-//             $arrSubjectNotRegisterStatus =  $grade->check_permission_register($_POST['std_id'], $valueNotRegister['subject_id'], $yl, $valueTerm);
-//             $SubjectNotRegisterStatus['status'] = $arrSubjectNotRegisterStatus;
-//             $r[] = array_merge_recursive($valueNotRegister, $SubjectNotRegisterStatus);
-//         }
+        $r = array();
+        foreach ($subject_not_register as $key => $valueNotRegister) {
+            $arrSubjectNotRegisterStatus =  $grade->check_permission_register($_POST['std_id'], $valueNotRegister['subject_id'], $yl, $valueTerm);
+            $SubjectNotRegisterStatus['status'] = $arrSubjectNotRegisterStatus;
+            $r[] = array_merge_recursive($valueNotRegister, $SubjectNotRegisterStatus);
+        }
 
-//         $arrGrade['subject_not_register'] = $r;
-//         $arrGrade['year'] = $yl;
-//         $arrGrade['term'] = $valueTerm;
-//         $arrGrade['level'] = $l;
+        $arrGrade['subject_not_register'] = $r;
+        $arrGrade['year'] = $yl;
+        $arrGrade['term'] = $valueTerm;
+        $arrGrade['level'] = $l;
 
-//         $arrResult[] = $arrGrade;
-//     }
-//     // $y--;
-//     // $level--;
-//     $l++;
-//     $yl++;
-// }
+        $arrResult[] = $arrGrade;
+    }
+    // $y--;
+    // $level--;
+    $l++;
+    $yl++;
+}
 
 
 echo json_encode($arrResult);
