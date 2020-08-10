@@ -552,3 +552,5 @@ class GradeSimulator extends SqlConn
         }
     }
 }
+
+//ทำไหมเปลี่ยนชื่อไฟล์ตัวเล็กใหญ่แล้ว git มันไม่ เปลี่ยนให้

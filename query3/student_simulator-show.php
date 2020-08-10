@@ -95,5 +95,3 @@ while ($yl < $std_year + 3) {
 
 
 echo json_encode($arrResult);
-
-// echo json_encode($arrResult);
