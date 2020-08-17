@@ -74,12 +74,23 @@
                                           <div class="scrollbar-container ps">
                                               <ul class="nav flex-column">
                                                   <li class="nav-item">
-                                                      <a href="my_account_change_password.php" class="nav-link">เปลี่ยนรหัสผ่าน
-                                                      </a>
+                                                      <?php
+                                                        if ($_SESSION[__PER_TYPE__] == 'student') {
+                                                            echo " <a href=\"" . __PATH_WEB__ . "/view_student/view_student_change_password.php\" class=\"nav-link\">เปลี่ยนรหัสผ่าน</a>";
+                                                        } else if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') {
+                                                            echo " <a href=\"" . __PATH_WEB__ . "/view_admin/my_account_change_password.php\" class=\"nav-link\">เปลี่ยนรหัสผ่าน</a>";
+                                                        }
+                                                        ?>
+
                                                   </li>
                                                   <li class="nav-item">
-                                                      <a href="my_account.php" class="nav-link">My Account
-                                                      </a>
+                                                      <?php
+                                                        if ($_SESSION[__PER_TYPE__] == 'student') {
+                                                            echo " <a href=\"" . __PATH_WEB__ . "/view_student/view_student_my_account.php\" class=\"nav-link\">My Account</a>";
+                                                        } else if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') {
+                                                            echo " <a href=\"" . __PATH_WEB__ . "/view_admin/my_account.php\" class=\"nav-link\">My Account</a>";
+                                                        }
+                                                        ?>
                                                   </li>
 
                                               </ul>

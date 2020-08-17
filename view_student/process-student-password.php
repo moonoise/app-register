@@ -11,7 +11,7 @@ $pass_hash = new PasswordHash;
 $success = array();
 
 try {
-    $sql = "SELECT * FROM student";
+    $sql = "SELECT * FROM student_copy";
     $stm = $sqlConn->conn->prepare($sql);
     $stm->execute();
 
@@ -22,14 +22,14 @@ try {
 
 foreach ($result as $key => $value) {
 
-    $pass = $pass_hash->create_password_hash($value['std_id_card']);
+    $pass = $pass_hash->create_password_hash($value['std_id']);
     // echo "<br>".$value['std_id'];
     try {
-        $sqlPass = "UPDATE student SET username = :username ,`password` = :pwd  WHERE std_id_auto = :std_id_auto ";
+        $sqlPass = "UPDATE student_copy SET username = :username ,`password` = :pwd  WHERE std_id = :std_id ";
         $stmPass = $sqlConn->conn->prepare($sqlPass);
         $stmPass->bindParam(':username', $value['std_id']);
         $stmPass->bindParam(':pwd', $pass);
-        $stmPass->bindParam(':std_id_auto', $value['std_id_auto']);
+        $stmPass->bindParam(':std_id', $value['std_id']);
         $stmPass->execute();
     } catch (\Exception $e) {
         echo $e->getMessage();

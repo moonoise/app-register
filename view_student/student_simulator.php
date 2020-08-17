@@ -192,7 +192,7 @@ include_once "login-head.php";
                             <input type="hidden" name="register_more_year" id="register_more_year">
                             <input type="hidden" name="register_more_term" id="register_more_term">
                             <input type="hidden" name="register_more_std_id" id="register_more_std_id">
-                            <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
+                            <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group col-md-12">
                                 <label for="select_subject" class="mr-sm-2">เลือกรายวิชา</label>
                                 <select class="mb-2 mt-2 form-control " name="subject_id_auto" id="subject_id_auto" aria-invalid="false">
 
@@ -680,7 +680,6 @@ include_once "login-head.php";
             $("#select_update_grade").val(grade_text);
             $("#update_grade_ss_id").val(ss_id)
         }
-
 
         $(".btn-form_register_new").on("click", function() {
             swal.fire({
