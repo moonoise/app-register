@@ -17,9 +17,21 @@ $data = array();
 
 try {
     $sql = "SELECT teacher_subject.*,
-                subject.*
+                subject.*,
+                t1.teacher_title_name as teacher_title_name1 ,
+                t1.teacher_fname as teacher_fname1 ,
+                t1.teacher_lname as teacher_lname1 ,
+                t2.teacher_title_name as teacher_title_name2 ,
+                t2.teacher_fname as teacher_fname2 ,
+                t2.teacher_lname as teacher_lname2 ,
+                t3.teacher_title_name as teacher_title_name3 ,
+                t3.teacher_fname as teacher_fname3 ,
+                t3.teacher_lname as teacher_lname3 
                  FROM teacher_subject 
             LEFT JOIN subject ON subject.subject_id = teacher_subject.subject_id 
+            LEFT JOIN teacher t1 ON t1.teacher_id = teacher_subject.teacher_id
+            LEFT JOIN teacher t2 ON t2.teacher_id = teacher_subject.teacher_id2
+            LEFT JOIN teacher t3 ON t3.teacher_id = teacher_subject.teacher_id3
             WHERE teacher_subject.subject_id = :subject_id AND teacher_subject.yt_year = :yt_year AND teacher_subject.yt_term = :yt_term ";
 
     $stm = $sqlConn->conn->prepare($sql);

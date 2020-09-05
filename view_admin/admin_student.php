@@ -54,20 +54,53 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                             <div class="main-card mb-3 card">
                                 <div class="card-header">รายวิชาสอน</div>
                                 <div class="card-body">
-                                    <button type="button" class="btn mr-2 mb-2 btn-primary" data-toggle="modal" data-target=".bd-new-modal-lg"><i class="pe-7s-news-paper btn-icon-wrapper"></i> New</button>
-                                    <br>
-                                    <table style="width: 100%;" id="table_teacher_subject" class="table table-hover table-striped table-bordered for-this-table">
-                                        <thead>
-                                            <tr class="text-center">
-                                                <th>รหัสนักศึกษา</th>
-                                                <th>ชื่อ - สกุล</th>
-                                                <th>ปีการศึกษา(รุ่น)</th>
-                                                <th>#</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <button type="button" class="btn mr-2 mb-2 btn-primary" data-toggle="modal" data-target=".bd-new-modal-lg"><i class="pe-7s-news-paper btn-icon-wrapper"></i> New</button>
+                                        </div>
+                                        <div class="col-9">
+                                            <div class="form-row">
+                                                <form action="" class="form-inline" name="form_select_std" id="form_select_std">
+                                                    <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
+                                                        <label for="select_yt_year" class="mr-sm-2">เลือกรุ่นนิสิต</label>
+                                                        <select class="mb-2 mt-2 form-control " name="std_year" id="std_year" aria-invalid="false">
+                                                            <option value="">เลือกทั้งหมด</option>
+                                                            <option value="2018">2018</option>
+                                                            <option value="2019">2019</option>
+                                                            <option value="2020">2020</option>
+                                                            <option value="2021">2021</option>
+                                                            <option value="2022">2022</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
+                                                        <label for="select_yt_year" class="mr-sm-2">เลือกประเภทนิสิต</label>
+                                                        <select class="mb-2 mt-2 form-control " name="select_for_teacher" id="select_for_teacher" aria-invalid="false">
+                                                            <option value="">เลือกทั้งหมด</option>
+                                                            <option value="<?php echo $_SESSION[__TEACHER_ID__]; ?>">เฉพาะนักศึกษาในที่ปรึกษา</option>
+                                                        </select>
+                                                    </div>
+                                                    <button class="btn btn-primary" type="submit">เลือก</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <table style="width: 100%;" id="table_teacher_subject" class="table table-hover table-striped table-bordered for-this-table">
+                                                <thead>
+                                                    <tr class="text-center">
+                                                        <th>รหัสนักศึกษา</th>
+                                                        <th>ชื่อ - สกุล</th>
+                                                        <th>ปีการศึกษา(รุ่น)</th>
+                                                        <th>#</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+
+
 
                                 </div>
                                 <div class="d-block text-right card-footer">
@@ -265,6 +298,22 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
 
     <!-- modal-new subject -->
 
+    <div class="body-block-example-1 d-none">
+        <div class="loader bg-transparent no-shadow p-0">
+            <div class="ball-grid-pulse">
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+            </div>
+        </div>
+    </div>
+
     <?php include_once "../layouts/5-drawer-start.php"; ?>
     <?php include_once "../layouts/6-script-include.php"; ?>
 
@@ -317,7 +366,6 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                         $("#std_lname_th_edit").val(response.data.std_lname_th)
                         $("#admission_type_edit").val(response.data.admission_type)
 
-
                         $(".bd-edit-modal-lg").modal({
                             show: true,
                             keyboard: false,
@@ -339,13 +387,19 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
             }
         }
 
-        function student_show(std_year) {
+        $("#form_select_std").submit(function(e) {
+            e.preventDefault();
+            student_show($("#std_year").val(), $("#select_for_teacher").val())
+        });
+
+        function student_show(std_year, teacher_id) {
 
             $.ajax({
                 type: "POST",
                 url: "../query/student_index_by_year.php",
                 data: {
-                    'std_year': std_year
+                    'std_year': std_year,
+                    'teacher_id': teacher_id
                 },
                 dataType: "JSON",
                 success: function(response) {
@@ -364,6 +418,12 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                         table1.push(dataTables)
                     });
                     table.clear().rows.add(table1).draw();
+                    $.unblockUI();
+                },
+                beforeSend: function() {
+                    $.blockUI({
+                        message: $('.body-block-example-1')
+                    });
                 }
             });
         }

@@ -71,6 +71,17 @@ include_once "login-head.php";
         .table-subject-white th {
             border: 1px solid #adaba963;
         }
+
+        .table-subject-gray {
+            background-color: #cccbc954;
+            ;
+            box-shadow: 0 0.125rem 0.625rem rgba(238, 238, 238, .4), 0 0.0625rem 0.125rem rgba(238, 238, 238, .5);
+        }
+
+        .table-subject-gray td,
+        .table-subject-gray th {
+            border: 2px #e09a0e54 dotted;
+        }
     </style>
 </head>
 
@@ -91,35 +102,26 @@ include_once "login-head.php";
                                 <div class="card-header">วิเคราะห์ผลการเรียน</div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-12">
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">
-                                                    <div class="widget-content p-0">
-                                                        <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left mr-3">
-                                                                <div class="widget-content-left"><img width="52" class="rounded-circle" src="../assets/images/avatars/avatar-1-256.png" alt=""></div>
-                                                            </div>
-                                                            <div class="widget-content-left flex2">
-                                                                <div class="widget-heading"><b class="pr-2">Student No:</b><b class="text-success" id="id-std_id"></b> </div>
-                                                                <div class="widget-heading "><b class="pr-2">Name:</b><b id="id-name" class="text-success"></b></div>
-                                                                <div class="widget-heading "><b class="pr-5">&nbsp;&nbsp;</b><b id="name_th" class="text-success">ชื่อ ภาษาไทย</b></div>
-                                                                <div class="widget-heading "><b class="pr-2">Type of Admission:</b><b id="type_of_admission" class="text-success"></b></div>
+                                        <div class="col-2">
+                                            <div class="widget-content-left d-flex justify-content-center"><img width="52" class="rounded-circle" src="../assets/images/avatars/avatar-1-256.png" alt=""></div>
+                                        </div>
+                                        <div class="col-5">
+                                            <div class="widget-content-left flex2">
+                                                <div class="widget-heading"><b class="pr-2">Student No:</b><b class="text-success" id="id-std_id"></b> </div>
+                                                <div class="widget-heading "><b class="pr-2">Name:</b><b id="id-name" class="text-success"></b></div>
+                                                <div class="widget-heading "><b class="pr-5">&nbsp;&nbsp;</b><b id="id-name_th" class="text-success"></b></div>
+                                                <div class="widget-heading "><b class="pr-2">Type of Admission:</b><b id="type_of_admission" class="text-success"></b></div>
+                                                <div class="widget-heading"><b class="pr-2">Teacher advisor: </b><b id="id-teacher_advisor" class="text-success"></b></div>
 
-                                                            </div>
-                                                            <div class="widget-content-left mr-5">
-                                                                <div class="widget-heading"><b class="pr-2">Faculty of:</b><b class="text-success">Irrigation College</b></div>
-                                                                <div class="widget-heading"><b class="pr-2">Field of Study:</b><b class="text-success">Civil Engineering-Irrigation</b></div>
-                                                                <div class="widget-heading"><b class="pr-2">Degree Conferred:</b><b id="degree_conferred" class="text-success"></b></div>
-
-                                                                <div class="widget-heading"><b class="pr-2">Date of Admission:</b><b id="date_of_admission" class="text-success"></b></div>
-
-
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-5">
+                                            <div class="widget-content-left mr-5">
+                                                <div class="widget-heading"><b class="pr-2">Faculty of:</b><b class="text-success">Irrigation College</b></div>
+                                                <div class="widget-heading"><b class="pr-2">Field of Study:</b><b class="text-success">Civil Engineering-Irrigation</b></div>
+                                                <div class="widget-heading"><b class="pr-2">Degree Conferred:</b><b id="degree_conferred" class="text-success"></b></div>
+                                                <div class="widget-heading"><b class="pr-2">Date of Admission:</b><b id="date_of_admission" class="text-success"></b></div>
+                                            </div>
                                         </div>
 
                                     </div>
@@ -349,14 +351,24 @@ include_once "login-head.php";
                 dataType: "JSON",
                 success: function(response) {
                     $("#id-name").html(response.std_title_name + response.std_fname + " " + response.std_lname)
+                    $("#id-name_th").html(response.std_title_name_th + response.std_fname_th + " " + response.std_lname_th)
                     $("#id-std_id").html(response.std_id)
                     $("#id-level").html(response.level)
                     $("#type_of_admission").html(response.admission_type_detail)
                     $("#degree_conferred").html(response.degree_conferred)
                     $("#date_of_admission").html(response.date_of_admission)
+                    if (response.teacher_id) {
+                        $("#id-teacher_advisor").append(response.teacher_title_name1 + response.teacher_fname1 + " " + response.teacher_lname1)
+
+                    }
+                    if (response.teacher_id2) {
+                        $("#id-teacher_advisor").append(", " + response.teacher_title_name2 + response.teacher_fname2 + " " + response.teacher_lname2)
+                    }
                 }
             });
         }
+
+
 
         var objSubjectOld = {
             'subject_id': '',
@@ -372,7 +384,7 @@ include_once "login-head.php";
                     strColor = " table-subject-blue "
                     strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-info\" disabled> " + this.grade_text + "</button>"
                 } else if (this.grade_text == 'W') {
-                    strColor = " table-subject-white "
+                    strColor = " table-subject-gray "
                     strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-warning\" disabled> " + this.grade_text + "</button>"
                 } else if (this.grade_text == 'F') {
                     strColor = " table-subject-red "

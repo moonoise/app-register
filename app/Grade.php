@@ -41,6 +41,12 @@ class Grade extends SqlConn
                             student.date_of_admission,
                             student.std_year,
                             student.teacher_id,
+                            t1.teacher_title_name as teacher_title_name1,
+                            t1.teacher_fname as teacher_fname1,
+                            t1.teacher_lname as teacher_lname1, 
+                            t2.teacher_title_name as teacher_title_name2,
+                            t2.teacher_fname as teacher_fname2,
+                            t2.teacher_lname as teacher_lname2, 
                             student.teacher_id2,
                             student.std_status,
                             student.username,
@@ -48,11 +54,15 @@ class Grade extends SqlConn
                             student.phone,
                             student.picture_profile,
                             student.verified,
-                            admission_type.admission_type_detail 
+                            admission_type.admission_type_detail
                             FROM student 
                             LEFT JOIN 
                             admission_type 
-                            ON admission_type.admission_type_code  = admission_type
+                            ON admission_type.admission_type_code  = admission_type 
+                            LEFT JOIN teacher t1
+                            ON t1.teacher_id = student.teacher_id
+                            LEFT JOIN teacher t2
+                            ON t2.teacher_id = student.teacher_id2
                             WHERE std_id = :stdId";
             $stm = $this->conn->prepare($sql);
             $stm->bindParam(':stdId', $stdId);
@@ -401,6 +411,29 @@ class Grade extends SqlConn
             } else {
                 return false;
             }
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    function check_registered_id($stdId, $subjectId, $year, $term)
+    {
+
+        try {
+            $sql = "SELECT *  FROM student_subject 
+                        WHERE  yt_year = :yt_year 
+                            AND yt_term = :yt_term 
+                            AND std_Id = :stdId 
+                            AND subject_Id = :subjectId ";
+            $stm = $this->conn->prepare($sql);
+            $stm->bindParam(':yt_year', $year);
+            $stm->bindParam(':yt_term', $term);
+            $stm->bindParam(':stdId', $stdId);
+            $stm->bindParam(':subjectId', $subjectId);
+            $stm->execute();
+            $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+            return $result[0];
         } catch (\Exception $e) {
             return $e->getMessage();
         }

@@ -249,6 +249,23 @@ include_once "login-head.php";
         <input type="hidden" name="teacher_grade_ts_id" id="teacher_grade_ts_id">
     </form>
 
+
+    <div class="body-block-example-1 d-none">
+        <div class="loader bg-transparent no-shadow p-0">
+            <div class="ball-grid-pulse">
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- modal-new subject -->
 
     <?php include_once "../layouts/5-drawer-start.php"; ?>
@@ -408,7 +425,12 @@ include_once "login-head.php";
                     });
 
                     table.clear().rows.add(table1).draw();
-
+                    $.unblockUI();
+                },
+                beforeSend: function() {
+                    $.blockUI({
+                        message: $('.body-block-example-1')
+                    });
                 }
             });
         }

@@ -38,6 +38,12 @@ $currentSubject = $setSubject->set_subject_guide($std['level'], $currentYear, $c
 foreach ($currentSubject as $keySubject => $valueSubject) {
     $arrGrade = array();
     $check['registered'] = $grade->check_registered($std['std_id'], $valueSubject['subject_id'], $currentYear, $currentTerm);
+    if ($check['registered']) {
+        $check['student_subject'] = $grade->check_registered_id($std['std_id'], $valueSubject['subject_id'], $currentYear, $currentTerm);
+    } else {
+        $check['student_subject'] = null;
+    }
+
     $check['check_level'] = $grade->check_level_subject($std['std_id'], $valueSubject['subject_id']);
 
     $required_subject = $grade->required_subject($valueSubject['subject_id']);

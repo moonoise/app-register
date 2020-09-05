@@ -99,6 +99,22 @@ include_once "login-head.php";
         </div>
 
     </div>
+
+    <div class="body-block-example-1 d-none">
+        <div class="loader bg-transparent no-shadow p-0">
+            <div class="ball-grid-pulse">
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+                <div class="bg-white"></div>
+            </div>
+        </div>
+    </div>
     <?php include_once "../layouts/5-drawer-start.php";
     ?>
     <?php include_once "../layouts/6-script-include.php"; ?>
@@ -158,6 +174,12 @@ include_once "login-head.php";
 
                     });
                     table.clear().rows.add(table1).draw();
+                    $.unblockUI();
+                },
+                beforeSend: function() {
+                    $.blockUI({
+                        message: $('.body-block-example-1')
+                    });
                 }
             });
         }
