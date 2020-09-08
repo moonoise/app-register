@@ -112,7 +112,7 @@ include_once "login-head.php";
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">เพ่ิมรายวิชา</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">เพิ่มรายวิชา</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -180,6 +180,7 @@ include_once "login-head.php";
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -197,23 +198,27 @@ include_once "login-head.php";
                     </button>
                 </div>
                 <div class="modal-body">
+                    <!-- form_update_subject -->
                     <form class="" name="form_update_subject" id="form_update_subject">
-                        <input type="hidden" name="update_ts_id" id="update_ts_id">
+                        <input type="hidden" name="ts_id" id="update_ts_id">
                         <div class="form-row">
                             <div class="col-md-2">
-                                <div class="position-relative form-group"><label for="update_subject_id" class="">รหัสราชวิชา</label><input name="update_subject_id" id="update_subject_id" placeholder="รหัสรายวิชา" type="text" class="form-control" readonly></div>
+                                <div class="position-relative form-group">
+                                    <label for="update_subject_id" class="">รหัสราชวิชา</label>
+                                    <input name="update_subject_id" id="update_subject_id" placeholder="รหัสรายวิชา" type="text" class="form-control" readonly>
+                                </div>
                             </div>
                             <div class="col-md-8">
                                 <div class="position-relative form-group"><label for="update_subject" class="">รายวิชา</label>
-                                    <select class="mb-2 form-control" name="update_subject" id="update_subject">
+                                    <select class="mb-2 form-control" name="update_subject" id="update_subject" disabled>
                                         <option>เลือก</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-2"></div>
                             <div class="col-md-3">
-                                <div class="position-relative form-group"><label for="update_year" class="">ปีการศึกษา</label>
-                                    <select class="mb-2 form-control" name="update_year" id="update_year">
+                                <div class="position-relative form-group"><label for="new_year" class="">ปีการศึกษา</label>
+                                    <select class="mb-2 form-control" name="update_year" id="update_year" disabled>
                                         <option>เลือก</option>
                                         <option value='2018'>2018</option>
                                         <option value='2019'>2019</option>
@@ -222,8 +227,8 @@ include_once "login-head.php";
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <div class="position-relative form-group"><label for="update_term" class="">รายวิชา</label>
-                                    <select class="mb-2 form-control" name="update_term" id="update_term">
+                                <div class="position-relative form-group"><label for="update_term" class="">เทอม</label>
+                                    <select class="mb-2 form-control" name="update_term" id="update_term" disabled>
                                         <option>เลือก</option>
                                         <option value='1'>1</option>
                                         <option value='2'>2</option>
@@ -231,11 +236,36 @@ include_once "login-head.php";
                                     </select>
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <div class="position-relative form-group"><label for="update_teacher_id" class="">อาจารย์ผู้สอน คนที่ 1</label>
+                                    <select class="mb-2 form-control" name="update_teacher_id" id="update_teacher_id">
+                                        <option value="">เลือก</option>
 
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="position-relative form-group"><label for="update_teacher_id2" class="">อาจารย์ผู้สอน คนที่ 2</label>
+                                    <select class="mb-2 form-control" name="update_teacher_id2" id="update_teacher_id2">
+                                        <option value="">เลือก</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="position-relative form-group"><label for="update_teacher_id3" class="">อาจารย์ผู้สอน คนที่ 3</label>
+                                    <select class="mb-2 form-control" name="update_teacher_id3" id="update_teacher_id3">
+                                        <option value="">เลือก</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">update</button>
+                            <button type="submit" class="btn btn-primary">Update changes</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -371,9 +401,11 @@ include_once "login-head.php";
                 var strName = ""
                 if (this.teacher_fname != null) {
                     strName += "<p class\"text text-info\"> " + this.teacher_title_name + this.teacher_fname + " " + this.teacher_lname + "</p>"
-                } else if (this.teacher_fname2 != null) {
+                }
+                if (this.teacher_fname2 != null) {
                     strName += "<p class\"text text-info\"> " + this.teacher_title_name2 + this.teacher_fname2 + " " + this.teacher_lname2 + "</p>"
-                } else if (this.teacher_fname3 != null) {
+                }
+                if (this.teacher_fname3 != null) {
                     strName += "<p class\"text text-info\"> " + this.teacher_title_name3 + this.teacher_fname3 + " " + this.teacher_lname3 + "</p>"
                 }
                 return strName
@@ -382,7 +414,7 @@ include_once "login-head.php";
 
                 return " <button type='button' class='btn btn-sm btn-primary ' onclick='add_student(`" + this.ts_id + "`)'> เพิ่มนักศึกษา </button> \
                         <button type='button' class='btn btn-sm btn-info ' onclick='student_grade(" + this.ts_id + ")' > กรอกเกรด </button>  \
-                        <button type='button' class='btn btn-sm btn-success ' value='" + this.ts_id + "'> Edit </button>";
+                        <button type='button' class='btn btn-sm btn-success ' onclick='teacher_subject_edit(" + this.ts_id + ")'> Edit </button>";
             }
         }
 
@@ -420,7 +452,10 @@ include_once "login-head.php";
 
                         dataTable['teacher'] = dd.teacher()
                         dataTable['edit'] = dd.edit()
-
+                        // if (element['ts_id'] == '108') {
+                        // console.log(dd.teacher())
+                        // console.log(element['teacher_fname3'])
+                        // }
                         table1.push(dataTable)
                     });
 
@@ -503,6 +538,24 @@ include_once "login-head.php";
         }
 
         function teacher_subject_edit(ts_id) {
+            $(".bd-update-modal-lg").modal({
+                show: true,
+                keyboard: false,
+                backdrop: 'static'
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "../query/teacher_list.php",
+                dataType: "JSON",
+                success: function(response) {
+                    response.data.forEach((element, key) => {
+                        $("#update_teacher_id").append("<option value=\"" + element['teacher_id'] + "\"> " + element['teacher_title_name'] + element['teacher_fname'] + element['teacher_lname'] + " </option>")
+                        $("#update_teacher_id2").append("<option value=\"" + element['teacher_id'] + "\"> " + element['teacher_title_name'] + element['teacher_fname'] + element['teacher_lname'] + " </option>")
+                        $("#update_teacher_id3").append("<option value=\"" + element['teacher_id'] + "\"> " + element['teacher_title_name'] + element['teacher_fname'] + element['teacher_lname'] + " </option>")
+                    });
+                }
+            });
 
             $.ajax({
                 type: "POST",
@@ -529,11 +582,12 @@ include_once "login-head.php";
                     $("#update_subject").val(response.data.subject_id)
                     $("#update_year").val(response.data.yt_year)
                     $("#update_term").val(response.data.yt_term)
+
+                    $("#update_teacher_id").val(response.data.teacher_id)
+                    $("#update_teacher_id2").val(response.data.teacher_id2)
+                    $("#update_teacher_id3").val(response.data.teacher_id3)
                 }
             });
-
-            $('.bd-update-modal-lg').modal('show')
-
         }
 
         $("#form_update_subject").submit(function(e) {
@@ -552,11 +606,12 @@ include_once "login-head.php";
                             confirmButtonText: 'OK'
                         });
                         teacher_subject_show()
-                        $('.bd-new-modal-lg').modal('hide')
+                        $('.bd-update-modal-lg').modal('hide')
+                        $("#form_update_subject")[0].reset();
                     } else {
                         Swal.fire({
                             title: 'อัพเดทรายวิชาที่สอน',
-                            text: 'ไม่สำเร็จ ข้อมูลที่กรอก อาจมีอยู่แล้ว',
+                            text: 'ไม่สำเร็จ' + response.error,
                             type: 'error',
                             confirmButtonText: 'รับทราบ'
                         });

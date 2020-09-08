@@ -18,7 +18,7 @@ class Grade extends SqlConn
         return $std;
     }
 
-    function std($stdId)
+    function std($stdId, $std_status = 1)
     {
         $arr = array();
         $result = array();
@@ -63,9 +63,10 @@ class Grade extends SqlConn
                             ON t1.teacher_id = student.teacher_id
                             LEFT JOIN teacher t2
                             ON t2.teacher_id = student.teacher_id2
-                            WHERE std_id = :stdId";
+                            WHERE std_id = :stdId AND std_status = :std_status";
             $stm = $this->conn->prepare($sql);
             $stm->bindParam(':stdId', $stdId);
+            $stm->bindParam(':std_status', $std_status);
             $stm->execute();
             $arr = $stm->fetchAll(PDO::FETCH_ASSOC);
             if (count($arr) == 1) {

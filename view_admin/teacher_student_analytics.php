@@ -299,6 +299,9 @@ include_once "login-head.php";
 
             async function asyncCall() {
                 // console.log('calling');
+                $.blockUI({
+                    message: $('.body-block-example-1')
+                });
                 const result = await student_analytics_current(std_id);
                 const result2 = await student_analytics_current2(std_id);
                 const result3 = await student_analytics(std_id);
@@ -306,6 +309,8 @@ include_once "login-head.php";
                 console.log(result2);
                 console.log(result3);
                 // expected output: 'resolved'
+                $.unblockUI();
+
             }
 
             asyncCall();
