@@ -111,14 +111,16 @@ class GradeSimulator extends SqlConn
         $creditAll = 0;
         $sumGrade = 0;
         $arrG = array("A", "B+", "B", "C+", "C", "D+", "D", "F");
+        $arrNotG = array('W', 'P');
         $result = array();
         if (count($arrGrade) > 0) {
             foreach ($arrGrade as $key => $value) {
 
-                if (in_array($value['grade_text'], $arrG)) {
+                if (!in_array($value['grade_text'], $arrNotG)) {
                     $creditAll += $value['subject_credit'];
                     // return 'test';
                 }
+                // $creditAll += $value['subject_credit'];
 
                 if ($value['grade_text'] == 'A') {
                     $sumGrade += ($value['subject_credit'] * 4);

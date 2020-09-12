@@ -137,7 +137,7 @@ include_once "login-head.php";
                 var td3 = "<td>" + this.std_fname + " " + this.std_lname + "</td>"
                 var strTd4 = ""
                 var td5 = "<td></td>"
-                var arrGrade = ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F', 'W'];
+                var arrGrade = ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F', 'W', 'P'];
                 var GradeDefault = ''
                 strTd4 += "<td><select class=\"mb-2 form-control " + this.color_update + " \" name=\"ss_id[" + this.ss_id + "]\" id=\"ss_id-" + this.ss_id + "\">";
                 strTd4 += "<option value=\"\">ยังไม่ระบุ</option>"

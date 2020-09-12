@@ -122,14 +122,17 @@ class Grade extends SqlConn
         $creditAll = 0;
         $sumGrade = 0;
         $arrG = array("A", "B+", "B", "C+", "C", "D+", "D", "F");
+        $arrNotG = array('W', 'P');
         $result = array();
         if (count($arrGrade) > 0) {
             foreach ($arrGrade as $key => $value) {
 
-                if (in_array($value['grade_text'], $arrG)) {
+                if (!in_array($value['grade_text'], $arrNotG)) {
                     $creditAll += $value['subject_credit'];
                     // return 'test';
                 }
+
+                // $creditAll += $value['subject_credit'];
 
                 if ($value['grade_text'] == 'A') {
                     $sumGrade += ($value['subject_credit'] * 4);
@@ -585,6 +588,36 @@ class Grade extends SqlConn
             $stm->execute();
             $result = $stm->fetchAll(PDO::FETCH_ASSOC);
             return $result;
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    function sumCredit_by_term($std_id, $yt_year, $yt_term)
+    {
+        $arrNotG = array('W', 'P');
+        $creditAll = 0;
+        try {
+            $sql = "SELECT student_subject.grade_text ,
+                            subject.subject_credit
+                    FROM student_subject LEFT JOIN subject 
+                        ON subject.subject_id = student_subject.subject_id 
+                        WHERE student_subject.std_id = :std_id 
+                            AND student_subject.yt_term = :yt_term 
+                            AND student_subject.yt_year = :yt_year ";
+            $stm = $this->conn->prepare($sql);
+            $stm->bindParam(':std_id', $std_id);
+            $stm->bindParam(':yt_term', $yt_term);
+            $stm->bindParam(':yt_year', $yt_year);
+            $stm->execute();
+            $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($result as $key => $value) {
+                if (!in_array($value['grade_text'], $arrNotG)) {
+                    $creditAll += $value['subject_credit'];
+                }
+            }
+            return $creditAll;
         } catch (\Exception $e) {
             return $e->getMessage();
         }

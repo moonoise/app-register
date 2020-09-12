@@ -82,6 +82,16 @@ include_once "login-head.php";
         .table-subject-gray th {
             border: 2px #e09a0e54 dotted;
         }
+
+        .table-subject-green-dotted {
+            background-color: #5bf14959;
+            box-shadow: 0 0.125rem 0.625rem rgba(58, 196, 125, .4), 0 0.0625rem 0.125rem rgba(58, 196, 125, .5);
+        }
+
+        .table-subject-green-dotted td,
+        .table-subject-green-dotted th {
+            border: 3px #5bf14959 dotted;
+        }
     </style>
 </head>
 
@@ -244,6 +254,7 @@ include_once "login-head.php";
                                     <option value="D">D</option>
                                     <option value="F">F</option>
                                     <option value="W">W</option>
+                                    <option value="P">P</option>
                                 </select>
                             </div>
                             <button class="btn-form_update_grade btn-sm btn-icon btn-shadow btn-dashed btn btn-outline-info" type="button">Update</button>
@@ -313,9 +324,21 @@ include_once "login-head.php";
 
             }
 
+
+
+
             asyncCall();
 
         });
+
+        async function asyncCall2(std_id) {
+            $.blockUI({
+                message: $('.body-block-example-1')
+            });
+            const result = await student_analytics_current(std_id);
+            const result2 = await student_analytics_current2(std_id);
+            $.unblockUI();
+        }
 
         var objSubject = {
             'std_id': '',
@@ -334,7 +357,6 @@ include_once "login-head.php";
                 var strColor = ""
                 var strGrade = ""
                 var grade = ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'P'];
-
                 if (this.permissible == true) {
                     strColor = " table-subject-green "
                     if (this.registered == true) {
@@ -352,6 +374,7 @@ include_once "login-head.php";
                         } else {
                             strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-success\" onclick=\"update_grade(`" + this.ss_id + "`,`" + this.grade_text + "`)\"> " + this.grade_text + "</button>"
                         }
+
                     }
                 } else {
                     strColor = " table-subject-yellow "
@@ -480,6 +503,19 @@ include_once "login-head.php";
 
         }
 
+        var objSumCredit = {
+            'sumCredit': '',
+            fnSumCredit: function() {
+                var str = "";
+                if (this.sumCredit <= 22) {
+                    str += " <span class=\"text text-info\">&nbsp; " + this.sumCredit + "</span>"
+                } else if (this.sumCredit > 22) {
+                    str += " <span class=\"text text-danger\">&nbsp; " + this.sumCredit + " (ลงทะเบียนเกิน 22 หน่วยกิต)</span> "
+                }
+                return str;
+            }
+        }
+
         function student_analytics_current(std_id) {
             $.ajax({
                 type: "POST",
@@ -491,11 +527,18 @@ include_once "login-head.php";
                 success: function(response) {
                     $("#id-subject-current").html("")
 
-                    $("#id-subject-current").append("<div class=\"card-header mb-2 col-12 \">แผนการเรียนปัจจุบัน &nbsp;&nbsp;&nbsp;  \
+                    $("#id-subject-current").append("<div id=\"id-head_current\" class=\"card-header mb-2 col-12 \">แผนการเรียนปัจจุบัน &nbsp;&nbsp;&nbsp;  \
+                    <span id=\"id-credit\"></span> \
                     <button class = \"btn-check-info btn-sm btn-icon btn-shadow btn-dashed btn btn-outline-info\" id=\"btn-add-student_subject\" type=\"button\" value=\"" + std_id + "\"> เพิ่มติม..</button> </div>");
 
                     response.forEach((element, key) => {
                         var tableSubject = Object.create(objSubject);
+                        if (element['sum_credit'] <= '22') {
+                            $("#id-credit").html("<span class=\"text-info\">CREDIT = " + element['sum_credit'] + "</span> &nbsp;&nbsp;");
+                        } else if (element['sum_credit'] > '22') {
+                            $("#id-credit").html("<span class=\"text-danger\">CREDIT = " + element['sum_credit'] + "(ลงทะเบียนเกิน 22 หน่วยกิต)</span> &nbsp;&nbsp;");
+                        }
+
                         // console.log(element['subject_id'])
                         tableSubject.subject_id = element['subject_id']
                         tableSubject.std_id = std_id
@@ -560,7 +603,8 @@ include_once "login-head.php";
                 },
                 dataType: "JSON",
                 success: function(response) {
-
+                    var for_01175163 = false;
+                    var for_01175143 = false;
 
                     response.reverse().forEach((element, key) => {
                         // console.log(element['grade'])
@@ -574,7 +618,10 @@ include_once "login-head.php";
                                 strTerm = element['term']
                                 strYear = parseInt(element['year'])
                             }
-                            $("#id-subject-old").append("<div class=\"card-header mb-2 col-12 \">ปี " + strYear + " เทอม " + strTerm + " (sem. G.P.A. = " + element['gpa'] + " ,  cum. G.P.A. = " + element['cum_gpa'] + ")" + "</div>");
+                            var strSumCredit = Object.create(objSumCredit)
+                            strSumCredit.sumCredit = element['sumCredit']
+
+                            $("#id-subject-old").append("<div class=\"card-header mb-2 col-12 \">ปี " + strYear + " เทอม " + strTerm + " (sem. G.P.A. = " + element['gpa'] + " ,  cum. G.P.A. = " + element['cum_gpa'] + " , Credit = " + strSumCredit.fnSumCredit() + ")" + "</div>");
                         }
 
                         element['grade'].forEach(element => {
@@ -588,23 +635,38 @@ include_once "login-head.php";
 
                             $("#id-subject-old").append(tableSubject.table_subject());
 
+                            if (element['subject_id'] == '01175163') {
+                                for_01175163 = true;
+                            }
+
+                            if (element['subject_id'] == '01175143') {
+                                for_01175143 = true;
+                            }
+
                         });
 
                         element['subject_not_register'].forEach(element2 => {
-                            var tableSubjectNotRegister = Object.create(objSubjectOldNotRegister);
-                            tableSubjectNotRegister.subject_id = element2['subject_id']
-                            tableSubjectNotRegister.subject_name_en = element2['subject_name_en']
-                            tableSubjectNotRegister.subject_credit = element2['subject_credit']
+                            // var tableSubjectNotRegister = Object.create(objSubjectOldNotRegister);
+                            // tableSubjectNotRegister.subject_id = element2['subject_id']
+                            // tableSubjectNotRegister.subject_name_en = element2['subject_name_en']
+                            // tableSubjectNotRegister.subject_credit = element2['subject_credit']
 
-                            $("#id-subject-old").append(tableSubjectNotRegister.table_subject());
+                            // $("#id-subject-old").append(tableSubjectNotRegister.table_subject());
+                            if (element2['subject_id'] == '01175163' && for_01175143 == true) {
+
+                            } else if (element2['subject_id'] == '01175143' && for_01175163 == true) {
+
+                            } else {
+                                var tableSubjectNotRegister = Object.create(objSubjectOldNotRegister);
+                                tableSubjectNotRegister.subject_id = element2['subject_id']
+                                tableSubjectNotRegister.subject_name_en = element2['subject_name_en']
+                                tableSubjectNotRegister.subject_credit = element2['subject_credit']
+
+                                $("#id-subject-old").append(tableSubjectNotRegister.table_subject());
+                            }
+
                         });
-
-
-
                     });
-
-
-
                     // $('#json-renderer').jsonViewer(response);
                 }
             });
@@ -639,6 +701,19 @@ include_once "login-head.php";
                             tableSubject.permissible = true
                             tableSubject.permissible_comment = "รายวิชาที่ลงเพิ่มเติม นอกแผนการเรียน"
 
+                            if (element['ss_id']) {
+                                tableSubject.ss_id = element['ss_id']
+
+                            } else {
+                                tableSubject.ss_id = null
+                            }
+
+                            if (element['grade_text']) {
+                                tableSubject.grade_text = element['grade_text']
+                            } else {
+                                tableSubject.grade_text = null
+                            }
+
                             // var strSr = ""
                             // if (element['subject_required']['data'] != null && element['subject_required']['data'].length > 0) {
                             //     // console.log('test')
@@ -647,8 +722,13 @@ include_once "login-head.php";
                             //     });
                             //     tableSubject.subject_required = strSr
                             // }
+                            if (element['subject_id'] == '01175163' || element['subject_id'] == '01175143') {
+                                $("#id-head_current").after(tableSubject.table_subject());
+                            } else {
+                                $("#id-subject-current").append(tableSubject.table_subject());
+                            }
 
-                            $("#id-subject-current").append(tableSubject.table_subject());
+
                         });
                     }
                 }
@@ -865,7 +945,8 @@ include_once "login-head.php";
                                 };
                                 toastr["success"]("สำเร็จ", "ลงทะเบียนรายวิชา");
 
-                                student_analytics_current($("#std_id_add").val());
+                                // student_analytics_current($("#std_id_add").val());
+                                asyncCall2($("#std_id_add").val())
                                 $('#form_register_subject')[0].reset();
                                 $(".bd-from-add_student_subject-modal-lg").modal('hide')
 
@@ -929,7 +1010,8 @@ include_once "login-head.php";
                                 toastr["success"]("สำเร็จ", "นำราชชื่อออกจากรายวิชา");
 
                                 $(".bd-remark-modal-lg").modal("hide")
-                                student_analytics_current('<?php echo $_POST['std_id']; ?>')
+                                // student_analytics_current('')
+                                asyncCall2('<?php echo $_POST['std_id']; ?>')
 
                             } else {
                                 Swal.fire(
@@ -948,8 +1030,6 @@ include_once "login-head.php";
             });
 
         });
-
-
 
 
         function update_grade(ss_id, grade_text) {
@@ -1002,7 +1082,9 @@ include_once "login-head.php";
                                     "hideMethod": "fadeOut"
                                 };
                                 toastr["success"]("สำเร็จ", "อัพเดทเกรดสำเร็จ");
-                                student_analytics_current('<?php echo $_POST['std_id']; ?>')
+                                // student_analytics_current('<?php echo $_POST['std_id']; ?>')
+                                asyncCall2('<?php echo $_POST['std_id']; ?>')
+
                                 $(".bd-update-grade-modal-lg").modal('hide')
                             } else {
                                 Swal.fire({

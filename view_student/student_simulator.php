@@ -187,21 +187,22 @@ include_once "login-head.php";
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="col-12">
-                        <form action="" class="form-inline" name="form_register_more" id="form_register_more">
-                            <input type="hidden" name="register_more_year" id="register_more_year">
-                            <input type="hidden" name="register_more_term" id="register_more_term">
-                            <input type="hidden" name="register_more_std_id" id="register_more_std_id">
-                            <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group col-md-12">
-                                <label for="select_subject" class="mr-sm-2">เลือกรายวิชา</label>
-                                <select class="mb-2 mt-2 form-control " name="subject_id_auto" id="subject_id_auto" aria-invalid="false">
+                    <div class="row">
+                        <div class="col-12">
+                            <form action="" class="form-inline" name="form_register_more" id="form_register_more">
+                                <input type="hidden" name="register_more_year" id="register_more_year">
+                                <input type="hidden" name="register_more_term" id="register_more_term">
+                                <input type="hidden" name="register_more_std_id" id="register_more_std_id">
+                                <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group col-md-12">
+                                    <label for="select_subject" class="mr-sm-2">เลือกรายวิชา</label>
+                                    <select class="mb-2 mt-2 form-control col-12" name="subject_id_auto" id="subject_id_auto" aria-invalid="false">
 
-                                </select>
-                            </div>
-                            <button class="btn-form_register_more btn-sm btn-icon btn-shadow btn-dashed btn btn-outline-info" type="button">Register</button>
-                        </form>
+                                    </select>
+                                </div>
+                                <button class="btn-form_register_more btn-sm btn-icon btn-shadow btn-dashed btn btn-outline-info" type="button">Register</button>
+                            </form>
+                        </div>
                     </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -496,6 +497,19 @@ include_once "login-head.php";
 
         }
 
+        var objSumCredit = {
+            'sumCredit': '',
+            fnSumCredit: function() {
+                var str = "";
+                if (this.sumCredit <= 22) {
+                    str += " <span class=\"text text-info\">&nbsp; " + this.sumCredit + "</span>"
+                } else if (this.sumCredit > 22) {
+                    str += " <span class=\"text text-danger\">&nbsp; " + this.sumCredit + " (ลงทะเบียนเกิน 22 หน่วยกิต)</span> "
+                }
+                return str;
+            }
+        }
+
 
 
         function student_analytics(std_id) {
@@ -517,6 +531,8 @@ include_once "login-head.php";
                     response.reverse().forEach((element, key) => {
                         // console.log(element['grade'])
                         if (element['grade'].length > 0 || element['subject_not_register'].length > 0) {
+                            var strSumCredit = Object.create(objSumCredit)
+                            strSumCredit.sumCredit = element['sumCredit']
                             var strTerm = ""
                             var strYear = ""
                             if (element['term'] == '3') {
@@ -526,7 +542,7 @@ include_once "login-head.php";
                                 strTerm = element['term']
                                 strYear = parseInt(element['year'])
                             }
-                            $("#id-subject-old").append("<div class=\"card-header mb-2 col-12 \">ปี " + strYear + " เทอม " + strTerm + " (sem. G.P.A. = " + element['gpa'] + " ,  cum. G.P.A. = " + element['cum_gpa'] + ") &nbsp;&nbsp;&nbsp; " +
+                            $("#id-subject-old").append("<div class=\"card-header mb-2 col-12 \">ปี " + strYear + " เทอม " + strTerm + " (sem. G.P.A. = " + element['gpa'] + " ,  cum. G.P.A. = " + element['cum_gpa'] + " , Credit = " + strSumCredit.fnSumCredit() + ") &nbsp;&nbsp;&nbsp; " +
                                 "<button class = \"btn-check-info btn-sm btn-icon btn-shadow btn-dashed btn btn-outline-info\"  \
                                 id=\"btn-add-student_subject\" type=\"button\" onclick=\"register_more(" + std_id + "," + element['year'] + "," + element['term'] + ") \"> เพิ่มติม..</button>" +
                                 "</div>");

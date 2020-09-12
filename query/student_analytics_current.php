@@ -34,7 +34,7 @@ $condition = array();
 $sr = array();
 
 $currentSubject = $setSubject->set_subject_guide($std['level'], $currentYear, $currentTerm);
-
+$sumCredit_term['sum_credit'] = $grade->sumCredit_by_term($std['std_id'], $currentYear, $currentTerm);
 foreach ($currentSubject as $keySubject => $valueSubject) {
     $arrGrade = array();
     $check['registered'] = $grade->check_registered($std['std_id'], $valueSubject['subject_id'], $currentYear, $currentTerm);
@@ -92,7 +92,7 @@ foreach ($currentSubject as $keySubject => $valueSubject) {
         $sr['permissible_comment'] = "ไม่ใช่รายวิชาต่อเนื่อง";
     }
     $check['subject_required']['count'] = $required_subject['count'];
-    $arrResult[] = array_merge_recursive($valueSubject, $check, $sr, $arrGrade);
+    $arrResult[] = array_merge_recursive($valueSubject, $check, $sr, $arrGrade, $sumCredit_term);
 }
 echo json_encode($arrResult);
 
