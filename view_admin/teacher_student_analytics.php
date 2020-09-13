@@ -84,7 +84,7 @@ include_once "login-head.php";
         }
 
         .table-subject-green-dotted {
-            background-color: #5bf14959;
+            background-color: #5bf1490d;
             box-shadow: 0 0.125rem 0.625rem rgba(58, 196, 125, .4), 0 0.0625rem 0.125rem rgba(58, 196, 125, .5);
         }
 
@@ -177,6 +177,27 @@ include_once "login-head.php";
                     <div id="id-permissible"></div>
                     <p id="subject-remark"></p>
                     <p id="subject-form-register"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Small modal -->
+    <div class="modal fade bd-remark-info-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">หมายเหตุ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="id-info-subject"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -484,8 +505,20 @@ include_once "login-head.php";
             'subject_id': '',
             'subject_name_en': '',
             'subject_credit': '',
+            'have_grade': '',
+            'have_term': '',
+            'have_year': '',
             table_subject: function() {
-                var str = "<table class=\"col-3 mr-3 table table-subject-white \"> \
+
+                var strInfo = "";
+                var color = "";
+                if (this.have_grade) {
+                    color = "table-subject-green-dotted"
+                    strInfo += "<button type=\"button\" class=\"mb-2 mr-2 border-0 btn-transition btn btn-outline-info\" onclick = \"modal_remark_info(`" + this.subject_id + "`,`" + this.subject_name_en + "`,`" + this.have_grade + "`,`" + this.have_term + "`,`" + this.have_year + "`)\"> INFO </button>";
+                } else {
+                    color = " table-subject-white "
+                }
+                var str = "<table class=\"col-3 mr-3 table " + color + "  \"> \
                             <tbody>                                         \
                                 <tr class=\"text-center\">                                        \
                                     <td>" + this.subject_credit + "</td>                                 \
@@ -493,7 +526,7 @@ include_once "login-head.php";
                                     <td></td>                                  \
                                 </tr>                                       \
                                 <tr>                                        \
-                                    <td colspan=\"3\">" + this.subject_name_en +
+                                    <td colspan=\"3\">" + this.subject_name_en + strInfo +
                     "</td>                 \
                                 </tr>                                       \
                             </tbody>                                        \
@@ -661,6 +694,9 @@ include_once "login-head.php";
                                 tableSubjectNotRegister.subject_id = element2['subject_id']
                                 tableSubjectNotRegister.subject_name_en = element2['subject_name_en']
                                 tableSubjectNotRegister.subject_credit = element2['subject_credit']
+                                tableSubjectNotRegister.have_grade = element2['have_grade']
+                                tableSubjectNotRegister.have_term = element2['have_term']
+                                tableSubjectNotRegister.have_year = element2['have_year']
 
                                 $("#id-subject-old").append(tableSubjectNotRegister.table_subject());
                             }
@@ -821,6 +857,16 @@ include_once "login-head.php";
                                             </div>")
             }
 
+
+        }
+
+        function modal_remark_info(subject_id, subject_name_en, have_grade, have_term, have_year) {
+            $(".bd-remark-info-modal-lg").modal({
+                show: true,
+                keyboard: false,
+                backdrop: 'static'
+            })
+            $("#id-info-subject").html("[" + subject_id + "] " + subject_name_en + " ได้เกรด " + have_grade + "( เทอม " + have_term + " ปีการศึกษา " + have_year);
 
         }
 

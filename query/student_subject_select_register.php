@@ -35,11 +35,11 @@ try {
                         subject.subject_name_en 
                  FROM `teacher_subject` 
                 LEFT JOIN subject ON subject.subject_id = teacher_subject.subject_id 
-                WHERE teacher_subject.yt_year = :yt_year 
-                AND teacher_subject.yt_term = :yt_term
-                ";
+                WHERE 
+                 teacher_subject.yt_term = :yt_term
+                "; //AND teacher_subject.yt_year = :yt_year 
     $stm = $sqlConn->conn->prepare($sql);
-    $stm->bindParam(":yt_year", $currentYear);
+    // $stm->bindParam(":yt_year", $currentYear);
     $stm->bindParam(":yt_term", $currentTerm);
     $stm->execute();
     $result = $stm->fetchAll(PDO::FETCH_ASSOC);

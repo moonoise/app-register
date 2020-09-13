@@ -622,4 +622,23 @@ class Grade extends SqlConn
             return $e->getMessage();
         }
     }
+
+    function checkGradeBySubjectId($stdId, $subjectID)
+    {
+        try {
+            $sql = "SELECT * FROM student_subject WHERE std_id = :std_id AND subject_id = :subject_id AND grade_text IN ('A', 'B+', 'B', 'C+', 'C', 'D+', 'D','P')";
+            $stm = $this->conn->prepare($sql);
+            $stm->bindParam(':std_id', $stdId);
+            $stm->bindParam(':subject_id', $subjectID);
+            $stm->execute();
+            $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+            if (count($result) == 1) {
+                return $result[0];
+            } else {
+                return null;
+            }
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }

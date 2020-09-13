@@ -64,7 +64,24 @@ while ($y <= intval($std['current_year'])) {
             foreach ($arrGrade['grade'] as $keySubject => $valueSubject) {
                 $arrSubjectId[] = $valueSubject['subject_id'];
             }
-            $arrGrade['subject_not_register'] = $setSubject->set_subject_not_register($level, $y, $valueTerm, $arrSubjectId);
+
+            $arrNotRegister = $setSubject->set_subject_not_register($level, $y, $valueTerm, $arrSubjectId);
+            if (count($arrNotRegister) > 0) {
+                foreach ($arrNotRegister as $key => $value) {
+                    $haveGrade =  $grade->checkGradeBySubjectId($_POST['std_id'], $value['subject_id']);
+                    if ($haveGrade != null) {
+                        $arrNotRegister[$key]['have_grade'] = $haveGrade['grade_text'];
+                        $arrNotRegister[$key]['have_term'] = $haveGrade['yt_term'];
+                        $arrNotRegister[$key]['have_year'] = $haveGrade['yt_year'];
+                    } else {
+                        $arrNotRegister[$key]['have_grade'] = null;
+                        $arrNotRegister[$key]['have_term'] = null;
+                        $arrNotRegister[$key]['have_year'] = null;
+                    }
+                }
+            }
+
+            $arrGrade['subject_not_register'] = $arrNotRegister;
 
             $arrGrade['year'] = $y;
             $arrGrade['term'] = $valueTerm;
