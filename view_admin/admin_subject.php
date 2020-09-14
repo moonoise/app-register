@@ -103,7 +103,7 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                             <div class="col-md-2">
                                 <div class="position-relative form-group"><label for="subject_credit_add" class="">Credit</label>
                                     <select class="mb-2 form-control" name="subject_credit_add" id="subject_credit_add">
-                                        <option value="">ไม่ระบุ</option>
+
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -115,6 +115,7 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                             <div class="col-md-5">
                                 <div class="position-relative form-group"><label for="subject_level_guide_add" class="">สำหรับ นิสิตชั้นปี (ตามหลักสูตร หรือไม่ระบุก็ได้)</label>
                                     <select class="mb-2 form-control" name="subject_level_guide_add" id="subject_level_guide_add">
+                                        <option value="">ไม่ระบุ</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -125,6 +126,7 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                             <div class="col-md-5">
                                 <div class="position-relative form-group"><label for="subject_term_guide_add" class="">สำหรับเทอม(ตามหลักสูตร หรือไม่ระบุก็ได้)</label>
                                     <select class="mb-2 form-control" name="subject_term_guide_add" id="subject_term_guide_add">
+                                        <option value="">ไม่ระบุ</option>
                                         <option value="1">ภาคต้น</option>
                                         <option value="2">ปลายภาค</option>
                                         <option value="3">ภาคฤดูร้อน</option>
