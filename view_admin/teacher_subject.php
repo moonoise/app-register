@@ -325,9 +325,9 @@ include_once "login-head.php";
                 dataType: "JSON",
                 success: function(response) {
                     response.data.forEach((element, key) => {
-                        $("#new_teacher_id").append("<option value=\"" + element['teacher_id'] + "\"> " + element['teacher_title_name'] + element['teacher_fname'] + element['teacher_lname'] + " </option>")
-                        $("#new_teacher_id2").append("<option value=\"" + element['teacher_id'] + "\"> " + element['teacher_title_name'] + element['teacher_fname'] + element['teacher_lname'] + " </option>")
-                        $("#new_teacher_id3").append("<option value=\"" + element['teacher_id'] + "\"> " + element['teacher_title_name'] + element['teacher_fname'] + element['teacher_lname'] + " </option>")
+                        $("#new_teacher_id").append("<option value=\"" + element['teacher_id'] + "\"> " + element['teacher_title_name'] + element['teacher_fname'] + " " + element['teacher_lname'] + " </option>")
+                        $("#new_teacher_id2").append("<option value=\"" + element['teacher_id'] + "\"> " + element['teacher_title_name'] + element['teacher_fname'] + " " + element['teacher_lname'] + " </option>")
+                        $("#new_teacher_id3").append("<option value=\"" + element['teacher_id'] + "\"> " + element['teacher_title_name'] + element['teacher_fname'] + " " + element['teacher_lname'] + " </option>")
                     });
                 }
             });
@@ -550,9 +550,9 @@ include_once "login-head.php";
                 dataType: "JSON",
                 success: function(response) {
                     response.data.forEach((element, key) => {
-                        $("#update_teacher_id").append("<option value=\"" + element['teacher_id'] + "\"> " + element['teacher_title_name'] + element['teacher_fname'] + element['teacher_lname'] + " </option>")
-                        $("#update_teacher_id2").append("<option value=\"" + element['teacher_id'] + "\"> " + element['teacher_title_name'] + element['teacher_fname'] + element['teacher_lname'] + " </option>")
-                        $("#update_teacher_id3").append("<option value=\"" + element['teacher_id'] + "\"> " + element['teacher_title_name'] + element['teacher_fname'] + element['teacher_lname'] + " </option>")
+                        $("#update_teacher_id").append("<option value=\"" + element['teacher_id'] + "\"> " + element['teacher_title_name'] + element['teacher_fname'] + " " + element['teacher_lname'] + " </option>")
+                        $("#update_teacher_id2").append("<option value=\"" + element['teacher_id'] + "\"> " + element['teacher_title_name'] + element['teacher_fname'] + " " + element['teacher_lname'] + " </option>")
+                        $("#update_teacher_id3").append("<option value=\"" + element['teacher_id'] + "\"> " + element['teacher_title_name'] + element['teacher_fname'] + " " + element['teacher_lname'] + " </option>")
                     });
                 }
             });

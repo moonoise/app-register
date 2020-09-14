@@ -26,7 +26,7 @@ $grade1 = array('A', 'B+', 'B', 'C+', 'C', 'D+', 'D');
 $grade2 = array('F');
 $grade3 = array('W');
 $arrTerm = [1, 2, 3];
-$arrGrade = array();
+
 $condition = array();
 $data = array();
 $sr = array();
@@ -45,8 +45,11 @@ while ($yl < $std_year + 3) {
 
     foreach ($arrTerm as $key => $valueTerm) {
 
+        $arrGrade = array();
+        $sum = array();
+        $allSumCredit = 0;
+        $AllSumGrade = 0;
         $arrGrade['grade'] = $grade->std_grade_by_year_term($_POST['std_id'], $yl, $valueTerm);
-
         if (count($arrGrade['grade']) > 0) {
 
             $sum = $grade->grade_result($arrGrade['grade']);
@@ -65,7 +68,13 @@ while ($yl < $std_year + 3) {
             $arrGrade['cum_gpa'] = number_format(($AllSumGrade / $allSumCredit), 2, '.', '');
 
             $countTerm++;
+        } else {
+            $arrGrade['gpa'] = 0;
+            $arrGrade['sumGrade'] = 0;
+            $arrGrade['sumCredit'] = 0;
+            $arrGrade['cum_gpa'] = 0;
         }
+
         foreach ($arrGrade['grade'] as $keySubject => $valueSubject) {
             $arrSubjectId[] = $valueSubject['subject_id'];
         }

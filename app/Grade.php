@@ -641,4 +641,24 @@ class Grade extends SqlConn
             return $e->getMessage();
         }
     }
+
+
+    function subjectByID($subjectId)
+    {
+        try {
+            $sql = "SELECT * FROM `subject` WHERE subject_id = :subject_id";
+            $stm = $this->conn->prepare($sql);
+
+            $stm->bindParam(':subject_id', $subjectId);
+            $stm->execute();
+            $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+            if (count($result) == 1) {
+                return $result[0];
+            } else {
+                return null;
+            }
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }

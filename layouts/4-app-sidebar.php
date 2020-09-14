@@ -50,18 +50,11 @@
                             <i class=\"metismenu-state-icon pe-7s-angle-down caret-left\"></i>
                         </a>
                         <ul>
-                            <li>
-                                <a href=\"" . __PATH_WEB__ . "/view_student/student_analytics.php\" id=\"sub1-menu2\">
-                                    <i class=\"metismenu-icon\">
-                                    </i>
-                                    วิเคราะห์แผนการเรียน
-                                </a>
-                            </li>
                              <li>
                                 <a href=\"" . __PATH_WEB__ . "/view_student/student_analytics2.php\" id=\"sub1-menu2\">
                                     <i class=\"metismenu-icon\">
                                     </i>
-                                    วิเคราะห์แผนการเรียน แบบที่ 2
+                                    วิเคราะห์แผนการเรียน
                                 </a>
                             </li>
                             <li>

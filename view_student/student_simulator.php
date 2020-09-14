@@ -71,6 +71,27 @@ include_once "login-head.php";
         .table-subject-white th {
             border: 1px solid #adaba963;
         }
+
+        .table-subject-gray {
+            background-color: #cccbc954;
+            ;
+            box-shadow: 0 0.125rem 0.625rem rgba(238, 238, 238, .4), 0 0.0625rem 0.125rem rgba(238, 238, 238, .5);
+        }
+
+        .table-subject-gray td,
+        .table-subject-gray th {
+            border: 2px #e09a0e54 dotted;
+        }
+
+        .table-subject-green-dotted {
+            background-color: #5bf1490d;
+            box-shadow: 0 0.125rem 0.625rem rgba(58, 196, 125, .4), 0 0.0625rem 0.125rem rgba(58, 196, 125, .5);
+        }
+
+        .table-subject-green-dotted td,
+        .table-subject-green-dotted th {
+            border: 3px #5bf14959 dotted;
+        }
     </style>
 </head>
 
@@ -434,7 +455,7 @@ include_once "login-head.php";
                     strColor = " table-subject-blue "
                     strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-info\" onclick=\"update_grade(`" + this.ss_id + "`,`" + this.grade_text + "`)\"> " + this.grade_text + "</button>"
                 } else if (this.grade_text == 'W') {
-                    strColor = " table-subject-white "
+                    strColor = " table-subject-gray "
                     strGrade = "<button type=\"button\" class=\"btn-check-grade btn-icon btn-shadow btn-dashed btn btn-outline-warning\" onclick=\"update_grade(`" + this.ss_id + "`,`" + this.grade_text + "`)\"> " + this.grade_text + "</button>"
                 } else if (this.grade_text == 'F') {
                     strColor = " table-subject-red "
@@ -533,6 +554,7 @@ include_once "login-head.php";
                         if (element['grade'].length > 0 || element['subject_not_register'].length > 0) {
                             var strSumCredit = Object.create(objSumCredit)
                             strSumCredit.sumCredit = element['sumCredit']
+                            console.log(element['sumCredit'])
                             var strTerm = ""
                             var strYear = ""
                             if (element['term'] == '3') {

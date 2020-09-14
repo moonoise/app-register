@@ -866,7 +866,7 @@ include_once "login-head.php";
                 keyboard: false,
                 backdrop: 'static'
             })
-            $("#id-info-subject").html("[" + subject_id + "] " + subject_name_en + " ได้เกรด " + have_grade + "( เทอม " + have_term + " ปีการศึกษา " + have_year);
+            $("#id-info-subject").html("[" + subject_id + "] " + subject_name_en + " ได้เกรด " + have_grade + "( เทอม " + have_term + " ปีการศึกษา " + have_year + ")");
 
         }
 

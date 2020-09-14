@@ -195,7 +195,6 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                             <div class="col-md-2">
                                 <div class="position-relative form-group"><label for="subject_credit_edit" class="">Credit</label>
                                     <select class="mb-2 form-control" name="subject_credit_edit" id="subject_credit_edit">
-                                        <option value="">ไม่ระบุ</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -207,6 +206,7 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                             <div class="col-md-5">
                                 <div class="position-relative form-group"><label for="subject_level_guide_edit" class="">สำหรับ นิสิตชั้นปี (ตามหลักสูตร หรือไม่ระบุก็ได้)</label>
                                     <select class="mb-2 form-control" name="subject_level_guide_edit" id="subject_level_guide_edit">
+                                        <option value="">ไม่ระบุ</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -217,6 +217,7 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                             <div class="col-md-5">
                                 <div class="position-relative form-group"><label for="subject_term_guide_edit" class="">สำหรับเทอม(ตามหลักสูตร หรือไม่ระบุก็ได้)</label>
                                     <select class="mb-2 form-control" name="subject_term_guide_edit" id="subject_term_guide_edit">
+                                        <option value="">ไม่ระบุ</option>
                                         <option value="1">ภาคต้น</option>
                                         <option value="2">ปลายภาค</option>
                                         <option value="3">ภาคฤดูร้อน</option>
@@ -461,7 +462,8 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
         $("#form_subject_add").validate({
             rules: {
                 subject_id_add: "required",
-                subject_name_en_add: "required"
+                subject_name_en_add: "required",
+                subject_credit_edit: "required"
             },
             errorElement: "em",
             errorPlacement: function(error, element) {
@@ -526,7 +528,8 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
         $("#form_subject_edit").validate({
             rules: {
                 subject_id_edit: "required",
-                subject_name_en_edit: "required"
+                subject_name_en_edit: "required",
+                subject_credit_edit: "required"
             },
             errorElement: "em",
             errorPlacement: function(error, element) {

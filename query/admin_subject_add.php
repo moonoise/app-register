@@ -6,7 +6,6 @@ include_once "../app/config.php";
 include_once "../view_admin/login-head.php";
 
 use App\SqlConn;
-use App\StudentClass;
 
 $sqlConn = new SqlConn;
 

@@ -10,7 +10,7 @@ $sqlConn = new SqlConn;
 
 $data = array();
 try {
-    $sql = "SELECT * FROM teacher ";
+    $sql = "SELECT * FROM teacher WHERE teacher_status = 1";
     $stm = $sqlConn->conn->prepare($sql);
     $stm->execute();
     $data['data'] = $stm->fetchAll(PDO::FETCH_ASSOC);
