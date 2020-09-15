@@ -99,7 +99,7 @@ include_once "login-head.php";
     <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar fixed-footer">
 
         <?php include_once "../layouts/2-head-start.php"; ?>
-        <?php //include_once "../layouts/3-theme-options-start.php"; 
+        <?php include_once "../layouts/3-1-theme-options-start.php";
         ?>
         <div class="app-main">
             <?php include_once "../layouts/4-app-sidebar.php"; ?>
