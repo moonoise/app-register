@@ -109,7 +109,7 @@ include_once "login-head.php";
                     <div class="row">
                         <div class="col-md-12">
                             <div class="main-card mb-3 card">
-                                <div class="card-header">วิเคราะห์ผลการเรียน</div>
+                                <div class="card-header">วิเคราะห์ผลการเรียน <span class="text text-danger">( SMULATOR )</span></div>
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-12">
@@ -564,7 +564,7 @@ include_once "login-head.php";
                                 strTerm = element['term']
                                 strYear = parseInt(element['year'])
                             }
-                            $("#id-subject-old").append("<div class=\"card-header mb-2 col-12 \">ปี " + strYear + " เทอม " + strTerm + " (sem. G.P.A. = " + element['gpa'] + " ,  cum. G.P.A. = " + element['cum_gpa'] + " , Credit = " + strSumCredit.fnSumCredit() + ") &nbsp;&nbsp;&nbsp; " +
+                            $("#id-subject-old").append("<div class=\"card-header mb-2 col-12 text-info\"> <span class=\"text text-danger\">( SMULATOR )</span> ปี " + strYear + " เทอม " + strTerm + " (sem. G.P.A. = " + element['gpa'] + " ,  cum. G.P.A. = " + element['cum_gpa'] + " , Credit = " + strSumCredit.fnSumCredit() + ") &nbsp;&nbsp;&nbsp; " +
                                 "<button class = \"btn-check-info btn-sm btn-icon btn-shadow btn-dashed btn btn-outline-info\"  \
                                 id=\"btn-add-student_subject\" type=\"button\" onclick=\"register_more(" + std_id + "," + element['year'] + "," + element['term'] + ") \"> เพิ่มติม..</button>" +
                                 "</div>");
