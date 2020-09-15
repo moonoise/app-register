@@ -22,6 +22,14 @@ include_once "login-head.php";
     <link rel="stylesheet" href="../assets/css/base.min.css">
 
     <style>
+        .fixed-footer .app-footer {
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            z-index: 7;
+        }
+
         .table-subject-red {
             background-color: #f7242424;
             box-shadow: 0 0.125rem 0.625rem rgba(217, 37, 80, .4), 0 0.0625rem 0.125rem rgba(217, 37, 80, .5);
@@ -96,10 +104,10 @@ include_once "login-head.php";
 </head>
 
 <body>
-    <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
+    <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar fixed-footer">
 
         <?php include_once "../layouts/2-head-start.php"; ?>
-        <?php //include_once "../layouts/3-theme-options-start.php"; 
+        <?php include_once "../layouts/3-1-theme-options-start.php";
         ?>
         <div class="app-main">
             <?php include_once "../layouts/4-app-sidebar.php"; ?>
@@ -157,7 +165,7 @@ include_once "login-head.php";
                         </div>
                     </div>
                 </div>
-                <?php include_once "../layouts/4-1-app-wrapper-footer.php"; ?>
+                <?php include_once "../layouts/4-2-app-wrapper-footer.php"; ?>
             </div>
 
         </div>
@@ -309,7 +317,7 @@ include_once "login-head.php";
 
     <?php include_once "../layouts/5-drawer-start.php"; ?>
     <?php include_once "../layouts/6-script-include.php"; ?>
-
+    <?php include_once "../layouts/7-help.php"; ?>
     <script src="../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.js"></script>
 
     <script>
