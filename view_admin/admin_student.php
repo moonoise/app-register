@@ -135,7 +135,9 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                         <input type="hidden" name="std_id_auto_update" id="std_id_auto_update">
                         <div class="form-row">
                             <div class="col-md-3">
-                                <div class="position-relative form-group"><label for="std_id_edit" class="">รหัสนักศึกษา</label><input name="std_id_edit" id="std_id_edit" placeholder="รหัสนักศึกษา" type="text" class="form-control"></div>
+                                <div class="position-relative form-group"><label for="std_id_edit" class="">รหัสนักศึกษา</label>
+                                    <input name="std_id_edit" id="std_id_edit" placeholder="รหัสนักศึกษา" type="text" class="form-control" readonly>
+                                </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="position-relative form-group"><label for="std_id_card_edit" class="">บัตรประชาชน</label><input name="std_id_card_edit" id="std_id_card_edit" placeholder="บัตรประชาชน" type="text" class="form-control"></div>

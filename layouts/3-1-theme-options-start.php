@@ -128,7 +128,11 @@
                                             <tbody>
                                                 <tr class="text-center">
                                                     <td>3</td>
-                                                    <td><button class="btn-check-info btn-icon btn-shadow btn-dashed btn btn-outline-success" type="button"> 02207311</button> </td>
+                                                    <td><button class="btn-check-info btn-icon btn-shadow btn-dashed btn btn-outline-success" type="button">
+                                                            <div class="mb-2 mr-2 badge badge-pill badge-info">UA</div> 02207311
+                                                        </button>
+
+                                                    </td>
                                                     <td></td>
                                                 </tr>
                                                 <tr>
@@ -138,7 +142,10 @@
                                         </table>
                                     </div>
                                     <div class="widget-content-wrapper">
-                                        <p class="text text-info"> ผังรายวิชาที่เป็นสีเขียว หมายถึง สามารถลงทะเบียนรายวิชานั้นๆ ได้ </p>
+                                        <p class="text text-info"> ผังรายวิชาที่เป็นสีเขียว หมายถึง สามารถลงทะเบียนรายวิชานั้นๆ ได้
+                                            <span class="mb-2 mr-2 badge badge-pill badge-info">UA</span>
+                                            หมายถึงรายวิชานั้นลงทะเบียนแล้ว
+                                        </p>
                                     </div>
                                 </div>
                             </li>
