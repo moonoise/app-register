@@ -13,7 +13,7 @@ include_once "login-head.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ระบบข้อมูลนักเรียน นักศึกษา</title>
+    <title>ระบบโปรแกรมตรวจสอบความถูกต้องของลำดับรายวิชาในการลงทะเบียนเรียน</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
 
     <!-- Disable tap highlight on IE -->
@@ -124,11 +124,11 @@ include_once "login-head.php";
                                     </select>
                                 </div>
                             </div>
-                    
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                     </form>
                 </div>
             </div>
@@ -140,9 +140,7 @@ include_once "login-head.php";
     <?php include_once "../layouts/5-drawer-start.php"; ?>
     <?php include_once "../layouts/6-script-include.php"; ?>
 
-<script>
-
-
+    <script>
         var dataTables = [{
             "subject_id": "",
             "subject": "",
@@ -190,7 +188,7 @@ include_once "login-head.php";
                 [10, 25, 50, 100, "All"]
             ]
         });
-</script>
+    </script>
 
 </body>
 

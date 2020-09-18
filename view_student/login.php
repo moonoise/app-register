@@ -66,7 +66,7 @@
                                 <img src="../assets/images/irrigation-college.png" alt="" srcset="" class="logo-irrigation">
                             </div>
                             <h4 class="mb-0">
-                                <span class="d-block">ระบบข้อมูลนักศึกษา และสถานศึกษา</span>
+                                <span class="d-block">ระบบโปรแกรมตรวจสอบความถูกต้องของลำดับรายวิชาในการลงทะเบียนเรียน</span>
                                 <span>กรุณา Login ก่อนใช้งาน</span></h4>
                             <!-- <h6 class="mt-3">No account? <a href="javascript:void(0);" class="text-primary">Sign up now</a></h6> -->
                             <div class="divider row"></div>
