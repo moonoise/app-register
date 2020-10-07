@@ -34,7 +34,7 @@
                                     <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-plum-plate" tabindex="-1">
                                         <div class="slide-img-bg" style="background-image: url('../assets/images/originals/noname2.png');"></div>
                                         <div class="slider-content">
-                                            <h3>ระบบโปรแกรมตรวจสอบความถูกต้องของลำดับรายวิชาในการลงทะเบียนเรียน</h3>
+                                            <h3>โปรแกรมตรวจสอบความถูกต้องของลำดับรายวิชาในการลงทะเบียนเรียน</h3>
                                             <p>วิทยาลัยการชลประทาน</p>
                                             <p>สถาบันสมทบมหาวิทยาลัยเกษตรศาสตร์</p>
                                         </div>
@@ -79,7 +79,7 @@
                                 <img src="../assets/images/irrigation-college.png" alt="" srcset="" class="logo-irrigation">
                             </div>
                             <h4 class="mb-0">
-                                <span class="d-block">ระบบโปรแกรมตรวจสอบความถูกต้องของลำดับรายวิชาในการลงทะเบียนเรียน</span>
+                                <span class="d-block">โปรแกรมตรวจสอบความถูกต้องของลำดับรายวิชาในการลงทะเบียนเรียน</span>
                                 <span>กรุณา Login ก่อนใช้งาน</span></h4>
                             <!-- <h6 class="mt-3">No account? <a href="javascript:void(0);" class="text-primary">Sign up now</a></h6> -->
                             <div class="divider row"></div>
