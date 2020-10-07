@@ -32,7 +32,7 @@
                             <div class="slick-slider">
                                 <div>
                                     <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-plum-plate" tabindex="-1">
-                                        <div class="slide-img-bg" style="background-image: url('../assets/images/originals/city.jpg');"></div>
+                                        <div class="slide-img-bg" style="background-image: url('../assets/images/originals/noname2.png');"></div>
                                         <div class="slider-content">
                                             <h3>ระบบโปรแกรมตรวจสอบความถูกต้องของลำดับรายวิชาในการลงทะเบียนเรียน</h3>
                                             <p>วิทยาลัยการชลประทาน</p>
@@ -42,7 +42,7 @@
                                 </div>
                                 <div>
                                     <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-premium-dark" tabindex="-1">
-                                        <div class="slide-img-bg" style="background-image: url('../assets/images/originals/citynights.jpg');"></div>
+                                        <div class="slide-img-bg" style="background-image: url('../assets/images/originals/noname2.png');"></div>
                                         <div class="slider-content">
                                             <h3>ปรัญชา</h3>
                                             <p>ผลิตบัณฑิตคุณภาพดี มีความรู้ในเทคโนโลยี และพึ่งพาตนเอง</p>
@@ -51,7 +51,7 @@
                                 </div>
                                 <div>
                                     <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-sunny-morning" tabindex="-1">
-                                        <div class="slide-img-bg" style="background-image: url('../assets/images/originals/citydark.jpg');"></div>
+                                        <div class="slide-img-bg" style="background-image: url('../assets/images/originals/noname2.png');"></div>
                                         <div class="slider-content">
                                             <h3>วิสัยทัศน์</h3>
                                             <p>เป็นสถาบันการศึกษาชั้นนำที่มุ่งเน้นผลิตวิศวกร งานวิจัย และนวัตกรรมด้านการชลประทาน ที่เป็นเลิศอย่างบุรณาการ เพื่อพัฒนาสังคนและประศชาติอย่างยั่งยืน</p>
@@ -60,7 +60,7 @@
                                 </div>
                                 <div>
                                     <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-sunny-morning" tabindex="-1">
-                                        <div class="slide-img-bg" style="background-image: url('../assets/images/originals/citydark.jpg');"></div>
+                                        <div class="slide-img-bg" style="background-image: url('../assets/images/originals/noname2.png');"></div>
                                         <div class="slider-content">
                                             <h3>พันธกิจ</h3>
                                             <p>1.ผลิตบัณฑิตด้านวิศกรรมชลประทานที่มีคุณภาพ คุณธรรม จริยธรรม</p>
