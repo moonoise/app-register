@@ -34,13 +34,13 @@
                                     <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-plum-plate" tabindex="-1">
                                         <div class="slide-img-bg" style="background-image: url('../assets/images/originals/noname2.png');"></div>
                                         <div class="slider-content">
-                                            <h3>โปรแกรมตรวจสอบความถูกต้องของลำดับรายวิชาในการลงทะเบียนเรียน</h3>
+                                            <!-- <h3>โปรแกรมตรวจสอบความถูกต้องของลำดับรายวิชาในการลงทะเบียนเรียน</h3>
                                             <p>วิทยาลัยการชลประทาน</p>
-                                            <p>สถาบันสมทบมหาวิทยาลัยเกษตรศาสตร์</p>
+                                            <p>สถาบันสมทบมหาวิทยาลัยเกษตรศาสตร์</p> -->
                                         </div>
                                     </div>
                                 </div>
-                                <div>
+                                <!-- <div>
                                     <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-premium-dark" tabindex="-1">
                                         <div class="slide-img-bg" style="background-image: url('../assets/images/originals/noname2.png');"></div>
                                         <div class="slider-content">
@@ -48,8 +48,8 @@
                                             <p>ผลิตบัณฑิตคุณภาพดี มีความรู้ในเทคโนโลยี และพึ่งพาตนเอง</p>
                                         </div>
                                     </div>
-                                </div>
-                                <div>
+                                </div> -->
+                                <!-- <div>
                                     <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-sunny-morning" tabindex="-1">
                                         <div class="slide-img-bg" style="background-image: url('../assets/images/originals/noname2.png');"></div>
                                         <div class="slider-content">
@@ -57,8 +57,8 @@
                                             <p>เป็นสถาบันการศึกษาชั้นนำที่มุ่งเน้นผลิตวิศวกร งานวิจัย และนวัตกรรมด้านการชลประทาน ที่เป็นเลิศอย่างบุรณาการ เพื่อพัฒนาสังคนและประศชาติอย่างยั่งยืน</p>
                                         </div>
                                     </div>
-                                </div>
-                                <div>
+                                </div> -->
+                                <!-- <div>
                                     <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-sunny-morning" tabindex="-1">
                                         <div class="slide-img-bg" style="background-image: url('../assets/images/originals/noname2.png');"></div>
                                         <div class="slider-content">
@@ -69,7 +69,7 @@
                                             <p>4.อนุรักษ์ส่งเสริมภูมิปัญญาท้องถิ่นด้านการจัดการน้ำและทำนุบำรุงศิลปวัฒนธรรมไทย</p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
