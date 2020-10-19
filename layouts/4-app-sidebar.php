@@ -54,13 +54,13 @@
                                 <a href=\"" . __PATH_WEB__ . "/view_student/student_analytics2.php\" id=\"sub1-menu2\">
                                     <i class=\"metismenu-icon\">
                                     </i>
-                                    วิเคราะห์แผนการเรียน
+                                    <i class=\"icon ion-android-bulb\"> </i>วิเคราะห์แผนการเรียน
                                 </a>
                             </li>
                             <li>
                                <a href=\"" . __PATH_WEB__ . "/view_student/student_simulator.php\" id=\"sub2-menu3\">
                                    <i class=\"metismenu-icon\">
-                                   </i>simulator
+                                   </i><i class=\"icon ion-android-bulb\"> </i>simulator
                                </a>
                            </li>
                         </ul>
@@ -82,13 +82,13 @@
                            <li>
                                <a href=\"" . __PATH_WEB__ . "/view_admin/teacher_subject.php\" id=\"sub1-menu3\">
                                    <i class=\"metismenu-icon\">
-                                   </i>รายวิชาสอน
+                                   </i><i class=\"icon ion-android-list\"> </i>รายวิชาสอน
                                </a>
                            </li>
                            <li>
                                <a href=\"" . __PATH_WEB__ . "/view_admin/teacher_student.php\" id=\"sub2-menu3\">
                                    <i class=\"metismenu-icon\">
-                                   </i>วิเคราะห์แผนการเรียนนิสิต
+                                   </i><i class=\"icon ion-android-bulb\"> </i>วิเคราะห์แผนการเรียนนิสิต
                                </a>
                            </li>
                            
@@ -111,25 +111,45 @@
                                 <li>
                                     <a href=\"" . __PATH_WEB__ . "/view_admin/admin_student.php\" id=\"sub1-menu4\">
                                         <i class=\"metismenu-icon\">
-                                        </i>ข้อมูลนักศึกษา
+                                        </i><i class=\"icon ion-android-contacts\"> </i>ข้อมูลนักศึกษา
                                     </a>
                                 </li>
                                 <li>
                                     <a href=\"" . __PATH_WEB__ . "/view_admin/admin_teacher.php\" id=\"sub2-menu4\">
                                         <i class=\"metismenu-icon\">
-                                        </i>ข้อมูลอาจารย์
+                                        </i><i class=\"icon ion-android-contact\"> </i>ข้อมูลอาจารย์
                                     </a>
                                 </li>
                                 <li>
                                     <a href=\"" . __PATH_WEB__ . "/view_admin/admin_subject.php\" id=\"sub3-menu4\">
                                         <i class=\"metismenu-icon\">
-                                        </i>ข้อมูลรายวิชา
+                                        </i><i class=\"icon ion-android-list\"> </i>ข้อมูลรายวิชา
                                     </a>
                                 </li>
                                 <li>
                                     <a href=\"" . __PATH_WEB__ . "/view_admin/view_config.php\" id=\"sub4-menu4\">
                                         <i class=\"metismenu-icon\">
-                                        </i>กำหนดปีการศึกษา
+                                        </i><i class=\"icon ion-android-color-palette\"> </i>กำหนดปีการศึกษา
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        ";
+                }
+
+                   if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') {
+                    echo "
+                        <li id=\"menu5\">
+                            <a href=\"#\">
+                                <i class=\"metismenu-icon pe-7s-coffee\"></i>
+                                ศิษย์เก่า
+                                <i class=\"metismenu-state-icon pe-7s-angle-down caret-left\"></i>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href=\"" . __PATH_WEB__ . "/view_admin/admin_alumni.php\" id=\"sub1-menu5\">
+                                        <i class=\"metismenu-icon\">
+                                        </i> <i class=\"icon ion-android-contacts\"> </i>รายชื่อศิษย์เก่า
                                     </a>
                                 </li>
                             </ul>

@@ -34,8 +34,9 @@
                             <div class="modal-content">
                                 <div class="modal-body">
                                     <div class="">
-                                        <img src="../assets/images/irrigation-college.png" alt="" srcset="" class="logo-irrigation">
+                                        <img src="../assets/images/irrigation-college.png" alt="Responsive image" srcset="" class="logo-irrigation img-fluid">
                                     </div>
+
                                     <div class="h5 modal-title text-center">
                                         <h4 class="mt-2">
                                             <div>สำหรับอาจารย์ และเจ้าหน้าที่</div>
@@ -45,10 +46,14 @@
                                     <form id="form-signin" name="form_signin">
                                         <div class="form-row">
                                             <div class="col-md-12">
-                                                <div class="position-relative form-group"><input name="username" id="username" placeholder="กรอกชื่อผู้ใช้" type="text" class="form-control"></div>
+                                                <div class="position-relative form-group">
+                                                    <input name="username" id="username" placeholder="กรอกชื่อผู้ใช้" type="text" class="form-control">
+                                                </div>
                                             </div>
                                             <div class="col-md-12">
-                                                <div class="position-relative form-group"><input name="password" id="examplePassword" placeholder="รหัสผ่าน ..." type="password" class="form-control"></div>
+                                                <div class="position-relative form-group">
+                                                    <input name="password" id="examplePassword" placeholder="รหัสผ่าน ..." type="password" class="form-control">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="position-relative form-check">

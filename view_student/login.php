@@ -76,7 +76,7 @@
                     <div class="h-100 d-flex bg-white justify-content-center align-items-center col-md-12 col-lg-8">
                         <div class="mx-auto app-login-box col-sm-12 col-md-10 col-lg-9">
                             <div class="">
-                                <img src="../assets/images/irrigation-college.png" alt="" srcset="" class="logo-irrigation">
+                                <img src="../assets/images/irrigation-college.png" alt="Responsive image" srcset="" class="logo-irrigation img-fluid">
                             </div>
                             <h4 class="mb-0">
                                 <span class="d-block">โปรแกรมตรวจสอบความถูกต้องของลำดับรายวิชาในการลงทะเบียนเรียน</span>

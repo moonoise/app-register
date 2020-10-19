@@ -11,9 +11,9 @@ $count = array();
 //     // $sql5 = "SELECT a.* FROM register a LEFT JOIN std b ON  (a.reg_name = b.std_fname_th AND a.reg_surname = b.std_lname_th) 
 //     //         WHERE b.std_fname_th IS NULL AND b.std_lname_th IS NULL ";
 
-//     $sql = "SELECT register.* 
+//     $sql = "SELECT b.* 
 //                 FROM std 
-//             INNER JOIN register ON (register.reg_oname = std.std_fname_th AND register.reg_osurname = std.std_lname_th) ";
+//             INNER JOIN register b ON (b.reg_oname = std.std_fname_th AND b.reg_osurname = std.std_lname_th) ";
 
 //     $stm = $sqlConn2->conn->prepare($sql);
 //     $stm->execute();
@@ -69,13 +69,13 @@ $count = array();
 //     $data  = $e->getMessage();
 // }
 
-echo "<pre>";
-print_r($count);
-echo "</pre>";
+// echo "<pre>";
+// print_r($count);
+// echo "</pre>";
 
-echo "<pre>";
-print_r($data);
-echo "</pre>";
+// echo "<pre>";
+// print_r($data);
+// echo "</pre>";
 // echo json_encode($data);
 
 
