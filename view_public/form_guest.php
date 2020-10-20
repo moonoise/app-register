@@ -78,6 +78,10 @@
             /*background */
             /* background: #F8E6AE url(../assets/images/line_logo.png) no-repeat 0px 0px; */
         }
+
+        body {
+            background-color: #f5d0d0;
+        }
     </style>
 </head>
 
