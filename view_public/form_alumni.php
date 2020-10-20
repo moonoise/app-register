@@ -226,7 +226,7 @@
                                 <!-- <h5 class="mb-0">Already have an account? <a href="javascript:void(0);"
                                         class="text-primary">Sign in</a></h5> -->
                                 <div class="ml-auto">
-                                    <button class="btn-wide btn-pill btn-shadow btn-hover-shine btn btn-primary btn-lg">บันทึก
+                                    <button class="btn-wide btn-pill btn-shadow btn-hover-shine btn btn-primary btn-lg">ลงทะเบียน
                                     </button>
                                 </div>
                             </div>
@@ -273,7 +273,7 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class="position-relative form-group">
-                                            <input name="search_mobile" id="search_mobile" placeholder="เบอร์โทร" type="text" class="form-control">
+                                            <input name="search_mobile" id="search_mobile" placeholder="เบอร์โทร" type="number" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-5">
@@ -825,8 +825,14 @@
                 std_lname_th: "required",
                 std_nickname: "required",
                 id_class_name: "required",
-                std_email: "required",
-                student_mobile: "required",
+                std_email: {
+                    required: true,
+                    email: true
+                },
+                student_mobile: {
+                    required: true,
+                    number: true
+                },
                 std_home_town: "required",
                 std_address: "required"
             },
@@ -836,8 +842,8 @@
                 std_lname_th: "โปรดกรอกข้อมูล",
                 std_nickname: "โปรดกรอกข้อมูล  ชื่อฉายา ขณะที่เรียน โดยไม่ต้องในรุ่น",
                 id_class_name: "โปรดกรอกข้อมูล",
-                std_email: "โปรดกรอกข้อมูล เพื่อใช้ส่งข่าวสารให้ครับศิษย์เก่า",
-                student_mobile: "โปรดกรอกข้อมูล",
+                std_email: "โปรดกรอกข้อมูล email เพื่อใช้ส่งข่าวสารให้ครับศิษย์เก่า",
+                student_mobile: "โปรดกรอกข้อมูล เฉพาะตัวเลขไม่เกิน 10 ตัว",
                 std_home_town: "โปรดกรอกข้อมูล สังกัดจังหวัดขณะที่เรียน",
                 std_address: "โปรดกรอกข้อมูล ที่อยู่ปัจจุบัน",
             },
