@@ -90,11 +90,8 @@
                                 </div>
                             </div>
                             <div class="col-lg-3 col-xl-3 col-md-3 col-sm-3">
-
                             </div>
                         </div>
-
-
                         <div class="text-center text-white opacity-8 mt-3">Copyright © สมาคมศิษย์เก่าวิศวกรรมชลประทาน ในพระบรมราชูปถัมภ์ 2020</div>
                     </div>
                 </div>
@@ -102,10 +99,7 @@
         </div>
     </div>
 
-
     <!--SCRIPTS INCLUDES-->
-
-
 
 </body>
 

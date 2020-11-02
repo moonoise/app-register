@@ -234,8 +234,16 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-12">
+                <div class="float-left flex2">
+                    <button type="button" class="mb-2 mr-2 mt-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-primary" onclick="window.location.href='../view_public/form_guest.php'">
+                        <i class="pe-7s-left-arrow btn-icon-wrapper"> </i> สำหรับบุคคลทั่วไป
+                    </button>
+                </div>
+            </div>
         </div>
     </main>
+
 
     <footer class="footer mt-auto py-3">
         <div class="container">
@@ -898,6 +906,8 @@
                             });
 
                             $('#form_alumni')[0].reset();
+                            $("#div-form").hide();
+                            $("#div_name_old_form").hide();
 
                         } else {
                             Swal.fire({
