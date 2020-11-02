@@ -10,23 +10,11 @@ use App\SqlConn;
 $sqlConn = new SqlConn;
 $data = array();
 
-$sql = "SELECT alumni.* ,alumni_reg_63.alumni_reg_id,alumni_reg_63.reward_status,alumni_reg_63.reward_remark  
-        FROM alumni LEFT JOIN alumni_reg_63 ON alumni_reg_63.ku_id_auto = alumni.ku_id_auto ";
-
-
-if ($_POST['batch'] != "") {
-    $stdBatch = $_POST['batch'];
-    $sql .= " WHERE batch = :batch ";
-} else {
-    $stdBatch = "";
-}
+$sql = "SELECT * FROM alumni_guest_63  ";
 
 try {
 
     $stm = $sqlConn->conn->prepare($sql);
-    if ($stdBatch != "") {
-        $stm->bindParam(':batch', $stdBatch);
-    }
     $stm->execute();
     $r = $stm->fetchAll(PDO::FETCH_ASSOC);
     $data['data'] = $r;

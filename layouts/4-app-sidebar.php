@@ -137,7 +137,7 @@
                         ";
                 }
 
-                   if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') {
+                if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') {
                     echo "
                         <li id=\"menu5\">
                             <a href=\"#\">
@@ -150,6 +150,12 @@
                                     <a href=\"" . __PATH_WEB__ . "/view_admin/admin_alumni.php\" id=\"sub1-menu5\">
                                         <i class=\"metismenu-icon\">
                                         </i> <i class=\"icon ion-android-contacts\"> </i>รายชื่อศิษย์เก่า
+                                    </a>
+                                </li>
+                                 <li>
+                                    <a href=\"" . __PATH_WEB__ . "/view_admin/admin_guest.php\" id=\"sub2-menu5\">
+                                        <i class=\"metismenu-icon\">
+                                        </i> <i class=\"icon ion-android-contacts\"> </i>รายชื่อบุคคลทั่วไปที่เข้าร่วมงาน
                                     </a>
                                 </li>
                             </ul>
