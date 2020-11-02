@@ -397,7 +397,11 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                     response.data.forEach((element, key) => {
                         var dataTables = []
                         var strNameOld = ""
-                        dataTables['year_batch'] = (parseInt(element['std_year']) + 543) +
+                        var strStdyear = ""
+                        if (!Object.is(element['std_year'], null)) {
+                            strStdyear = parseInt(element['std_year']) + 543;
+                        }
+                        dataTables['year_batch'] = strStdyear +
                             " <span class=\"text text-info\">(รุ่น " + element['batch'] + ")</span>"
                         if (!Object.is(element['std_fname_th_old'], null) || !Object.is(element[
                                 'std_lname_th_old'], null)) {
