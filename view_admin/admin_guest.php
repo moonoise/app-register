@@ -61,7 +61,7 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                     <div class="row">
                         <div class="col-md-12">
                             <div class="main-card mb-3 card">
-                                <div class="card-header">รายชื่อศิษย์เก่า กรมชบประทาน</div>
+                                <div class="card-header">รายชื่อบุคคลทั่วไปที่เข้าร่วมงาน กรมชบประทาน</div>
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-3">

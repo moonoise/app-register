@@ -1,0 +1,46 @@
+.spinner-container {
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.name {
+    font-size: 2rem;
+    border: 1px solid #aaa;
+    padding: 1.5em;
+    width: 50%;
+    text-align: center;
+    background-color: white;
+    color: red;
+    box-shadow: inset 0em 0.5em 0.75em 0em rgba(0, 0, 0, 0.45), inset 0em -0.5em 0.75em 0em rgba(0, 0, 0, 0.45), inset 1em 0em 0.7em 0.5em rgba(255, 255, 255, 1), 0em 0em 0.75em 0em rgba(0, 0, 0, 0.25);
+    border-radius: 0.15em;
+    position: relative;
+}
+
+.name:before,
+.name:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    top: 10px;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    -moz-border-radius: 100px / 10px;
+    border-radius: 100px / 10px;
+}
+
+.name:after {
+    right: 10px;
+    left: auto;
+    -webkit-transform: skew(8deg) rotate(3deg);
+    -moz-transform: skew(8deg) rotate(3deg);
+    -ms-transform: skew(8deg) rotate(3deg);
+    -o-transform: skew(8deg) rotate(3deg);
+    transform: skew(8deg) rotate(3deg);
+}

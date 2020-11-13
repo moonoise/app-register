@@ -79,7 +79,7 @@
     </style>
 </head>
 
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100 bg-primary">
     <!-- Begin page content -->
     <main role="main" class="flex-shrink-0 mt-3">
         <div class="container">
@@ -89,16 +89,10 @@
                     <div class="">
                         <img src="../assets/images/logo_alumni.png" alt="" srcset="" class="card-img-top">
                     </div>
-                    <h5 class="text text-info">ยินดีตอนรับ สมาคมศิษย์เก่าวิศวกรรมชลประทาน
-                        ในพระบรมราชูปถัมภ์</h5>
-                    <span><span class="text text-success"> ลงทะเบียนศิษย์ </span>
+                    <h5 class="text text-danger">สำหรับศิษย์เก่าที่ไม่มีรายชื่อในฐานข้อมูลเท่านั้น</h5>
+                    <span class="text text-warning"><span class="text text-success"> ลงทะเบียนศิษย์ </span>
                         เก่าเพื่อจัดทำฐานข้อมูลและสำรวจผู้เข้าร่วมงานวันชูชาติ 4 มกราคม 2563</span>
 
-                    <div class="mt-2 col-md-12">
-
-                        <button class="mb-2 mr-2 btn-icon btn-pill btn btn-outline-primary" id="btn_call_modal_search" type="button"><i class="pe-7s-search btn-icon-wrapper"> </i>
-                            ค้นหา ชื่อตัวเอง</button>
-                    </div>
                     <div class="divider"></div>
                     <div id="div-form">
                         <form class="" name="form_alumni" id="form_alumni">
@@ -238,19 +232,14 @@
                         <i class="pe-7s-left-arrow btn-icon-wrapper"> </i> สำหรับบุคคลทั่วไป
                     </button>
                 </div>
-                <div class="float-right flex2">
-                    <button type="button" class="mb-2 mr-2 mt-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-warning" onclick="window.location.href='../view_public/form_alumni_new.php'">
-                        เพิ่มศิษย์เก่าที่ไม่มีรายชื่อ <i class="pe-7s-right-arrow btn-icon-wrapper"> </i>
-                    </button>
-                </div>
             </div>
         </div>
     </main>
 
 
-    <footer class="footer mt-auto py-3">
-        <div class="container">
-            <span class="text-muted">สงวนลิขสิทธิ์ : สมาคมศิษย์เก่าวิศวกรรมชลประทาน ในพระบรมราชูปถัมภ์
+    <footer class="footer mt-auto py-3 bg-primary ">
+        <div class="container ">
+            <span class="text-white">สงวนลิขสิทธิ์ : สมาคมศิษย์เก่าวิศวกรรมชลประทาน ในพระบรมราชูปถัมภ์
                 สำนักงาน : กรมชลประทาน ถ.ตวานนท์ ต.บางตลาด อ.ปากเกร็ด จ.นนทบุรี 11120
                 โทรศัพท์ 0-2583-6050-69 ต่อ 341</span>
         </div>
@@ -566,196 +555,13 @@
 
     <script>
         $(document).ready(function() {
-            $("#div-form").hide();
+
             $("#div_name_old_form").hide();
             $('#std_title_name_th').select2();
             province_list();
             nickname_list();
         });
 
-        $("#btn_call_modal_search").on("click", function() {
-            $("#modal_search").modal({
-                show: true,
-                keyboard: false,
-                backdrop: 'static'
-            })
-
-            $("#form_search")[0].reset();
-            table.clear().draw();
-        });
-
-        var objDataTables = {
-            "ku_id_auto": "",
-            "std_title_name_th": "",
-            "std_fname_th": "",
-            "std_lname_th": "",
-            "std_fname_th_old": "",
-            "std_fname_th_old": "",
-            "student_mobile": "",
-            "std_email": "",
-            "alumni_reg_id": "",
-            std_fullname: function() {
-                var strName = this.std_title_name_th + this.std_fname_th + " " + this.std_lname_th;
-
-                if (!Object.is(this.std_fname_th_old, null) || !Object.is(this.std_lname_th_old,
-                        null)) {
-                    strName += "<p class=\"text text-danger\">(" + this.std_fname_th_old + " " + this
-                        .std_lname_th_old + ")</p>"
-                }
-                return strName;
-            },
-            mobile_email: function() {
-                var str = "";
-
-                if (!Object.is(this.student_mobile, null)) {
-                    str += "<p class=\"text text-info\">" + this.student_mobile + "</p>"
-                }
-                if (!Object.is(this.std_email, null)) {
-                    str += "<p class=\"text text-info\">" + this.std_email + "</p>"
-                }
-                return str;
-            },
-            button: function() {
-                var strBtn = "";
-                if (Object.is(this.alumni_reg_id, null)) {
-                    strBtn = "<button class=\"btn-sm btn-icon btn btn-info\" onclick=\"std_select(" + this.ku_id_auto +
-                        ")\">เลือก</button> "
-                } else {
-                    strBtn = "<button class=\"btn-sm btn-icon btn btn-success\" >ลงทะเบียนเข้างานแล้ว</button> "
-                }
-                return strBtn;
-            }
-        }
-
-        $("#form_search").submit(function(e) {
-            e.preventDefault();
-            $.ajax({
-                type: "POST",
-                url: "../query_alumni/alumni_search.php",
-                data: $(this).serialize(),
-                dataType: "JSON",
-                success: function(response) {
-                    var table1 = []
-
-                    if (Object.keys(response.data).length > 0) {
-                        response.data.forEach((element, key) => {
-                            var objTable = Object.create(objDataTables);
-
-                            var dataTables = [];
-                            dataTables['batch'] = element['batch'];
-
-                            objTable.ku_id_auto = element['ku_id_auto'];
-                            objTable.std_title_name_th = element['std_title_name_th'];
-                            objTable.std_fname_th = element['std_fname_th'];
-                            objTable.std_lname_th = element['std_lname_th'];
-                            objTable.std_fname_th_old = element['std_fname_th_old'];
-                            objTable.std_lname_th_old = element['std_lname_th_old'];
-                            objTable.alumni_reg_id = element['alumni_reg_id'];
-
-                            // objTable.student_mobile = element['student_mobile']
-                            // objTable.std_email = element['std_email']
-                            dataTables['std_fullname'] = objTable.std_fullname();
-                            // dataTables['mobile_email'] = objTable.mobile_email();
-                            dataTables['button_select'] = objTable.button();
-
-                            table1.push(dataTables)
-                        });
-                    }
-                    table.clear().rows.add(table1).draw();
-                    $.unblockUI();
-                },
-                beforeSend: function() {
-                    $.blockUI({
-                        message: $('.body-block-example-1')
-                    });
-                }
-            });
-        });
-
-        var dataTables = [{
-            "batch": "",
-            "std_fullname": "",
-            "button_select": ""
-        }];
-
-        var table = $('#table_search').DataTable({
-            "data": dataTables,
-            "deferRender": true,
-            "autoWidth": false,
-            "columns": [{
-                    "data": "batch"
-                },
-                {
-                    "data": "std_fullname"
-                },
-                {
-                    "data": "button_select"
-                }
-            ],
-            "columnDefs": [{
-                    "targets": ["batch"],
-                    "searchable": true
-                },
-                {
-                    "targets": ["std_fullname"],
-                    "searchable": true
-                },
-                {
-                    "targets": ["button_select"],
-                    "searchable": false
-                }
-            ],
-            'pageLength': 25,
-            "lengthMenu": [
-                [10, 25, 50, 100, -1],
-                [10, 25, 50, 100, "All"]
-            ]
-        });
-
-        function std_select(id) {
-            $("#modal_search").modal("hide")
-            $.ajax({
-                type: "POST",
-                url: "../query_alumni/alumni_select_by_id.php",
-                data: {
-                    "ku_id_auto": id
-                },
-                dataType: "JSON",
-                success: function(response) {
-                    $("#form_alumni")[0].reset();
-                    $("#ku_id_auto").val(response.data.ku_id_auto);
-                    $("#id2").val(response.data.id2);
-                    $("#div-form").show();
-                    $("#std_title_name_th").val(response.data.std_title_name_th);
-                    $("#std_fname_th").val(response.data.std_fname_th);
-                    $("#std_lname_th").val(response.data.std_lname_th);
-                    $("#std_nickname").val(response.data.std_nickname);
-                    $("#std_email").val(response.data.std_email);
-                    $("#student_mobile").val(response.data.student_mobile);
-                    $("#std_line").val(response.data.std_line);
-                    $("#std_address").val(response.data.std_address);
-                    $("#std_position").val(response.data.std_position);
-                    $("#std_workplace").val(response.data.std_workplace);
-
-                    $("#id_batch").html(response.data.batch);
-                    $("#id_std_year").html(response.data.std_year);
-                    $("#id_class_name").val(response.data.class_name);
-
-                    if (!Object.is(response.data.std_fname_th_old, null) || !Object.is(response.data.std_lname_th_old, null)) {
-                        $("#div_name_old_form").show();
-                        $("#id_name_old").html(response.data.std_fname_th_old + " " + response.data.std_lname_th_old)
-                        $("#std_fname_th_old").val(response.data.std_fname_th_old);
-                        $("#std_lname_th_old").val(response.data.std_lname_th_old)
-                    } else {
-                        $("#div_name_old_form").hide();
-                    }
-                    if (!Object.is(response.data.std_home_town, null)) {
-                        $('#std_home_town').val(response.data.std_home_town).trigger('change');
-                    }
-
-                }
-            });
-        }
 
         $("#btn_edit_name_old").click(function() {
             $("#div_name_old_form").toggle("slow", function() {
@@ -877,7 +683,7 @@
             submitHandler: function(form) {
                 $.ajax({
                     type: "POST",
-                    url: "../query_alumni/alumni_update.php",
+                    url: "../query_alumni/alumni_update_type.php",
                     data: $(form).serialize(),
                     dataType: "JSON",
                     success: function(response) {

@@ -87,6 +87,8 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                                                         <th scope="col" class="text-center">ชื่อ - สกุล <span class="text text-danger">(ชื่อเก่า)</span></th>
                                                         <th scope="col" class="text-center">เบอร์โทร</th>
                                                         <th scope="col" class="text-center">สถานะ</th>
+                                                        <th scope="col" class="text-center">สถานะรางวัล</th>
+                                                        <th scope="col" class="text-center">รายละเอียดรางวัล</th>
                                                         <th scope="col" class="text-center">#</th>
                                                     </tr>
                                                 </thead>
@@ -420,6 +422,17 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                             dataTables['reg_status'] = "<span class=\"text text-danger\">ยังไม่ลงทะเบียน</span>";
                         }
 
+                        if (element['reward_status'] == '1') {
+                            dataTables['reward_status'] = 'ได้รางวัล'
+                            dataTables['reward_remark'] = element['reward_remark']
+                        } else if (element['reward_status'] == '2') {
+                            dataTables['reward_status'] = 'สละสิทธิ์'
+                            dataTables['reward_remark'] = '-'
+                        } else {
+                            dataTables['reward_status'] = '-'
+                            dataTables['reward_remark'] = '-'
+                        }
+
                         dataTables['id2'] = element['id2']
                         dataTables['std_nickname'] = element['std_nickname']
                         dataTables['std_email'] = element['std_email']
@@ -454,7 +467,9 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
             "std_email": "",
             "std_line": "",
             "std_position": "",
-            "std_workplace": ""
+            "std_workplace": "",
+            "reward_status": "",
+            "reward_remark": ""
 
         }];
 
@@ -480,6 +495,12 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                 },
                 {
                     "data": "reg_status"
+                },
+                {
+                    "data": "reward_status"
+                },
+                {
+                    "data": "reward_remark"
                 },
                 {
                     "data": "edit"

@@ -158,6 +158,19 @@
                                         </i> <i class=\"icon ion-android-contacts\"> </i>รายชื่อบุคคลทั่วไปที่เข้าร่วมงาน
                                     </a>
                                 </li>
+                                 <li>
+                                    <a href=\"" . __PATH_WEB__ . "/view_public/form_alumni_new.php\" id=\"sub2-menu5\" target=\"blank\">
+                                        <i class=\"metismenu-icon\">
+                                        </i> <i class=\"icon ion-android-contacts\"> </i>เพิ่มศิษย์เก่าที่ไม่ได้อยู่รายชื่อ
+                                    </a>
+                                </li>
+                                 <li>
+                                    <a href=\"" . __PATH_WEB__ . "/view_public/random_reward.php\" id=\"sub2-menu5\" target=\"blank\">
+                                        <i class=\"metismenu-icon\">
+                                        </i> <i class=\"icon ion-android-contacts\"> </i>สุ่มจับรางวัล
+
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         ";

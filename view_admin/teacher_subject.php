@@ -278,7 +278,9 @@ include_once "login-head.php";
     <form action="teacher_grade_show.php" method="post" target="add_grade" id="form_teacher_grade" name="form_teacher_grade">
         <input type="hidden" name="teacher_grade_ts_id" id="teacher_grade_ts_id">
     </form>
-
+    <form action="teacher_student_subject_show_grade.php" method="post" target="show_grade" id="form_show_grade" name="form_show_grade">
+        <input type="hidden" name="ts_id" id="show_grade_ts_id">
+    </form>
 
     <div class="body-block-example-1 d-none">
         <div class="loader bg-transparent no-shadow p-0">
@@ -412,9 +414,10 @@ include_once "login-head.php";
             },
             "edit": function() {
 
-                return " <button type='button' class='btn btn-sm btn-primary ' onclick='add_student(`" + this.ts_id + "`)'> เพิ่มนักศึกษา </button> \
-                        <button type='button' class='btn btn-sm btn-info ' onclick='student_grade(" + this.ts_id + ")' > กรอกเกรด </button>  \
-                        <button type='button' class='btn btn-sm btn-success ' onclick='teacher_subject_edit(" + this.ts_id + ")'> Edit </button>";
+                return " <button type='button' class='mb-2 mr-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-success' onclick='show_grade(`" + this.ts_id + "`)'> <i class=\"pe-7s-look btn-icon-wrapper\"></i></button>   \
+                        <button type='button' class='mb-2 mr-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-primary' onclick='add_student(`" + this.ts_id + "`)'> <i class=\"pe-7s-add-user btn-icon-wrapper\"></i></button> \
+                        <button type='button' class='mb-2 mr-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-info ' onclick='student_grade(" + this.ts_id + ")' > <i class=\"pe-7s-study btn-icon-wrapper\"></i></button>  \
+                        <button type='button' class='mb-2 mr-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-warning ' onclick='teacher_subject_edit(" + this.ts_id + ")'> <i class=\"pe-7s-tools btn-icon-wrapper\"></i> </button>";
             }
         }
 
@@ -619,6 +622,11 @@ include_once "login-head.php";
                 }
             });
         });
+
+        function show_grade(ts_id) {
+            $("#show_grade_ts_id").val(ts_id)
+            $("#form_show_grade").submit()
+        }
     </script>
 
 </body>
