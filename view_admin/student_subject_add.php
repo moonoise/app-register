@@ -54,8 +54,8 @@ include_once "login-head.php";
                                         </div>
                                         <div class="col-lg-6 col-md-6  col-sm-12">
                                             <div class="row">
-                                                <div class="col-3 "><label for="" class="text-primary float-right">ปี/ภาคการศึกษา : </label></div>
-                                                <div class="col-9 "><span class="text-info" id="yt_name">test</span></div>
+                                                <div class="col-3"><label class="text-primary float-right">ปี/ภาคการศึกษา : </label></div>
+                                                <div class="col-9"><span class="text-info" id="yt_name"></span></div>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6 col-sm-12">
