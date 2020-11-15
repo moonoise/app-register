@@ -48,35 +48,260 @@ include_once "login-head.php";
                     <div class="row">
                         <div class="col-md-12">
                             <div class="main-card mb-3 card">
-                                <div class="card-header">ระบบกรอก เกรด</div>
+                                <div class="card-header">สรุปเกรด รายวิชา</div>
                                 <div class="card-body">
-                                    <form name="form_student_subject_edit" id="form_student_subject_edit">
-                                        <table style="width: 100%;" id="table_teacher_subject" class="table table-hover table-striped table-bordered for-this-table">
-                                            <thead>
-                                                <tr>
-                                                    <th>ลำดับ</th>
-                                                    <th>รหัสนักศึกษา</th>
-                                                    <th>ชื่อ - สกุล</th>
-                                                    <th><button type="submit" class="mb-2 mr-2 btn btn-primary btn-lg"> บันทึก </button></th>
-                                                    <th>หมายเหตุ</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="grade_edit">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12  col-sm-12">
+                                            <h3 class="text text-info">ข้อมูลรายวิชา</h3>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6  col-sm-12">
+                                            <div class="row">
+                                                <div class="col-3 "><label for="" class="text-primary float-right">ปี/ภาคการศึกษา : </label></div>
+                                                <div class="col-9 "><span class="text-info" id="yt_name">test</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-sm-12">
+                                            <!-- <label for="" class="mr-sm-2 text-primary ">ปี/ภาคการศึกษา :
+                                                <span id="yt_name text-info"></span> test </label> -->
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-sm-12">
+                                            <div class="row">
+                                                <div class="col-3"><label for="" class="text-primary float-right">รหัสวิชา : </label></div>
+                                                <div class="col-9"><span class="text-info" id="yt_name">test</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-sm-12">
+                                            <div class="row">
+                                                <div class="col-3"><label for="" class="text-primary float-right">ชื่อวิชา : </label></div>
+                                                <div class="col-9"><span class="text-info" id="yt_name">test</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-sm-12">
+                                            <div class="row">
+                                                <div class="col-3"><label for="" class="text-primary float-right">ผู้สอน : </label></div>
+                                                <div class="col-9"><span class="text-info" id="yt_name">test</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="divider"></div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-6 col-sm-12">
+                                            <div class="row">
+                                                <div class="col-3"><label for="" class="text-primary float-right">นิสิตทั้งหมด : </label></div>
+                                                <div class="col-9"><span class="text-info" id="yt_name">คน</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-sm-12">
+                                            <div class="row">
+                                                <div class="col-6"><label for="" class="text-primary float-right">Drop : </label></div>
+                                                <div class="col-6"><span class="text-info" id="yt_name">คน</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-sm-12">
+                                            <div class="row">
+                                                <div class="col-3"><label for="" class="text-primary float-right">วมนิสิตที่ได้เกรด A-F : </label></div>
+                                                <div class="col-9"><span class="text-info" id="yt_name">test</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-sm-12">
+                                            <div class="row">
+                                                <div class="col-6"><label for="" class="text-primary float-right">ระดับคะแนนเฉลี่ย <br>
+                                                        (คิดจากนิสิตที่ได้เกรด A-F เท่านั้น) : </label></div>
+                                                <div class="col-6"><span class="text-info" id="yt_name">test</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="divider"></div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <table class="mb-0 table table-borderless">
+                                                <thead>
+                                                    <tr>
+                                                        <th>เกรด</th>
+                                                        <th scope="row">A</th>
+                                                        <th scope="row">B+</th>
+                                                        <th scope="row">B</th>
+                                                        <th scope="row">C+</th>
+                                                        <th scope="row">C</th>
+                                                        <th scope="row">D+</th>
+                                                        <th scope="row">D</th>
+                                                        <th scope="row">F</th>
+                                                        <th scope="row">P</th>
+                                                        <th scope="row">NP</th>
+                                                        <th scope="row">I</th>
+                                                        <th scope="row">N</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>จำนวนคน</th>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                        <td>0</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="divider"></div>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <h5 class="text text-info">เงื่อนไขการกรอกเกรด</h5>
+                                            <table class="mb-0 table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ประเภทการลงทะเบียน</th>
+                                                        <th>เกรดที่ถูกต้อง</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>A</th>
+                                                        <td rowspan="3">S / U</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>UA</th>
 
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td><button type="submit" class="mb-2 mr-2 btn btn-primary btn-lg"> บันทึก </button></td>
-                                                    <td></td>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>GA</th>
+
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                            <div class="divider"></div>
+                                            <table class="mb-0 table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>รายวิชา</th>
+                                                        <th>เกรดที่ถูกต้อง</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>01355501</th>
+                                                        <td>S / U</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>XXXXX599</th>
+                                                        <td>S / U </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>XXXXX699</th>
+                                                        <td>S / U </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>01355111</th>
+                                                        <td>P / NP </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="divider"></div>
+                                            <table class="mb-0 table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>เกรด</th>
+                                                        <th>คำอธิบาย</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>A</th>
+                                                        <td>4.0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>B+</th>
+                                                        <td>3.5</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>B</th>
+                                                        <td>3.0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>C+</th>
+                                                        <td>2.5</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>C</th>
+                                                        <td>2.0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>D+</th>
+                                                        <td>1.5</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>D</th>
+                                                        <td>1.0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>F</th>
+                                                        <td>0.0</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>I</th>
+                                                        <td>ยังไม่สมบูรณ์</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>N</th>
+                                                        <td>ยังไม่ทราบระดับคะแนน</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>P</th>
+                                                        <td>ผ่าน</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>NP</th>
+                                                        <td>ไม่ผ่าน</td>
+                                                    </tr>
 
 
-                                    </form>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-9">
+                                            <h3 class="text text-info">รายชื่อนิสิต</h3>
+                                            <table class="mb-0 table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>First Name</th>
+                                                        <th>Last Name</th>
+                                                        <th>Username</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>Jacob</td>
+                                                        <td>Thornton</td>
+                                                        <td>@fat</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>Larry</td>
+                                                        <td>the Bird</td>
+                                                        <td>@twitter</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
 
                                 </div>
                                 <div class="d-block text-right card-footer">

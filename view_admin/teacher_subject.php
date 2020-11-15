@@ -413,9 +413,8 @@ include_once "login-head.php";
                 return strName
             },
             "edit": function() {
-
-                return " <button type='button' class='mb-2 mr-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-success' onclick='show_grade(`" + this.ts_id + "`)'> <i class=\"pe-7s-look btn-icon-wrapper\"></i></button>   \
-                        <button type='button' class='mb-2 mr-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-primary' onclick='add_student(`" + this.ts_id + "`)'> <i class=\"pe-7s-add-user btn-icon-wrapper\"></i></button> \
+                // "<button type='button' class='mb-2 mr-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-success' onclick='show_grade(`" + this.ts_id + "`)'> <i class=\"pe-7s-look btn-icon-wrapper\"></i></button>   \"
+                return "<button type='button' class='mb-2 mr-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-primary' onclick='add_student(`" + this.ts_id + "`)'> <i class=\"pe-7s-add-user btn-icon-wrapper\"></i></button> \
                         <button type='button' class='mb-2 mr-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-info ' onclick='student_grade(" + this.ts_id + ")' > <i class=\"pe-7s-study btn-icon-wrapper\"></i></button>  \
                         <button type='button' class='mb-2 mr-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-warning ' onclick='teacher_subject_edit(" + this.ts_id + ")'> <i class=\"pe-7s-tools btn-icon-wrapper\"></i> </button>";
             }
