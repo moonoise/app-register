@@ -47,7 +47,41 @@ include_once "login-head.php";
                             <div class="main-card mb-3 card">
                                 <div class="card-header">รายวิชาสอน</div>
                                 <div class="card-body">
-                                    <h3 class="card-title" id='title-subject'></h3>
+                                    <div class="row">
+                                        <h3 class="card-title" id='title-subject'></h3>
+                                        <div class="col-lg-12 col-md-12  col-sm-12">
+                                            <h3 class="text text-info">ข้อมูลรายวิชา</h3>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6  col-sm-12">
+                                            <div class="row">
+                                                <div class="col-3 "><label for="" class="text-primary float-right">ปี/ภาคการศึกษา : </label></div>
+                                                <div class="col-9 "><span class="text-info" id="yt_name">test</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-sm-12">
+                                            <!-- <label for="" class="mr-sm-2 text-primary ">ปี/ภาคการศึกษา :
+                                                <span id="yt_name text-info"></span> test </label> -->
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-sm-12">
+                                            <div class="row">
+                                                <div class="col-3"><label for="" class="text-primary float-right">รหัสวิชา : </label></div>
+                                                <div class="col-9"><span class="text-info" id="subject_id"></span></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-sm-12">
+                                            <div class="row">
+                                                <div class="col-3"><label for="" class="text-primary float-right">ชื่อวิชา : </label></div>
+                                                <div class="col-9"><span class="text-info" id="subject_name_en"></span></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-sm-12">
+                                            <div class="row">
+                                                <div class="col-3"><label for="" class="text-primary float-right">ผู้สอน : </label></div>
+                                                <div class="col-9"><span class="text-info" id="teacher_name"></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
 
                                     <button type="button" class="btn mr-2 mb-2 btn-primary" id="button-search-student"><i class="fa fa-search-plus"></i> ค้นหารายชื่อ</button>
 
@@ -336,11 +370,17 @@ include_once "login-head.php";
                 success: function(response) {
                     // console.log(response)
                     if (typeof response.data != 'undefined') {
-                        $("#ts_id").val(response.data.ts_id);
-                        $("#subject_id").val(response.data.subject_id);
-                        $("#yt_year").val(response.data.yt_year);
-                        $("#yt_term").val(response.data.yt_term);
-                        $("#title-subject").text('[' + response.data.subject_id + '] ' + response.data.subject_name_en);
+                        // $("#ts_id").val(response.data.ts_id);
+                        // $("#subject_id").val(response.data.subject_id);
+                        // $("#yt_year").val(response.data.yt_year);
+                        // $("#yt_term").val(response.data.yt_term);
+                        // $("#title-subject").text('[' + response.data.subject_id + '] ' + response.data.subject_name_en);
+
+                        $("#yt_name").text(response.data.yt_name)
+                        $("#subject_id").text(response.data.subject_id)
+                        $("#subject_name_en").text(response.data.subject_name_en)
+                        $("#teacher_name").text(response.data.teacher_title_name + response.data.teacher_fname + " " + response.data.teacher_lname)
+
 
                     }
                 }
