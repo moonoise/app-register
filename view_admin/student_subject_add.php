@@ -100,9 +100,7 @@ include_once "login-head.php";
                                                 <td></td>
                                                 <td>2020 - 1</td>
                                                 <td>#</td>
-
                                             </tr>
-
                                             </tfoot>
                                     </table>
 

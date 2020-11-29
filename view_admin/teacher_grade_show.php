@@ -4,6 +4,11 @@ include_once "../app/config.php";
 session_start();
 
 include_once "login-head.php";
+if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') {
+    # code...
+} else {
+    header("location:../view_student");
+}
 ?>
 <!doctype html>
 <html lang="en">
