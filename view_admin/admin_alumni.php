@@ -82,7 +82,7 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
                                             <table style="width: 100%;" id="table_teacher_subject" class="table table-hover table-striped table-bordered for-this-table">
                                                 <thead>
                                                     <tr class="text-center">
-                                                        <th scope="col" class="text-center fa">#</th>
+                                                        <th scope="col" class="text-center">#</th>
                                                         <th scope="col" class="text-center">ปีการศึกษา(รุ่น)</th>
                                                         <th scope="col" class="text-center">ชื่อ - สกุล <span class="text text-danger">(ชื่อเก่า)</span></th>
                                                         <th scope="col" class="text-center">เบอร์โทร</th>
