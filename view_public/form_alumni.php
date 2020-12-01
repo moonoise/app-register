@@ -230,7 +230,7 @@
                                 <!-- <h5 class="mb-0">Already have an account? <a href="javascript:void(0);"
                                         class="text-primary">Sign in</a></h5> -->
                                 <div class="ml-auto">
-                                    <button class="btn-wide btn-pill btn-shadow btn-hover-shine btn btn-primary btn-lg">ลงทะเบียน
+                                    <button class="btn-wide btn-pill btn-shadow btn-hover-shine btn btn-primary btn-lg">บันทึก
                                     </button>
                                 </div>
                             </div>
@@ -627,7 +627,7 @@
                     strBtn = "<button class=\"btn-sm btn-icon btn btn-info\" onclick=\"std_select(" + this.ku_id_auto +
                         ")\">เลือก</button> "
                 } else {
-                    strBtn = "<button class=\"btn-sm btn-icon btn btn-success\" >ลงทะเบียนเข้างานแล้ว</button> "
+                    strBtn = "<button class=\"btn-sm btn-icon btn btn-success\" >ปรับปรุงข้อมูลแล้ว</button> "
                 }
                 return strBtn;
             }
