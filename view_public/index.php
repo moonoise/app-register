@@ -55,7 +55,7 @@
                                                 <div class="text-color">ยินดีตอนรับ</div>
                                                 <span>สมาคมศิษย์เก่าวิศวกรรมชลประทาน ในพระบรมราชูปถัมภ์<span class="text-success"> ลงทะเบียนเพื่อเข้าร่วมงาน </span></span>
                                             </h4>
-                                            <div class="col-6">
+                                            <!-- <div class="col-6">
                                                 <div class="widget-chart widget-chart-hover">
                                                     <a href="form_alumni.php" class="btn-icon-vertical btn-square btn-transition br-bl btn btn-outline-link">
                                                         <div class="icon-wrapper rounded-circle">
@@ -64,9 +64,7 @@
                                                         </div>
                                                         <div class="widget-numbers text-color">ศิษย์เก่า</div>
                                                         <div class="widget-subheading">คลิ๊ก</div>
-                                                        <!-- <div class="widget-description text-success">
-                                                            <i class="fa fa-address-card"></i>
-                                                            <span class="pl-1">175.5%</span></div> -->
+
                                                     </a>
                                                 </div>
                                             </div>
@@ -79,9 +77,33 @@
                                                         </div>
                                                         <div class=" widget-numbers  text-color">ทั่วไป</div>
                                                         <div class="widget-subheading">คลิ๊ก</div>
-                                                        <!-- <div class="widget-description text-success">
-                                                            <i class="fa fa-angle-up"></i>
-                                                            <span class="pl-1">175.5%</span></div> -->
+
+                                                    </a>
+                                                </div>
+                                            </div> -->
+                                            <div class="col-6">
+                                                <div class="widget-chart widget-chart-hover">
+                                                    <a href="view_alumni.php" class="btn-icon-vertical btn-square btn-transition br-bl btn btn-outline-link">
+                                                        <div class="icon-wrapper rounded-circle">
+                                                            <div class="icon-wrapper-bg bg-primary"></div>
+                                                            <i class="fa fa-address-card icon-gradient bg-strong-bliss"></i>
+                                                        </div>
+                                                        <div class="widget-numbers text-color">รายชื่อศิษย์เก่า</div>
+                                                        <div class="widget-subheading">คลิ๊ก</div>
+
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="widget-chart widget-chart-hover">
+                                                    <a href="form_alumni.php" class="btn-icon-vertical btn-square btn-transition br-bl btn btn-outline-link">
+                                                        <div class="icon-wrapper rounded-circle">
+                                                            <div class="icon-wrapper-bg bg-primary"></div>
+                                                            <i class="fa fa-user icon-gradient bg-strong-bliss"></i>
+                                                        </div>
+                                                        <div class=" widget-numbers  text-color">ปรับปรุงข้อมูลศิษย์เก่า</div>
+                                                        <div class="widget-subheading">คลิ๊ก</div>
+
                                                     </a>
                                                 </div>
                                             </div>
