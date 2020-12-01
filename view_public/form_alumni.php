@@ -21,6 +21,12 @@
 
     <link rel="stylesheet" href="../assets/css/base.min.css">
     <style>
+        .bg-premium-dark {
+            background-image: linear-gradient(to right, #660000 0, #000 100%) !important;
+            padding: .10rem 5rem;
+            height: 100px;
+        }
+
         .logo-irrigation {}
 
         /* Custom page CSS
@@ -79,7 +85,7 @@
     </style>
 </head>
 
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100 bg-premium-dark">
     <!-- Begin page content -->
     <main role="main" class="flex-shrink-0 mt-3">
         <div class="container">
@@ -91,8 +97,8 @@
                     </div>
                     <h5 class="text text-info">ยินดีตอนรับ สมาคมศิษย์เก่าวิศวกรรมชลประทาน
                         ในพระบรมราชูปถัมภ์</h5>
-                    <span><span class="text text-success"> ลงทะเบียนศิษย์ </span>
-                        เก่าเพื่อจัดทำฐานข้อมูลและสำรวจผู้เข้าร่วมงานวันชูชาติ 4 มกราคม 2563</span>
+                    <span><span class="text text-success"> ปรับปรุงข้อมูลศิษย์เก่า </span>
+                        เพื่อจัดทำฐานข้อมูลและสำรวจผู้เข้าร่วมงานวันชูชาติ 4 มกราคม 2563</span>
 
                     <div class="mt-2 col-md-12">
 
@@ -232,25 +238,25 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12">
+            <!-- <div class="col-md-12">
                 <div class="float-left flex2">
-                    <button type="button" class="mb-2 mr-2 mt-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-primary" onclick="window.location.href='../view_public/form_guest.php'">
+                    <button type="button" class="mb-2 mr-2 mt-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-primary" onclick="window.location.href='../view_public/form_guest.php'">
                         <i class="pe-7s-left-arrow btn-icon-wrapper"> </i> สำหรับบุคคลทั่วไป
                     </button>
                 </div>
                 <div class="float-right flex2">
-                    <button type="button" class="mb-2 mr-2 mt-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-warning" onclick="window.location.href='../view_public/form_alumni_new.php'">
+                    <button type="button" class="mb-2 mr-2 mt-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-warning" onclick="window.location.href='../view_public/form_alumni_new.php'">
                         เพิ่มศิษย์เก่าที่ไม่มีรายชื่อ <i class="pe-7s-right-arrow btn-icon-wrapper"> </i>
                     </button>
                 </div>
-            </div>
+            </div> -->
         </div>
     </main>
 
 
-    <footer class="footer mt-auto py-3">
+    <footer class="footer mt-auto py-3 bg-premium-dark">
         <div class="container">
-            <span class="text-muted">สงวนลิขสิทธิ์ : สมาคมศิษย์เก่าวิศวกรรมชลประทาน ในพระบรมราชูปถัมภ์
+            <span class="text-muted text-color-white">สงวนลิขสิทธิ์ : สมาคมศิษย์เก่าวิศวกรรมชลประทาน ในพระบรมราชูปถัมภ์
                 สำนักงาน : กรมชลประทาน ถ.ตวานนท์ ต.บางตลาด อ.ปากเกร็ด จ.นนทบุรี 11120
                 โทรศัพท์ 0-2583-6050-69 ต่อ 341</span>
         </div>
@@ -902,8 +908,8 @@
                             };
                             // toastr["success"]("สำเร็จ", "บันทึกสำเร็จ");
                             Swal.fire({
-                                title: '<h3>ท่านลงทะเบียนเข้างานสำเร็จแล้ว</h3>',
-                                html: '<p>เลขชลกร สำหรับเข้างานของท่านคือ <br><b class=\"text text-primary\">' + response.id2 + '</b><p>',
+                                title: '<h3>ท่านปรับปรุงข้อมูลสำเร็จแล้ว</h3>',
+                                html: '<p>เลขชลกร ของท่านคือ <br><b class=\"text text-primary\">' + response.id2 + '</b><p>',
                                 type: 'success',
                                 confirmButtonText: 'รับทราบ'
                             });
@@ -914,7 +920,7 @@
 
                         } else {
                             Swal.fire({
-                                title: 'อัพเดทข้อมูล ไม่สำเร็จ',
+                                title: 'ปรับปรุงข้อมูล ไม่สำเร็จ',
                                 text: 'ไม่สำเร็จ' + response.error,
                                 type: 'error',
                                 confirmButtonText: 'รับทราบ'

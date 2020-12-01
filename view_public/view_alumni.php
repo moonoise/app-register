@@ -31,6 +31,10 @@
             -webkit-text-fill-color: transparent;
         }
 
+        .text-color-white {
+            color: #f7f1f1;
+        }
+
         .widget-chart .widget-numbers {
 
             line-height: 2;
@@ -233,7 +237,7 @@
 
                 },
                 {
-                    "data": "ku_id",
+                    "data": "id2",
                     "className": 'details-control text-center',
                 },
                 {
@@ -251,10 +255,6 @@
                 },
                 {
                     "data": "std_home_town"
-                },
-                {
-                    "data": "id2",
-                    visible: false
                 },
                 {
                     "data": "std_nickname",
@@ -278,7 +278,7 @@
                 }
             ],
             "columnDefs": [{
-                    "targets": ["ku_id"],
+                    "targets": ["id2"],
                     "searchable": true
                 },
                 {
