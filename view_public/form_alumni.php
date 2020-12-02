@@ -97,145 +97,146 @@
                     </div>
                     <h5 class="text text-info">ยินดีตอนรับ สมาคมศิษย์เก่าวิศวกรรมชลประทาน
                         ในพระบรมราชูปถัมภ์</h5>
-                    <span><span class="text text-success"> ปรับปรุงข้อมูลศิษย์เก่า </span>
-                        เพื่อจัดทำฐานข้อมูลและสำรวจผู้เข้าร่วมงานวันชูชาติ 4 มกราคม 2563</span>
+                    <span>
+                        <!-- <span class="text text-success"> ปรับปรุงข้อมูลศิษย์เก่า </span>
+                        เพื่อจัดทำฐานข้อมูลและสำรวจผู้เข้าร่วมงานวันชูชาติ 4 มกราคม 2563</span> -->
 
-                    <div class="mt-2 col-md-12">
+                        <div class="mt-2 col-md-12">
 
-                        <button class="mb-2 mr-2 btn-icon btn-pill btn btn-outline-primary" id="btn_call_modal_search" type="button"><i class="pe-7s-search btn-icon-wrapper"> </i>
-                            ค้นหา ชื่อตัวเอง</button>
-                    </div>
-                    <div class="divider"></div>
-                    <div id="div-form">
-                        <form class="" name="form_alumni" id="form_alumni">
-                            <div class="form-row">
-                                <input type="hidden" name="ku_id_auto" id="ku_id_auto">
-                                <input type="hidden" name="id2" id="id2">
-                                <div class="col-md-2">
-                                    <div class="position-relative form-group">
-                                        <label for="title_name" class=""><span class="text-danger">*</span> <small class="text-primary">คำนำหน้าชื่อ</small>
-                                            : </label>
-                                        <select name="std_title_name_th" id="std_title_name_th" class="mb-2 form-control">
-                                            <option value="นาย">นาย</option>
-                                            <option value="นาง">นาง</option>
-                                            <option value="นางสาว">นางสาว</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="position-relative form-group"><label for="std_fname_th" class=""><span class="text-danger">*</span> ชื่อ</label><input name="std_fname_th" id="std_fname_th" placeholder="" type="text" class="form-control"></div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="position-relative form-group"><label for="std_lname_th" class=""><span class="text-danger">*</span> สกุล</label><input name="std_lname_th" id="std_lname_th" placeholder="" type="text" class="form-control"></div>
-                                </div>
-
-                                <div class="col-md-12" id="div_name_old">
-                                    <a href="javascript:void(0);" id="btn_edit_name_old" class="text-warning stretched-link">
-                                        <span id="id_name_old" class="text text-info"></span>
-                                        <i class="lnr-magic-wand btn-icon-wrapper"></i>ชื่อ-สกุลเดิม</a>
-                                </div>
-                                <div class="col-md-12 mb-3" id="div_name_old_form">
-                                    <div class="form-inline">
-                                        <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
-                                            <label for="std_fname_th_old" class="mr-sm-2">ชื่อ-สกุล(เก่า)</label>
-                                            <input name="std_fname_th_old" id="std_fname_th_old" placeholder="ชื่อเก่า" type="text" class="form-control form-control-sm">
-                                        </div>
-                                        <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
-                                            <label for="std_lname_th_old" class="mr-sm-2"> </label>
-                                            <input name="std_lname_th_old" id="std_lname_th_old" placeholder="นามสกุล" type="text" class="form-control form-control-sm">
+                            <button class="mb-2 mr-2 btn-icon btn-pill btn btn-outline-primary" id="btn_call_modal_search" type="button"><i class="pe-7s-search btn-icon-wrapper"> </i>
+                                ค้นหาชื่อตัวเองเพื่อเข้าไปแก้ไขข้อมูลให้เป็นปัจจุบัน</button>
+                        </div>
+                        <div class="divider"></div>
+                        <div id="div-form">
+                            <form class="" name="form_alumni" id="form_alumni">
+                                <div class="form-row">
+                                    <input type="hidden" name="ku_id_auto" id="ku_id_auto">
+                                    <input type="hidden" name="id2" id="id2">
+                                    <div class="col-md-2">
+                                        <div class="position-relative form-group">
+                                            <label for="title_name" class=""><span class="text-danger">*</span> <small class="text-primary">คำนำหน้าชื่อ</small>
+                                                : </label>
+                                            <select name="std_title_name_th" id="std_title_name_th" class="mb-2 form-control">
+                                                <option value="นาย">นาย</option>
+                                                <option value="นาง">นาง</option>
+                                                <option value="นางสาว">นางสาว</option>
+                                            </select>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="position-relative form-group">
-                                        <label for="std_nickname" class="">
-                                            <span class="text-danger">*</span> ชื่อเล่น
-                                        </label>
-                                        <input name="std_nickname" id="std_nickname" placeholder="" type="text" class="form-control">
+                                    <div class="col-md-5">
+                                        <div class="position-relative form-group"><label for="std_fname_th" class=""><span class="text-danger">*</span> ชื่อ</label><input name="std_fname_th" id="std_fname_th" placeholder="" type="text" class="form-control"></div>
                                     </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <label for="std_id2" class="">รุ่น : <span class="text text-info" id="id_batch"></span></label>
-
-                                </div>
-                                <div class="col-md-3">
-                                    <label for="std_year" class="">ปีการศึกษา : <span class="text text-info" id="id_std_year"></span></label>
-
-                                </div>
-                                <div class="col-md-3">
-                                    <label for="id_class_name" class="">ห้องสังกัด : </label>
-                                    <input name="class_name" id="id_class_name" placeholder="" type="text" class="form-control">
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="std_email" class=""><span class="text-danger">*</span>E-Mail</label>
-                                        <input name="std_email" id="std_email" placeholder="" type="email" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="student_mobile" class="">
-                                            <span class="text-danger">*</span>เบอร์มือถือ:</label>
-                                        <input name="student_mobile" id="student_mobile" placeholder="" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group"><label for="std_line" class="">
-                                            <i class="line_logo"></i> ไลน์ไอดี:</label><input name="std_line" id="std_line" placeholder="" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="position-relative form-group">
-                                        <label for="std_home_town" class=""><span class="text-danger">*</span>สังกัดจังหวัด ขณะที่เรียน:</label>
-                                        <select name="std_home_town" id="std_home_town" class="custom-select">
-                                            <option value=""></option>
-                                        </select>
+                                    <div class="col-md-5">
+                                        <div class="position-relative form-group"><label for="std_lname_th" class=""><span class="text-danger">*</span> สกุล</label><input name="std_lname_th" id="std_lname_th" placeholder="" type="text" class="form-control"></div>
                                     </div>
 
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="position-relative form-group">
-                                        <label for="std_address" class="">
-                                            <span class="text-danger">*</span>ที่อยู่ปัจจุบัน:
-                                            <button id="btn_edit_address" type="button" class="btn-sm mb-2 mr-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-warning">
-                                                <i class="lnr-magic-wand btn-icon-wrapper"></i>แก้ไข</button>
-                                        </label>
-                                        <textarea name="std_address" id="std_address" rows="4" cols="50" placeholder="" type="text" class="form-control" readonly></textarea>
-                                        <input type="hidden" name="alumni_address" id="alumni_address">
-                                        <input type="hidden" name="alumni_district" id="alumni_district">
-                                        <input type="hidden" name="alumni_amphoe" id="alumni_amphoe">
-                                        <input type="hidden" name="alumni_province" id="alumni_province">
-                                        <input type="hidden" name="alumni_zipcode" id="alumni_zipcode">
+                                    <div class="col-md-12" id="div_name_old">
+                                        <a href="javascript:void(0);" id="btn_edit_name_old" class="text-warning stretched-link">
+                                            <span id="id_name_old" class="text text-info"></span>
+                                            <i class="lnr-magic-wand btn-icon-wrapper"></i>ชื่อ-สกุลเดิม</a>
+                                    </div>
+                                    <div class="col-md-12 mb-3" id="div_name_old_form">
+                                        <div class="form-inline">
+                                            <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
+                                                <label for="std_fname_th_old" class="mr-sm-2">ชื่อ-สกุล(เก่า)</label>
+                                                <input name="std_fname_th_old" id="std_fname_th_old" placeholder="ชื่อเก่า" type="text" class="form-control form-control-sm">
+                                            </div>
+                                            <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
+                                                <label for="std_lname_th_old" class="mr-sm-2"> </label>
+                                                <input name="std_lname_th_old" id="std_lname_th_old" placeholder="นามสกุล" type="text" class="form-control form-control-sm">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="position-relative form-group">
+                                            <label for="std_nickname" class="">
+                                                <span class="text-danger">*</span> ชื่อเล่น
+                                            </label>
+                                            <input name="std_nickname" id="std_nickname" placeholder="" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="std_id2" class="">รุ่น : <span class="text text-info" id="id_batch"></span></label>
 
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group"><label for="std_position" class="">ตำแหน่ง: </label>
-                                        <input name="std_position" id="std_position" placeholder="" type="text" class="form-control">
+                                    <div class="col-md-3">
+                                        <label for="std_year" class="">ปีการศึกษา : <span class="text text-info" id="id_std_year"></span></label>
+
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="id_class_name" class="">ห้องสังกัด : </label>
+                                        <input name="class_name" id="id_class_name" placeholder="" type="text" class="form-control">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="std_email" class=""><span class="text-danger">*</span>E-Mail</label>
+                                            <input name="std_email" id="std_email" placeholder="" type="email" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="student_mobile" class="">
+                                                <span class="text-danger">*</span>เบอร์มือถือ:</label>
+                                            <input name="student_mobile" id="student_mobile" placeholder="" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group"><label for="std_line" class="">
+                                                <i class="line_logo"></i> ไลน์ไอดี:</label><input name="std_line" id="std_line" placeholder="" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="position-relative form-group">
+                                            <label for="std_home_town" class=""><span class="text-danger">*</span>สังกัดจังหวัด ขณะที่เรียน:</label>
+                                            <select name="std_home_town" id="std_home_town" class="custom-select">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="position-relative form-group">
+                                            <label for="std_address" class="">
+                                                <span class="text-danger">*</span>ที่อยู่ปัจจุบัน:
+                                                <button id="btn_edit_address" type="button" class="btn-sm mb-2 mr-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-warning">
+                                                    <i class="lnr-magic-wand btn-icon-wrapper"></i>แก้ไข</button>
+                                            </label>
+                                            <textarea name="std_address" id="std_address" rows="4" cols="50" placeholder="" type="text" class="form-control" readonly></textarea>
+                                            <input type="hidden" name="alumni_address" id="alumni_address">
+                                            <input type="hidden" name="alumni_district" id="alumni_district">
+                                            <input type="hidden" name="alumni_amphoe" id="alumni_amphoe">
+                                            <input type="hidden" name="alumni_province" id="alumni_province">
+                                            <input type="hidden" name="alumni_zipcode" id="alumni_zipcode">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group"><label for="std_position" class="">ตำแหน่ง: </label>
+                                            <input name="std_position" id="std_position" placeholder="" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group"><label for="std_workplace" class="">ที่ทำงาน/สังกัด:</label>
+                                            <textarea name="std_workplace" id="std_workplace" rows="4" cols="50" placeholder="" type="text" class="form-control"></textarea>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group"><label for="std_workplace" class="">ที่ทำงาน/สังกัด:</label>
-                                        <textarea name="std_workplace" id="std_workplace" rows="4" cols="50" placeholder="" type="text" class="form-control"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <div class="mt-3 position-relative form-check"><input name="check" id="exampleCheck"
+                                <!-- <div class="mt-3 position-relative form-check"><input name="check" id="exampleCheck"
                                     type="checkbox" class="form-check-input"><label for="exampleCheck"
                                     class="form-check-label">Accept our <a href="javascript:void(0);">Terms
                                         and Conditions</a>.</label></div> -->
-                            <div class="mt-4 d-flex align-items-center">
-                                <!-- <h5 class="mb-0">Already have an account? <a href="javascript:void(0);"
+                                <div class="mt-4 d-flex align-items-center">
+                                    <!-- <h5 class="mb-0">Already have an account? <a href="javascript:void(0);"
                                         class="text-primary">Sign in</a></h5> -->
-                                <div class="ml-auto">
-                                    <button class="btn-wide btn-pill btn-shadow btn-hover-shine btn btn-primary btn-lg">บันทึก
-                                    </button>
+                                    <div class="ml-auto">
+                                        <button class="btn-wide btn-pill btn-shadow btn-hover-shine btn btn-primary btn-lg">บันทึก
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
+                            </form>
+                        </div>
                 </div>
             </div>
             <!-- <div class="col-md-12">
@@ -275,8 +276,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <form class="" id="form_search" name="form_search">
-                                <span class="text text-info">ค้นหาโดย ใส่ ชื่อ - สกุล ,เบอร์โทร,หรือ อีเมล
-                                    โดยสามารถใส่อย่างใดอย่างหนึ่งก็ได้</span>
+                                <span class="text text-info">ค้นหาโดยการใส่ ชื่อ หรือ สกุล สามารถใส่อย่างใดอย่างหนึ่งก็ได้</span>
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">

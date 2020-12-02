@@ -59,7 +59,7 @@
 
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 bg-premium-dark">
-        <a class="navbar-brand" href="#">รายชื่อสมาคมศิษย์เก่าวิศวกรรมชลประทาน ในพระบรมราชูปถัมภ์</a>
+        <a class="navbar-brand" href="#">รายชื่อสมาชิกสมาคมศิษย์เก่าวิศวกรรมชลประทาน ในพระบรมราชูปถัมภ์</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
