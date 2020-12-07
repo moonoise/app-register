@@ -91,10 +91,15 @@ if ($_SESSION[__PER_TYPE__] == 'admin' || $_SESSION[__PER_TYPE__] == 'teacher') 
         body {
             background-color: #f5d0d0;
         }
+
+        .bg-premium-dark {
+            background-image: linear-gradient(to right, #660000 0, #000 100%) !important;
+
+        }
     </style>
 </head>
 
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100 bg-premium-dark">
     <!-- Begin page content -->
     <main role="main" class="flex-shrink-0 mt-3">
         <div class="container">

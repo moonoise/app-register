@@ -80,7 +80,10 @@
         }
 
         body {
-            background-color: #f5d0d0;
+            /* background-color: #f5d0d0; */
+            background-image: linear-gradient(to right, #660000 0, #000 100%) !important;
+            padding: .10rem 5rem;
+            height: 100px;
         }
     </style>
 </head>
@@ -171,17 +174,17 @@
             </div>
             <div class="col-md-12">
                 <div class="float-left flex2">
-                    <button type="button" class="mb-2 mr-2 mt-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-primary" onclick="window.location.href='../view_public/form_alumni.php'">
-                        <i class="pe-7s-left-arrow btn-icon-wrapper"> </i> สำหรับศิษย์เก่า
+                    <button type="button" class="mb-2 mr-2 mt-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-success btn-lg" onclick="window.location.href='../view_public/form_alumni.php'">
+                        <i class="pe-7s-left-arrow btn-icon-wrapper"> </i> ลงทะเบียน สำหรับศิษย์เก่า
                     </button>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="footer mt-auto py-3">
+    <footer class="footer mt-auto py-3 bg-premium-dark">
         <div class="container">
-            <span class="text-muted">สงวนลิขสิทธิ์ : สมาคมศิษย์เก่าวิศวกรรมชลประทาน ในพระบรมราชูปถัมภ์
+            <span class="text-muted text-color-white">สงวนลิขสิทธิ์ : สมาคมศิษย์เก่าวิศวกรรมชลประทาน ในพระบรมราชูปถัมภ์
                 สำนักงาน : กรมชลประทาน ถ.ตวานนท์ ต.บางตลาด อ.ปากเกร็ด จ.นนทบุรี 11120
                 โทรศัพท์ 0-2583-6050-69 ต่อ 341</span>
         </div>

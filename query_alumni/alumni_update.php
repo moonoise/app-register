@@ -130,31 +130,31 @@ if (
             }
         }
 
-        $sqlRegisterCheck = "SELECT * FROM alumni_reg_63 WHERE  ku_id_auto = :ku_id_auto";
+        // $sqlRegisterCheck = "SELECT * FROM alumni_reg_63 WHERE  ku_id_auto = :ku_id_auto";
 
-        $stmRegisterCheck = $sqlConn->conn->prepare($sqlRegisterCheck);
-        $stmRegisterCheck->bindParam(':ku_id_auto', $_POST['ku_id_auto']);
-        $stmRegisterCheck->execute();
+        // $stmRegisterCheck = $sqlConn->conn->prepare($sqlRegisterCheck);
+        // $stmRegisterCheck->bindParam(':ku_id_auto', $_POST['ku_id_auto']);
+        // $stmRegisterCheck->execute();
 
-        if ($stmRegisterCheck->rowCount()) {
-            $sqlRegisterUpdate = "UPDATE alumni_reg_63 SET updated_at = current_timestamp 
-                                    WHERE ku_id_auto = :ku_id_auto";
+        // if ($stmRegisterCheck->rowCount()) {
+        //     $sqlRegisterUpdate = "UPDATE alumni_reg_63 SET updated_at = current_timestamp 
+        //                             WHERE ku_id_auto = :ku_id_auto";
 
-            $stmRegisterUpdate = $sqlConn->conn->prepare($sqlRegisterUpdate);
-            $stmRegisterUpdate->bindParam(':ku_id_auto', $_POST['ku_id_auto']);
-            $stmRegisterUpdate->execute();
+        //     $stmRegisterUpdate = $sqlConn->conn->prepare($sqlRegisterUpdate);
+        //     $stmRegisterUpdate->bindParam(':ku_id_auto', $_POST['ku_id_auto']);
+        //     $stmRegisterUpdate->execute();
 
-            $data['check_register'] = 'update';
-        } else {
-            $sqlRegisterInsert = "INSERT INTO alumni_reg_63 ( ku_id_auto , id2, created_at )  VALUES 
-                                (:ku_id_auto , :id2 , current_timestamp )";
+        //     $data['check_register'] = 'update';
+        // } else {
+        //     $sqlRegisterInsert = "INSERT INTO alumni_reg_63 ( ku_id_auto , id2, created_at )  VALUES 
+        //                         (:ku_id_auto , :id2 , current_timestamp )";
 
-            $stmRegisterInsert = $sqlConn->conn->prepare($sqlRegisterInsert);
-            $stmRegisterInsert->bindParam(':ku_id_auto', $_POST['ku_id_auto']);
-            $stmRegisterInsert->bindParam(':id2', $id2);
-            $stmRegisterInsert->execute();
-            $data['check_register'] = 'insert';
-        }
+        //     $stmRegisterInsert = $sqlConn->conn->prepare($sqlRegisterInsert);
+        //     $stmRegisterInsert->bindParam(':ku_id_auto', $_POST['ku_id_auto']);
+        //     $stmRegisterInsert->bindParam(':id2', $id2);
+        //     $stmRegisterInsert->execute();
+        //     $data['check_register'] = 'insert';
+        // }
         $sqlConn->conn->commit();
         $data['id2'] = $_POST['id2'];
         $data['success'] = true;
