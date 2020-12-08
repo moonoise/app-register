@@ -39,26 +39,25 @@ if (
     empty($_POST['search_std_nickname']) and
     empty($_POST['search_class_name']) and
     empty($_POST['search_std_home_town'])
-)
-    // {
-    //     $conditions[] = 'batch = ?';
-    //     $parameters[] = '1';
-    // }
+) {
+    $conditions[] = 'true';
+    $parameters[] = '';
+}
 
-    try {
-        $sql = "SELECT alumni.* FROM alumni ";
+try {
+    $sql = "SELECT alumni.* FROM alumni ";
 
-        if ($conditions) {
-            $sql .= " WHERE " . implode(" AND ", $conditions);
-        }
-
-        $stm = $sqlConn->conn->prepare($sql);
-        $stm->execute($parameters);
-        $data['data'] = $stm->fetchAll(PDO::FETCH_ASSOC);
-        $data['success'] = true;
-    } catch (\Exception $e) {
-        $data['success'] = false;
-        $data['error']  = $e->getMessage();
+    if ($conditions) {
+        $sql .= " WHERE " . implode(" AND ", $conditions);
     }
+
+    $stm = $sqlConn->conn->prepare($sql);
+    $stm->execute($parameters);
+    $data['data'] = $stm->fetchAll(PDO::FETCH_ASSOC);
+    $data['success'] = true;
+} catch (\Exception $e) {
+    $data['success'] = false;
+    $data['error']  = $e->getMessage();
+}
 
 echo json_encode($data);

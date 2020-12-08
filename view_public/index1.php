@@ -107,20 +107,45 @@
                                                 </h1>
                                                 <h5 class="mt-2 ml-2 text text-danger text-center">ค้นหาชื่อตัวเอง เพื่อลงทะเบียนเข้างาน </h5>
                                             </div>
-                                            <div class="col-3"></div>
-                                            <div class="col-6">
-                                                <div class="widget-chart widget-chart-hover">
-                                                    <a class="btn-icon-vertical btn-square btn-transition br-bl btn btn-outline-link bg-premium-dark " id="btn_call_modal_search">
-                                                        <div class="icon-wrapper rounded-circle">
-                                                            <div class="icon-wrapper-bg bg-primary"></div>
-                                                            <i class="fa fa-search icon-gradient bg-warm-flame"></i>
+
+                                            <div class="col-12 px-2">
+                                                <form class="" id="form_search" name="form_search">
+                                                    <span class="text">ค้นหาโดยการใส่ ชื่อ หรือ สกุล สามารถใส่อย่างใดอย่างหนึ่งก็ได้</span>
+                                                    <div class="form-row">
+                                                        <div class="col-6 ">
+                                                            <div class="position-relative form-group">
+                                                                <input name="search_fname" id="search_fname" placeholder="ชื่อ" type="text" class="form-control">
+                                                            </div>
                                                         </div>
-                                                        <!-- <div class="widget-numbers text-color"></div> -->
-                                                        <div class="widget-subheading text-color">คลิ๊ก</div>
-                                                    </a>
-                                                </div>
+                                                        <div class="col-6">
+                                                            <div class="position-relative form-group">
+                                                                <input name="search_lname" id="search_lname" placeholder="สกุล" type="text" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <button class="mt-1 btn-sm mb-2 mr-2 btn-icon btn-pill btn btn-primary" id="btn_select_alumni" type="submit"><i class="pe-7s-search btn-icon-wrapper"> </i>
+                                                                ค้นหา</button>
+                                                        </div>
+
+                                                    </div>
+                                                </form>
                                             </div>
-                                            <div class="col-3"></div>
+                                            <!-- <div class="divider"></div> -->
+
+                                            <div class="col-12 px-2">
+                                                <table style="width: 100%;" id="table_search" class="table table-hover table-striped table-bordered for-this-table ">
+                                                    <thead>
+                                                        <tr class="text-center">
+                                                            <th scope="col" class="text-center">รุ่น</th>
+                                                            <th scope="col" class="text-center">ชื่อ - สกุล</th>
+                                                            <th scope="col" class="text-center">#</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="id-tbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -145,50 +170,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <form class="" id="form_search" name="form_search">
-                                <span class="text">ค้นหาโดยการใส่ ชื่อ หรือ สกุล สามารถใส่อย่างใดอย่างหนึ่งก็ได้</span>
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group">
-                                            <input name="search_fname" id="search_fname" placeholder="ชื่อ" type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group">
-                                            <input name="search_lname" id="search_lname" placeholder="สกุล" type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    <!-- <div class="col-md-6">
-                                        <div class="position-relative form-group col-md-6">
-                                            <label for="district" class="">
-                                                <span class="text-danger"></span>เลขชลกร :</label>
-                                            <input name="id2" id="id2" placeholder="" type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6"></div> -->
 
-                                    <button class="mt-1 btn-sm mb-2 mr-2 btn-icon btn-pill btn btn-primary" id="btn_select_alumni" type="submit"><i class="pe-7s-search btn-icon-wrapper"> </i>
-                                        ค้นหา</button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="col-md-12">
-                            <table style="width: 100%;" id="table_search" class="table table-hover table-striped table-bordered for-this-table ">
-                                <thead>
-                                    <tr class="text-center">
-                                        <th scope="col" class="text-center">รุ่น</th>
-                                        <th scope="col" class="text-center">ชื่อ - สกุล</th>
-                                        <th scope="col" class="text-center">#</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="id-tbody">
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
 
                 </div>
                 <div class="modal-footer">
