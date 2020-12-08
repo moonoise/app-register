@@ -27,7 +27,7 @@ try {
         $stmCheck->bindParam(":ku_id_auto", $result[0]['ku_id_auto']);
         $stmCheck->execute();
 
-        $resultCheck = $stm->fetchAll(PDO::FETCH_ASSOC);
+        $resultCheck = $stmCheck->fetchAll(PDO::FETCH_ASSOC);
         if (count($resultCheck) == 1) {
             $success['register'] = true;
         } else {

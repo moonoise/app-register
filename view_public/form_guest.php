@@ -174,7 +174,7 @@
             </div>
             <div class="col-md-12">
                 <div class="float-left flex2">
-                    <button type="button" class="mb-2 mr-2 mt-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-success btn-lg" onclick="window.location.href='../view_public/form_alumni.php'">
+                    <button type="button" class="mb-2 mr-2 mt-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-success btn-lg" onclick="window.location.href='../view_public/index1.php'">
                         <i class="pe-7s-left-arrow btn-icon-wrapper"> </i> ลงทะเบียน สำหรับศิษย์เก่า
                     </button>
                 </div>

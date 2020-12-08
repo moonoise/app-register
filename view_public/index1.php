@@ -49,7 +49,8 @@
         }
 
         body::before {
-            background: url('../assets/images/bg3s.jpg') no-repeat center center fixed;
+            /* background: url('../assets/images/bg3s.jpg') no-repeat center center fixed; */
+            background-image: linear-gradient(to right, #660000 0, #000 100%) !important;
             content: '';
             z-index: -1;
             width: 100%;
@@ -102,36 +103,24 @@
                                         <div class="no-gutters row">
                                             <div class="col-12">
                                                 <h1 class="mt-2 ml-2 text-danger text-center">
-                                                    ลงทะเบียน
+                                                    ศิษย์เก่า
                                                 </h1>
-                                                <h5 class="mt-2 ml-2 text text-danger text-center">สมาคมศิษย์เก่าและบุคคลทั่วไปลงทะเบียนร่วมงาน วันชูชาติ 4 มกราคม 2563 <br>และร่วมลุ้นของภายในงาน</h5>
+                                                <h5 class="mt-2 ml-2 text text-danger text-center">ค้นหาชื่อตัวเอง เพื่อลงทะเบียนเข้างาน </h5>
                                             </div>
-
+                                            <div class="col-3"></div>
                                             <div class="col-6">
                                                 <div class="widget-chart widget-chart-hover">
                                                     <a class="btn-icon-vertical btn-square btn-transition br-bl btn btn-outline-link bg-premium-dark " id="btn_call_modal_search">
                                                         <div class="icon-wrapper rounded-circle">
                                                             <div class="icon-wrapper-bg bg-primary"></div>
-                                                            <i class="fa fa-street-view icon-gradient bg-warm-flame"></i>
+                                                            <i class="fa fa-search icon-gradient bg-warm-flame"></i>
                                                         </div>
-                                                        <div class="widget-numbers text-color">ศิษย์เก่า</div>
+                                                        <!-- <div class="widget-numbers text-color"></div> -->
                                                         <div class="widget-subheading text-color">คลิ๊ก</div>
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div class="col-6">
-                                                <div class="widget-chart widget-chart-hover">
-                                                    <a href="form_guest.php" class="btn-icon-vertical btn-square btn-transition br-bl btn btn-outline-link bg-premium-dark">
-                                                        <div class="icon-wrapper rounded-circle">
-                                                            <div class="icon-wrapper-bg bg-primary"></div>
-                                                            <i class="fa fa-child icon-gradient bg-warm-flame"></i>
-                                                        </div>
-                                                        <div class=" widget-numbers  text-color">ทั่วไป</div>
-                                                        <div class="widget-subheading text-color">คลิ๊ก</div>
-
-                                                    </a>
-                                                </div>
-                                            </div>
+                                            <div class="col-3"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -236,7 +225,7 @@
                         if (response.register == false) {
                             $("#id-tbody").html("<tr><td>" + response.data.id2 + "</td><td> คุณ" + response.data.std_fname_th + " " + response.data.std_lname_th + "</td><td><button class=\"btn btn-info btn-sm\" id=\"id-regis\" value=\"" + response.data.ku_id_auto + "\">ลงทะเบียน</button></td></tr>");
                         } else if (response.register == true) {
-                            $("#id-tbody").html("<tr><td></td><td></td><td><span class=\"text text-success text-center\"> ลงทะเบียนแล้ว </span></td></tr>");
+                            $("#id-tbody").html("<tr><td>" + response.data.id2 + "</td><td> คุณ" + response.data.std_fname_th + " " + response.data.std_lname_th + "</td><td><span class=\"text text-success text-center\"> ลงทะเบียนแล้ว </span></td></tr>");
                         } else {
                             $("#id-tbody").html("<tr><td colspan = \"3\"  class=\"text-center\">ไม่พบข้อมูล</td></tr>");
                         }
