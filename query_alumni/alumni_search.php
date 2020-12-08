@@ -71,9 +71,13 @@ if (
 
     try {
         $sql = "SELECT alumni.*,
+                    alumni_address.alumni_address_auto_id,
                     alumni_reg_63.alumni_reg_id
-                 FROM alumni  LEFT JOIN alumni_reg_63 
-        ON alumni_reg_63.ku_id_auto = alumni.ku_id_auto ";
+                 FROM alumni  
+        LEFT JOIN alumni_reg_63 
+            ON alumni_reg_63.ku_id_auto = alumni.ku_id_auto
+        LEFT JOIN alumni_address 
+            ON alumni_address.ku_id_auto = alumni.ku_id_auto ";
 
         if ($conditions) {
             $sql .= " WHERE " . implode(" OR ", $conditions);

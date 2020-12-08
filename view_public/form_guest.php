@@ -82,8 +82,7 @@
         body {
             /* background-color: #f5d0d0; */
             background-image: linear-gradient(to right, #660000 0, #000 100%) !important;
-            padding: .10rem 5rem;
-            height: 100px;
+
         }
     </style>
 </head>

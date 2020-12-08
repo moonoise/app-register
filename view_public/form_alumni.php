@@ -23,8 +23,8 @@
     <style>
         .bg-premium-dark {
             background-image: linear-gradient(to right, #660000 0, #000 100%) !important;
-            padding: .10rem 5rem;
-            height: 100px;
+            /* padding: .10rem 5rem;
+            height: 100px; */
         }
 
         .logo-irrigation {}
@@ -86,6 +86,7 @@
 </head>
 
 <body class="d-flex flex-column h-100 bg-premium-dark">
+
     <!-- Begin page content -->
     <main role="main" class="flex-shrink-0 mt-3">
         <div class="container">
@@ -239,18 +240,7 @@
                         </div>
                 </div>
             </div>
-            <!-- <div class="col-md-12">
-                <div class="float-left flex2">
-                    <button type="button" class="mb-2 mr-2 mt-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-primary" onclick="window.location.href='../view_public/form_guest.php'">
-                        <i class="pe-7s-left-arrow btn-icon-wrapper"> </i> สำหรับบุคคลทั่วไป
-                    </button>
-                </div>
-                <div class="float-right flex2">
-                    <button type="button" class="mb-2 mr-2 mt-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-warning" onclick="window.location.href='../view_public/form_alumni_new.php'">
-                        เพิ่มศิษย์เก่าที่ไม่มีรายชื่อ <i class="pe-7s-right-arrow btn-icon-wrapper"> </i>
-                    </button>
-                </div>
-            </div> -->
+
         </div>
     </main>
 
@@ -288,16 +278,7 @@
                                             <input name="search_lname" id="search_lname" placeholder="สกุล" type="text" class="form-control">
                                         </div>
                                     </div>
-                                    <!-- <div class="col-md-5">
-                                        <div class="position-relative form-group">
-                                            <input name="search_mobile" id="search_mobile" placeholder="เบอร์โทร" type="number" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="position-relative form-group">
-                                            <input name="search_email" id="search_email" placeholder="อีเมล" type="text" class="form-control">
-                                        </div>
-                                    </div> -->
+
                                     <button class="mt-1 btn-sm mb-2 mr-2 btn-icon btn-pill btn btn-outline-primary" id="btn_select_address" type="submit"><i class="pe-7s-search btn-icon-wrapper"> </i>
                                         ค้นหา</button>
                                 </div>
@@ -600,6 +581,7 @@
             "student_mobile": "",
             "std_email": "",
             "alumni_reg_id": "",
+            "alumni_address_auto_id": "",
             std_fullname: function() {
                 var strName = this.std_title_name_th + this.std_fname_th + " " + this.std_lname_th;
 
@@ -623,7 +605,7 @@
             },
             button: function() {
                 var strBtn = "";
-                if (Object.is(this.alumni_reg_id, null)) {
+                if (Object.is(this.alumni_address_auto_id, null)) {
                     strBtn = "<button class=\"btn-sm btn-icon btn btn-info\" onclick=\"std_select(" + this.ku_id_auto +
                         ")\">เลือก</button> "
                 } else {
@@ -649,7 +631,7 @@
 
                             var dataTables = [];
                             dataTables['batch'] = element['batch'];
-
+                            objTable.alumni_address_auto_id = element['alumni_address_auto_id']
                             objTable.ku_id_auto = element['ku_id_auto'];
                             objTable.std_title_name_th = element['std_title_name_th'];
                             objTable.std_fname_th = element['std_fname_th'];

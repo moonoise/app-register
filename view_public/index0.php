@@ -104,7 +104,7 @@
                                                 <h1 class="mt-2 ml-2 text-danger text-center">
                                                     ลงทะเบียน
                                                 </h1>
-                                                <h5 class="mt-2 ml-2 text text-danger text-center">สมาคมศิษย์เก่าและบุคคลทั่วไปลงทะเบียนร่วมงาน วันชูชาติ 4 มกราคม 2564 <br>และร่วมลุ้นของภายในงาน</h5>
+                                                <h5 class="mt-2 ml-2 text text-danger text-center">สมาคมศิษย์เก่าและบุคคลทั่วไปลงทะเบียนร่วมงาน วันชูชาติ 4 มกราคม 2564 <br>และร่วมลุ้นของรางวัลภายในงาน</h5>
                                             </div>
 
                                             <div class="col-6">
