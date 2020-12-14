@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>วิทยาลัยการชลประทาน สำนักงบประมาณ</title>
+    <title>สำนักงบประมาณ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
 
     <!-- Disable tap highlight on IE -->
@@ -39,7 +39,7 @@
 
                                     <div class="h5 modal-title text-center">
                                         <h4 class="mt-2">
-                                            <div>สำหรับอาจารย์ และเจ้าหน้าที่</div>
+                                            <div>สำหรับเจ้าหน้าที่</div>
                                             <span></span>
                                         </h4>
                                     </div>
@@ -65,9 +65,7 @@
                                         </div>
                                         <div class="modal-footer clearfix">
                                             <div class="float-left flex2">
-                                                <button type="button" class="mb-2 mr-2 mt-2 btn-icon btn-icon-only btn-shadow btn-dashed btn btn-outline-primary" onclick="window.location.href='../view_student'">
-                                                    <i class="pe-7s-left-arrow btn-icon-wrapper"> </i> ระบบของนิสิต
-                                                </button>
+
                                             </div>
                                             <div class="float-right">
                                                 <button class="btn btn-primary btn-lg" type="submit">Login</button>
@@ -76,7 +74,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="text-center text-white opacity-8 mt-3">Copyright © วิทยาลัยการชลประทาน สำนักงบประมาณ 2020</div>
+                            <div class="text-center text-white opacity-8 mt-3">Copyright © สำนักงบประมาณ 2020</div>
                         </div>
                         <br>
                         <div id="message">

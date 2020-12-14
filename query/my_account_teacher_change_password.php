@@ -13,10 +13,10 @@ $pass_hash = new PasswordHash;
 $data = array();
 $pass = $pass_hash->create_password_hash($_POST['password']);
 try {
-    $sql = "UPDATE members SET `password` = :pwd WHERE teacher_id = :teacher_id";
+    $sql = "UPDATE members SET `password` = :pwd WHERE username = :username";
     $stm = $sqlConn->conn->prepare($sql);
     $stm->bindParam(":pwd", $pass);
-    $stm->bindParam(":teacher_id", $_POST['teacher_id']);
+    $stm->bindParam(":teacher_id", $_POST['username']);
     $stm->execute();
     $r = $stm->rowCount();
     $data['data'] = $r;

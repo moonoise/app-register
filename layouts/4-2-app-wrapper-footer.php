@@ -4,8 +4,7 @@
             <div class="app-footer-left">
                 <div class="footer-dots">
                     <div class="page-title-heading">
-                        วิทยาลัยการชลประทาน สำนักงบประมาณ สถาบันสมทบมหาวิทยาลัยเกษตรศาสตร์
-                        200 ถ.ติวานนท์ ต.บางตลาด อ.ปากเกร็ด จ.นนทบุรี 11120
+                        สำนักงบประมาณ
                     </div>
                     <div class="">
                         <a class="dot-btn-wrapper dd-chart-btn-2 text-info" id="id-click-help">

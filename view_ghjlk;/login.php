@@ -34,42 +34,11 @@
                                     <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-plum-plate" tabindex="-1">
                                         <div class="slide-img-bg" style="background-image: url('../assets/images/originals/noname2.png');"></div>
                                         <div class="slider-content">
-                                            <!-- <h3>โปรแกรมตรวจสอบความถูกต้องของลำดับรายวิชาในการลงทะเบียนเรียน</h3>
-                                            <p>วิทยาลัยการชลประทาน</p>
-                                            <p>สถาบันสมทบมหาวิทยาลัยเกษตรศาสตร์</p> -->
+
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div>
-                                    <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-premium-dark" tabindex="-1">
-                                        <div class="slide-img-bg" style="background-image: url('../assets/images/originals/noname2.png');"></div>
-                                        <div class="slider-content">
-                                            <h3>ปรัญชา</h3>
-                                            <p>ผลิตบัณฑิตคุณภาพดี มีความรู้ในเทคโนโลยี และพึ่งพาตนเอง</p>
-                                        </div>
-                                    </div>
-                                </div> -->
-                                <!-- <div>
-                                    <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-sunny-morning" tabindex="-1">
-                                        <div class="slide-img-bg" style="background-image: url('../assets/images/originals/noname2.png');"></div>
-                                        <div class="slider-content">
-                                            <h3>วิสัยทัศน์</h3>
-                                            <p>เป็นสถาบันการศึกษาชั้นนำที่มุ่งเน้นผลิตวิศวกร งานวิจัย และนวัตกรรมด้านการชลประทาน ที่เป็นเลิศอย่างบุรณาการ เพื่อพัฒนาสังคนและประศชาติอย่างยั่งยืน</p>
-                                        </div>
-                                    </div>
-                                </div> -->
-                                <!-- <div>
-                                    <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-sunny-morning" tabindex="-1">
-                                        <div class="slide-img-bg" style="background-image: url('../assets/images/originals/noname2.png');"></div>
-                                        <div class="slider-content">
-                                            <h3>พันธกิจ</h3>
-                                            <p>1.ผลิตบัณฑิตด้านวิศกรรมชลประทานที่มีคุณภาพ คุณธรรม จริยธรรม</p>
-                                            <p>2.ส่งเสริมให้เกินผลงานวิจัยและนวัตกรรมด้านชลประทานอย่างบูรณาการและสามารถนำไปใช้ประโยชน์ได้จริง</p>
-                                            <p>3.ให้บริการวิชาการ เพื่อตอบสนองต่อชุมชน/สังคม</p>
-                                            <p>4.อนุรักษ์ส่งเสริมภูมิปัญญาท้องถิ่นด้านการจัดการน้ำและทำนุบำรุงศิลปวัฒนธรรมไทย</p>
-                                        </div>
-                                    </div>
-                                </div> -->
+
                             </div>
                         </div>
                     </div>
@@ -79,7 +48,7 @@
                                 <img src="../assets/images/irrigation-college.png" alt="Responsive image" srcset="" class="logo-irrigation img-fluid">
                             </div>
                             <h4 class="mb-0">
-                                <span class="d-block">โปรแกรมตรวจสอบความถูกต้องของลำดับรายวิชาในการลงทะเบียนเรียน</span>
+                                <span class="d-block">ลงทะเบียนออนไลน์</span>
                                 <span>กรุณา Login ก่อนใช้งาน</span></h4>
                             <!-- <h6 class="mt-3">No account? <a href="javascript:void(0);" class="text-primary">Sign up now</a></h6> -->
                             <div class="divider row"></div>
@@ -93,11 +62,11 @@
                                             <div class="position-relative form-group"><label for="examplePassword" class="">Password</label><input name="password" id="examplePassword" placeholder="Password here..." type="password" class="form-control"></div>
                                         </div>
                                     </div>
-                                    <!-- <div class="position-relative form-check"><input name="check" id="exampleCheck" type="checkbox" class="form-check-input"><label for="exampleCheck" class="form-check-label">Keep me logged in</label></div> -->
-                                    <div class="position-relative form-check"><span class="text-primary">ชื่อผู้ใช้เริ่มแรก [รหัสนิสิต] รหัสผ่าน [เลขบัตรประชาชน]</span></div>
+
+                                    <div class="position-relative form-check"><span class="text-primary">ชื่อผู้ใช้</span></div>
                                     <div class="divider row"></div>
                                     <div class="d-flex align-items-center">
-                                        <!-- <div class="ml-auto"><a href="javascript:void(0);" class="btn-lg btn btn-link">Recover Password</a> -->
+
                                         <button class="btn btn-primary btn-lg" type="submit">Login ...</button>
                                     </div>
                             </div>

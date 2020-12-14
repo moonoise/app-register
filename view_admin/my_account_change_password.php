@@ -13,7 +13,7 @@ include_once "login-head.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>โปรแกรมตรวจสอบความถูกต้องของลำดับรายวิชาในการลงทะเบียนเรียน</title>
+    <title>ลงทะเบียนออนไลน์</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
 
     <!-- Disable tap highlight on IE -->
@@ -88,7 +88,7 @@ include_once "login-head.php";
                                         <form class="" name="change_password" id="change_password">
                                             <div class="form-row">
                                                 <div class="col-md-6">
-                                                    <div class="position-relative form-group"><label for="teacher_id" class="">รหัสอาจารย์</label><input name="teacher_id" id="teacher_id" value="<?php echo $_SESSION[__TEACHER_ID__]; ?>" placeholder="รหัสอาจารย์" type="text" class="form-control" readonly></div>
+                                                    <div class="position-relative form-group"><label for="username" class="">ชื่อผู้ใช้งาน</label><input name="username" id="username" value="<?php echo $_SESSION[__USERNAME__]; ?>" placeholder="รหัสอาจารย์" type="text" class="form-control" readonly></div>
                                                 </div>
                                             </div>
                                             <div class="form-row">
