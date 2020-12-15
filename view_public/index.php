@@ -329,7 +329,12 @@
                     $("#org_id_sub").append("<option value=\"" + element['org_id'] + "\">" +
                         element['org_name'] + "</option>");
                 });
-
+                $.unblockUI();
+            },
+            beforeSend: function() {
+                $.blockUI({
+                    message: $('.body-block-example-1')
+                });
             }
         });
     });
@@ -357,6 +362,12 @@
                 } else {
                     $("#btn-register").prop('disabled', false);
                 }
+                $.unblockUI();
+            },
+            beforeSend: function() {
+                $.blockUI({
+                    message: $('.body-block-example-1')
+                });
             }
         });
     });
@@ -453,6 +464,12 @@
                             confirmButtonText: 'รับทราบ กรุณาติดต่อเจ้าหน้าที่'
                         });
                     }
+                    $.unblockUI();
+                },
+                beforeSend: function() {
+                    $.blockUI({
+                        message: $('.body-block-example-1')
+                    });
                 }
             });
         }
