@@ -95,6 +95,12 @@
                         <img src="../assets/images/logo.svg" alt="" srcset="" class="card-img-top">
                     </div>
                     <h5 class="text text-info">ระบบลงทะเบียน ออนไลน์</h5>
+                    <div class="alert alert-danger fade show text-center" role="alert">
+                        <h5>การลงทะเบียน สามารถลงได้หน่วยงานละ
+                            <a href="javascript:void(0);" class="alert-link">1 คน
+                            </a>เท่านั้น
+                        </h5>
+                    </div>
                     <span>
                         <!-- <span class="text text-success"> ปรับปรุงข้อมูลศิษย์เก่า </span>
                         เพื่อจัดทำฐานข้อมูลและสำรวจผู้เข้าร่วมงานวันชูชาติ 4 มกราคม 2563</span> -->
@@ -270,8 +276,8 @@
     <!--TABLES -->
     <!--DataTables-->
     <!-- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" crossorigin="anonymous"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/datatables.net-bs4@1.10.19/js/dataTables.bootstrap4.min.js" -->
-    crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/datatables.net-bs4@1.10.19/js/dataTables.bootstrap4.min.js"
+    crossorigin="anonymous"></script> -->
     <!-- <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js" crossorigin="anonymous"> -->
     </script>
     <!-- <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js" crossorigin="anonymous"> -->
