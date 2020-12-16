@@ -14,7 +14,8 @@ include_once "login-head.php";
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>ลงทะเบียนออนไลน์</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
 
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
@@ -39,7 +40,8 @@ include_once "login-head.php";
 
                         <div class="col-md-12">
                             <div class="main-card mb-3 card">
-                                <div class="card-header">ร่วมประชุมสัมมนาการเตรียมการจัดทำงบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. ๒๕๖๕</div>
+                                <div class="card-header">ร่วมประชุมสัมมนาการเตรียมการจัดทำงบประมาณรายจ่ายประจำปีงบประมาณ
+                                    พ.ศ. ๒๕๖๕</div>
                                 <div class="card-body">
                                     <table id="table_register" class="table table-hover table-striped table-bordered">
                                         <thead>
@@ -97,226 +99,296 @@ include_once "login-head.php";
     <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $("#mm-main").addClass("mm-active");
-            register_show();
+    $(document).ready(function() {
+        $("#mm-main").addClass("mm-active");
+        register_show();
+    });
+
+    function register_show() {
+        $.ajax({
+            type: "POST",
+            url: "../query/register_list.php",
+            dataType: "JSON",
+            success: function(response) {
+                var table1 = []
+                response.data.forEach((element, key) => {
+                    var data = []
+                    data['number_sort'] = key + 1;
+                    data['form_id'] = element['form_id'];
+                    data['training_name'] = element['training_name'];
+                    data['full_name'] = element['title_name_th'] + element['fname_th'] + " " +
+                        element['lname_th'];
+                    data['title_name_th'] = element['title_name_th'];
+                    data['fname_th'] = element['fname_th'];
+                    data['lname_th'] = element['lname_th'];
+                    data['position'] = element['position'];
+                    data['level'] = element['level'];
+                    data['org_name_root'] = element['org_name_root'];
+                    data['org_name_sub'] = element['org_name_sub'];
+                    data['phone'] = element['phone'];
+                    data['mobile'] = element['mobile'];
+                    data['email'] = element['email'];
+                    data['created_at'] = element['created_at'];
+                    data['updated_at'] = element['updated_at'];
+                    data['status'] = element['status'];
+                    data['button'] =
+                        "<button class=\"btn btn-danger btn-sm btn-submit-delete\" value =\"" +
+                        element['form_id'] + "\">Delete</button>";
+
+                    table1.push(data);
+                });
+                table.clear().rows.add(table1).draw();
+            }
+        });
+    }
+
+    var dataTables = [{
+        "number_sort": "",
+        "form_id": "",
+        "training_name": "",
+        "full_name": "",
+        "title_name_th": "",
+        "fname_th": "",
+        "lname_th": "",
+        "position": "",
+        "level": "",
+        "org_name_root": "",
+        "org_name_sub": "",
+        "phone": "",
+        "mobile": "",
+        "email": "",
+        "created_at": "",
+        "updated_at": "",
+        "status": "",
+        "button": ""
+
+    }]
+
+    var d = new Date();
+    var dateTime = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+
+    var table = $('#table_register').DataTable({
+        "data": dataTables,
+        "deferRender": true,
+        "autoWidth": false,
+        "columns": [{
+                "data": "number_sort",
+                "width": "5%"
+            },
+            {
+                "data": "full_name",
+                "width": "20%"
+            },
+            {
+                "data": "org_name_root",
+                "width": "20%"
+            },
+            {
+                "data": "org_name_sub",
+                "width": "20%"
+            },
+            {
+                "data": "phone",
+                "width": "10%"
+            },
+            {
+                "data": "mobile",
+                "width": "10%"
+            },
+            {
+                "data": "email",
+                "width": "10%"
+            },
+            {
+                "data": "button",
+                "width": "10%"
+            },
+            {
+                "data": "form_id",
+                visible: false
+            },
+            {
+                "data": "training_name",
+                visible: false
+            },
+            {
+                "data": "title_name_th",
+                visible: false
+
+            },
+            {
+                "data": "fname_th",
+                visible: false
+
+            },
+            {
+                "data": "lname_th",
+                visible: false
+
+            },
+            {
+                "data": "position",
+                visible: false
+            },
+            {
+                "data": "level",
+                visible: false
+            },
+            {
+                "data": "status",
+                visible: false
+
+            },
+            {
+                "data": "created_at",
+                visible: false
+            },
+            {
+                "data": "updated_at",
+                visible: false
+            }
+
+        ],
+        "columnDefs": [{
+                "targets": "form_id",
+                "searchable": false,
+                "visible": false
+            },
+            {
+                "targets": "training_name",
+                "searchable": false,
+                "visible": false
+            },
+            {
+                "targets": "full_name",
+                "searchable": true
+            },
+            {
+                "targets": "title_name_th",
+                "searchable": false,
+                "visible": false
+            },
+            {
+                "targets": "fname_th",
+                "searchable": false,
+                "visible": false
+            },
+            {
+                "targets": "lname_th",
+                "searchable": false,
+                "visible": false
+            },
+            {
+                "targets": "org_name_root",
+                "searchable": true
+            },
+            {
+                "targets": "org_name_sub",
+                "searchable": true
+            },
+            {
+                "targets": "phone",
+                "searchable": true
+            },
+            {
+                "targets": "mobile",
+                "searchable": true
+            },
+            {
+                "targets": "email",
+                "searchable": true
+            },
+            {
+                "targets": "button",
+                "searchable": false
+            },
+            {
+                "targets": "created_at",
+                "searchable": false,
+                "visible": false
+            },
+            {
+                "targets": "updated_at",
+                "searchable": false,
+                "visible": false
+            }
+        ],
+        dom: 'Bfrtip',
+        'pageLength': 50,
+        buttons: [{
+                extend: 'excelHtml5',
+                title: 'รายชื่อผู้ลงทะเบียน' + '_' + dateTime
+
+            },
+            {
+                extend: 'csvHtml5',
+                title: 'รายชื่อผู้ลงทะเบียน' + '_' + dateTime
+            },
+            'pageLength'
+        ],
+        "lengthMenu": [
+            [10, 25, 50, 100, -1],
+            [10, 25, 50, 100, "All"]
+        ]
+    });
+
+    $(document).on("click", ".btn-submit-delete", function() {
+        // console.log($(this).val())
+
+        swal.fire({
+            title: "ลบข้อมูล",
+            text: "คุณต้องการลบข้อมูลนี่ จริงๆ หรือไม่",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#6A9944",
+            cancelButtonColor: "#d92550",
+            confirmButtonText: "ลบ",
+            cancelButtonText: "ไม่ลบ",
+            html: false
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    type: "POST",
+                    url: "../query/registerDeleteById.php",
+                    data: {
+                        "form_id": $(this).val()
+                    },
+                    dataType: "JSON",
+                    success: function(response) {
+                        if (response.success == true) {
+                            toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": true,
+                                "progressBar": true,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            };
+                            toastr["warning"]("การลบข้อมูล", "สำเร็จ");
+                            register_show()
+                        } else {
+                            Swal.fire({
+                                title: 'ลบข้อมูล ไม่สำเร็จ',
+                                text: 'ไม่สำเร็จ' + response.error,
+                                type: 'error',
+                                confirmButtonText: 'รับทราบ กรุณาติดต่อเจ้าหน้าที่'
+                            });
+                        }
+                    }
+                });
+            }
         });
 
-        function register_show() {
-            $.ajax({
-                type: "POST",
-                url: "../query/register_list.php",
-                dataType: "JSON",
-                success: function(response) {
-                    var table1 = []
-                    response.data.forEach((element, key) => {
-                        var data = []
-                        data['number_sort'] = key + 1;
-                        data['form_id'] = element['form_id'];
-                        data['training_name'] = element['training_name'];
-                        data['full_name'] = element['title_name_th'] + element['fname_th'] + " " + element['lname_th'];
-                        data['title_name_th'] = element['title_name_th'];
-                        data['fname_th'] = element['fname_th'];
-                        data['lname_th'] = element['lname_th'];
-                        data['position'] = element['position'];
-                        data['level'] = element['level'];
-                        data['org_name_root'] = element['org_name_root'];
-                        data['org_name_sub'] = element['org_name_sub'];
-                        data['phone'] = element['phone'];
-                        data['mobile'] = element['mobile'];
-                        data['email'] = element['email'];
-                        data['created_at'] = element['created_at'];
-                        data['updated_at'] = element['updated_at'];
-                        data['status'] = element['status'];
-
-
-                        table1.push(data);
-                    });
-                    table.clear().rows.add(table1).draw();
-                }
-            });
-        }
-
-        var dataTables = [{
-            "number_sort": "",
-            "form_id": "",
-            "training_name": "",
-            "full_name": "",
-            "title_name_th": "",
-            "fname_th": "",
-            "lname_th": "",
-            "position": "",
-            "level": "",
-            "org_name_root": "",
-            "org_name_sub": "",
-            "phone": "",
-            "mobile": "",
-            "email": "",
-            "created_at": "",
-            "updated_at": "",
-            "status": "",
-
-        }]
-
-        var d = new Date();
-        var dateTime = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
-
-        var table = $('#table_register').DataTable({
-            "data": dataTables,
-            "deferRender": true,
-            "autoWidth": false,
-            "columns": [{
-                    "data": "number_sort",
-                    "width": "5%"
-                },
-                {
-                    "data": "full_name",
-                    "width": "25%"
-                },
-                {
-                    "data": "org_name_root",
-                    "width": "20%"
-                },
-                {
-                    "data": "org_name_sub",
-                    "width": "20%"
-                },
-                {
-                    "data": "phone",
-                    "width": "10%"
-                },
-                {
-                    "data": "mobile",
-                    "width": "10%"
-                },
-                {
-                    "data": "email",
-                    "width": "10%"
-                },
-                {
-                    "data": "form_id",
-                    visible: false
-                },
-                {
-                    "data": "training_name",
-                    visible: false
-                },
-                {
-                    "data": "title_name_th",
-                    visible: false
-
-                },
-                {
-                    "data": "fname_th",
-                    visible: false
-
-                },
-                {
-                    "data": "lname_th",
-                    visible: false
-
-                },
-                {
-                    "data": "position",
-                    visible: false
-                },
-                {
-                    "data": "level",
-                    visible: false
-                },
-                {
-                    "data": "status",
-                    visible: false
-
-                },
-                {
-                    "data": "created_at",
-                    visible: false
-                },
-                {
-                    "data": "updated_at",
-                    visible: false
-                }
-
-            ],
-            "columnDefs": [{
-                    "targets": "form_id",
-                    "searchable": false,
-                    "visible": false
-                },
-                {
-                    "targets": "training_name",
-                    "searchable": false,
-                    "visible": false
-                },
-                {
-                    "targets": "full_name",
-                    "searchable": true
-                },
-                {
-                    "targets": "title_name_th",
-                    "searchable": false,
-                    "visible": false
-                },
-                {
-                    "targets": "fname_th",
-                    "searchable": false,
-                    "visible": false
-                },
-                {
-                    "targets": "lname_th",
-                    "searchable": false,
-                    "visible": false
-                },
-                {
-                    "targets": "org_name_root",
-                    "searchable": true
-                },
-                {
-                    "targets": "org_name_sub",
-                    "searchable": true
-                },
-                {
-                    "targets": "phone",
-                    "searchable": true
-                },
-                {
-                    "targets": "mobile",
-                    "searchable": true
-                },
-                {
-                    "targets": "email",
-                    "searchable": true
-                },
-                {
-                    "targets": "created_at",
-                    "searchable": false,
-                    "visible": false
-                },
-                {
-                    "targets": "updated_at",
-                    "searchable": false,
-                    "visible": false
-                }
-            ],
-            dom: 'Bfrtip',
-            'pageLength': 50,
-            buttons: [{
-                    extend: 'excelHtml5',
-                    title: 'รายชื่อผู้ลงทะเบียน' + '_' + dateTime
-
-                },
-                {
-                    extend: 'csvHtml5',
-                    title: 'รายชื่อผู้ลงทะเบียน' + '_' + dateTime
-                },
-                'pageLength'
-            ],
-            "lengthMenu": [
-                [10, 25, 50, 100, -1],
-                [10, 25, 50, 100, "All"]
-            ]
-        });
+    });
     </script>
 </body>
 
