@@ -96,9 +96,16 @@
                     </div>
                     <h5 class="text text-info">ระบบลงทะเบียน ออนไลน์</h5>
                     <div class="alert alert-danger fade show text-center" role="alert">
-                        <h5>การลงทะเบียน สามารถลงได้หน่วยงานละ
+                        <h6>การลงทะเบียน สามารถลงได้หน่วยงานละ
                             <a href="javascript:void(0);" class="alert-link">1 คน
                             </a>เท่านั้น
+                        </h6>
+                    </div>
+
+                    <div class="alert alert-success fade show text-center" role="alert">
+                        <h5>สำหรับรัฐมนตรี และผู้ติดตาม
+                            <a href="index2.php" class="alert-link"> คลิ๊กที่นี้
+                            </a>
                         </h5>
                     </div>
                     <span>

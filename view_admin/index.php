@@ -116,8 +116,11 @@ include_once "login-head.php";
                     data['number_sort'] = key + 1;
                     data['form_id'] = element['form_id'];
                     data['training_name'] = element['training_name'];
-                    data['full_name'] = element['title_name_th'] + element['fname_th'] + " " +
-                        element['lname_th'];
+                    data['full_name'] = (element['title_name_th'] == null ? "" :
+                            element['title_name_th']) + element['fname_th'] + " " +
+                        (element['lname_th'] == null ? "" :
+                            element['lname_th']);
+                    // console.log(element['title_name_th'])
                     data['title_name_th'] = element['title_name_th'];
                     data['fname_th'] = element['fname_th'];
                     data['lname_th'] = element['lname_th'];
