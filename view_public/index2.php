@@ -200,7 +200,7 @@
                                     <div class="col-md-2">
                                         <div class="position-relative form-group">
                                             <label for="checkbox_person1" class="">
-                                                <small class="text-primary">ผู้แทนคนที่ 1</small>
+                                                <small class="text-primary">ผู้ติดตามคนที่ 1</small>
                                                 : </label>
                                             <input name="checkbox_person1" id="checkbox_person1" placeholder=""
                                                 type="checkbox" class="form-control" checked>
@@ -260,7 +260,7 @@
                                     <div class="col-md-2">
                                         <div class="position-relative form-group">
                                             <label for="checkbox_person2" class="">
-                                                <small class="text-primary">ผู้แทนคนที่ 2</small>
+                                                <small class="text-primary">ผู้ติดตามคนที่ 2</small>
                                                 : </label>
                                             <input name="checkbox_person2" id="checkbox_person2" placeholder=""
                                                 type="checkbox" class="form-control" checked>
@@ -322,7 +322,7 @@
                                     <div class="col-md-2">
                                         <div class="position-relative form-group">
                                             <label for="checkbox_person3" class="">
-                                                <small class="text-primary">ผู้แทนคนที่ 3</small>
+                                                <small class="text-primary">ผู้ติดตามคนที่ 3</small>
                                                 : </label>
                                             <input name="checkbox_person3" id="checkbox_person3" placeholder=""
                                                 type="checkbox" class="form-control" checked>
@@ -383,7 +383,7 @@
                                     <div class="col-md-2">
                                         <div class="position-relative form-group">
                                             <label for="checkbox_person4" class="">
-                                                <small class="text-primary">ผู้แทนคนที่ 4</small>
+                                                <small class="text-primary">ผู้ติดตามคนที่ 4</small>
                                                 : </label>
                                             <input name="checkbox_person4" id="checkbox_person4" placeholder=""
                                                 type="checkbox" class="form-control" checked>

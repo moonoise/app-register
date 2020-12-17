@@ -104,7 +104,7 @@
 
                     <div class="alert alert-success fade show text-center" role="alert">
                         <h5>สำหรับรัฐมนตรี และผู้ติดตาม
-                            <a href="index2.php" class="alert-link"> คลิ๊กที่นี้
+                            <a href="index2.php" class="alert-link"> คลิกที่นี่
                             </a>
                         </h5>
                     </div>
