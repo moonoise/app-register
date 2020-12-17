@@ -95,52 +95,49 @@ if ($data['error'] == NULL) {
 
          $arrId[] =  $sqlConn->conn->lastInsertId();
          
-        if (isset($_POST['checkbox_person2'])) {
-
-            $stm->bindParam(':training_name',$_POST['training_name']);
-            $stm->bindParam(':title_name_th',$_POST['title_name_th_person2']);
-            $stm->bindParam(':fname_th',$_POST['fname_th_person2']);
-            $stm->bindParam(':lname_th',$_POST['lname_th_person2']); 
-            $stm->bindParam(':position',$_POST['position_person2']);  
-            $stm->bindParam(':org_id_sub',$_POST['org_id_sub'],PDO::PARAM_INT);  
-            $stm->bindParam(':phone',$_POST['phone_person2']);
-            $stm->execute();
-
-            $arrId[] =  $sqlConn->conn->lastInsertId();
-        }
-
-        if (isset($_POST['checkbox_person3'])) {
-
-            $stm->bindParam(':training_name',$_POST['training_name']);
-            $stm->bindParam(':title_name_th',$_POST['title_name_th_person3']);
-            $stm->bindParam(':fname_th',$_POST['fname_th_person3']);
-            $stm->bindParam(':lname_th',$_POST['lname_th_person3']); 
-            $stm->bindParam(':position',$_POST['position_person3']);  
-            $stm->bindParam(':org_id_sub',$_POST['org_id_sub'],PDO::PARAM_INT);  
-            $stm->bindParam(':phone',$_POST['phone_person3']);
-            $stm->execute();
-
-            $arrId[] =  $sqlConn->conn->lastInsertId();
-        }
-
-        if (isset($_POST['checkbox_person4'])) {
-
-            $stm->bindParam(':training_name',$_POST['training_name']);
-            $stm->bindParam(':title_name_th',$_POST['title_name_th_person4']);
-            $stm->bindParam(':fname_th',$_POST['fname_th_person4']);
-            $stm->bindParam(':lname_th',$_POST['lname_th_person4']); 
-            $stm->bindParam(':position',$_POST['position_person4']);  
-            $stm->bindParam(':org_id_sub',$_POST['org_id_sub'],PDO::PARAM_INT);  
-            $stm->bindParam(':phone',$_POST['phone_person4']);
-            $stm->execute();
-
-            $arrId[] =  $sqlConn->conn->lastInsertId();
-        }
-    
-
-     }else {
-        $data['error'] = "ข้อมูลไม่ครบ กรุณากรอกชื่อผู้ติดตาม อย่างน้อย 1 คน ";
      }
+
+     if (isset($_POST['checkbox_person2'])) {
+
+        $stm->bindParam(':training_name',$_POST['training_name']);
+        $stm->bindParam(':title_name_th',$_POST['title_name_th_person2']);
+        $stm->bindParam(':fname_th',$_POST['fname_th_person2']);
+        $stm->bindParam(':lname_th',$_POST['lname_th_person2']); 
+        $stm->bindParam(':position',$_POST['position_person2']);  
+        $stm->bindParam(':org_id_sub',$_POST['org_id_sub'],PDO::PARAM_INT);  
+        $stm->bindParam(':phone',$_POST['phone_person2']);
+        $stm->execute();
+
+        $arrId[] =  $sqlConn->conn->lastInsertId();
+    }
+
+    if (isset($_POST['checkbox_person3'])) {
+
+        $stm->bindParam(':training_name',$_POST['training_name']);
+        $stm->bindParam(':title_name_th',$_POST['title_name_th_person3']);
+        $stm->bindParam(':fname_th',$_POST['fname_th_person3']);
+        $stm->bindParam(':lname_th',$_POST['lname_th_person3']); 
+        $stm->bindParam(':position',$_POST['position_person3']);  
+        $stm->bindParam(':org_id_sub',$_POST['org_id_sub'],PDO::PARAM_INT);  
+        $stm->bindParam(':phone',$_POST['phone_person3']);
+        $stm->execute();
+
+        $arrId[] =  $sqlConn->conn->lastInsertId();
+    }
+
+    if (isset($_POST['checkbox_person4'])) {
+
+        $stm->bindParam(':training_name',$_POST['training_name']);
+        $stm->bindParam(':title_name_th',$_POST['title_name_th_person4']);
+        $stm->bindParam(':fname_th',$_POST['fname_th_person4']);
+        $stm->bindParam(':lname_th',$_POST['lname_th_person4']); 
+        $stm->bindParam(':position',$_POST['position_person4']);  
+        $stm->bindParam(':org_id_sub',$_POST['org_id_sub'],PDO::PARAM_INT);  
+        $stm->bindParam(':phone',$_POST['phone_person4']);
+        $stm->execute();
+
+        $arrId[] =  $sqlConn->conn->lastInsertId();
+    }
 
    
     $sqlConn->conn->commit();
