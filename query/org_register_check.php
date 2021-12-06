@@ -12,7 +12,7 @@ $data  = array('success'=>null,
 
 $data = array();
 try {
-    $sql = "SELECT * FROM register_form1 WHERE org_id_sub = :org_id_sub ";
+    $sql = "SELECT * FROM register_form2 WHERE org_id_sub = :org_id_sub ";
     $stm = $sqlConn->conn->prepare($sql);
     $stm->bindParam(":org_id_sub", $_POST['org_id_sub']);
     $stm->execute();

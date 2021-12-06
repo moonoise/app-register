@@ -36,10 +36,17 @@
                 <li class="" id="mm-main">
                     <a href="index.php">
                         <i class="metismenu-icon pe-7s-home"></i>
-                        หน้าแรก
+                        สำหรับคณะรัฐมนตรี และผู้ติดตาม
                         <i class="metismenu-state-icon caret-left"></i>
                     </a>
                 </li>
+                <li id="mm-page2" class="">
+                    <a href="page2.php">
+                        <i class="metismenu-icon pe-7s-browser"></i>
+                        หัวหน้าส่วนราชการ
+                    </a>
+                </li>
+                
 
 
 

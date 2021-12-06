@@ -9,7 +9,7 @@ $sqlConn = new SqlConn;
 
 $data = array();
 try {
-    $sql = "SELECT * FROM org WHERE ref_id = '398' AND org_id != '398' ";
+    $sql = "SELECT * FROM minister";
     $stm = $sqlConn->conn->prepare($sql);
     $stm->execute();
     $data['data'] = $stm->fetchAll(PDO::FETCH_ASSOC);

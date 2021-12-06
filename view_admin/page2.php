@@ -46,14 +46,18 @@ include_once "login-head.php";
                                     <table id="table_register" class="table table-hover table-striped table-bordered">
                                         <thead>
                                             <tr class="text-center">
-                                                <th>#</th>
-                                                <th>ชื่อ - สกุล</th>
-                                                <th>ตำแหน่ง</th>
-                                                <th>โทรศัพท์ สำนักงาน</th>
-                                                <th>คำนำหน้าชื่อ</th>
-                                                <th>ชื่อ</th>
-                                                <th>สกุล</th>
-
+                                                <th class="col-4">#</th>
+                                                <th class="col-4">ชื่อ - สกุล</th>
+                                                <th class="col-4">ตำแหน่ง</th>
+                                                <th class="col-1">กระทรวง</th>
+                                                <th class="col-1">กรม</th>
+                                                <th class="col-1">โทรศัพท์ สำนักงาน</th>
+                                                <th class="col-1">โทรศัพท์มือถือ</th>
+                                                <th class="col-1">อีเมลล์</th>
+                                                <th class="col-1">คำนำหน้าชื่อ</th>
+                                                <th class="col-1">ชื่อ</th>
+                                                <th class="col-1">สกุล</th>
+                                                <th class="col-1">ระดับ</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -100,36 +104,38 @@ include_once "login-head.php";
 
     <script>
     $(document).ready(function() {
-        $("#mm-main").addClass("mm-active");
-        $("#mm-page2").removeClass("mm-active");
+        $("#mm-main").removeClass("mm-active");
+        $("#mm-page2").addClass("mm-active");
         register_show();
     });
 
     function register_show() {
         $.ajax({
             type: "POST",
-            url: "../query/registed_form1.php",
+            url: "../query/registered_form2.php",
             dataType: "JSON",
             success: function(response) {
                 var table1 = []
                 response.data.forEach((element, key) => {
                     var data = []
-                    if (element['fname_th'] == 'รัฐมนตรี') {
-                        data['full_name'] = element['minister_name'] 
-                        data['position'] = element['minister_position']
-                    }else {
-                        data['full_name'] = element['title_name_th'] + element['fname_th'] + " " + element['lname_th']
-                        data['position'] = element['position'];
-                    }
+                
+                    data['form_id'] = element['form_id'];
+                    
+                    data['full_name'] = element['title_name_th'] + element['fname_th'] + " " + element['lname_th']
 
+                    // console.log(element['title_name_th'])
                     data['title_name_th'] = element['title_name_th'];
                     data['fname_th'] = element['fname_th'];
                     data['lname_th'] = element['lname_th'];
-                    data['minister_name'] = element['minister_name'];
-                    data['minister_position'] = element['minister_position'];
+                    data['position'] = element['position'];
+                    data['level'] = element['level'];
+                    data['org_name_root'] = element['org_name_root'];
+                    data['org_name_sub'] = element['org_name_sub'];
                     data['phone'] = element['phone'];
-    
-                    
+                    data['mobile'] = element['mobile'];
+                    data['email'] = element['email'];
+                    data['level'] = element['level'];
+            
 
                     table1.push(data);
                 });
@@ -139,15 +145,18 @@ include_once "login-head.php";
     }
 
     var dataTables = [{
-        "form_id" : "",
+        "form_id": "",
         "full_name": "",
         "title_name_th": "",
         "fname_th": "",
         "lname_th": "",
         "position": "",
         "level": "",
-        "phone": ""
-       
+        "org_name_root": "",
+        "org_name_sub": "",
+        "phone": "",
+        "mobile": "",
+        "email": ""
 
     }]
 
@@ -162,53 +171,86 @@ include_once "login-head.php";
                 "data": "form_id",
                 render: function(data, type, row, meta) {
                     return meta.row  + 1;
-                }
+                },
+                "width":"5%"
             },
             {
-                "data": "full_name",
-          
+                "data": "full_name"
             },
             {
-                "data": "position",
+                "data": "position"
                 
             },
             {
-                "data": "phone",
-               
+                "data": "org_name_root"
+            },
+            {
+                "data": "org_name_sub"
+            },
+            {
+                "data": "phone"
+            },
+            {
+                "data": "mobile"
+            },
+            {
+                "data": "email"
             },
             {
                 "data": "title_name_th",
-                "visible": false
+                visible: false
+
             },
             {
                 "data": "fname_th",
-                "visible": false
+                visible: false
+
             },
             {
                 "data": "lname_th",
-                "visible": false
+                visible: false
+
+            },
+            {
+                "data": "level",
+                visible: false
             }
 
         ],
-        "columnDefs": [
-            {
+        "columnDefs": [{
                 "targets": "form_id",
-                "searchable": true
+                "searchable": false,
             },
             {
                 "targets": "full_name",
                 "searchable": true
             },
             {
-                "data": "position",
-                visible: true
+                "targets": "position",
+                "searchable": true
             },
             {
-                "data": "level",
-                visible: false
+                "targets": "org_name_root",
+                "searchable": true
+            },
+            {
+                "targets": "org_name_sub",
+                "searchable": true
             },
             {
                 "targets": "phone",
+                "searchable": true
+            },
+            {
+                "targets": "mobile",
+                "searchable": true
+            },
+            {
+                "targets": "email",
+                "searchable": true
+            },
+            {
+                "targets": "level",
                 "searchable": true
             },
             {
@@ -225,6 +267,14 @@ include_once "login-head.php";
                 "targets": "lname_th",
                 "searchable": false,
                 "visible": false
+            },
+            {
+                "targets": "org_name_root",
+                "searchable": true
+            },
+            {
+                "targets": "org_name_sub",
+                "searchable": true
             }
         ],
         dom: 'Bfrtip',
@@ -233,7 +283,7 @@ include_once "login-head.php";
                 extend: 'excelHtml5',
                 title: 'รายชื่อผู้ลงทะเบียน' + '_' + dateTime,
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6]
+                    columns: [0, 1, 2, 3, 4, 5, 6,7,8,9,10,11]
                 }
 
             },
@@ -245,6 +295,7 @@ include_once "login-head.php";
         ]
     });
 
+   
     </script>
 </body>
 

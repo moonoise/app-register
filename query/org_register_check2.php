@@ -12,9 +12,9 @@ $data  = array('success'=>null,
 
 $data = array();
 try {
-    $sql = "SELECT * FROM register_form1 WHERE org_id_sub = :org_id_sub ";
+    $sql = "SELECT * FROM register_form1 WHERE minister_id = :minister_id ";
     $stm = $sqlConn->conn->prepare($sql);
-    $stm->bindParam(":org_id_sub", $_POST['org_id_sub']);
+    $stm->bindParam(":minister_id", $_POST['minister_id']);
     $stm->execute();
 
     if ($stm->rowCount()) {
