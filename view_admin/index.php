@@ -119,7 +119,7 @@ include_once "login-head.php";
                         data['position'] = element['minister_position']
                     }else {
                         data['full_name'] = element['title_name_th'] + element['fname_th'] + " " + element['lname_th']
-                        data['position'] = element['position'];
+                        data['position'] = element['position'] + "<br>" + element['minister_position'];
                     }
 
                     data['title_name_th'] = element['title_name_th'];
