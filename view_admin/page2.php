@@ -58,6 +58,7 @@ include_once "login-head.php";
                                                 <th class="col-1">ชื่อ</th>
                                                 <th class="col-1">สกุล</th>
                                                 <th class="col-1">ระดับ</th>
+                                                <th>การรับวัคซีน (3 หมายถึงได้รับมากกว่า 2 เข็ม)</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -118,10 +119,11 @@ include_once "login-head.php";
                 var table1 = []
                 response.data.forEach((element, key) => {
                     var data = []
-                
+
                     data['form_id'] = element['form_id'];
-                    
-                    data['full_name'] = element['title_name_th'] + element['fname_th'] + " " + element['lname_th']
+
+                    data['full_name'] = element['title_name_th'] + element['fname_th'] + " " +
+                        element['lname_th']
 
                     // console.log(element['title_name_th'])
                     data['title_name_th'] = element['title_name_th'];
@@ -135,7 +137,8 @@ include_once "login-head.php";
                     data['mobile'] = element['mobile'];
                     data['email'] = element['email'];
                     data['level'] = element['level'];
-            
+                    data['covid'] = element['covid'];
+
 
                     table1.push(data);
                 });
@@ -156,7 +159,8 @@ include_once "login-head.php";
         "org_name_sub": "",
         "phone": "",
         "mobile": "",
-        "email": ""
+        "email": "",
+        "covid": ""
 
     }]
 
@@ -170,16 +174,16 @@ include_once "login-head.php";
         "columns": [{
                 "data": "form_id",
                 render: function(data, type, row, meta) {
-                    return meta.row  + 1;
+                    return meta.row + 1;
                 },
-                "width":"5%"
+                "width": "5%"
             },
             {
                 "data": "full_name"
             },
             {
                 "data": "position"
-                
+
             },
             {
                 "data": "org_name_root"
@@ -213,6 +217,10 @@ include_once "login-head.php";
             },
             {
                 "data": "level",
+                visible: false
+            },
+            {
+                "data": "covid",
                 visible: false
             }
 
@@ -275,6 +283,10 @@ include_once "login-head.php";
             {
                 "targets": "org_name_sub",
                 "searchable": true
+            },
+            {
+                "targets": "covid",
+                "searchable": true
             }
         ],
         dom: 'Bfrtip',
@@ -283,7 +295,7 @@ include_once "login-head.php";
                 extend: 'excelHtml5',
                 title: 'รายชื่อผู้ลงทะเบียน' + '_' + dateTime,
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6,7,8,9,10,11]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
                 }
 
             },
@@ -294,8 +306,6 @@ include_once "login-head.php";
             [10, 25, 50, 100, "All"]
         ]
     });
-
-   
     </script>
 </body>
 

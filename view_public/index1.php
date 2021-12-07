@@ -100,7 +100,8 @@
                         <img src="../assets/images/logo.svg" alt="" srcset="" class="card-img-top">
                     </div>
                     <div class="divider"></div>
-                    <h5 class="text text-info text-center">ระบบลงทะเบียน การประชุมสัมมนาการเตรียมการจัดทำงบประมาณรายจ่ายประจำปี พ.ศ.2566</h5>
+                    <h5 class="text text-info text-center">ระบบลงทะเบียน
+                        การประชุมสัมมนาการเตรียมการจัดทำงบประมาณรายจ่ายประจำปี พ.ศ.2566</h5>
                     <div class="alert alert-success fade show text-center" role="alert">
                         <h5>การลงทะเบียน สำหรับคณะรัฐมนตรี และผู้ติดตาม
                             <a href="javascript:void(0);" class="alert-link">
@@ -115,266 +116,384 @@
                         </ul>
                     </div>
 
-                        <div id="div-form">
-                            <form class="" name="form_alumni" id="form_alumni">
-                                <div class="form-row">
-                                    <div class="col-md-12">
-                                        <div class="position-relative form-group"><label for="minister_id"
-                                                class="">รัฐมนตรี:
-                                            </label>
-                                            <select name="minister_id" id="minister_id" class="mb-2 form-control">
+                    <div id="div-form">
+                        <form class="" name="form_alumni" id="form_alumni">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group"><label for="minister_id"
+                                            class="">รัฐมนตรี:
+                                        </label>
+                                        <select name="minister_id" id="minister_id" class="mb-2 form-control">
 
-                                            </select>
-                                        </div>
-                                        <hr>
+                                        </select>
                                     </div>
-
-                                    <!-- ########################## ผู้แทน ##################################### -->
-
-
-                                    <div class="col-md-2">
-                                        <div class="position-relative form-group">
-                                            <label for="checkbox_person0" class="text-danger"><span class="text-danger">*</span>
-                                                ผู้แทน หากมี 
-                                                : </label>
-
-                                            <input name="checkbox_person0" id="checkbox_person0" placeholder=""
-                                                type="checkbox" class="form-control" checked>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="position-relative form-group">
-                                            <label for="title_name_th_person0" class=""><span
-                                                    class="text-danger">*</span>
-                                                คำนำหน้าชื่อ
-                                                : </label>
-
-                                            <input name="title_name_th_person0" id="title_name_th_person0"
-                                                placeholder="" type="text" class="form-control">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="position-relative form-group"><label for="fname_th_person0"
-                                                class=""><span class="text-danger">*</span> ชื่อ</label><input
-                                                name="fname_th_person0" id="fname_th_person0" placeholder="" type="text"
-                                                class="form-control"></div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="position-relative form-group"><label for="lname_th_person0"
-                                                class=""><span class="text-danger">*</span> สกุล</label><input
-                                                name="lname_th_person0" id="lname_th_person0" placeholder="" type="text"
-                                                class="form-control"></div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group"><label for="position_person0"
-                                                class=""><span class="text-danger">*</span>ตำแหน่ง: </label>
-                                            <input name="position_person0" id="position_person0" placeholder=""
-                                                type="text" class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group">
-                                            <label for="phone" class="">
-                                                <span class="text-danger">*</span>โทรศัพท์:</label>
-                                            <input name="phone_person0" id="phone_person0" placeholder="" type="text"
-                                                class="form-control">
-                                        </div>
-                                    </div>
-
+                                    <hr>
                                 </div>
 
                                 <!-- ########################## ผู้แทน ##################################### -->
-                                <div class="divider"></div>
-                                <!-- ########################## ผู้ติดตามคนที่ 1 ##################################### -->
-                                
-                                <div class="form-row">
 
-                                    <div class="col-md-2">
-                                        <div class="position-relative form-group">
-                                            <label for="checkbox_person1" class="">
-                                                ผู้ติดตามคนที่ 1
-                                                : </label>
-                                            <input name="checkbox_person1" id="checkbox_person1" placeholder=""
-                                                type="checkbox" class="form-control" checked>
 
-                                        </div>
+                                <div class="col-md-2">
+                                    <div class="position-relative form-group">
+                                        <label for="checkbox_person0" class="text-danger"><span
+                                                class="text-danger">*</span>
+                                            ผู้แทน หากมี
+                                            : </label>
+
+                                        <input name="checkbox_person0" id="checkbox_person0" placeholder=""
+                                            type="checkbox" class="form-control" checked>
+
                                     </div>
-                                    <div class="col-md-2">
-                                        <div class="position-relative form-group">
-                                            <label for="title_name_th_person1" class=""><span
-                                                    class="text-danger">*</span>
-                                                คำนำหน้าชื่อ
-                                                : </label>
-
-                                            <input name="title_name_th_person1" id="title_name_th_person1"
-                                                placeholder="" type="text" class="form-control">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="position-relative form-group"><label for="fname_th_person1"
-                                                class=""><span class="text-danger">*</span> ชื่อ</label><input
-                                                name="fname_th_person1" id="fname_th_person1" placeholder="" type="text"
-                                                class="form-control"></div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="position-relative form-group"><label for="lname_th_person1"
-                                                class=""><span class="text-danger">*</span> สกุล</label><input
-                                                name="lname_th_person1" id="lname_th_person1" placeholder="" type="text"
-                                                class="form-control"></div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group"><label for="position_person1"
-                                                class=""><span class="text-danger">*</span>ตำแหน่ง: </label>
-                                            <input name="position_person1" id="position_person1" placeholder=""
-                                                type="text" class="form-control">
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group">
-                                            <label for="phone_person1" class="">
-                                                <span class="text-danger">*</span>โทรศัพท์:</label>
-                                            <input name="phone_person1" id="phone_person1" placeholder="" type="text"
-                                                class="form-control">
-                                        </div>
-                                    </div>
-
                                 </div>
-                                <!-- ########################## ผู้ติดตามคนที่ 1 end ##################################### -->
+                                <div class="col-md-2">
+                                    <div class="position-relative form-group">
+                                        <label for="title_name_th_person0" class=""><span class="text-danger">*</span>
+                                            คำนำหน้าชื่อ
+                                            : </label>
 
-                                <div class="divider"></div>
-                                <!-- ########################## ผู้ติดตามคนที่ 2 ##################################### -->
-                                <div class="form-row">
+                                        <input name="title_name_th_person0" id="title_name_th_person0" placeholder=""
+                                            type="text" class="form-control">
 
-                                    <div class="col-md-2">
-                                        <div class="position-relative form-group">
-                                            <label for="checkbox_person2" class="">
-                                                ผู้ติดตามคนที่ 2
-                                                : </label>
-                                            <input name="checkbox_person2" id="checkbox_person2" placeholder=""
-                                                type="checkbox" class="form-control" checked>
-
-                                        </div>
                                     </div>
-                                    <div class="col-md-2">
-                                        <div class="position-relative form-group">
-                                            <label for="title_name_th_person2" class=""><span
-                                                    class="text-danger">*</span>
-                                                คำนำหน้าชื่อ
-                                                : </label>
-
-                                            <input name="title_name_th_person2" id="title_name_th_person2"
-                                                placeholder="" type="text" class="form-control">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="position-relative form-group"><label for="fname_th_person2"
-                                                class=""><span class="text-danger">*</span> ชื่อ</label><input
-                                                name="fname_th_person2" id="fname_th_person2" placeholder="" type="text"
-                                                class="form-control"></div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="position-relative form-group"><label for="lname_th_person2"
-                                                class=""><span class="text-danger">*</span> สกุล</label><input
-                                                name="lname_th_person2" id="lname_th_person2" placeholder="" type="text"
-                                                class="form-control"></div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group"><label for="position_person2"
-                                                class=""><span class="text-danger">*</span>ตำแหน่ง: </label>
-                                            <input name="position_person2" id="position_person2" placeholder=""
-                                                type="text" class="form-control">
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group">
-                                            <label for="phone_person2" class="">
-                                                <span class="text-danger">*</span>โทรศัพท์:</label>
-                                            <input name="phone_person2" id="phone_person2" placeholder="" type="text"
-                                                class="form-control">
-                                        </div>
-                                    </div>
-
                                 </div>
-                                <!-- ########################## ผู้ติดตามคนที่ 2 end ##################################### -->
-
-
-
-                                <div class="divider"></div>
-                                <!-- ########################## ผู้ติดตามคนที่ 3 ##################################### -->
-                                <div class="form-row">
-
-                                    <div class="col-md-2">
-                                        <div class="position-relative form-group">
-                                            <label for="checkbox_person3" class="">
-                                                ผู้ติดตามคนที่ 3
-                                                : </label>
-                                            <input name="checkbox_person3" id="checkbox_person3" placeholder=""
-                                                type="checkbox" class="form-control" checked>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="position-relative form-group">
-                                            <label for="title_name_th_person3" class=""><span
-                                                    class="text-danger">*</span>
-                                                คำนำหน้าชื่อ
-                                                : </label>
-
-                                            <input name="title_name_th_person3" id="title_name_th_person3"
-                                                placeholder="" type="text" class="form-control">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="position-relative form-group"><label for="fname_th_person3"
-                                                class=""><span class="text-danger">*</span> ชื่อ</label><input
-                                                name="fname_th_person3" id="fname_th_person3" placeholder="" type="text"
-                                                class="form-control"></div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="position-relative form-group"><label for="lname_th_person3"
-                                                class=""><span class="text-danger">*</span> สกุล</label><input
-                                                name="lname_th_person3" id="lname_th_person3" placeholder="" type="text"
-                                                class="form-control"></div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group"><label for="position_person3"
-                                                class=""><span class="text-danger">*</span>ตำแหน่ง: </label>
-                                            <input name="position_person3" id="position_person3" placeholder=""
-                                                type="text" class="form-control">
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group">
-                                            <label for="phone_person3" class="">
-                                                <span class="text-danger">*</span>โทรศัพท์:</label>
-                                            <input name="phone_person3" id="phone_person3" placeholder="" type="text"
-                                                class="form-control">
-                                        </div>
-                                    </div>
-
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group"><label for="fname_th_person0"
+                                            class=""><span class="text-danger">*</span> ชื่อ</label><input
+                                            name="fname_th_person0" id="fname_th_person0" placeholder="" type="text"
+                                            class="form-control"></div>
                                 </div>
-                                <!-- ########################## ผู้ติดตามคนที่ 3 end ##################################### -->
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group"><label for="lname_th_person0"
+                                            class=""><span class="text-danger">*</span> สกุล</label><input
+                                            name="lname_th_person0" id="lname_th_person0" placeholder="" type="text"
+                                            class="form-control"></div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group"><label for="position_person0"
+                                            class=""><span class="text-danger">*</span>ตำแหน่ง: </label>
+                                        <input name="position_person0" id="position_person0" placeholder="" type="text"
+                                            class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label for="phone" class="">
+                                            <span class="text-danger">*</span>โทรศัพท์:</label>
+                                        <input name="phone_person0" id="phone_person0" placeholder="" type="text"
+                                            class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 ml-3">
+                                    <div>
+                                        <p class="text">เป็นผู้ได้รับการฉีดวัคซีนป้องกันไวรัส covid-2019 แล้ว</p>
+                                        <div class="custom-radio  custom-control-inline">
+                                            <input type="radio" id="covid1_person0" name="covid_person0"
+                                                class="custom-control-input covid_person0" value="1">
+                                            <label class="custom-control-label" for="covid1_person0">จำนวน 1
+                                                เข็ม</label>
+                                        </div>
+                                        <div class="custom-radio  custom-control custom-control-inline">
+                                            <input type="radio" id="covid2_person0" name="covid_person0"
+                                                class="custom-control-input covid_person0" value="2">
+                                            <label class="custom-control-label" for="covid2_person0">จำนวน 2
+                                                เข็ม</label>
+                                        </div>
+                                        <div class="custom-radio  custom-control custom-control-inline">
+                                            <input type="radio" id="covid3_person0" name="covid_person0"
+                                                class="custom-control-input covid_person0" value="3">
+                                            <label class="custom-control-label" for="covid3_person0">มากกว่า 2
+                                                เข็ม</label>
+                                        </div>
+                                        <div class="custom-radio  custom-control custom-control-inline">
+                                            <input type="radio" id="covid0_person0" name="covid_person0"
+                                                class="custom-control-input covid_person0" value="0">
+                                            <label class="custom-control-label"
+                                                for="covid0_person0">ยังไม่ได้รับ</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- ########################## ผู้แทน ##################################### -->
+                            <div class="divider"></div>
+                            <!-- ########################## ผู้ติดตามคนที่ 1 ##################################### -->
+
+                            <div class="form-row">
+
+                                <div class="col-md-2">
+                                    <div class="position-relative form-group">
+                                        <label for="checkbox_person1" class="">
+                                            ผู้ติดตามคนที่ 1
+                                            : </label>
+                                        <input name="checkbox_person1" id="checkbox_person1" placeholder=""
+                                            type="checkbox" class="form-control" checked>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="position-relative form-group">
+                                        <label for="title_name_th_person1" class=""><span class="text-danger">*</span>
+                                            คำนำหน้าชื่อ
+                                            : </label>
+
+                                        <input name="title_name_th_person1" id="title_name_th_person1" placeholder=""
+                                            type="text" class="form-control">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group"><label for="fname_th_person1"
+                                            class=""><span class="text-danger">*</span> ชื่อ</label><input
+                                            name="fname_th_person1" id="fname_th_person1" placeholder="" type="text"
+                                            class="form-control"></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group"><label for="lname_th_person1"
+                                            class=""><span class="text-danger">*</span> สกุล</label><input
+                                            name="lname_th_person1" id="lname_th_person1" placeholder="" type="text"
+                                            class="form-control"></div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group"><label for="position_person1"
+                                            class=""><span class="text-danger">*</span>ตำแหน่ง: </label>
+                                        <input name="position_person1" id="position_person1" placeholder="" type="text"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label for="phone_person1" class="">
+                                            <span class="text-danger">*</span>โทรศัพท์:</label>
+                                        <input name="phone_person1" id="phone_person1" placeholder="" type="text"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ml-3">
+                                    <div>
+                                        <p class="text">เป็นผู้ได้รับการฉีดวัคซีนป้องกันไวรัส covid-2019 แล้ว</p>
+                                        <div class="custom-radio  custom-control-inline">
+                                            <input type="radio" id="covid1_person1" name="covid_person1"
+                                                class="custom-control-input covid_person1" value="1">
+                                            <label class="custom-control-label" for="covid1_person1">จำนวน 1
+                                                เข็ม</label>
+                                        </div>
+                                        <div class="custom-radio  custom-control custom-control-inline">
+                                            <input type="radio" id="covid2_person1" name="covid_person1"
+                                                class="custom-control-input covid_person1" value="2">
+                                            <label class="custom-control-label" for="covid2_person1">จำนวน 2
+                                                เข็ม</label>
+                                        </div>
+                                        <div class="custom-radio  custom-control custom-control-inline">
+                                            <input type="radio" id="covid3_person1" name="covid_person1"
+                                                class="custom-control-input covid_person1" value="3">
+                                            <label class="custom-control-label" for="covid3_person1">มากกว่า 2
+                                                เข็ม</label>
+                                        </div>
+                                        <div class="custom-radio  custom-control custom-control-inline">
+                                            <input type="radio" id="covid0_person1" name="covid_person1"
+                                                class="custom-control-input covid_person1" value="0">
+                                            <label class="custom-control-label"
+                                                for="covid0_person1">ยังไม่ได้รับ</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ########################## ผู้ติดตามคนที่ 1 end ##################################### -->
+
+                            <div class="divider"></div>
+                            <!-- ########################## ผู้ติดตามคนที่ 2 ##################################### -->
+                            <div class="form-row">
+
+                                <div class="col-md-2">
+                                    <div class="position-relative form-group">
+                                        <label for="checkbox_person2" class="">
+                                            ผู้ติดตามคนที่ 2
+                                            : </label>
+                                        <input name="checkbox_person2" id="checkbox_person2" placeholder=""
+                                            type="checkbox" class="form-control" checked>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="position-relative form-group">
+                                        <label for="title_name_th_person2" class=""><span class="text-danger">*</span>
+                                            คำนำหน้าชื่อ
+                                            : </label>
+
+                                        <input name="title_name_th_person2" id="title_name_th_person2" placeholder=""
+                                            type="text" class="form-control">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group"><label for="fname_th_person2"
+                                            class=""><span class="text-danger">*</span> ชื่อ</label><input
+                                            name="fname_th_person2" id="fname_th_person2" placeholder="" type="text"
+                                            class="form-control"></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group"><label for="lname_th_person2"
+                                            class=""><span class="text-danger">*</span> สกุล</label><input
+                                            name="lname_th_person2" id="lname_th_person2" placeholder="" type="text"
+                                            class="form-control"></div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group"><label for="position_person2"
+                                            class=""><span class="text-danger">*</span>ตำแหน่ง: </label>
+                                        <input name="position_person2" id="position_person2" placeholder="" type="text"
+                                            class="form-control">
+                                    </div>
+                                </div>
 
 
-                                <div class="divider"></div>
-                                <!-- ########################## ผู้ติดตามคนที่ 4 ##################################### -->
-                                <!-- <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label for="phone_person2" class="">
+                                            <span class="text-danger">*</span>โทรศัพท์:</label>
+                                        <input name="phone_person2" id="phone_person2" placeholder="" type="text"
+                                            class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 ml-3">
+                                    <div>
+                                        <p class="text">เป็นผู้ได้รับการฉีดวัคซีนป้องกันไวรัส covid-2019 แล้ว</p>
+                                        <div class="custom-radio  custom-control-inline">
+                                            <input type="radio" id="covid1_person2" name="covid_person2"
+                                                class="custom-control-input covid_person2" value="1">
+                                            <label class="custom-control-label" for="covid1_person2">จำนวน 1
+                                                เข็ม</label>
+                                        </div>
+                                        <div class="custom-radio  custom-control custom-control-inline">
+                                            <input type="radio" id="covid2_person2" name="covid_person2"
+                                                class="custom-control-input covid_person2" value="2">
+                                            <label class="custom-control-label" for="covid2_person2">จำนวน 2
+                                                เข็ม</label>
+                                        </div>
+                                        <div class="custom-radio  custom-control custom-control-inline">
+                                            <input type="radio" id="covid3_person2" name="covid_person2"
+                                                class="custom-control-input covid_person2" value="3">
+                                            <label class="custom-control-label" for="covid3_person2">มากกว่า 2
+                                                เข็ม</label>
+                                        </div>
+                                        <div class="custom-radio  custom-control custom-control-inline">
+                                            <input type="radio" id="covid0_person2" name="covid_person2"
+                                                class="custom-control-input covid_person2" value="0">
+                                            <label class="custom-control-label"
+                                                for="covid0_person2">ยังไม่ได้รับ</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- ########################## ผู้ติดตามคนที่ 2 end ##################################### -->
+
+
+
+                            <div class="divider"></div>
+                            <!-- ########################## ผู้ติดตามคนที่ 3 ##################################### -->
+                            <div class="form-row">
+
+                                <div class="col-md-2">
+                                    <div class="position-relative form-group">
+                                        <label for="checkbox_person3" class="">
+                                            ผู้ติดตามคนที่ 3
+                                            : </label>
+                                        <input name="checkbox_person3" id="checkbox_person3" placeholder=""
+                                            type="checkbox" class="form-control" checked>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="position-relative form-group">
+                                        <label for="title_name_th_person3" class=""><span class="text-danger">*</span>
+                                            คำนำหน้าชื่อ
+                                            : </label>
+
+                                        <input name="title_name_th_person3" id="title_name_th_person3" placeholder=""
+                                            type="text" class="form-control">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group"><label for="fname_th_person3"
+                                            class=""><span class="text-danger">*</span> ชื่อ</label><input
+                                            name="fname_th_person3" id="fname_th_person3" placeholder="" type="text"
+                                            class="form-control"></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group"><label for="lname_th_person3"
+                                            class=""><span class="text-danger">*</span> สกุล</label><input
+                                            name="lname_th_person3" id="lname_th_person3" placeholder="" type="text"
+                                            class="form-control"></div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group"><label for="position_person3"
+                                            class=""><span class="text-danger">*</span>ตำแหน่ง: </label>
+                                        <input name="position_person3" id="position_person3" placeholder="" type="text"
+                                            class="form-control">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label for="phone_person3" class="">
+                                            <span class="text-danger">*</span>โทรศัพท์:</label>
+                                        <input name="phone_person3" id="phone_person3" placeholder="" type="text"
+                                            class="form-control">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-12 ml-3">
+                                    <div>
+                                        <p class="text">เป็นผู้ได้รับการฉีดวัคซีนป้องกันไวรัส covid-2019 แล้ว</p>
+                                        <div class="custom-radio  custom-control-inline">
+                                            <input type="radio" id="covid1_person3" name="covid_person3"
+                                                class="custom-control-input covid_person3" value="1">
+                                            <label class="custom-control-label" for="covid1_person3">จำนวน 1
+                                                เข็ม</label>
+                                        </div>
+                                        <div class="custom-radio  custom-control custom-control-inline">
+                                            <input type="radio" id="covid2_person3" name="covid_person3"
+                                                class="custom-control-input covid_person3" value="2">
+                                            <label class="custom-control-label" for="covid2_person3">จำนวน 2
+                                                เข็ม</label>
+                                        </div>
+                                        <div class="custom-radio  custom-control custom-control-inline">
+                                            <input type="radio" id="covid3_person3" name="covid_person3"
+                                                class="custom-control-input covid_person3" value="3">
+                                            <label class="custom-control-label" for="covid3_person3">มากกว่า 2
+                                                เข็ม</label>
+                                        </div>
+                                        <div class="custom-radio  custom-control custom-control-inline">
+                                            <input type="radio" id="covid0_person3" name="covid_person3"
+                                                class="custom-control-input covid_person3" value="0">
+                                            <label class="custom-control-label"
+                                                for="covid0_person3">ยังไม่ได้รับ</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- ########################## ผู้ติดตามคนที่ 3 end ##################################### -->
+
+
+                            <div class="divider"></div>
+                            <!-- ########################## ผู้ติดตามคนที่ 4 ##################################### -->
+                            <!-- <div class="form-row">
 
                                     <div class="col-md-2">
                                         <div class="position-relative form-group">
@@ -430,18 +549,18 @@
                                     </div>
 
                                 </div> -->
-                                <!-- ########################## ผู้ติดตามคนที่ 4 end ##################################### -->
+                            <!-- ########################## ผู้ติดตามคนที่ 4 end ##################################### -->
 
-                                <div class="mt-4 d-flex align-items-center">
+                            <div class="mt-4 d-flex align-items-center">
 
-                                    <div class="ml-auto">
-                                        <button id="btn-register"
-                                            class="btn-wide btn-pill btn-shadow btn-hover-shine btn btn-primary btn-lg">ลงทะเบียน
-                                        </button>
-                                    </div>
+                                <div class="ml-auto">
+                                    <button id="btn-register"
+                                        class="btn-wide btn-pill btn-shadow btn-hover-shine btn btn-primary btn-lg">ลงทะเบียน
+                                    </button>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -544,6 +663,7 @@
             $("#lname_th_person0").prop("disabled", false);
             $("#position_person0").prop("disabled", false);
             $("#phone_person0").prop("disabled", false);
+            $(".covid_person0").prop("disabled", false);
 
             addRules(person0);
         } else {
@@ -553,6 +673,7 @@
             $("#lname_th_person0").prop("disabled", true);
             $("#position_person0").prop("disabled", true);
             $("#phone_person0").prop("disabled", true);
+            $(".covid_person0").prop("disabled", true);
             removeRules(person0);
         }
     });
@@ -564,6 +685,7 @@
             $("#lname_th_person1").prop("disabled", false);
             $("#position_person1").prop("disabled", false);
             $("#phone_person1").prop("disabled", false);
+            $(".covid_person1").prop("disabled", false);
             addRules(person1);
         } else {
             $("#title_name_th_person1").prop("disabled", true);
@@ -571,6 +693,7 @@
             $("#lname_th_person1").prop("disabled", true);
             $("#position_person1").prop("disabled", true);
             $("#phone_person1").prop("disabled", true);
+            $(".covid_person1").prop("disabled", true);
 
             removeRules(person1);
         }
@@ -583,6 +706,7 @@
             $("#lname_th_person2").prop("disabled", false);
             $("#position_person2").prop("disabled", false);
             $("#phone_person2").prop("disabled", false);
+            $(".covid_person2").prop("disabled", false);
             addRules(person2);
         } else {
             $("#title_name_th_person2").prop("disabled", true);
@@ -590,6 +714,7 @@
             $("#lname_th_person2").prop("disabled", true);
             $("#position_person2").prop("disabled", true);
             $("#phone_person2").prop("disabled", true);
+            $(".covid_person2").prop("disabled", true);
             removeRules(person2);
         }
     });
@@ -601,6 +726,7 @@
             $("#lname_th_person3").prop("disabled", false);
             $("#position_person3").prop("disabled", false);
             $("#phone_person3").prop("disabled", false);
+            $(".covid_person3").prop("disabled", false);
             addRules(person3);
 
         } else {
@@ -611,6 +737,7 @@
             $("#lname_th_person3").prop("disabled", true);
             $("#position_person3").prop("disabled", true);
             $("#phone_person3").prop("disabled", true);
+            $(".covid_person3").prop("disabled", true);
             removeRules(person3);
         }
     });
@@ -649,9 +776,9 @@
 
 
                 response.data.forEach((element, key) => {
-                    $("#minister_id").append("<option value=\"" + element['minister_id'] + "\"> " +  
-                     element['minister_position'] +
-                     " ("+element['minister_name'] + ")</option>");
+                    $("#minister_id").append("<option value=\"" + element['minister_id'] + "\"> " +
+                        element['minister_position'] +
+                        " (" + element['minister_name'] + ")</option>");
                 });
 
             }
@@ -753,6 +880,7 @@
         lname_th_person0: "required",
         position_person0: "required",
         phone_person0: "required",
+        covid_person0: "required",
         minister_id: "required"
     };
 
@@ -762,6 +890,7 @@
         lname_th_person1: "required",
         position_person1: "required",
         phone_person1: "required",
+        covid_person1: "required",
         minister_id: "required"
     };
 
@@ -771,6 +900,7 @@
         lname_th_person2: "required",
         position_person2: "required",
         phone_person2: "required",
+        covid_person2: "required",
         minister_id: "required"
     };
 
@@ -780,6 +910,7 @@
         lname_th_person3: "required",
         position_person3: "required",
         phone_person3: "required",
+        covid_person3: "required",
         minister_id: "required"
     };
 
@@ -856,16 +987,21 @@
                         $('#form_alumni')[0].reset();
                         $("#div-form").hide();
                         $("#register-show").show();
-                       
+
                         response.data.forEach(element => {
-                           if (element['fname_th'] == 'รัฐมนตรี') {
-                            $("#register-show ul").append("<li>" + element['minister_name']+ "(" +element['minister_position']+ ")" + "</li>") 
-                           }else {
-                            $("#register-show ul").append("<li>" + element['title_name_th']+element['fname_th']+ " " + element['lname_th'] + "(" +element['position']+ ")" + "</li>") 
-                           }
-                            
+                            if (element['fname_th'] == 'รัฐมนตรี') {
+                                $("#register-show ul").append("<li>" + element[
+                                    'minister_name'] + "(" + element[
+                                    'minister_position'] + ")" + "</li>")
+                            } else {
+                                $("#register-show ul").append("<li>" + element[
+                                        'title_name_th'] + element['fname_th'] +
+                                    " " + element['lname_th'] + "(" + element[
+                                        'position'] + ")" + "</li>")
+                            }
+
                         });
-                        
+
 
                     } else {
                         Swal.fire({

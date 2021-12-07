@@ -53,7 +53,7 @@ include_once "login-head.php";
                                                 <th>คำนำหน้าชื่อ</th>
                                                 <th>ชื่อ</th>
                                                 <th>สกุล</th>
-
+                                                <th>การรับวัคซีน (3 หมายถึงได้รับมากกว่า 2 เข็ม)</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -115,11 +115,13 @@ include_once "login-head.php";
                 response.data.forEach((element, key) => {
                     var data = []
                     if (element['fname_th'] == 'รัฐมนตรี') {
-                        data['full_name'] = element['minister_name'] 
+                        data['full_name'] = element['minister_name']
                         data['position'] = element['minister_position']
-                    }else {
-                        data['full_name'] = element['title_name_th'] + element['fname_th'] + " " + element['lname_th']
-                        data['position'] = element['position'] + "<br>" + element['minister_position'];
+                    } else {
+                        data['full_name'] = element['title_name_th'] + element['fname_th'] + " " +
+                            element['lname_th']
+                        data['position'] = element['position'] + "<br>" + element[
+                            'minister_position'];
                     }
 
                     data['title_name_th'] = element['title_name_th'];
@@ -128,8 +130,9 @@ include_once "login-head.php";
                     data['minister_name'] = element['minister_name'];
                     data['minister_position'] = element['minister_position'];
                     data['phone'] = element['phone'];
-    
-                    
+                    data['covid'] = element['covid'];
+
+
 
                     table1.push(data);
                 });
@@ -139,15 +142,16 @@ include_once "login-head.php";
     }
 
     var dataTables = [{
-        "form_id" : "",
+        "form_id": "",
         "full_name": "",
         "title_name_th": "",
         "fname_th": "",
         "lname_th": "",
         "position": "",
         "level": "",
-        "phone": ""
-       
+        "phone": "",
+        "covid": ""
+
 
     }]
 
@@ -161,20 +165,20 @@ include_once "login-head.php";
         "columns": [{
                 "data": "form_id",
                 render: function(data, type, row, meta) {
-                    return meta.row  + 1;
+                    return meta.row + 1;
                 }
             },
             {
                 "data": "full_name",
-          
+
             },
             {
                 "data": "position",
-                
+
             },
             {
                 "data": "phone",
-               
+
             },
             {
                 "data": "title_name_th",
@@ -187,11 +191,14 @@ include_once "login-head.php";
             {
                 "data": "lname_th",
                 "visible": false
+            },
+            {
+                "data": "covid",
+                "visible": false
             }
 
         ],
-        "columnDefs": [
-            {
+        "columnDefs": [{
                 "targets": "form_id",
                 "searchable": true
             },
@@ -202,10 +209,6 @@ include_once "login-head.php";
             {
                 "data": "position",
                 visible: true
-            },
-            {
-                "data": "level",
-                visible: false
             },
             {
                 "targets": "phone",
@@ -225,6 +228,11 @@ include_once "login-head.php";
                 "targets": "lname_th",
                 "searchable": false,
                 "visible": false
+            },
+            {
+                "targets": "covid",
+                "searchable": false,
+                "visible": false
             }
         ],
         dom: 'Bfrtip',
@@ -233,7 +241,7 @@ include_once "login-head.php";
                 extend: 'excelHtml5',
                 title: 'รายชื่อผู้ลงทะเบียน' + '_' + dateTime,
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7]
                 }
 
             },
@@ -244,7 +252,6 @@ include_once "login-head.php";
             [10, 25, 50, 100, "All"]
         ]
     });
-
     </script>
 </body>
 

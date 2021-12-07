@@ -50,6 +50,7 @@ $data = array(
                                     phone,
                                     mobile,
                                     email,
+                                    covid,
                                     created_at
                                     ) VALUES (
                                     
@@ -63,6 +64,7 @@ $data = array(
                                     :phone,
                                     :mobile,
                                     :email,
+                                    :covid,
                                     CURRENT_TIMESTAMP
                                     ) ";
         
@@ -79,7 +81,8 @@ $data = array(
             $stm->bindParam(':org_id_sub',$_POST['org_id_sub'],PDO::PARAM_INT);  
             $stm->bindParam(':phone',$_POST['phone']);
             $stm->bindParam(':mobile',$_POST['mobile']);         
-            $stm->bindParam(':email',$_POST['email']);         
+            $stm->bindParam(':email',$_POST['email']);
+            $stm->bindParam(':covid',$_POST['covid_person']);               
         
             
             $stm->execute();
@@ -97,6 +100,7 @@ $data = array(
                 $stm->bindParam(':org_id_sub',$_POST['org_id_sub'],PDO::PARAM_INT);  
                 $stm->bindParam(':mobile',$_POST['mobile_person1']);         
                 $stm->bindParam(':email',$_POST['email_person1']); 
+                $stm->bindParam(':covid',$_POST['covid_person1']);
                 $stm->execute();
         
                 $arrId[] =  $sqlConn->conn->lastInsertId();

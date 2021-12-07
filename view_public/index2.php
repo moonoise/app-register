@@ -100,21 +100,19 @@
                         <img src="../assets/images/logo.svg" alt="" srcset="" class="card-img-top">
                     </div>
                     <div class="divider"></div>
-                    <h5 class="text text-info text-center">ระบบลงทะเบียน การประชุมสัมมนาการเตรียมการจัดทำงบประมาณรายจ่ายประจำปี พ.ศ.2566</h5>
+                    <h5 class="text text-info text-center">ระบบลงทะเบียน
+                        การประชุมสัมมนาการเตรียมการจัดทำงบประมาณรายจ่ายประจำปี พ.ศ.2566</h5>
                     <div class="alert alert-info fade show text-center" role="alert">
                         <h6>หัวหน้าส่วนราชการ 1 คน และผู้ติดตาม 1 คน
-                            
+
                         </h6>
                     </div>
                     <span>
-                        <!-- <span class="text text-success"> ปรับปรุงข้อมูลศิษย์เก่า </span>
-                        เพื่อจัดทำฐานข้อมูลและสำรวจผู้เข้าร่วมงานวันชูชาติ 4 มกราคม 2563</span> -->
 
-                        <!-- <div class="divider"></div> -->
                         <div id="div-form">
                             <form class="" name="form_alumni" id="form_alumni">
                                 <div class="form-row">
-                                <div class="col-md-12">
+                                    <div class="col-md-12">
                                         <div class="position-relative form-group"><label for="org_id_root"
                                                 class="">กระทรวง:
                                             </label>
@@ -135,9 +133,9 @@
                                 <div class="divider"></div>
                                 <div class="form-row">
                                     <div class="col-md-12 ">
-                                    <span class="text text-center text-info">
-                                        หัวหน้าส่วนราชการ
-                                    </span>
+                                        <span class="text text-center text-info">
+                                            หัวหน้าส่วนราชการ
+                                        </span>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="position-relative form-group">
@@ -150,7 +148,7 @@
 
                                         </div>
                                     </div>
-                                 
+
                                     <div class="col-md-5">
                                         <div class="position-relative form-group"><label for="fname_th" class=""><span
                                                     class="text-danger">*</span> ชื่อ</label><input name="fname_th"
@@ -178,7 +176,7 @@
                                         </div>
                                     </div>
 
-                                   
+
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <label for="phone" class="">
@@ -202,17 +200,48 @@
                                                 class="form-control">
                                         </div>
                                     </div>
-                                    
-                                   
+
+                                    <div class="col-md-12 ml-3">
+                                        <div>
+                                            <p class="text">เป็นผู้ได้รับการฉีดวัคซีนป้องกันไวรัส covid-2019 แล้ว</p>
+                                            <div class="custom-radio  custom-control-inline">
+                                                <input type="radio" id="covid1_person" name="covid_person"
+                                                    class="custom-control-input covid_person" value="1">
+                                                <label class="custom-control-label" for="covid1_person">จำนวน 1
+                                                    เข็ม</label>
+                                            </div>
+                                            <div class="custom-radio  custom-control custom-control-inline">
+                                                <input type="radio" id="covid2_person" name="covid_person"
+                                                    class="custom-control-input covid_person" value="2">
+                                                <label class="custom-control-label" for="covid2_person">จำนวน 2
+                                                    เข็ม</label>
+                                            </div>
+                                            <div class="custom-radio  custom-control custom-control-inline">
+                                                <input type="radio" id="covid3_person" name="covid_person"
+                                                    class="custom-control-input covid_person" value="3">
+                                                <label class="custom-control-label" for="covid3_person">มากกว่า 2
+                                                    เข็ม</label>
+                                            </div>
+                                            <div class="custom-radio  custom-control custom-control-inline">
+                                                <input type="radio" id="covid0_person" name="covid_person"
+                                                    class="custom-control-input covid_person" value="0">
+                                                <label class="custom-control-label"
+                                                    for="covid0_person">ยังไม่ได้รับ</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
                                 </div>
                                 <div class="divider"></div>
                                 <div class="form-row">
                                     <div class="col-md-12">
-                                    <span class="text text-center text-info">
-                                    ผู้ติดตาม
-                                    </span>
+                                        <span class="text text-center text-info">
+                                            ผู้ติดตาม
+                                        </span>
                                     </div>
-                                <div class="col-md-2">
+                                    <div class="col-md-2">
                                         <div class="position-relative form-group">
                                             <label for="checkbox_person1" class="">
                                                 ผู้ติดตาม
@@ -257,8 +286,8 @@
                                     <div class="col-md-6">
                                         <div class="position-relative form-group"><label for="level_person1"
                                                 class=""><span class="text-danger">*</span>ระดับ: </label>
-                                            <input name="level_person1" id="level_person1" placeholder=""
-                                                type="text" class="form-control">
+                                            <input name="level_person1" id="level_person1" placeholder="" type="text"
+                                                class="form-control">
                                         </div>
                                     </div>
 
@@ -287,8 +316,39 @@
                                                 class="form-control">
                                         </div>
                                     </div>
+
+                                    <div class="col-md-12 ml-3">
+                                        <div>
+                                            <p class="text">เป็นผู้ได้รับการฉีดวัคซีนป้องกันไวรัส covid-2019 แล้ว</p>
+                                            <div class="custom-radio  custom-control-inline">
+                                                <input type="radio" id="covid1_person1" name="covid_person1"
+                                                    class="custom-control-input covid_person1" value="1">
+                                                <label class="custom-control-label" for="covid1_person1">จำนวน 1
+                                                    เข็ม</label>
+                                            </div>
+                                            <div class="custom-radio  custom-control custom-control-inline">
+                                                <input type="radio" id="covid2_person1" name="covid_person1"
+                                                    class="custom-control-input covid_person1" value="2">
+                                                <label class="custom-control-label" for="covid2_person1">จำนวน 2
+                                                    เข็ม</label>
+                                            </div>
+                                            <div class="custom-radio  custom-control custom-control-inline">
+                                                <input type="radio" id="covid3_person1" name="covid_person1"
+                                                    class="custom-control-input covid_person1" value="3">
+                                                <label class="custom-control-label" for="covid3_person1">มากกว่า 2
+                                                    เข็ม</label>
+                                            </div>
+                                            <div class="custom-radio  custom-control custom-control-inline">
+                                                <input type="radio" id="covid0_person1" name="covid_person1"
+                                                    class="custom-control-input covid_person1" value="0">
+                                                <label class="custom-control-label"
+                                                    for="covid0_person1">ยังไม่ได้รับ</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
-                                
+
                                 <div class="mt-4 d-flex align-items-center">
 
                                     <div class="ml-auto">
@@ -485,6 +545,7 @@
             $("#phone_person1").prop("disabled", false);
             $("#mobile_person1").prop("disabled", false);
             $("#email_person1").prop("disabled", false);
+            $(".covid_person1").prop("disabled", false);
             addRules(person1);
         } else {
             $("#title_name_th_person1").prop("disabled", true);
@@ -495,6 +556,7 @@
             $("#phone_person1").prop("disabled", true);
             $("#mobile_person1").prop("disabled", true);
             $("#email_person1").prop("disabled", true);
+            $(".covid_person1").prop("disabled", true);
 
 
             removeRules(person1);
@@ -508,17 +570,18 @@
         position_person1: "required",
         level_person1: "required",
         phone_person1: {
-                required: true,
-                number: true
-            },
+            required: true,
+            number: true
+        },
         mobile_person1: {
-                required: true,
-                number: true
-            },
+            required: true,
+            number: true
+        },
         email_person1: {
-                required: true,
-                email: true
-            }
+            required: true,
+            email: true
+        },
+        covid_person1: "required",
     };
 
     function addRules(rulesObj) {
@@ -554,6 +617,7 @@
                 required: true,
                 number: true
             },
+            covid_person: "required",
 
         },
         messages: {
@@ -653,7 +717,6 @@
     // allowOutsideClick: false,
     // allowEscapeKey: false
     // })
-
     </script>
 </body>
 

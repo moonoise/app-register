@@ -39,6 +39,7 @@ if (count($result) == 0) {
                             position,
                             minister_id,
                             phone,
+                            covid,
                             created_at
                             ) VALUES (
                             :title_name_th,
@@ -47,6 +48,7 @@ if (count($result) == 0) {
                             :position,
                             :minister_id,
                             :phone,
+                            :covid,
                             CURRENT_TIMESTAMP
                             ) ";
     $stm = $sqlConn->conn->prepare($sql);
@@ -60,6 +62,7 @@ if (count($result) == 0) {
         $stm->bindParam(':position',$p);
         $stm->bindParam(':minister_id',$_POST['minister_id'],PDO::PARAM_INT);  
         $stm->bindParam(':phone',$_POST['phone_person0']);
+        $stm->bindParam(':covid',$_POST['covid_person0']);
         $stm->execute();
         $arrId[] =  $sqlConn->conn->lastInsertId();
     }else {
@@ -70,6 +73,7 @@ if (count($result) == 0) {
         $stm->bindValue(':position',NULL);  
         $stm->bindParam(':minister_id',$_POST['minister_id'],PDO::PARAM_INT);  
         $stm->bindValue(':phone',NULL);
+        $stm->bindValue(':covid',NULL);
         $stm->execute();
 
         $arrId[] =  $sqlConn->conn->lastInsertId();
@@ -84,6 +88,7 @@ if (count($result) == 0) {
          $stm->bindParam(':position',$p);  
          $stm->bindParam(':minister_id',$_POST['minister_id'],PDO::PARAM_INT);  
          $stm->bindParam(':phone',$_POST['phone_person1']);
+         $stm->bindParam(':covid',$_POST['covid_person1']);
          $stm->execute();
 
          $arrId[] =  $sqlConn->conn->lastInsertId();
@@ -99,6 +104,7 @@ if (count($result) == 0) {
         $stm->bindParam(':position',$p);  
         $stm->bindParam(':minister_id',$_POST['minister_id'],PDO::PARAM_INT);  
         $stm->bindParam(':phone',$_POST['phone_person2']);
+        $stm->bindParam(':covid',$_POST['covid_person2']);
         $stm->execute();
 
         $arrId[] =  $sqlConn->conn->lastInsertId();
@@ -113,6 +119,7 @@ if (count($result) == 0) {
         $stm->bindParam(':position',$p);  
         $stm->bindParam(':minister_id',$_POST['minister_id'],PDO::PARAM_INT);  
         $stm->bindParam(':phone',$_POST['phone_person3']);
+        $stm->bindParam(':covid',$_POST['covid_person3']);
         $stm->execute();
 
         $arrId[] =  $sqlConn->conn->lastInsertId();
