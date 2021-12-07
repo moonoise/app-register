@@ -5,9 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>ArchitectUI HTML Demo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ระบบลงทะเบียนออนไลน์</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
 
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
@@ -15,12 +16,13 @@
     <link rel="stylesheet" href="../assets/css/base.min.css">
 
     <style>
-        .bg-premium-dark {
+    .bg-premium-dark {
         background-image: linear-gradient(to right, #328bc3 0, #74a5c5 100%) !important;
         /* padding: .10rem 5rem;
             height: 100px; */
     }
-          .line_logo {
+
+    .line_logo {
         width: 20px;
         height: 20px;
         display: inline-block;
@@ -42,6 +44,7 @@
         margin-left: 0px;
         margin-right: .5rem;
     }
+
     .backgroud-white {
         background-color: white;
     }
@@ -50,62 +53,66 @@
 </head>
 
 <body>
-<div class="app-container app-theme-white body-tabs-shadow "> <!-- -->
+    <div class="app-container app-theme-white body-tabs-shadow ">
+        <!-- -->
         <div class="app-container">
             <div class="h-100 bg-plum-plate bg-animation">
                 <div class="d-flex h-100 justify-content-center align-items-center bg-premium-dark">
                     <div class="mx-auto app-login-box col-md-12">
                         <div class="app-logo-inverse mx-auto mb-3"></div>
                         <div class="row mb-3">
-                        <div class="col-md-2"></div>
-                            <div class="card col-8 ">                        
+                            <div class="col-md-2"></div>
+                            <div class="card col-8 ">
                                 <div class="card-body">
-                                <div class="">
-                                    <img src="../assets/images/logo.svg" alt="" srcset="" class="card-img-top">
-                                </div>
-                                <h3 class="text text-info text-center">
-                                ระบบลงทะเบียน การประชุมสัมมนาการเตรียมการจัดทำงบประมาณรายจ่ายประจำปี พ.ศ.2566
-                                </h3>
+                                    <div class="">
+                                        <img src="../assets/images/logo.svg" alt="" srcset="" class="card-img-top">
+                                    </div>
+                                    <h3 class="text text-info text-center">
+                                        ระบบลงทะเบียน การประชุมสัมมนาการเตรียมการจัดทำงบประมาณรายจ่ายประจำปี พ.ศ.2566
+                                    </h3>
                                 </div>
                             </div>
                             <div class="col-md-2"></div>
                         </div>
                         <div class="row">
-                           
-                        <div class="col-md-2"></div>
-                        <div class="col-md-4">
-                            <div class="mb-3 card text-white card-body bg-primary">
-                                <h3 class="text-white text-center">เฉพาะรัฐมนตรีและผู้ติดตาม</h3>
-                                <span class="text-center">(ผู้ติดตามจำนวนไม่เกิน 3 ท่าน)</span>
-                                <a href="index1.php" class="mb-2 mr-2 btn-hover-shine btn btn-warning">ลงทะเบียน</a>
+
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4">
+                                <div class="mb-3 card text-white card-body bg-primary">
+                                    <h3 class="text-white text-center">เฉพาะรัฐมนตรีและผู้ติดตาม</h3>
+                                    <span class="text-center">(ผู้ติดตามจำนวนไม่เกิน 3 ท่าน)</span>
+                                    <a href="index1.php" class="mb-2 mr-2 btn-hover-shine btn btn-warning">ลงทะเบียน</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="mb-3 card text-white card-body bg-info">
-                                <h3 class="text-white text-center">สำหรับหน่วยงาน</h3>
-                                <span class="text-center">(หัวหน้าและผู้ติดตาม)</span>
-                                <a href="index2.php" class="mb-2 mr-2 btn-hover-shine btn btn-warning">ลงทะเบียน</a>
+                            <div class="col-md-4">
+                                <div class="mb-3 card text-white card-body bg-info">
+                                    <h3 class="text-white text-center">สำหรับหน่วยงาน</h3>
+                                    <span class="text-center">(หัวหน้าและผู้ติดตาม)</span>
+                                    <a href="index2.php" class="mb-2 mr-2 btn-hover-shine btn btn-warning">ลงทะเบียน</a>
+                                </div>
                             </div>
+                            <div class="col-md-2"></div>
+
                         </div>
-                        <div class="col-md-2"></div>
-                      
-                    </div>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
-</div>
+    </div>
 
 
-<!--SCRIPTS INCLUDES-->
+    <!--SCRIPTS INCLUDES-->
 
-<!--CORE-->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/metismenu"></script>
-<script src="../assets/js/scripts-init/app.js"></script>
-<script src="../assets/js/scripts-init/demo.js"></script>
+    <!--CORE-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/metismenu"></script>
+    <script src="../assets/js/scripts-init/app.js"></script>
+    <script src="../assets/js/scripts-init/demo.js"></script>
 
 </body>
+
 </html>
