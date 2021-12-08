@@ -188,7 +188,7 @@
 
                                 <div class="col-md-12 ml-3">
                                     <div>
-                                        <p class="text">เป็นผู้ได้รับการฉีดวัคซีนป้องกันไวรัส covid-2019 แล้ว</p>
+                                        <p class="text">เป็นผู้ได้รับการฉีดวัคซีนป้องกันเชื้อไวรัส COVID-2019 แล้ว</p>
                                         <div class="custom-radio  custom-control-inline">
                                             <input type="radio" id="covid1_person0" name="covid_person0"
                                                 class="custom-control-input covid_person0" value="1">
@@ -276,7 +276,7 @@
                                 </div>
                                 <div class="col-md-12 ml-3">
                                     <div>
-                                        <p class="text">เป็นผู้ได้รับการฉีดวัคซีนป้องกันไวรัส covid-2019 แล้ว</p>
+                                        <p class="text">เป็นผู้ได้รับการฉีดวัคซีนป้องกันเชื้อไวรัส COVID-2019 แล้ว</p>
                                         <div class="custom-radio  custom-control-inline">
                                             <input type="radio" id="covid1_person1" name="covid_person1"
                                                 class="custom-control-input covid_person1" value="1">
@@ -365,7 +365,7 @@
 
                                 <div class="col-md-12 ml-3">
                                     <div>
-                                        <p class="text">เป็นผู้ได้รับการฉีดวัคซีนป้องกันไวรัส covid-2019 แล้ว</p>
+                                        <p class="text">เป็นผู้ได้รับการฉีดวัคซีนป้องกันเชื้อไวรัส COVID-2019 แล้ว</p>
                                         <div class="custom-radio  custom-control-inline">
                                             <input type="radio" id="covid1_person2" name="covid_person2"
                                                 class="custom-control-input covid_person2" value="1">
@@ -458,7 +458,7 @@
 
                                 <div class="col-md-12 ml-3">
                                     <div>
-                                        <p class="text">เป็นผู้ได้รับการฉีดวัคซีนป้องกันไวรัส covid-2019 แล้ว</p>
+                                        <p class="text">เป็นผู้ได้รับการฉีดวัคซีนป้องกันเชื้อไวรัส COVID-2019 แล้ว</p>
                                         <div class="custom-radio  custom-control-inline">
                                             <input type="radio" id="covid1_person3" name="covid_person3"
                                                 class="custom-control-input covid_person3" value="1">
