@@ -87,7 +87,7 @@
                             <div class="col-md-4">
                                 <div class="mb-3 card text-white card-body bg-info">
                                     <h3 class="text-white text-center">สำหรับหน่วยงาน</h3>
-                                    <span class="text-center">(หัวหน้าและผู้ติดตาม)</span>
+                                    <span class="text-center">(หัวหน้าส่วนราชการ 1 คน และผู้ติดตาม 1 คน)</span>
                                     <a href="index2.php" class="mb-2 mr-2 btn-hover-shine btn btn-warning">ลงทะเบียน</a>
                                 </div>
                             </div>
