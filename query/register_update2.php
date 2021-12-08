@@ -29,7 +29,7 @@ try {
 if (count($result) == 0) {
     $data['success'] = true;
 
-    if (!empty($_POST['minister_id'])) {
+    if (!empty($_POST['minister_id']) && !empty($_POST['position_person1'])) {
     try {
         $sqlConn->conn->beginTransaction();
         $sql = "INSERT INTO register_form1 (
@@ -154,7 +154,7 @@ if (count($result) == 0) {
     }
 } else {
     $data['success'] = false;
-    $data['error'] = "ข้อมูลไม่ครบ";
+    $data['error'] = "ข้อมูลไม่ครบ โปรดระบุผู้ติดตามอย่างน้อย 1 ท่าน (กรุณากรอกข้อมูลเรียงตามลำดับ)";
 }
 
 if ($data['success'] = true) {

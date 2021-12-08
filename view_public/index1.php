@@ -940,6 +940,9 @@
     }
 
     $("#form_alumni").validate({
+        rules: {
+            minister_id: "required"
+        },
         errorElement: "em",
         errorPlacement: function(error, element) {
             // Add the `invalid-feedback` class to the error element
