@@ -60,9 +60,12 @@
                 <div class="d-flex h-100 justify-content-center align-items-center bg-premium-dark">
                     <div class="mx-auto app-login-box col-md-12">
                         <div class="app-logo-inverse mx-auto mb-3"></div>
+                        <div class="row mt-5">
+                            <div class="col-md-12"></div>
+                        </div>
                         <div class="row mb-3">
                             <div class="col-md-2"></div>
-                            <div class="card col-8 ">
+                            <div class="card col-md-8 ">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-12">
@@ -107,9 +110,9 @@
                         </div>
 
                         <div class="row mt-5">
-                            <div class="col-4"></div>
+                            <div class="col-md-4 col-lg-4 col-sm-2"></div>
 
-                            <div class="col-4">
+                            <div class="col-md-4 col-lg-4 col-sm-8">
                                 <div class="text-center">
                                     <div class="widget-content-left" style="display: inline-block;margin-left: 5px;">
                                         <img class="rounded-circle" src="../assets/images/ie2.png" alt="" width="52">
@@ -133,7 +136,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-4"></div>
+                            <div class="col-md-4 col-lg-4 col-sm-2"></div>
                         </div>
                     </div>
                 </div>
