@@ -64,12 +64,24 @@
                             <div class="col-md-2"></div>
                             <div class="card col-8 ">
                                 <div class="card-body">
-                                    <div class="">
-                                        <img src="../assets/images/logo.svg" alt="" srcset="" class="card-img-top">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="">
+                                                <img src="../assets/images/logo.svg" alt="" srcset=""
+                                                    class="card-img-top">
+                                            </div>
+                                            <h3 class="text text-info text-center">
+                                                ระบบลงทะเบียน การประชุมสัมมนาการเตรียมการจัดทำงบประมาณรายจ่ายประจำปี
+                                                พ.ศ.2566
+                                            </h3>
+                                            <p class="text text-info text-center">ในวันพุธที่ 22 ธันวาคม 2564 เวลา
+                                                13.30-16.30 น. ณ
+                                                ห้องรอยัลจูบิลี่ บอลรูม อาคารชาเลนเจอร์ ชั้น 1
+                                                ศูนย์แสดงสินค้าและการประชุม
+                                                อิมแพ็คเมืองทองธานี อำเภอปากเกร็ด จังหวัดนนทบุรี</p>
+                                        </div>
                                     </div>
-                                    <h3 class="text text-info text-center">
-                                        ระบบลงทะเบียน การประชุมสัมมนาการเตรียมการจัดทำงบประมาณรายจ่ายประจำปี พ.ศ.2566
-                                    </h3>
+
                                 </div>
                             </div>
                             <div class="col-md-2"></div>
@@ -92,13 +104,42 @@
                                 </div>
                             </div>
                             <div class="col-md-2"></div>
-
                         </div>
 
+                        <div class="row mt-5">
+                            <div class="col-4"></div>
+
+                            <div class="col-4">
+                                <div class="text-center">
+                                    <div class="widget-content-left" style="display: inline-block;margin-left: 5px;">
+                                        <img class="rounded-circle" src="../assets/images/ie2.png" alt="" width="52">
+                                    </div>
+                                    <div class="widget-content-left" style="display: inline-block;margin-left: 5px;">
+                                        <img class="rounded-circle"
+                                            src="../assets/images/kisspng-google-chrome-computer-icons-web-browser-chrome-5abe0159842ea1.7893017215224016255414.png"
+                                            alt="" width="52">
+                                    </div>
+
+                                    <div class="widget-content-left" style="display: inline-block;margin-left: 5px;">
+                                        <img class="rounded-circle" src="../assets/images/clipart158930.png" alt=""
+                                            width="52">
+                                    </div>
+                                    <div class="widget-content-left" style="display: inline-block;margin-left: 1px;">
+                                        <img class="rounded-circle" src="../assets/images/pngegg.png" alt="" width="90">
+                                    </div>
+                                    <div>
+                                        <span class="">ระบบไม่รองรับ Internet Explorer</span>
+                                        <p class="">กรุณาใช้ google chrome / mozilla firefox / Safari </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 
 

@@ -102,11 +102,17 @@
                     <div class="divider"></div>
                     <h5 class="text text-info text-center">ระบบลงทะเบียน
                         การประชุมสัมมนาการเตรียมการจัดทำงบประมาณรายจ่ายประจำปี พ.ศ.2566</h5>
+                    <p class="text text-info text-center">ในวันพุธที่ 22 ธันวาคม 2564 เวลา
+                        13.30-16.30 น. ณ
+                        ห้องรอยัลจูบิลี่ บอลรูม อาคารชาเลนเจอร์ ชั้น 1
+                        ศูนย์แสดงสินค้าและการประชุม
+                        อิมแพ็คเมืองทองธานี อำเภอปากเกร็ด จังหวัดนนทบุรี</p>
                     <div class="alert alert-success fade show text-center" role="alert">
                         <h5>การลงทะเบียน สำหรับคณะรัฐมนตรี และผู้ติดตาม
                             <a href="javascript:void(0);" class="alert-link">
                             </a>
                         </h5>
+
                     </div>
                     <div id="register-show">
                         <p class="text text-info">
