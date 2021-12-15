@@ -22,7 +22,11 @@ include_once "login-head.php";
 
     <link rel="stylesheet" href="../assets/css/base.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
-
+    <style>
+    .swal2-popup .swal2-styled.swal2-cancel {
+        background-color: #a81717;
+    }
+    </style>
 </head>
 
 <body>
@@ -59,6 +63,7 @@ include_once "login-head.php";
                                                 <th class="col-1">สกุล</th>
                                                 <th class="col-1">ระดับ</th>
                                                 <th>การรับวัคซีน (3 หมายถึงได้รับมากกว่า 2 เข็ม)</th>
+                                                <th>#</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -138,13 +143,47 @@ include_once "login-head.php";
                     data['email'] = element['email'];
                     data['level'] = element['level'];
                     data['covid'] = element['covid'];
-
+                    data['button'] = "<button class=\"btn btn-danger\" onclick=\"delete_id(`" +
+                        element['form_id'] + "`)\">delete</button>";
 
                     table1.push(data);
                 });
                 table.clear().rows.add(table1).draw();
             }
         });
+    }
+
+    function delete_id(form_id) {
+        Swal.fire({
+            title: 'คุณต้องการลบข้อมูลใช่หรือไม่?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'ใช่',
+            customClass: {
+                actions: 'my-actions',
+                cancelButton: 'order-1 right-gap',
+                confirmButton: 'order-2',
+                denyButton: 'order-3',
+            }
+        }).then((result) => {
+            console.log(result)
+            if (result.value) {
+                $.ajax({
+                    type: "POST",
+                    url: "../query/delete_id.php",
+                    data: {
+                        "form_id": form_id
+                    },
+                    dataType: "JSON",
+                    success: function(response) {
+                        console.log(response.data)
+                        register_show()
+                    }
+                });
+            } else if (result.isDenied) {
+                // Swal.fire('Changes are not saved', '', 'info')
+            }
+        })
     }
 
     var dataTables = [{
@@ -160,7 +199,8 @@ include_once "login-head.php";
         "phone": "",
         "mobile": "",
         "email": "",
-        "covid": ""
+        "covid": "",
+        "button": ""
 
     }]
 
@@ -222,6 +262,10 @@ include_once "login-head.php";
             {
                 "data": "covid",
                 visible: false
+            },
+            {
+                "data": "button",
+                visible: true
             }
 
         ],
@@ -287,6 +331,11 @@ include_once "login-head.php";
             {
                 "targets": "covid",
                 "searchable": true
+            },
+            {
+                "targets": "button",
+                "searchable": false,
+                "visible": false
             }
         ],
         dom: 'Bfrtip',

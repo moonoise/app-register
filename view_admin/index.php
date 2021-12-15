@@ -134,6 +134,7 @@ include_once "login-head.php";
 
 
 
+
                     table1.push(data);
                 });
                 table.clear().rows.add(table1).draw();
