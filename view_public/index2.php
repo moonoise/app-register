@@ -722,13 +722,13 @@
         source: availableTags
     });
 
-    // Swal.fire({
-    // title: 'ระบบยังไม่เปิดให้ลงทะเบียน',
-    // icon: 'warning',
-    // showConfirmButton: false,
-    // allowOutsideClick: false,
-    // allowEscapeKey: false
-    // })
+    Swal.fire({
+        title: 'ขณะนี้ ปิดการลงทะเบียนแล้ว',
+        icon: 'warning',
+        showConfirmButton: false,
+        allowOutsideClick: false,
+        allowEscapeKey: false
+    })
     </script>
 </body>
 

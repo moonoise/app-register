@@ -1052,6 +1052,14 @@
     $("#title_name_th_person4").autocomplete({
         source: availableTags
     });
+
+    Swal.fire({
+        title: 'ขณะนี้ ปิดการลงทะเบียนแล้ว',
+        icon: 'warning',
+        showConfirmButton: false,
+        allowOutsideClick: false,
+        allowEscapeKey: false
+    })
     </script>
 </body>
 
