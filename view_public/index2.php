@@ -104,7 +104,7 @@
                     โครงการฝึกอบรมเชิงปฏิบัติการหลักสูตรส่งเสริมความรู้ด้านการงบประมาณสำหรับหน่วยงานภายนอก ประจำปีงบประมาณ พ.ศ. 2566 แบบออนไลน์</h5>
                     <p class="text text-info text-center">ในวันที่ 2-3 พฤษภาคม 2566 เวลา 09.00 น. - 16.00 น. ณ โรงแรมเอเชีย กรุงเทพ เขตราชเทวี กรุงเทพมหานคร</p>
                     <div class="alert alert-success fade show text-center" role="alert">
-                        <h5>การลงทะเบียน รัฐวิสาหกิจ / องค์การมหาชน
+                        <h5>การลงทะเบียน รัฐวิสาหกิจ / องค์การมหาชน / สภากาชาดไทย
                             <a href="javascript:void(0);" class="alert-link">
                             </a>
                         </h5>
@@ -124,7 +124,7 @@
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <div class="position-relative form-group"><label for="org_id_root"
-                                            class="">รัฐวิสาหกิจ / องค์การมหาชน:
+                                            class="">สังกัด:
                                         </label>
                                         <select name="org_id_root" id="org_id_root" class="mb-2 form-control">
 

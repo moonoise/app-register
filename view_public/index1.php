@@ -107,7 +107,7 @@
                     <p class="text text-info text-center">ในวันที่ 2-3 พฤษภาคม 2566 เวลา 09.00 น. - 16.00 น. ณ
                         โรงแรมเอเชีย กรุงเทพ เขตราชเทวี กรุงเทพมหานคร</p>
                     <div class="alert alert-success fade show text-center" role="alert">
-                        <h5>การลงทะเบียน ส่วนราชการ
+                        <h5>การลงทะเบียน ส่วนราชการ / ส่วนราชการไม่สังกัด / หน่วยงานของรัฐสภา / หน่วยงานของศาล / องค์กรอิสระและองค์กรอัยการ / หน่วยงานอื่นของรัฐ / ส่วนราชการในพระองค์
                             <a href="javascript:void(0);" class="alert-link">
                             </a>
                         </h5>
@@ -127,7 +127,7 @@
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <div class="position-relative form-group"><label for="org_id_root"
-                                            class="">ส่วนราชการ:
+                                            class="">สังกัด:
                                         </label>
                                         <select name="org_id_root" id="org_id_root" class="mb-2 form-control">
 
