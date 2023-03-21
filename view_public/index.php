@@ -90,7 +90,7 @@
                             <div class="col-md-2"></div>
                             <div class="col-md-4">
                                 <div class="mb-3 card text-white card-body bg-primary">
-                                    <h3 class="text-white text-center">หน่วยงานของรัฐ</h3>
+                                    <h3 class="text-white text-center">ส่วนราชการ</h3>
                                     <span class="text-center">(จำนวนไม่เกิน 2 ท่าน)</span>
                                     <a href="index1.php" class="mb-2 mr-2 btn-hover-shine btn btn-warning">ลงทะเบียน</a>
                                 </div>

@@ -36,7 +36,7 @@
                 <li class="" id="mm-main">
                     <a href="index.php">
                         <i class="metismenu-icon pe-7s-home"></i>
-                        หน่วยงานของรัฐ
+                        ส่วนราชการ
                         <i class="metismenu-state-icon caret-left"></i>
                     </a>
                 </li>

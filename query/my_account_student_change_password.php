@@ -2,7 +2,7 @@
 session_start();
 require_once '../vendor/autoload.php';
 include_once "../app/config.php";
-
+include_once "authentication.php";
 
 use App\SqlConn;
 use App\PasswordHash;

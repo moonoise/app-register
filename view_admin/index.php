@@ -44,7 +44,7 @@ include_once "login-head.php";
 
                         <div class="col-md-12">
                             <div class="main-card mb-3 card">
-                                <div class="card-header">หน่วยงานรัฐ</div>
+                                <div class="card-header">ส่วนราชการ</div>
                                 <div class="card-body">
                                     <table id="table_register" class="table table-hover table-striped table-bordered">
                                         <thead>
