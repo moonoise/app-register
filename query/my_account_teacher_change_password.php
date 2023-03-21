@@ -16,7 +16,7 @@ try {
     $sql = "UPDATE members SET `password` = :pwd WHERE username = :username";
     $stm = $sqlConn->conn->prepare($sql);
     $stm->bindParam(":pwd", $pass);
-    $stm->bindParam(":teacher_id", $_POST['username']);
+    $stm->bindParam(":username", $_POST['username']);
     $stm->execute();
     $r = $stm->rowCount();
     $data['data'] = $r;
