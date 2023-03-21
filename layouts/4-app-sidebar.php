@@ -36,22 +36,22 @@
                 <li class="" id="mm-main">
                     <a href="index.php">
                         <i class="metismenu-icon pe-7s-home"></i>
-                        สำหรับคณะรัฐมนตรี และผู้ติดตาม
+                        หน่วยงานของรัฐ
                         <i class="metismenu-state-icon caret-left"></i>
                     </a>
                 </li>
                 <li id="mm-page2" class="">
                     <a href="page2.php">
                         <i class="metismenu-icon pe-7s-browser"></i>
-                        หัวหน้าส่วนราชการ
+                        รัฐวิสาหกิจ องค์การมหาชน
                     </a>
                 </li>
-                
-
-
-
-
-
+                <li id="mm-onoff" class="">
+                    <a href="onoff.php">
+                        <i class="metismenu-icon pe-7s-browser"></i>
+                        เปิด - ปิด ระบบ
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

@@ -11118,7 +11118,8 @@ button {
 .app-header__logo .logo-src {
     height: 23px;
     width: 97px;
-    background: url(../images/logo-inverse.png)
+    background: url(../images/logo_bb.png);
+    background-size: contain;
 }
 
 .app-header__menu,
@@ -11454,7 +11455,7 @@ button {
 }
 
 .app-header.header-text-dark .app-header__logo .logo-src {
-    background: url(../images/logo-inverse.png)
+    background: url(../images/logo_bb.png)
 }
 
 .app-sidebar {
@@ -21474,7 +21475,7 @@ legend {
 .app-logo {
     height: 23px;
     width: 97px;
-    background: url(../images/logo-inverse.png)
+    background: url(../images/logo_bb.png)
 }
 
 .app-logo-inverse {

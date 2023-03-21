@@ -12,14 +12,18 @@ $data  = array('success'=>null,
 
 $data = array();
 try {
-    $sql = "SELECT * FROM register_form1 WHERE minister_id = :minister_id ";
+    $sql = "SELECT * FROM register_form1 WHERE org_id_root = :org_id_root ";
     $stm = $sqlConn->conn->prepare($sql);
-    $stm->bindParam(":minister_id", $_POST['minister_id']);
+    $stm->bindParam(":org_id_root", $_POST['org_id_root']);
     $stm->execute();
 
     if ($stm->rowCount()) {
         $data['success'] = false;
         $data['data'] = $stm->fetchAll(PDO::FETCH_ASSOC);
+        $data['email'] = "";
+        foreach ($data['data'] as $key => $value) {
+            $data['email'] .= " : ".$value['email'];
+        }
     }else{
         $data['success'] = true;
     }

@@ -44,25 +44,20 @@ include_once "login-head.php";
 
                         <div class="col-md-12">
                             <div class="main-card mb-3 card">
-                                <div class="card-header">ร่วมประชุมสัมมนาการเตรียมการจัดทำงบประมาณรายจ่ายประจำปีงบประมาณ
-                                    พ.ศ. ๒๕๖๖</div>
+                                <div class="card-header">หน่วยงานรัฐ</div>
                                 <div class="card-body">
                                     <table id="table_register" class="table table-hover table-striped table-bordered">
                                         <thead>
                                             <tr class="text-center">
-                                                <th class="col-4">#</th>
+                                                <th class="col-2">#</th>
                                                 <th class="col-4">ชื่อ - สกุล</th>
-                                                <th class="col-4">ตำแหน่ง</th>
-                                                <th class="col-1">กระทรวง</th>
-                                                <th class="col-1">กรม</th>
-                                                <th class="col-1">โทรศัพท์ สำนักงาน</th>
-                                                <th class="col-1">โทรศัพท์มือถือ</th>
-                                                <th class="col-1">อีเมลล์</th>
-                                                <th class="col-1">คำนำหน้าชื่อ</th>
-                                                <th class="col-1">ชื่อ</th>
-                                                <th class="col-1">สกุล</th>
-                                                <th class="col-1">ระดับ</th>
-                                                <th>การรับวัคซีน (3 หมายถึงได้รับมากกว่า 2 เข็ม)</th>
+                                                <th class="col-2">ตำแหน่ง</th>
+                                                <th class="col-3">สังกัด</th>
+                                                <th class="col-2">โทรศัพท์มือถือ</th>
+                                                <th class="col-2">อีเมลล์</th>
+                                                <th>คำนำหน้าชื่อ</th>
+                                                <th>ชื่อ</th>
+                                                <th>สกุล</th>
                                                 <th>#</th>
                                             </tr>
                                         </thead>
@@ -112,13 +107,14 @@ include_once "login-head.php";
     $(document).ready(function() {
         $("#mm-main").removeClass("mm-active");
         $("#mm-page2").addClass("mm-active");
+        $("#mm-page2").removeClass("mm-active");
         register_show();
     });
 
     function register_show() {
         $.ajax({
             type: "POST",
-            url: "../query/registered_form2.php",
+            url: "../query/register_form2_show.php",
             dataType: "JSON",
             success: function(response) {
                 var table1 = []
@@ -130,19 +126,13 @@ include_once "login-head.php";
                     data['full_name'] = element['title_name_th'] + element['fname_th'] + " " +
                         element['lname_th']
 
-                    // console.log(element['title_name_th'])
                     data['title_name_th'] = element['title_name_th'];
                     data['fname_th'] = element['fname_th'];
                     data['lname_th'] = element['lname_th'];
                     data['position'] = element['position'];
-                    data['level'] = element['level'];
                     data['org_name_root'] = element['org_name_root'];
-                    data['org_name_sub'] = element['org_name_sub'];
-                    data['phone'] = element['phone'];
                     data['mobile'] = element['mobile'];
                     data['email'] = element['email'];
-                    data['level'] = element['level'];
-                    data['covid'] = element['covid'];
                     data['button'] = "<button class=\"btn btn-danger\" onclick=\"delete_id(`" +
                         element['form_id'] + "`)\">delete</button>";
 
@@ -170,7 +160,7 @@ include_once "login-head.php";
             if (result.value) {
                 $.ajax({
                     type: "POST",
-                    url: "../query/delete_id.php",
+                    url: "../query/delete_id_form2.php",
                     data: {
                         "form_id": form_id
                     },
@@ -193,13 +183,9 @@ include_once "login-head.php";
         "fname_th": "",
         "lname_th": "",
         "position": "",
-        "level": "",
         "org_name_root": "",
-        "org_name_sub": "",
-        "phone": "",
         "mobile": "",
         "email": "",
-        "covid": "",
         "button": ""
 
     }]
@@ -229,12 +215,6 @@ include_once "login-head.php";
                 "data": "org_name_root"
             },
             {
-                "data": "org_name_sub"
-            },
-            {
-                "data": "phone"
-            },
-            {
                 "data": "mobile"
             },
             {
@@ -254,14 +234,6 @@ include_once "login-head.php";
                 "data": "lname_th",
                 visible: false
 
-            },
-            {
-                "data": "level",
-                visible: false
-            },
-            {
-                "data": "covid",
-                visible: false
             },
             {
                 "data": "button",
@@ -286,23 +258,11 @@ include_once "login-head.php";
                 "searchable": true
             },
             {
-                "targets": "org_name_sub",
-                "searchable": true
-            },
-            {
-                "targets": "phone",
-                "searchable": true
-            },
-            {
                 "targets": "mobile",
                 "searchable": true
             },
             {
                 "targets": "email",
-                "searchable": true
-            },
-            {
-                "targets": "level",
                 "searchable": true
             },
             {
@@ -325,14 +285,6 @@ include_once "login-head.php";
                 "searchable": true
             },
             {
-                "targets": "org_name_sub",
-                "searchable": true
-            },
-            {
-                "targets": "covid",
-                "searchable": true
-            },
-            {
                 "targets": "button",
                 "searchable": false,
                 "visible": false
@@ -342,9 +294,9 @@ include_once "login-head.php";
         'pageLength': 50,
         buttons: [{
                 extend: 'excelHtml5',
-                title: 'รายชื่อผู้ลงทะเบียน' + '_' + dateTime,
+                title: 'องค์กรมหาชน' + '_' + dateTime,
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 }
 
             },

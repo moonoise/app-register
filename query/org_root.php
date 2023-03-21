@@ -9,7 +9,7 @@ $sqlConn = new SqlConn;
 
 $data = array();
 try {
-    $sql = "SELECT * FROM org WHERE ref_id = '0' ";
+    $sql = "SELECT * FROM org where quota = 2";
     $stm = $sqlConn->conn->prepare($sql);
     $stm->execute();
     $data['data'] = $stm->fetchAll(PDO::FETCH_ASSOC);

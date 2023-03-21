@@ -74,17 +74,13 @@
                                                     class="card-img-top">
                                             </div>
                                             <h3 class="text text-info text-center">
-                                                ระบบลงทะเบียน การประชุมสัมมนาการเตรียมการจัดทำงบประมาณรายจ่ายประจำปี
-                                                พ.ศ.2566
+                                                โครงการฝึกอบรมเชิงปฏิบัติการหลักสูตรส่งเสริมความรู้ด้านการงบประมาณสำหรับหน่วยงานภายนอก ประจำปีงบประมาณ พ.ศ. 2566 แบบออนไลน์
                                             </h3>
-                                            <p class="text text-info text-center">ในวันพุธที่ 22 ธันวาคม 2564 เวลา
-                                                13.30-16.30 น. ณ
-                                                ห้องรอยัลจูบิลี่ บอลรูม อาคารชาเลนเจอร์ ชั้น 1
-                                                ศูนย์แสดงสินค้าและการประชุม
-                                                อิมแพ็คเมืองทองธานี อำเภอปากเกร็ด จังหวัดนนทบุรี</p>
+                                            <h5 class="text text-info text-center">
+                                            ในวันที่ 2-3 พฤษภาคม 2566 เวลา 09.00 น. - 16.00 น. ณ โรงแรมเอเชีย กรุงเทพ เขตราชเทวี กรุงเทพมหานคร</h5>
+                                            <h5 class="text-center"><a href="../pdf/เอกสารแนบ-๑-(โครงการ-กำหนดการ).pdf"><i class="fa fa-solid fa-file-pdf text-danger"></i><span class="text text-danger"> กำหนดการ ดาวน์โหลดที่นี่</span></a></h5>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="col-md-2"></div>
@@ -94,15 +90,15 @@
                             <div class="col-md-2"></div>
                             <div class="col-md-4">
                                 <div class="mb-3 card text-white card-body bg-primary">
-                                    <h3 class="text-white text-center">เฉพาะรัฐมนตรีและผู้ติดตาม</h3>
-                                    <span class="text-center">(ผู้ติดตามจำนวนไม่เกิน 3 ท่าน)</span>
+                                    <h3 class="text-white text-center">หน่วยงานของรัฐ</h3>
+                                    <span class="text-center">(จำนวนไม่เกิน 2 ท่าน)</span>
                                     <a href="index1.php" class="mb-2 mr-2 btn-hover-shine btn btn-warning">ลงทะเบียน</a>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3 card text-white card-body bg-info">
-                                    <h3 class="text-white text-center">สำหรับหน่วยงาน</h3>
-                                    <span class="text-center">(หัวหน้าส่วนราชการ 1 คน และผู้ติดตาม 1 คน)</span>
+                                    <h3 class="text-white text-center">รัฐวิสาหกิจ / องค์การมหาชน</h3>
+                                    <span class="text-center">(จำนวน 1 ท่าน)</span>
                                     <a href="index2.php" class="mb-2 mr-2 btn-hover-shine btn btn-warning">ลงทะเบียน</a>
                                 </div>
                             </div>
@@ -110,9 +106,9 @@
                         </div>
 
                         <div class="row mt-5">
-                            <div class="col-md-4 col-lg-4 col-sm-2"></div>
+                            <div class="col-md-3 col-lg-3 col-sm-1"></div>
 
-                            <div class="col-md-4 col-lg-4 col-sm-8">
+                            <div class="col-md-6 col-lg-6 col-sm-10">
                                 <div class="text-center">
                                     <div class="widget-content-left" style="display: inline-block;margin-left: 5px;">
                                         <img class="rounded-circle" src="../assets/images/ie2.png" alt="" width="52">
@@ -134,9 +130,14 @@
                                         <span class="">ระบบไม่รองรับ Internet Explorer</span>
                                         <p class="">กรุณาใช้ google chrome / mozilla firefox / Safari </p>
                                     </div>
+                                    <h6 class="text-color-white">
+            สามารถโทรติดต่อสอบถามได้ที่ <br>
+            คุณฐานะพัฒน์  เพียรดี : thahnaphat.pe@bb.go.th, thahnaphat.fti@gmail.com โทร.  09  9191  6526, <br>
+            คุณวิวรรธนี วรศาสตร์ : wiwanthanee.w@bb.go.th โทร.  08  1578  1995,  <br>
+            คุณพฤศชัย พรหมประสิทธิ์ : phan_shieldout@hotmail.com  โทร.  08  9175  5597</h6>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-lg-4 col-sm-2"></div>
+                            <div class="col-md-3 col-lg-3 col-sm-1"></div>
                         </div>
                     </div>
                 </div>
@@ -153,9 +154,38 @@
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
+        <!--SweetAlert2-->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="../assets/js/scripts-init/sweet-alerts.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/metismenu"></script>
     <script src="../assets/js/scripts-init/app.js"></script>
     <script src="../assets/js/scripts-init/demo.js"></script>
+    <script>
+    onoff();
+    function onoff() {
+        $.ajax({
+            type: "POST",
+            url: "../query/onoff.php",
+            dataType: "json",
+            success: function (response) {
+                if (response.onoff == false) {
+                              Swal.fire({
+                            title: 'ขณะนี้ ปิดการลงทะเบียนแล้ว',
+                            icon: 'warning',
+                            showConfirmButton: false,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        })
+                    console.log('off')
+                }else {
+                    console.log('on')
+                }
+                
+            }
+        });
+    }
+    </script>
 
 </body>
 

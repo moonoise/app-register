@@ -22,7 +22,11 @@ include_once "login-head.php";
 
     <link rel="stylesheet" href="../assets/css/base.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
-
+    <style>
+    .swal2-popup .swal2-styled.swal2-cancel {
+        background-color: #a81717;
+    }
+    </style>
 </head>
 
 <body>
@@ -40,20 +44,21 @@ include_once "login-head.php";
 
                         <div class="col-md-12">
                             <div class="main-card mb-3 card">
-                                <div class="card-header">ร่วมประชุมสัมมนาการเตรียมการจัดทำงบประมาณรายจ่ายประจำปีงบประมาณ
-                                    พ.ศ. ๒๕๖๖</div>
+                                <div class="card-header">หน่วยงานรัฐ</div>
                                 <div class="card-body">
                                     <table id="table_register" class="table table-hover table-striped table-bordered">
                                         <thead>
                                             <tr class="text-center">
-                                                <th>#</th>
-                                                <th>ชื่อ - สกุล</th>
-                                                <th>ตำแหน่ง</th>
-                                                <th>โทรศัพท์ สำนักงาน</th>
+                                                <th class="col-2">#</th>
+                                                <th class="col-4">ชื่อ - สกุล</th>
+                                                <th class="col-2">ตำแหน่ง</th>
+                                                <th class="col-3">สังกัด</th>
+                                                <th class="col-2">โทรศัพท์มือถือ</th>
+                                                <th class="col-2">อีเมลล์</th>
                                                 <th>คำนำหน้าชื่อ</th>
                                                 <th>ชื่อ</th>
                                                 <th>สกุล</th>
-                                                <th>การรับวัคซีน (3 หมายถึงได้รับมากกว่า 2 เข็ม)</th>
+                                                <th>#</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -102,44 +107,73 @@ include_once "login-head.php";
     $(document).ready(function() {
         $("#mm-main").addClass("mm-active");
         $("#mm-page2").removeClass("mm-active");
+        $("#mm-onoff").removeClass("mm-active");
         register_show();
     });
 
     function register_show() {
         $.ajax({
             type: "POST",
-            url: "../query/registed_form1.php",
+            url: "../query/register_form1_show.php",
             dataType: "JSON",
             success: function(response) {
                 var table1 = []
                 response.data.forEach((element, key) => {
                     var data = []
-                    if (element['fname_th'] == 'รัฐมนตรี') {
-                        data['full_name'] = element['minister_name']
-                        data['position'] = element['minister_position']
-                    } else {
-                        data['full_name'] = element['title_name_th'] + element['fname_th'] + " " +
-                            element['lname_th']
-                        data['position'] = element['position'] + "<br>" + element[
-                            'minister_position'];
-                    }
+
+                    data['form_id'] = element['form_id'];
+
+                    data['full_name'] = element['title_name_th'] + element['fname_th'] + " " +
+                        element['lname_th']
 
                     data['title_name_th'] = element['title_name_th'];
                     data['fname_th'] = element['fname_th'];
                     data['lname_th'] = element['lname_th'];
-                    data['minister_name'] = element['minister_name'];
-                    data['minister_position'] = element['minister_position'];
-                    data['phone'] = element['phone'];
-                    data['covid'] = element['covid'];
-
-
-
+                    data['position'] = element['position'];
+                    data['org_name_root'] = element['org_name_root'];
+                    data['mobile'] = element['mobile'];
+                    data['email'] = element['email'];
+                    data['button'] = "<button class=\"btn btn-danger\" onclick=\"delete_id(`" +
+                        element['form_id'] + "`)\">delete</button>";
 
                     table1.push(data);
                 });
                 table.clear().rows.add(table1).draw();
             }
         });
+    }
+
+    function delete_id(form_id) {
+        Swal.fire({
+            title: 'คุณต้องการลบข้อมูลใช่หรือไม่?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'ใช่',
+            customClass: {
+                actions: 'my-actions',
+                cancelButton: 'order-1 right-gap',
+                confirmButton: 'order-2',
+                denyButton: 'order-3',
+            }
+        }).then((result) => {
+            console.log(result)
+            if (result.value) {
+                $.ajax({
+                    type: "POST",
+                    url: "../query/delete_id_form1.php",
+                    data: {
+                        "form_id": form_id
+                    },
+                    dataType: "JSON",
+                    success: function(response) {
+                        console.log(response.data)
+                        register_show()
+                    }
+                });
+            } else if (result.isDenied) {
+                // Swal.fire('Changes are not saved', '', 'info')
+            }
+        })
     }
 
     var dataTables = [{
@@ -149,10 +183,10 @@ include_once "login-head.php";
         "fname_th": "",
         "lname_th": "",
         "position": "",
-        "level": "",
-        "phone": "",
-        "covid": ""
-
+        "org_name_root": "",
+        "mobile": "",
+        "email": "",
+        "button": ""
 
     }]
 
@@ -167,52 +201,68 @@ include_once "login-head.php";
                 "data": "form_id",
                 render: function(data, type, row, meta) {
                     return meta.row + 1;
-                }
+                },
+                "width": "5%"
             },
             {
-                "data": "full_name",
+                "data": "full_name"
+            },
+            {
+                "data": "position"
 
             },
             {
-                "data": "position",
-
+                "data": "org_name_root"
             },
             {
-                "data": "phone",
-
+                "data": "mobile"
+            },
+            {
+                "data": "email"
             },
             {
                 "data": "title_name_th",
-                "visible": false
+                visible: false
+
             },
             {
                 "data": "fname_th",
-                "visible": false
+                visible: false
+
             },
             {
                 "data": "lname_th",
-                "visible": false
+                visible: false
+
             },
             {
-                "data": "covid",
-                "visible": false
+                "data": "button",
+                visible: true
             }
 
         ],
         "columnDefs": [{
                 "targets": "form_id",
-                "searchable": true
+                "searchable": false,
             },
             {
                 "targets": "full_name",
                 "searchable": true
             },
             {
-                "data": "position",
-                visible: true
+                "targets": "position",
+                "searchable": true
             },
             {
-                "targets": "phone",
+                "targets": "org_name_root",
+                "searchable": true
+            },
+            {
+                "targets": "mobile",
+                "searchable": true
+            },
+            {
+                "targets": "email",
                 "searchable": true
             },
             {
@@ -231,7 +281,11 @@ include_once "login-head.php";
                 "visible": false
             },
             {
-                "targets": "covid",
+                "targets": "org_name_root",
+                "searchable": true
+            },
+            {
+                "targets": "button",
                 "searchable": false,
                 "visible": false
             }
@@ -240,9 +294,9 @@ include_once "login-head.php";
         'pageLength': 50,
         buttons: [{
                 extend: 'excelHtml5',
-                title: 'รายชื่อผู้ลงทะเบียน' + '_' + dateTime,
+                title: 'หน่วงานรัฐ' + '_' + dateTime,
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 }
 
             },
