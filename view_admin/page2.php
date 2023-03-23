@@ -107,7 +107,7 @@ include_once "login-head.php";
     $(document).ready(function() {
         $("#mm-main").removeClass("mm-active");
         $("#mm-page2").addClass("mm-active");
-        $("#mm-page2").removeClass("mm-active");
+        $("#mm-onoff").removeClass("mm-active");
         register_show();
     });
 
